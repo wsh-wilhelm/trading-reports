@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BAYN – Analyse-Historie</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0d1319; --panel:#161e27; --line:#232e3a;
+    --text:#d9e1e8; --muted:#7e8b99; --accent:#e5a63c;
+    --long:#3ec08b; --short:#e2604f; --neutral:#8a96a3;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);
+       font:15px/1.6 "IBM Plex Sans",sans-serif;padding:32px 16px}
+  .wrap{max-width:860px;margin:0 auto}
+  header{display:flex;align-items:baseline;gap:14px;
+         border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:28px}
+  header h1{font:500 30px "IBM Plex Mono",monospace;margin:0;letter-spacing:1px}
+  header .sub{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:2px}
+
+  /* Eine Analyse = eine section; farbige Signalleiste links */
+  section.analyse{background:var(--panel);border:1px solid var(--line);
+                  border-left:4px solid var(--neutral);
+                  border-radius:6px;padding:22px 26px;margin-bottom:22px}
+  section.analyse.long{border-left-color:var(--long)}
+  section.analyse.short{border-left-color:var(--short)}
+
+  .kopf{display:flex;justify-content:space-between;align-items:center;
+        flex-wrap:wrap;gap:8px;margin-bottom:6px}
+  .datum{font:500 13px "IBM Plex Mono",monospace;color:var(--muted)}
+  .badge{font:500 12px "IBM Plex Mono",monospace;letter-spacing:2px;
+         padding:3px 10px;border-radius:3px;color:#0d1319}
+  .badge.long{background:var(--long)}
+  .badge.short{background:var(--short)}
+  .badge.neutral{background:var(--neutral)}
+
+  .fazit{font-size:16px;font-weight:600;margin:0 0 16px}
+  img.chart{width:100%;border:1px solid var(--line);border-radius:4px;margin:4px 0 12px}
+  h3{font:500 12px "IBM Plex Mono",monospace;color:var(--accent);
+     text-transform:uppercase;letter-spacing:2px;margin:18px 0 4px}
+  p{margin:6px 0;color:var(--text)}
+
+  /* Setup-Tabelle in Monospace, Zahlen buendig */
+  table.setup{width:100%;border-collapse:collapse;margin-top:8px;
+              font:14px "IBM Plex Mono",monospace}
+  table.setup td{padding:6px 10px;border-top:1px solid var(--line)}
+  table.setup td:first-child{color:var(--muted);width:120px}
+
+  /* Aufklappbarer Volltext in aelteren Analyse-Karten */
+  details.volltext{margin-top:16px;border-top:1px solid var(--line);padding-top:10px}
+  details.volltext summary{cursor:pointer;font:500 12px "IBM Plex Mono",monospace;
+                color:var(--muted);text-transform:uppercase;letter-spacing:2px}
+  details.volltext summary:hover{color:var(--accent)}
+  details.volltext h1,details.volltext h2{font-size:15px;color:var(--accent);margin:14px 0 6px}
+  details.volltext strong{color:#fff}
+
+  footer{color:var(--muted);font-size:12px;text-align:center;margin-top:32px}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>BAYN</h1>
+    <span class="sub">Analyse-Historie · neueste zuerst</span>
+  </header>
+
+<!-- NEUE_ANALYSE_HIER -->
+<section class="analyse neutral">
+  <div class="kopf">
+    <span class="datum">19.07.2026 </span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <p class="fazit">BAYN stabilisiert sich nach der Korrektur vom ATH (53,92) oberhalb der Gap-Zone um 45,00–45,50 – kein klares direktionales Setup, aber ein defensiver CSP unterhalb der Konsolidierungszone bleibt konstruierbar, während ein CC mangels Aktienbestand und wegen offenem ATH-Potenzial nicht empfohlen wird.</p>
+  <img class="chart" src="img/BAYN_20260719_122323.png" alt="Chart BAYN">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>Der übergeordnete Trend bleibt bullisch: BAYN hat im explosiven Juni-Run (25.–30.06.) mit rel. Volumen von 3,25–3,61x den langjährigen Widerstandsbereich nach oben durchbrochen und ein Bewegungs-ATH bei 53,92 (03.07.) markiert. Seitdem läuft eine geordnete Korrektur in Form niedrigerer Hochs (53,92 → 52,08 → 50,36 → 48,90 → 48,49) und zuletzt stabilisierenden Tiefs (49,36 → 49,01 → 47,53 → 46,82). Der Schlusskurs am 17.07. bei 48,46 hält sich oberhalb der Gap-Zone 45,00–45,50, die als erste strukturelle Unterstützung gilt. Das Trendgefüge ist intakt, aber kurzfristig korrektiv.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die letzte Kerze (17.07.) ist eine leichte Erholungskerze mit Schlusskurs 48,46 nach dem Tagestief bei 46,82 – eine Art Hammer mit unterem Docht, der leichte Kaufbereitschaft auf diesem Niveau signalisiert. Der Vortag (16.07.) schloss bei 47,72 auf einem niedrigen Niveau mit engem Body (Doji-Charakter), was Unentschlossenheit markiert. Bestätigung nach oben fehlt noch; ein Tagesschluss über 50,36 (letztes kurzfristiges Hoch vom 13.07.) würde das kurzfristige Bild aufhellen.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Die EMA-Struktur ist weiterhin bullisch sortiert: EMA9 (48,78) > EMA21 (46,96) > EMA55 (43,14), mit gema_321 bei 47,23. Der aktuelle Kurs (48,46) liegt knapp oberhalb von EMA9 und gema_321 – ein positives Zeichen, dass der kurzfristige Träger hält. Der EMA9 dreht jedoch leicht nach unten (von 49,59 am 13.07. auf 48,78 am 17.07.), was die laufende Korrektur bestätigt. Solange der Kurs über gema_321 (~47,23) und dem EMA21 (~46,96) notiert, ist die bullische EMA-Ordnung strukturell intakt.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Kein Trade</td></tr>
+    <tr><td>Einstieg</td><td>Long nur bei Tagesschluss über 50,36 (letztes kurzfristiges Konsolidierungshoch vom 13.07., Stop-Buy). Alternativ: Stabilisierung über gema_321 ~47,23 mit bestätigender Folgekerze.</td></tr>
+    <tr><td>Stop</td><td>Unter 46,50 (Tagesschluss unter EMA21 und Gap-Zone-Oberkante 45,50 deutet Trendbruch an)</td></tr>
+    <tr><td>Ziel</td><td>53,00 (erstes Ziel) – 53,92 (ATH der Bewegung)</td></tr>
+    <tr><td>CRV</td><td>ca. 2.0 : 1 (nur bei Bestätigung über 50,36)</td></tr>
+  </table>
+
+  <h3>5 · Stillhalter (max. 12 Tage)</h3>
+<p>Die EMA-Struktur ist bullisch sortiert und der übergeordnete Impuls intakt – ein defensiver Cash-Secured Put tief unterhalb der aktuellen Konsolidierungszone bleibt das einzige sinnvolle Stillhalter-Geschäft. Ein Covered Call scheidet aus: Kein Aktienbestand vorhanden (IBKR-Snapshot bestätigt 0 Aktien), ein Naked Call wäre bei weiterhin offenem ATH-Potenzial (53,92 und darüber) nicht vertretbar. Der CSP-Strike aus der Voranalyse (44,00, Verfall 25.07.) ist noch nicht abgelaufen und behält seine Gültigkeit – ein neues Geschäft parallel dazu wäre nur bei deutlich veränderter Marktstruktur zu rechtfertigen.</p>
+<table class="setup"><tr><td>Geschäft</td><td>Cash-Secured Put</td></tr><tr><td>Strike</td><td>44.0</td></tr><tr><td>Puffer</td><td>9.2 %</td></tr><tr><td>Zone</td><td>unterhalb Gap-Zone 45,00–45,50 (Kerzenboden 01. Juli / Gap-Oberkante 30. Juni) und aufsteigendem EMA55 bei 43,14</td></tr><tr><td>Verfall bis</td><td>2026-07-25 (6 Tage, nächster Standard-Freitag)</td></tr><tr><td>Begründung</td><td>Strike 44,00 liegt rund 7,4% unterhalb des aktuellen Schlusskurses (48,46 am 17.07.) und ca. 2,2% unterhalb der Gap-Oberkante bei ~45,00. Darunter läuft der aufsteigende EMA55 bei 43,14 als weiterer Puffer. Die Zone 45,00–45,50 wurde bisher noch nicht von unten getestet – sie bleibt ein 'unbestätigter Bereich', aber strukturell die logische erste Korrektur-Anlaufstelle. Der Puffer von ~9,2% zum Schlusskurs ist gegenüber der Voranalyse (7,8%) durch die Kurskorrektur sogar gewachsen, was das Geschäft attraktiver macht. Andienungsszenario: Ein Kauf bei 44,00 entspräche einem Niveau unterhalb der Gap-Unterkante der Ausbruchs-Folgekerzen und wäre fundamental sowie technisch als attraktiver Einstieg zu bewerten. In der Optionskette zu prüfen: ausreichende Prämie für den Puffer (Richtwert: mind. 0,30–0,40 EUR Mid bei diesem Strike), Delta idealerweise unter -0,20, Spread möglichst eng (unter 0,10 EUR).</td></tr></table>
+<p><strong>Bestand:</strong> Kein Aktienbestand in BAYN laut IBKR-Snapshot. Keine bestehenden Short-Optionen in diesem Titel. Falls der CSP vom 16.07. (Strike 44,00, Verfall 25.07.) bereits eröffnet wurde: Position ist nach aktuellem Kursstand (48,46) komfortabel im Puffer – kein Handlungsbedarf, halten bis Verfall. Sollte BAYN bis Mitte der Woche unter 46,50 (Tagesschluss) fallen, Optionskette auf Delta-Expansion prüfen; bei Delta unter -0,35 wäre ein frühzeitiges Schließen zu erwägen.</p>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 19.07.2026 anzeigen</summary>
+    <h1>BAYN – Detailanalyse 19.07.2026</h1>
+
+<h2>1. Trendstruktur</h2>
+<p>Der übergeordnete Trend ist bullisch und wurde durch den explosiven Juni-Run fundamental verändert. BAYN notierte noch am 02.06.2026 bei 34,10 EUR (rel. Volumen 2,18x) und hat seitdem ein Bewegungs-ATH bei <strong>53,92 EUR</strong> am 03.07.2026 erreicht – ein Anstieg von rund 58% in weniger als fünf Wochen. Die Schlüsselkerzen waren:</p>
+<ul>
+  <li><strong>25.06.</strong>: Close 47,00, rel. Volumen 3,61x – Ausbruchstag mit Volumen-Explosion</li>
+  <li><strong>26.06.</strong>: Close 47,00, rel. Volumen 2,55x – Bestätigung des Ausbruchs</li>
+  <li><strong>02.07.</strong>: Close 53,36, rel. Volumen 2,44x – Continuation-Kerze zum ATH</li>
+</ul>
+<p>Die anschließende Korrektur zeigt eine klassische Struktur fallender Hochs: 53,92 → 52,08 (10.07.) → 50,36 (13.07.) → 48,90 (15.07.) → 48,49 (17.07.). Die Tiefs stabilisieren sich zuletzt: 49,01 (13./14.07.) → 46,82 (17.07. Tagestief). Das Tagestief 46,82 am 17.07. ist der erste Test unterhalb des EMA9 intraday – der Tagesschluss bei 48,46 erholt sich jedoch wieder über EMA9 (48,78) und gema_321 (47,23). <strong>Schlüssellevels:</strong></p>
+<ul>
+  <li><strong>Support 1</strong>: 46,82–47,53 (Bereich der jüngsten Tiefs, noch unbestätigter Bereich – erst zweifach getestet)</li>
+  <li><strong>Support 2</strong>: 45,00–45,50 (Gap-Zone / Kerzenboden 01.07., unbestätigt von unten)</li>
+  <li><strong>Support 3</strong>: EMA55 bei 43,14 (aufsteigend, starker dynamischer Support)</li>
+  <li><strong>Widerstand 1</strong>: 50,36 (kurzfristiges Hoch 13.07.)</li>
+  <li><strong>Widerstand 2</strong>: 52,08–53,92 (ATH-Zone der Bewegung)</li>
+</ul>
+
+<h2>2. Candlestick-Formationen</h2>
+<p>Die letzte Kerze (17.07., Freitag) verdient besondere Aufmerksamkeit: Open 47,57, Tief 46,82, Hoch 48,49, Close 48,46. Das entspricht einem <strong>Hammer-ähnlichen Muster</strong> mit unterem Docht (~0,75 EUR) und bullischem Close nahe dem Hoch. Das Tagestief 46,82 unterschreitet erstmals kurzzeitig die Zone 47,14 (Tief vom 16.07.), findet aber sofort Käufer. In Kombination mit dem Doji-Charakter des Vortags (16.07., Open 47,53, Close 47,72) entsteht ein mögliches Zweier-Umkehrmuster – allerdings fehlt die Bestätigungskerze. Für eine valide Umkehr ist ein Tagesschluss über <strong>50,36</strong> (Hoch 13.07.) notwendig.</p>
+<p>Die Kerzen seit dem ATH zeigen eine geordnete, nicht panikhafte Korrektur: Kein einzelner Tag mit Volumen über 1,0x (Ausnahme: 15.07. mit 0,73x – erhöht aber nicht außergewöhnlich). Das spricht für technische Konsolidierung nach einem Überschuss-Move, nicht für eine fundamentale Trendwende.</p>
+
+<h2>3. EMA-Analyse</h2>
+<p>Die EMA-Konstellation ist weiterhin <strong>bullisch sortiert</strong>: EMA9 (48,78) > EMA21 (46,96) > EMA55 (43,14). Der gema_321 bei 47,23 liegt knapp unter dem aktuellen Kurs. Die Abstände sind gesund: EMA9 zu EMA55 ca. 5,64 EUR – kein Kompressionsartefakt, klare Aufwärtstrend-Konstellation. Kritisch zu beobachten: Der EMA9 dreht seit 13.07. leicht nach unten (49,59 → 49,50 → 49,14 → 48,86 → 48,78), was die kurzfristige Schwäche quantifiziert. Solange EMA21 (aktuell 46,96, steigend) hält, bleibt die mittelfristige Trendstruktur intakt.</p>
+
+<h2>4. Trade-Setups (Direktional)</h2>
+<p><strong>Setup A – Long-Breakout (bevorzugt):</strong></p>
+<ul>
+  <li>Einstieg: Stop-Buy über 50,36 (Tagesschluss oder Intraday-Ausbruch mit Volumen)</li>
+  <li>Stop: 46,50 (Tagesschluss unter EMA21 und Gap-Zone)</li>
+  <li>Ziel 1: 52,00 (CRV ca. 1,4:1)</li>
+  <li>Ziel 2: 53,92 ATH (CRV ca. 1,9:1)</li>
+</ul>
+<p><strong>Setup B – Long auf EMA21-Bounce:</strong></p>
+<ul>
+  <li>Einstieg: Bestätigungskerze über EMA21 (~47,00) nach erneutem Test, idealerweise mit Volumen > 1,0x</li>
+  <li>Stop: Tagesschluss unter 46,00</li>
+  <li>Ziel 1: 50,36 (CRV ca. 1,6:1)</li>
+  <li>Ziel 2: 53,92 (CRV ca. 3,2:1)</li>
+</ul>
+<p><strong>Setup C – Short (nicht empfohlen):</strong> Tagesschluss unter 46,50 und EMA21 würde das kurzfristige Bild eintrüben. Target wäre die Gap-Zone 45,00–45,50. Angesichts der übergeordnet bullischen EMA-Struktur und dem fehlenden Volumen auf der Abwärtsseite wird kein direktionaler Short präferiert.</p>
+
+<h2>5. Stillhalter-Analyse (Schwerpunkt)</h2>
+<p><strong>Voranalysen-Abgleich:</strong> Die Analyse vom 16.07.2026 empfahl einen CSP Strike 44,00 mit Verfall 25.07. – dieser Strike ist nach aktuellem Stand (17.07. Close 48,46) komfortabel im Puffer. Der Kurs ist seit der Empfehlung leicht gefallen (Analyse-Basis war ca. 47,xx EUR), der prozentuale Puffer hat sich von 7,8% auf rechnerisch ~9,2% zum Freitags-Schlusskurs ausgeweitet. <strong>Die Empfehlung aus der Voranalyse wird bestätigt.</strong></p>
+
+<p><strong>CSP Strike 44,00 – Zonen-Herleitung:</strong></p>
+<ul>
+  <li>Gap-Zone 45,00–45,50: Entstand durch den Ausbruchstag 30.06. (Low 45,41) und die Folgekerze 01.07. (Open 48,50, impliziertes Gap). Erster struktureller Support unterhalb der Konsolidierungsrange. Noch nicht von unten getestet = unbestätigter Bereich.</li>
+  <li>Strike 44,00 liegt ~2,2% unterhalb der Gap-Oberkante (45,00) und ~0,86 EUR unterhalb der Gap-Unterkante (~44,86, approximiert). Der Strike hat die gesamte Gap-Zone als Puffer vor sich.</li>
+  <li>EMA55 bei 43,14 (aufsteigend, täglich ca. +0,10–0,15 EUR): Zum Verfallstermin 25.07. dürfte EMA55 bei ~43,90–44,10 liegen – direkt unter dem Strike. Doppelte Unterstützung.</li>
+</ul>
+
+<p><strong>Andienungsszenario Strike 44,00:</strong> Ein Kauf bei 44,00 EUR entspräche einem Niveau knapp unterhalb der Gap-Unterkante des Ausbruchs-Moves vom 30.06./01.07. Fundamental wäre das nach dem rechtlichen Catalyst-Ereignis, das den Run ausgelöst hat, ein attraktives Einstiegsniveau mit substanziellem Aufwärtspotenzial (ATH 53,92 = ~22% Abstand). Andienung wäre akzeptabel.</p>
+
+<p><strong>Roll-Trigger:</strong> Sollte BAYN bis Mittwoch, 22.07., unter 46,50 (Tagesschluss) fallen und das Delta des laufenden Puts auf -0,35 oder tiefer expandieren, ist ein Schließen der Position zu erwägen. Ein Rollen nach unten (z.B. Strike 42,00 oder 43,00, Verfall nächster Freitag 01.08.) ist nur sinnvoll, wenn die Prämien-Situation einen echten Zeitwertgewinn ermöglicht – kein mechanisches Rollen unter Verlust des strukturellen Vorteils.</p>
+
+<p><strong>CC – Nicht konstruierbar:</strong> Der IBKR-Snapshot bestätigt 0 Aktien BAYN im Bestand. Ein Covered Call scheidet damit aus. Ein Naked Call wäre bei offenem ATH-Potenzial (53,92 noch nicht final getestet, übergeordnet bullische Struktur) ein inakzeptables Risiko-Profil. Kein CC-Setup.</p>
+
+<p><strong>Optionskette – Prüfpunkte für den Anwender:</strong></p>
+<ul>
+  <li>Prämie Mid-Kurs Strike 44 Put, Verfall 25.07.: Richtwert-Erwartung 0,25–0,45 EUR (abhängig von IV nach Kurskorrektur – IV dürfte seit Ausbruch noch erhöht sein)</li>
+  <li>Delta-Zielbereich: -0,15 bis -0,22</li>
+  <li>Spread: unter 0,10 EUR für akzeptable Liquidität bei BAYN-Optionen</li>
+  <li>Open Interest: mindestens 100 Kontrakte am Strike für ausreichende Handelbarkeit</li>
+</ul>
+  </details>
+</section>
+
+<section class="analyse neutral">
+  <div class="kopf">
+    <span class="datum">16.07.2026 </span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <p class="fazit">BAYN konsolidiert nach dem explosiven Juni-Run unterhalb des Allzeithochs der Bewegung (53,92) und zeigt erste Schwäche – kein klares direktionales Setup, aber ein defensiver CSP unterhalb der Konsolidierungszone ist konstruierbar.</p>
+  <img class="chart" src="img/BAYN_20260716_203112.png" alt="Chart BAYN">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>BAYN hat seit dem Ausbruch am 25. Juni 2026 (Tageskerze +19%, rel. Volumen 3,61x) eine massive Aufwärtsbewegung von ~35 auf 53,92 (Hoch vom 03.07.) vollzogen. Seitdem läuft eine mehrtägige Konsolidierung mit fallenden Hochs (53,92 → 52,08 → 50,36 → 50,24 → 48,90) und tendenziell fallenden Tiefs (52,64 → 49,48 → 49,01 → 49,01 → 47,53 → 47,14). Das ist eine klare Abfolge tieferer Hochs und tieferer Tiefs im kurzfristigen Bild – technisch ein kurzfristiger Abwärtstrend innerhalb des übergeordneten Aufwärtsimpulses. Der Schlusskurs heute bei 47,72 befindet sich bereits unterhalb der vorherigen Konsolidierungszone 49,00–50,00. Erstes unbestätigtes Support-Niveau: ~47,00–47,50 (Tagestiefs 15./16. Juli). Darunter wäre der Bereich 45,00–45,50 (Gap-Oberkante vom 30. Juni / Kerze 01. Juli) relevant.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die letzten drei Kerzen zeigen eine klare Distributionsstruktur: 15. Juli – Bearish-Kerze mit tieferem Tief (47,53) und schwachem Close (47,71), Körper im unteren Bereich der Range; 16. Juli – erneut tieferes Tief (47,14) und nahezu unveränderter Close (47,72), Doji-artiger Charakter mit langem unteren Schatten, was kurzfristig Kaufinteresse andeutet, aber keinen bullischen Reversal-Beleg liefert. Die Kerze vom 14. Juli (Inside-Day-Charakter, Close 49,12) war bereits ein erster Schwächeindikator. Volumenseitig zeigen die letzten Tage deutlich unterdurchschnittliche Aktivität (rel. Volumen: 0,73 / 0,51) – kein Selling-Climax, aber auch keine Kaufpanik. Die Schwäche geschieht im Sinkflug, nicht im Kapitulations-Modus.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Der EMA9 steht bei 48,86, der EMA21 bei 46,81, der EMA55 bei 42,94 – die Reihenfolge EMA9 > EMA21 > EMA55 ist bullisch sortiert und der gema_321 bei 47,19 zeigt noch einen intakten Aufwärtsverbund. Allerdings: Der Kurs (47,72) hat heute den EMA9 (48,86) von oben unterschritten – ein erstes technisches Warnsignal. Der gema_321 bei 47,19 liegt nun knapp unter dem aktuellen Kurs, was bedeutet, dass der gewichtete EMA-Verbund als unmittelbare Unterstützung dient. Ein Close unter 47,00–47,19 würde den gema_321 nachhaltig brechen und weiteren Druck in Richtung EMA21 (~46,81) signalisieren. Die EMAs laufen noch steil nach oben – die Aufwärtsdynamik der Verbunds-Kurve ist aber abflachend.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Kein Trade</td></tr>
+    <tr><td>Einstieg</td><td>Long nur bei Tagesschluss über 50,36 (letztes kurzfristiges Hoch, Stop-Buy), alternativ Stabilisierung über gema_321 ~47,20 mit Bestätigungskerze</td></tr>
+    <tr><td>Stop</td><td>Unter 46,50</td></tr>
+    <tr><td>Ziel</td><td>53,00–53,92</td></tr>
+    <tr><td>CRV</td><td>ca. 1.8 : 1 (nur bei Bestätigung über 50,36)</td></tr>
+  </table>
+
+  <h3>5 · Stillhalter (max. 12 Tage)</h3>
+<p>Der kurzfristige Trend zeigt Schwäche, aber der übergeordnete Impuls ist intakt und die EMA-Struktur bleibt bullisch sortiert. Ein defensiver Cash-Secured Put tief unterhalb der aktuellen Range ist konstruierbar – für aggressivere Calls fehlt ein klares Widerstandsniveau, das als Kapping-Punkt dienen könnte, da das ATH der Bewegung (53,92) noch im Spiel ist. CC daher nicht empfohlen.</p>
+<table class="setup"><tr><td>Geschäft</td><td>Cash-Secured Put</td></tr><tr><td>Strike</td><td>44.0</td></tr><tr><td>Puffer</td><td>7.8 %</td></tr><tr><td>Zone</td><td>unterhalb Gap-Zone 45,00–45,50 (Kerzenboden 01. Juli / Gap-Oberkante 30. Juni) und EMA55 bei 42,94</td></tr><tr><td>Verfall bis</td><td>2026-07-25 (9 Tage, nächster Standard-Freitag nach dem 17.07.)</td></tr><tr><td>Begründung</td><td>Strike 44,00 liegt rund 3,6% unterhalb der Gap-Oberkante bei ~45,00 und hat den aufsteigenden EMA55 (~42,94) als weiteren Puffer darunter. Die Zone 45,00–45,50 ist ein unbestätigter Bereich (erst einmal getestet), bietet aber strukturell die logische erste Anlaufstelle bei einer tieferen Korrektur. Ein Andienungsszenario bei 44,00 wäre vertretbar: Der Kauf auf diesem Level entspräche einem Rücksetzer auf das Niveau der Ausbruchs-Folgekerzen (29.–30. Juni), was fundamental und technisch als Einstieg mit Aufwärtspotenzial zu bewerten ist.</td></tr></table>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 16.07.2026 anzeigen</summary>
+    <h1>BAYN – Detailanalyse 16. Juli 2026</h1>
+
+<h2>Abgleich mit der Voranalyse vom 08.07.2026</h2>
+<p>Die Analyse vom 08.07. klassifizierte BAYN als NEUTRAL mit dem Hinweis auf fehlende Bestätigung – entweder über 53,92 (Allzeithoch der Bewegung) oder Stabilisierung am EMA9 (~49,00–49,50). Beide Szenarien haben sich <strong>nicht</strong> materialisiert: Das Hoch 53,92 wurde nicht erneut getestet, und der EMA9 wurde in dieser Woche von oben durchschlagen (Schlusskurs heute 47,72 vs. EMA9 48,86). Die Warnung vor einer Korrektur war berechtigt. Das Szenario ‚Stabilisierung am EMA9' ist damit vorerst gescheitert – der nächste logische Halt ist der gema_321 bei 47,19 bzw. der EMA21 bei 46,81.</p>
+
+<h2>1. Trendstruktur – Details</h2>
+<p>Der explosive Impuls 25.–03. Juli: Von ~36,50 auf 53,92 in sieben Handelstagen, angetrieben durch Nachrichten-Katalysator (Volumen 25.06.: 10,5 Mio., rel. 3,61x; 02.07.: 7,97 Mio., rel. 2,44x). Seit dem Hoch bei 53,92 am 03. Juli läuft eine Konsolidierung/Korrektur mit folgenden messbaren Hochs und Tiefs:</p>
+<ul>
+  <li>03.07.: Hoch 53,92 / Tief 52,64</li>
+  <li>06.07.: Hoch 53,78 / Tief 51,18 – tieferes Tief</li>
+  <li>10.07.: Hoch 52,08 / Tief 49,48 – tieferes Hoch, tieferes Tief</li>
+  <li>13./14.07.: Hochs 50,36/50,24 – weiter fallende Hochs</li>
+  <li>15./16.07.: Tiefs 47,53/47,14 – beschleunigte Abwärtsbewegung</li>
+</ul>
+<p>Das ist eine <strong>bestätigte Sequenz fallender Hochs und Tiefs</strong> im kurzfristigen Zeitrahmen (Tages-Chart). Der übergeordnete Trend (Wochen-Perspektive) bleibt aufwärts gerichtet, solange das Ausgangsniveau ~35,00 nicht getestet wird.</p>
+<p><strong>Unbestätigte Support-Bereiche</strong> (erst einmal getestet, kein mehrfacher Test):</p>
+<ul>
+  <li>47,00–47,50: Tagestiefs 15./16. Juli – <em>unbestätigt, aktuell aktiv</em></li>
+  <li>45,00–45,50: Kerzenboden 01. Juli / Gap-Oberkante 30. Juni – <em>unbestätigt, erste Anlaufstelle bei weiterer Schwäche</em></li>
+  <li>42,50–43,00: EMA55-Bereich, strukturell relevant</li>
+</ul>
+<p><strong>Widerstand:</strong> 49,00–50,00 (ehemalige Konsolidierungszone 06.–10. Juli, mehrfach bestätigt als Deckel), 53,78–53,92 (ATH der Bewegung).</p>
+
+<h2>2. Candlestick-Formationen – Details</h2>
+<p>Die Kerze vom <strong>15. Juli</strong>: Open 48,85, High 48,90, Low 47,53, Close 47,71 – ein Bearish-Marubozu-ähnlicher Körper im unteren Drittel, Volumen 2,37 Mio. (rel. 0,73x). Keine Kapitulation, stetiger Verkaufsdruck.</p>
+<p>Die Kerze vom <strong>16. Juli</strong>: Open 47,53, High 47,84, Low 47,14, Close 47,72 – ein Spinning-Top / Doji mit langem unteren Schatten. Der Schlusskurs nahezu identisch mit dem Vortag bei 47,72. Volumen 1,64 Mio. (rel. 0,51x – sehr schwach). Das deutet auf Gleichgewicht hin, aber bei so niedrigem Volumen fehlt die Überzeugungskraft für eine Umkehr. <strong>Hammer-Kriterium nicht erfüllt</strong>, da der untere Schatten (47,14–47,53 = 0,39) nicht mindestens doppelt so lang wie der Körper ist.</p>
+<p>Für eine bullische Reversalbestätigung würde ich eine starke Aufwärtskerze mit Close deutlich über 48,86 (EMA9) und überdurchschnittlichem Volumen (>3,25 Mio.) benötigen.</p>
+
+<h2>3. EMA-Lage – Details</h2>
+<p>Aktuelle Werte: EMA9 = 48,86 | EMA21 = 46,81 | EMA55 = 42,94 | gema_321 = 47,19</p>
+<p>Die Sortierung EMA9 > EMA21 > EMA55 ist strukturell bullisch – das Erbe des Juni-Impulses. Jedoch: Der Kurs hat heute den EMA9 von unten nicht zurückerobert. Der gema_321 bei 47,19 liegt intraday unter dem heutigen Schlusskurs (47,72), aber nur noch 0,53 Punkte darunter. Ein nachhaltiger Tagesschluss unter 47,19 wäre ein technisches Verkaufssignal im kurzfristigen Bild.</p>
+<p>Der EMA21 bei 46,81 ist die nächste relevante dynamische Unterstützung. Ein Test des EMA21 bei anziehender Volumenaktivität wäre die ideale Basis für einen CSP-Einstieg (Andienungszone attraktiv) oder ein neues Long-Setup.</p>
+
+<h2>4. Alternative Trade-Setups</h2>
+<p><strong>Setup A – Abwarten / Kein Trade (bevorzugt):</strong> Aktuell kein Setup mit positiver Erwartung. Die Sequenz fallender Hochs und Tiefs ist noch intakt. Abwarten bis zur Stabilisierung.</p>
+<p><strong>Setup B – Long-Rebound bei EMA21-Test:</strong>
+<ul>
+  <li>Einstieg: ~46,80–47,00 (EMA21-Bereich), nur bei Bestätigungskerze (langer unterer Schatten oder Bullish-Engulfing auf erhöhtem Volumen)</li>
+  <li>Stop: 45,90 (unter Gap-Unterkante)</li>
+  <li>Ziel 1: 50,00 – CRV ~3,0 : 1 (bei Einstieg 47,00, Stop 45,90)</li>
+  <li>Ziel 2: 53,92 – CRV ~6,3 : 1</li>
+</ul>
+</p>
+<p><strong>Setup C – Long-Ausbruch über 50,36:</strong>
+<ul>
+  <li>Einstieg: Stop-Buy bei 50,40</li>
+  <li>Stop: 48,80 (unter EMA9)</li>
+  <li>Ziel 1: 53,92 – CRV ~2,2 : 1</li>
+  <li>Voraussetzung: Volumen > 4 Mio. am Ausbruchstag</li>
+</ul>
+</p>
+
+<h2>5. Stillhalter-Analyse (Schwerpunkt)</h2>
+<p><strong>Warum CSP, warum kein CC?</strong> Der übergeordnete Trend ist bullisch (alle EMAs aufsteigend sortiert, gema_321 steigt). Ein Covered Call würde bei einem möglichen Wiederaufnahme-Trade das Upside kappen. Für einen CC fehlt zudem ein technisch klar definiertes Widerstandslevel, das nicht bereits attackiert wurde. Das ATH der Bewegung bei 53,92 ist noch ‚frisch' und könnte bei Nachrichten schnell überschritten werden – ein CC dort wäre zu riskant ohne Absicherung.</p>
+
+<p><strong>CSP – Zonen-Herleitung:</strong></p>
+<ul>
+  <li><strong>Zone 1 – 45,00/45,50:</strong> Kerzenboden der Kerze vom 01. Juli (Tief 47,76, aber Close 49,00) – korrekterweise ist das Gap zwischen dem Hoch der 30.06.-Kerze (48,41) und dem Open der 01.07.-Kerze (48,50) minimal. Die relevante Zone ist das Gap-Cluster 45,41–47,76 (Tiefs 30. Juni bis 01. Juli). Der erste saubere Boden unterhalb der aktuellen Bewegung liegt bei ~45,41.</li>
+  <li><strong>Strike 44,00:</strong> Liegt 3,6% unter der Gap-Unterstützung bei 45,41 und 7,8% unter dem aktuellen Schlusskurs. Der EMA55 bei 42,94 bietet einen weiteren Puffer darunter. Der Strike 44,00 wäre auf einem 2,50er- oder 5er-Strike-Raster handelbar (44,00 ist gängiger Bayer-Strike).</li>
+</ul>
+
+<p><strong>Andienungsszenario Strike 44,00:</strong> Eine Andienung zu 44,00 würde einem Kurs entsprechen, der rund 18% unter dem ATH der Bewegung liegt und das Niveau der Ausbruchskerzen vom 26.–27. Juni 2026 darstellt. Fundamental und technisch wäre ein Kauf bei 44,00 als mittelfristiges Long-Engagement mit Perspektive auf die 50er-Zone vertretbar. Das Risiko liegt in einer weiteren fundamentalen Verschlechterung (Nachrichten-getriebener Impuls könnte sich umkehren).</p>
+
+<p><strong>Roll-Trigger:</strong> Sollte BAYN vor Verfall unter 46,00 schließen und der Trend klar nach unten gebrochen sein (EMA21 unterschritten + steigende Volumen), wäre ein Roll nach unten und in eine spätere Laufzeit zu prüfen. Bei Verbleib über 47,00 und stabilem EMA21 kann die Position gehalten werden.</p>
+
+<p><strong>Was der Anwender in der Optionskette prüfen sollte:</strong></p>
+<ul>
+  <li>Liegt die Prämie für den CSP 44er (Verfall 25.07.) bei mindestens 0,30–0,40 EUR? (Mindestvergütung für den Puffer)</li>
+  <li>Ist der Bid-Ask-Spread enger als 0,10 EUR? (Liquiditätsprüfung)</li>
+  <li>Wie hoch ist die implizite Volatilität (IV) nach dem Juni-Ereignis? Eine erhöhte IV nach einem Nachrichten-Spike macht Prämien attraktiver.</li>
+  <li>Open Interest am 44er-Strike > 200 Kontrakte? (Handelbarkeit)</li>
+</ul>
+
+<p><strong>Verfallstermin:</strong> Nächster Standard-Freitag ist der 18. Juli 2026 (2 Tage – zu kurz und zu riskant bei laufender Korrektur). Der übernächste Standard-Freitag ist der <strong>25. Juli 2026</strong> (9 Tage Restlaufzeit – innerhalb des 12-Tage-Fensters, empfohlen).</p>
+  </details>
+</section>
+
+<section class="analyse neutral">
+  <div class="kopf">
+    <span class="datum">08.07.2026</span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <p class="fazit">BAYN befindet sich nach einem explosiven Kursanstieg seit Ende Juni in einer kurzfristigen Konsolidierung/Korrektur – kein klares Setup, da weder Unterstützung noch Wiederaufnahme des Trends bestätigt sind.</p>
+  <img class="chart" src="img/BAYN_20260708_120014.png" alt="Chart BAYN">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>Nach einem Absturz von ~43 auf ~32 (Anfang Juni) folgte ab Mitte Juni eine kräftige Erholung, die mit dem Sprung vom 25.06. (+18% auf 47,00) und weiteren Hochs bis 53,92 am 03.07. in eine starke Aufwärtsbewegung mündete. Seitdem korrigiert die Aktie und notiert bei 49,84 – ein erstes niedrigeres Tief entsteht. Wichtige Levels: Unterstützung ~48,40–49,00 (Bereich der vorherigen Aufwärtslücken), Widerstand ~53,40–53,92.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die letzten drei Kerzen zeigen: 03.07. Doji/kleiner Körper bei 53,36 (Erschöpfung), 06.07. bearisher Engulfing-Kandidat mit Schlusskurs 51,18 deutlich unter dem Eröffnungskurs, 07.07. weitere rote Kerze (50,82), und 08.07. (heutiger Tag, noch unvollständig, rel_vol nur 0.21) mit neuem Intraday-Tief bei 49,63 – die kurzfristige Abwärtsdynamik ist intakt, kein Umkehrsignal sichtbar.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>EMA9 (49,06) nähert sich dem Kurs von unten an, EMA21 (45,10) und EMA55 (41,43) liegen deutlich darunter – die Reihenfolge EMA9 > EMA21 > EMA55 ist bullisch, aber der Kurs fällt gerade auf den EMA9 zurück. Der gema_321 (46,47) zeigt noch aufsteigende Struktur. Ein Schlusskurs unter EMA9 (~49,06) würde kurzfristig bärisch signalisieren.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Kein Trade</td></tr>
+    <tr><td>Einstieg</td><td>Abwarten: Long nur bei Bestätigung über 53,92 (Allzeithoch der Bewegung) oder bei Stabilisierung am EMA9 (~49,00–49,50)</td></tr>
+    <tr><td>Stop</td><td>Unter 48,00</td></tr>
+    <tr><td>Ziel</td><td>57,00–60,00</td></tr>
+    <tr><td>CRV</td><td>ca. 2.0 : 1 (nur bei Bestätigung)</td></tr>
+  </table>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 08.07.2026 anzeigen</summary>
+    <h1>BAYN – Chartanalyse vom 08.07.2026</h1><h2>1. Trendstruktur</h2><p>BAYN befand sich von Anfang März bis Anfang Juni in einem ausgeprägten Abwärtstrend (von ~43 auf ~32,96 Tief am 02.06.). Ab Mitte Juni startete eine bemerkenswerte Erholungsbewegung: Nach einem ersten Ansatz über 37–38 gab es am <strong>25.06.</strong> einen explosiven Ausbruch mit einem Kurssprung von ~39,03 auf ein Hoch von <strong>47,50</strong> (Schlusskurs 47,00, rel_vol 3,61 – 361% des Durchschnitts!). Diese Volumen-Anomalie deutet auf eine fundamentale Neuigkeit (M&A, Klärung eines Rechtsrisikos o.ä.) hin.</p><p>In den Folgetagen setzte sich die Bewegung fort: 47,60 (26.06.), 48,41 (30.06.), 49,00 (01.07.), und schließlich das bisherige Hoch der Bewegung bei <strong>53,92 am 03.07.</strong>. Seitdem korrigiert BAYN: 51,18 (06.07.), 50,82 (07.07.), 49,84 (08.07., Teilkerze). Die Struktur der Korrektur zeigt niedrigere Hochs und niedrigere Tiefs auf kurzfristiger Basis – klassische Rücksetzer-Struktur.</p><p><strong>Wichtige Kursmarken:</strong><ul><li>Widerstand: 53,40–53,92 (Hoch der Bewegung)</li><li>Unterstützung Zone 1: 49,00–49,63 (aktuelle Bereich, EMA9-Nähe)</li><li>Unterstützung Zone 2: 47,00–47,60 (Breakout-Level, 25.–26.06.)</li><li>Unterstützung Zone 3: 45,41 (Tief 30.06., darunter wäre die Bewegung stark beschädigt)</li></ul></p><h2>2. Candlestick-Formationen</h2><p>Die letzten relevanten Kerzen im Detail:</p><ul><li><strong>02.07.</strong>: Starke Bullish-Candle (+53,36 Schlusskurs), rel_vol 2,44 – Bestätigung der Aufwärtsdynamik mit hohem Volumen.</li><li><strong>03.07.</strong>: Hochpunkt 53,92, Schlusskurs identisch mit Open bei 53,36 – Doji-Charakter, Erschöpfung der Käufer. Volumen 1,26 – nachlassendes Interesse.</li><li><strong>06.07.</strong>: Bearisher Schlusskurs bei 51,18 (Open 53,06), Schlusskurs deutlich unter Open – klare Verkäuferdomin. Volumen 1,12.</li><li><strong>07.07.</strong>: Weitere rote Kerze (51,28 Open, 50,82 Close), aber Handelsspanne enger – kein Panikverkauf. Volumen nur 0,72 (unterdurchschnittlich).</li><li><strong>08.07.</strong>: Intraday bisher 50,36 Open, Tief 49,63, Schlusskurs 49,84 – Teilkerze mit sehr geringem Volumen (rel_vol 0,21, nur 21% des Schnitts!). Das ist ein wichtiger Hinweis: Die Korrektur läuft auf dünnem Volumen – potenziell gesunde Konsolidierung, aber noch kein Umkehrsignal.</li></ul><p>Das Gesamtbild der Kerzen: Topping-Signal (Doji 03.07.) gefolgt von Korrekturkerzen, noch kein Reversal-Signal (kein Hammer, kein Bullish Engulfing).</p><h2>3. EMA-Lage</h2><p><strong>Aktuelle Werte (08.07.):</strong> EMA9: 49,06 | EMA21: 45,10 | EMA55: 41,43 | gema_321: 46,47</p><p>Die Reihenfolge EMA9 > EMA21 > EMA55 ist <strong>bullisch</strong> und spiegelt den starken Anstieg der letzten Wochen wider. Der gema_321 (46,47) steigt weiterhin an. Der aktuelle Schlusskurs (49,84) liegt nur noch knapp über dem EMA9 (49,06) – die entscheidende Frage ist, ob der EMA9 als dynamische Unterstützung hält.</p><p>Der Abstand EMA9 zu EMA21 (ca. 4 Punkte) und EMA9 zu EMA55 (ca. 7,6 Punkte) ist historisch groß und zeigt, wie überdehnt die Bewegung ist. Eine Reversion zur Mitte (EMA21 ~45) wäre technisch normal und würde ~10% Rücksetzer bedeuten. Der EMA9 fängt gerade erst an, die schnelle Aufwärtsbewegung nachzuvollziehen – ein Test dieses Levels bei ~49 wäre der erste natürliche Halt.</p><h2>4. Trade-Setups</h2><p><strong>Setup A – Long bei EMA9-Bestätigung (bevorzugt, wenn):</strong><br>Voraussetzung: BAYN schließt heute oder morgen ÜBER dem EMA9 (~49,06) und zeigt ein bullisches Reversal-Muster (Hammer, Engulfing). Einstieg: 50,00 (Market bei Bestätigung). Stop: 47,80 (unter dem 26.06.-Hoch und Zone). Ziel 1: 53,40 (CRV: 3,4 / 2,2 = ca. 1,5:1). Ziel 2: 57,00 (Projektion 100% der letzten Impulswelle, CRV: ca. 3,2:1). <em>Aktuell noch kein Einstieg, da kein Reversal-Signal.</em></p><p><strong>Setup B – Long bei Ausbruch über ATH der Bewegung:</strong><br>Stop-Buy bei 54,00 (über 53,92). Stop: 51,50 (unter dem letzten Support). Ziel: 60,00 (nächster charttechnischer Widerstand). CRV: (60-54)/(54-51,5) = 6/2,5 = 2,4:1. <em>Dieses Setup vermeidet Rücksetzer-Timing und bestätigt Stärke.</em></p><p><strong>Setup C – Short (spekulativ):</strong><br>Falls 49,00 bricht und der EMA9 von oben nach unten durchbrochen wird: Short unter 49,00 mit Stop 50,50 und Ziel 47,00 (EMA21-Nähe). CRV: 2/1,5 = 1,3:1 – zu gering für einen Trade. <em>Nicht empfohlen.</em></p><p><strong>Fazit:</strong> Die Ausgangslage ist bullisch auf mittlere Sicht (EMA-Struktur, starke Impulsbewegung), aber kurzfristig läuft eine Korrektur auf sehr niedrigem Volumen. Abwarten auf Bestätigung ist die klügste Strategie. Das niedrige Volumen heute (0,21x) kann auf einen Konsolidierungstag hindeuten, muss aber durch eine starke Schlusskerze bestätigt werden.</p>
+  </details>
+</section>
+
+
+  <footer>Automatisch erstellt · <a href="index.html">Zur Übersicht</a> ·
+    Keine Anlageberatung</footer>
+</div>
+</body>
+</html>

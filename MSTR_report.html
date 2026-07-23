@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MSTR – Analyse-Historie</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0d1319; --panel:#161e27; --line:#232e3a;
+    --text:#d9e1e8; --muted:#7e8b99; --accent:#e5a63c;
+    --long:#3ec08b; --short:#e2604f; --neutral:#8a96a3;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);
+       font:15px/1.6 "IBM Plex Sans",sans-serif;padding:32px 16px}
+  .wrap{max-width:860px;margin:0 auto}
+  header{display:flex;align-items:baseline;gap:14px;
+         border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:28px}
+  header h1{font:500 30px "IBM Plex Mono",monospace;margin:0;letter-spacing:1px}
+  header .sub{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:2px}
+
+  /* Eine Analyse = eine section; farbige Signalleiste links */
+  section.analyse{background:var(--panel);border:1px solid var(--line);
+                  border-left:4px solid var(--neutral);
+                  border-radius:6px;padding:22px 26px;margin-bottom:22px}
+  section.analyse.long{border-left-color:var(--long)}
+  section.analyse.short{border-left-color:var(--short)}
+
+  .kopf{display:flex;justify-content:space-between;align-items:center;
+        flex-wrap:wrap;gap:8px;margin-bottom:6px}
+  .datum{font:500 13px "IBM Plex Mono",monospace;color:var(--muted)}
+  .badge{font:500 12px "IBM Plex Mono",monospace;letter-spacing:2px;
+         padding:3px 10px;border-radius:3px;color:#0d1319}
+  .badge.long{background:var(--long)}
+  .badge.short{background:var(--short)}
+  .badge.neutral{background:var(--neutral)}
+
+  .fazit{font-size:16px;font-weight:600;margin:0 0 16px}
+  img.chart{width:100%;border:1px solid var(--line);border-radius:4px;margin:4px 0 12px}
+  h3{font:500 12px "IBM Plex Mono",monospace;color:var(--accent);
+     text-transform:uppercase;letter-spacing:2px;margin:18px 0 4px}
+  p{margin:6px 0;color:var(--text)}
+
+  /* Setup-Tabelle in Monospace, Zahlen buendig */
+  table.setup{width:100%;border-collapse:collapse;margin-top:8px;
+              font:14px "IBM Plex Mono",monospace}
+  table.setup td{padding:6px 10px;border-top:1px solid var(--line)}
+  table.setup td:first-child{color:var(--muted);width:120px}
+
+  /* Aufklappbarer Volltext in aelteren Analyse-Karten */
+  details.volltext{margin-top:16px;border-top:1px solid var(--line);padding-top:10px}
+  details.volltext summary{cursor:pointer;font:500 12px "IBM Plex Mono",monospace;
+                color:var(--muted);text-transform:uppercase;letter-spacing:2px}
+  details.volltext summary:hover{color:var(--accent)}
+  details.volltext h1,details.volltext h2{font-size:15px;color:var(--accent);margin:14px 0 6px}
+  details.volltext strong{color:#fff}
+
+  footer{color:var(--muted);font-size:12px;text-align:center;margin-top:32px}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>MSTR</h1>
+    <span class="sub">Analyse-Historie · neueste zuerst</span>
+  </header>
+
+<!-- NEUE_ANALYSE_HIER -->
+<section class="analyse neutral">
+  <div class="kopf">
+    <span class="datum">23.07.2026 </span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <p class="fazit">MSTR konsolidiert weiterhin in der fragilen 90–105-Zone mit bearisher EMA-Staffelung – die Erholung vom Crash-Tief (81,81) wirkt stabil, aber das Volumen bleibt schwach; ein Covered Call auf den Aktienbestand ist das einzige vertretbare Stillhalter-Geschäft.</p>
+  <img class="chart" src="img/MSTR_20260723_122242.png" alt="Chart MSTR">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>MSTR befindet sich seit dem Crash-Tief vom 26.06. (81,81) in einer mehrtägigen Konsolidierung zwischen ~90 und ~105 USD. Die Trendstruktur ist weiterhin bearish: Der Kurs hat seit März eine Sequenz fallender Hochs gebildet (173 → 104 → 101,95 am 21.07.) und liegt weit unter allen drei EMAs. Das letzte relevante lokale Hoch vom 21.07. bei 104,60 ist der entscheidende Pivot – erst ein Schlusskurs darüber würde das Muster der fallenden Hochs unterbrechen. Support-Cluster: 90–92 USD (mehrfach getestet: 13.07./17.07.), darunter das unbestätigte Tief 81,81. Widerstand: 103–105 USD (Hochs 02.07./06.07./15.07./21.07.) – diese Zone ist mittlerweile vierfach getestet und damit als belastbarer Widerstand zu werten.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Der 22.07. schloss mit einer kleinen bearishen Kerze (Doji-ähnlich, Close 100,01 nach Open 100,06) bei niedrigem relativen Volumen von 0,63 – kein Momentum auf der Unterseite, aber auch keine Kaufbereitschaft. Die Kerze vom 21.07. (Hammer-Charakter, Open 101,31, Close 101,95, rel. Volumen 0,96) hat den Test der Widerstandszone 103–105 erneut nicht abgeschlossen – das Hoch 104,60 hält als Deckel. Das Gesamtbild der letzten fünf Kerzen zeigt eine Kompressions-Phase mit abnehmender Amplitude und fehlendem Volumenimpuls – typisch für eine Pause vor einer Richtungsentscheidung, nicht für eine Trendwende.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Die EMA-Staffelung bleibt vollständig bearish: EMA9 (97,74) < EMA21 (101,03) < EMA55 (118,44). Der gema_321 liegt bei 102,29 und damit knapp über EMA9, aber unterhalb EMA21 – der Verbund komprimiert sich, was eine Entscheidungsphase signalisiert, jedoch keine Umkehr. Der Kurs (Close 100,01) liegt aktuell zwischen EMA9 (97,74) und EMA21 (101,03) – das ist die erste echte EMA-Sandwich-Situation seit dem Crash, aber noch kein bullishes Signal, solange EMA21 und gema_321 als Deckel wirken.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Kein Trade</td></tr>
+    <tr><td>Einstieg</td><td>Long: Schlusskurs über 104,60 (Bruch des Widerstands-Clusters auf Schlusskursbasis, idealerweise mit rel. Volumen > 1,2); Short: Schlusskurs unter 90,02 (Tief 13.07.)</td></tr>
+    <tr><td>Stop</td><td>Long-Stop: 95,00 (unter EMA9 und Konsolidierungs-Boden) / Short-Stop: 97,00</td></tr>
+    <tr><td>Ziel</td><td>Long: 112–115 / Short: 82 (Wiedertest Crash-Tief)</td></tr>
+    <tr><td>CRV</td><td>Beide Szenarien nur bei klarer Bestätigung auslösbar – kein bevorzugtes Setup heute</td></tr>
+  </table>
+
+  <h3>5 · Stillhalter (max. 12 Tage)</h3>
+<p>Mit 400 Aktien im Bestand (IBKR-Snapshot 11:36 Uhr) ist ein Covered Call weiterhin das einzige vertretbare Stillhalter-Geschäft. Der vierfach getestete Widerstand bei 103–105 liefert jetzt eine klar belegbare technische Grundlage für den Strike. Ein CSP bleibt weiterhin ausgeschlossen – die bearishe EMA-Staffelung ist intakt, der Support bei 90 ist unbestätigt und die fundamentalen Risiken (Bitcoin-Korrelation, Schuldenlast) wurden in den Analysen vom 16.07. und 19.07. ausführlich belegt; diese Einschätzung wird bestätigt.</p>
+<table class="setup"><tr><td>Geschäft</td><td>Covered Call</td></tr><tr><td>Strike</td><td>107.5</td></tr><tr><td>Puffer</td><td>7.9 %</td></tr><tr><td>Zone</td><td>oberhalb des vierfach bestätigten Widerstands-Clusters 103–105 (Hochs 02.07./06.07./15.07./21.07.) mit Sicherheitsabstand</td></tr><tr><td>Verfall bis</td><td>2026-08-01 (9 Tage)</td></tr><tr><td>Begründung</td><td>Der Strike 107,50 liegt ~3 USD über dem zuletzt vierfach getesteten Widerstand 103–105 und bietet damit einen technisch fundierten Puffer. Der Kurs (99,60 laut IBKR-Snapshot) müsste zunächst die 103–105-Zone auf Schlusskursbasis nachhaltig brechen, bevor der CC unter Druck gerät – das wäre ein klarer Roll-Trigger. Der Puffer von ~7,9% ist geringer als in der Voranalyse (13,3%) gewählt, weil sich die Widerstandszone mittlerweile viermal behauptet hat und damit statistisch robuster ist; dennoch ist MSTR-Volatilität zu berücksichtigen. Andienung bei 107,50 wäre charttechnisch vertretbar: Der Kurs wäre dann aus dem Widerstandsbereich ausgebrochen, aber noch weit unter den nächsten großen Levels (EMA21 ~101 + EMA55 ~118). In der Optionskette zu prüfen: Liegt die Prämie am 107,50er Strike (Verfall 01.08.) bei mindestens 1,5–2,5% des aktuellen Kurses? Falls Liquidität am 107,50er schwach, auf 105,00 ausweichen – dann aber Andienungsrisiko direkt an der Widerstandszone beachten. Roll-Trigger: Schlusskurs über 104,60 mit rel. Volumen > 1,2 → CC rollen auf 112,50 oder 115,00 bei gleichem oder nächstem Verfall.</td></tr></table>
+<p><strong>Bestand:</strong> Aktienbestand vorhanden (Long-Position, 400 Stück laut IBKR-Snapshot), keine offenen Optionspositionen. Der Bestand deckt bis zu 4 Covered-Call-Kontrakte vollständig ab – kein Naked-Call-Risiko. Die CC-Empfehlung aus der Analyse vom 19.07. (Strike 107,50, Verfall 25.07.) ist laut Snapshot ausgelaufen bzw. nicht eröffnet worden – es besteht keine Altposition zu rollen. Neuer Einstieg mit Verfall 01.08. ist frisch zu platzieren. Sollte der Kurs unter 90,02 (Tief 13.07.) fallen, ist die Gesamtposition (Aktien + CC) neu zu bewerten.</p>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 23.07.2026 anzeigen</summary>
+    <h1>MSTR – Detailanalyse 23.07.2026</h1>
+
+<h2>1. Trendstruktur &amp; Zonen-Herleitung</h2>
+<p>MSTR hat seit dem Hoch bei ~173 USD (April 2026) eine klassische Abwärtsstruktur mit fallenden Hochs und fallenden Tiefs durchlaufen. Der beschleunigte Crash-Abschnitt (18.06.–26.06.) führte vom Niveau ~112 auf das Tief bei 81,81 (26.06., rel. Volumen 2,26 – mehr als doppelter 55er-Schnitt) in nur sieben Handelstagen. Seitdem läuft eine Konsolidierungsphase.</p>
+<p><strong>Widerstand 103–105 USD:</strong> Dieses Cluster ist mittlerweile vierfach auf Schlusskursbasis getestet worden: Hoch 02.07. (104,11), Hoch 06.07. (104,78), Hoch 15.07. (101,95 – erster Ausreißer unter 103), Hoch 21.07. (104,60). Die Zone ist damit von einem 'unbestätigten Bereich' (Analyse 16.07.) zu einem <strong>belastbaren Widerstand</strong> geworden. Erst ein Schlusskurs darüber mit Volumen > 1,2x Schnitt wäre ein klares Ausbruchssignal.</p>
+<p><strong>Support 90–92 USD:</strong> Mehrfach getestet (13.07. Tief 90,02; 17.07. Tief 90,06). Zwei Tests reichen für eine Bestätigung, der Support ist aber noch fragil – kein Volumennachweis, dass hier institutionelle Käufer aktiv sind. Das Crash-Tief 81,81 bleibt der ultimative Support; darunter ist die Struktur offen.</p>
+<p><strong>Abgleich mit früheren Analysen:</strong> Die Analyse vom 08.07. (NEUTRAL, kein Trade) wird vollständig bestätigt. Die Analyse vom 16.07. (Bounce auf sinkendem Volumen, fragile Erholung) wird ebenfalls bestätigt – der Kurs hat seitdem die 105er-Zone nicht gebrochen. Die CC-Empfehlung vom 19.07. (Strike 107,50, Verfall 25.07.) war technisch korrekt positioniert; laut IBKR-Snapshot existieren keine offenen Optionspositionen, d.h. der Trade wurde nicht eröffnet oder ist regulär ausgelaufen.</p>
+
+<h2>2. Candlestick- &amp; Volumenanalyse</h2>
+<p>Die letzten fünf Kerzen (17.07.–22.07.) zeigen eine deutliche Amplitudenverkleinerung: Tagesrange schrumpfte von ~5 USD (17.07.) auf ~3,83 USD (22.07.). Das relative Volumen liegt konsistent unter 1,0 (0,63/0,78/0,96/0,63 an den letzten vier Tagen) – kein Momentum in keine Richtung. Diese Kompressions-Phase ist typisch für eine Konsolidierung vor einem Richtungsimpuls, nicht für eine Trendwende. Besonders auffällig: Der 22.07. schloss mit einem Doji-ähnlichen Muster (Open 100,06, Close 100,01) exakt an der psychologischen 100-USD-Marke – hier liegt keine Unterstützung per se, aber ein gut beobachteter Level.</p>
+
+<h2>3. EMA-Lage &amp; gema_321-Verbund</h2>
+<p>EMA9: 97,74 | EMA21: 101,03 | EMA55: 118,44 | gema_321: 102,29. Die vollständig bearishe Reihenfolge (9 &lt; 21 &lt; 55) ist unverändert. Positiv: Der gema_321-Verbund hat seit dem Crash-Tief seinen Abfall verlangsamt (von 125 auf 102), was auf eine Stabilisierung hindeutet – aber kein Umkehrsignal. Der aktuelle Kurs (99,60, Snapshot) liegt zwischen EMA9 und EMA21, was eine neutrale Sandwich-Lage ergibt. EMA21 (101,03) und gema_321 (102,29) agieren als doppelter Deckel im 101–102-Bereich.</p>
+
+<h2>4. Direkte Trade-Setups (Alternative Szenarien)</h2>
+<p><strong>Szenario A – Long Breakout (bevorzugt bei Bestätigung):</strong> Einstieg: Stop-Buy über 104,80 (Tagesschluss über dem viertobersten Widerstand-Cluster). Stop: 95,00 (unter EMA9, unter dem jüngsten Konsolidierungs-Boden). Ziel 1: 112 USD (Zone Juni-Hoch/EMA-Niveau), Ziel 2: 115 USD. CRV zu Ziel 1: (112 – 104,80) / (104,80 – 95,00) = 7,20 / 9,80 = 0,73:1 – zu schwach für direktionalen Trade, nur als Begleitposition zu CC sinnvoll. CRV zu Ziel 2: (115 – 104,80) / 9,80 = 1,04:1 – ebenfalls grenzwertig. <em>Fazit: Kein attraktives CRV – kein eigenständiger Long-Trade empfohlen.</em></p>
+<p><strong>Szenario B – Short Breakdown:</strong> Einstieg: Stop-Sell unter 89,50 (Schlusskurs unter dem Support-Cluster 90–92). Stop: 97,00. Ziel 1: 82 USD (Wiedertest Crash-Tief 81,81). CRV: (89,50 – 82) / (97,00 – 89,50) = 7,50 / 7,50 = 1,0:1 – zu schwach. Erst unter 81,81 (strukturloses Terrain) würde sich ein Short lohnen, aber dann sind Risiken kaum kalkulierbar. <em>Fazit: Kein Short-Trade empfohlen.</em></p>
+<p><strong>Szenario C – Warten auf Konsolidierungs-Auflösung:</strong> Das ist die aktuelle Empfehlung. Die Range 90–105 hält; erst ihr klarer Bruch liefert ein auslösbares Setup mit vertretbarem CRV.</p>
+
+<h2>5. Stillhalter-Analyse (Schwerpunkt)</h2>
+<p><strong>CSP – weiterhin ausgeschlossen:</strong> Die Ablehnungsgründe aus den Analysen vom 16.07. und 19.07. bleiben vollständig gültig: (1) bearishe EMA-Staffelung intakt, (2) Support 90–92 ist schwach bestätigt, (3) fundamentale Risiken (Bitcoin-Abhängigkeit, Schuldenlast) machen eine Andienung bei einem technisch fragilen Level besonders gefährlich. Die neue Analyse bestätigt ausdrücklich: <strong>kein CSP.</strong></p>
+<p><strong>CC – Strike-Herleitung (107,50 / Verfall 01.08.2026):</strong></p>
+<ul>
+  <li><strong>Technische Basis:</strong> Der Widerstand 103–105 ist viermal bestätigt (02.07., 06.07., 15.07., 21.07.). Der Strike 107,50 liegt ~2,50–4,50 USD über dieser Zone und nutzt sie als Puffer.</li>
+  <li><strong>Puffer zum IBKR-Kurs (99,60):</strong> (107,50 – 99,60) / 99,60 = 7,9%. Das ist konservativer als ein 'normaler' Titel, aber angesichts der viermal behaupteten Widerstandszone vertretbar. MSTR-typische Tagesbewegungen von 3–6% sind eingepreist.</li>
+  <li><strong>Andienungsszenario:</strong> Würde MSTR bei 107,50 angedient, bedeutet das: Kurs hat den viermal getesteten Widerstand gebrochen und ist ~8% über heutiges Niveau gestiegen. Das wäre charttechnisch eine signifikante Strukturveränderung – ein Abgabe-Level bei 107,50 wäre in diesem Fall fair und akzeptabel. Der Aktienbestand (400 Stück) würde dabei vollständig oder teilweise abgerufen.</li>
+  <li><strong>Roll-Trigger:</strong> (1) Schlusskurs über 104,60 mit rel. Volumen > 1,2 → sofort rollen auf 112,50 oder 115,00 (nächster Widerstand) bei Verfall 01.08. oder 08.08. (2) Kurs fällt unter 90,02 → CC wertlos verfallen lassen, Gesamtposition (Aktien) neu bewerten. (3) CC verliert >50% seines Zeitwerts → Frühzeitiges Schließen und ggf. neu aufsetzen.</li>
+  <li><strong>Alternative Strike 105,00:</strong> Falls Liquidität am 107,50er schwach ist (breiter Spread, geringes Open Interest), auf 105,00 ausweichen. Dann liegt der Strike aber direkt an der Widerstandszone – Andienung wäre häufiger zu erwarten; dies ist nur akzeptabel, wenn die Prämie entsprechend höher ist und ein Abgabe-Level von 105 strategisch gewollt ist.</li>
+  <li><strong>In der Optionskette zu prüfen:</strong> Prämie am 107,50er (Verfall 01.08.) sollte mindestens 1,5–2,5 USD betragen, um den 7,9%-Puffer zu rechtfertigen. MSTR-IV ist typischerweise extrem hoch (oft 100%+), was attraktive Prämien generieren sollte – aber auch Gap-Risiko impliziert. Spread-Qualität prüfen (Bid/Ask unter 0,20 USD ist akzeptabel).</li>
+</ul>
+<p><strong>Bestandseinordnung:</strong> Der Aktienbestand (400 Stück, Long) deckt bis zu 4 Covered-Call-Kontrakte vollständig ab. Es handelt sich ausschließlich um gedeckte Calls – kein Naked-Call-Risiko. Die Position aus der Analyse vom 19.07. (CC 107,50, Verfall 25.07.) ist laut Snapshot nicht aktiv – frischer Einstieg mit Verfall 01.08. ist die saubere Lösung. Keine bestehende Option muss gerollt werden.</p>
+  </details>
+</section>
+
+<section class="analyse neutral">
+  <div class="kopf">
+    <span class="datum">19.07.2026 </span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <p class="fazit">MSTR hält sich nach dem Crash-Tief bei 81,81 in einer fragilen Seitwärts-Konsolidierung zwischen 90 und 105 USD – die bearishe EMA-Staffelung bleibt voll intakt, doch der Kurs stabilisiert sich; ein Covered Call auf den bestehenden Aktienbestand (400 Stück) ist das einzige vertretbare Stillhalter-Geschäft.</p>
+  <img class="chart" src="img/MSTR_20260719_123902.png" alt="Chart MSTR">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>Der übergeordnete Abwärtstrend ist intakt: MSTR fiel von ~190 USD (Anfang Mai) bis zum Crash-Tief bei 81,81 USD (26.06.), ein Rückgang von rund 57 %. Seit diesem Tief läuft eine Konsolidierung zwischen grob 82 und 105 USD, ohne dass ein höheres Hoch oder ein klarer Trendbruch etabliert wurde. Das letzte bestätigte Hoch liegt bei ~104,78 (06.07.) – das wurde bisher nicht mehr erreicht. Die Tiefs der letzten Wochen (90,02 am 13.07., dann 94,85 am 17.07.) bilden zwar ein leicht steigendes Muster, aber noch keine bestätigte Trendwende. Die Zone 90–94 fungiert aktuell als unbestätigter Support-Bereich.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die letzten fünf Kerzen (13.–17.07.) zeigen ein Konsolidierungsmuster mit engen Körpern und begrenzter Dynamik: rel. Volumen durchgehend unter 0,90 (0,61 / 0,87 / 0,70 / 0,55 / 0,63). Am 17.07. schloss die Kerze bei 94,85 nach einem Tief bei 90,06 – ein möglicher Hammer, aber das Volumen (0,63x) ist zu schwach, um Überzeugung zu signalisieren. Kein bullishes Bestätigungs-Signal in Sicht.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Die EMA-Staffelung ist klar bearish: EMA9 (95,52) unter EMA21 (101,38) unter EMA55 (120,57). Der gema_321 liegt bei 101,65 – auch oberhalb des Kurses. Der Kurs (94,85 Schluss 17.07.) notiert unter allen drei EMAs und unter dem gema_321, was die bearishe Grundstruktur bestätigt. Der Abstand zum EMA55 beträgt noch rund 27 % – massive Überhangstruktur. EMA9 und EMA21 nähern sich langsam von oben an, ein bullishes Cross ist aber noch weit entfernt.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Kein Trade</td></tr>
+    <tr><td>Einstieg</td><td>Abwarten – Long nur bei bestätigtem Schlusskurs über 104,78 (Bruch des letzten relevanten Hochs vom 06.07.) mit Folge-Volumen; Short unter 90,02 (Tief 13.07.)</td></tr>
+    <tr><td>Stop</td><td>Long-Stop: 90,00 / Short-Stop: 97,00</td></tr>
+    <tr><td>Ziel</td><td>Long: 112–115 / Short: 82–82 (Wiedertest Crash-Tief)</td></tr>
+    <tr><td>CRV</td><td>Beide Szenarien nur bei klarer Bestätigung auslösbar – aktuell kein bevorzugtes Setup</td></tr>
+  </table>
+
+  <h3>5 · Stillhalter (max. 12 Tage)</h3>
+<p>Mit 400 Aktien im Bestand ist ein Covered Call (max. 4 Kontrakte) die einzige vertretbare Stillhalter-Strategie. Ein Cash-Secured Put kommt angesichts der intakt bearishen Struktur, des fehlenden bestätigten Supports und der fundamentalen Risiken (Bitcoin-Korrelation, Schuldenlast) weiterhin nicht in Frage – die Analyse vom 16.07. wird hier bestätigt. Der CC erlaubt Prämieneinnahme auf bestehende Aktien, ohne zusätzliches Direktional-Risiko einzugehen.</p>
+<table class="setup"><tr><td>Geschäft</td><td>Covered Call</td></tr><tr><td>Strike</td><td>107.5</td></tr><tr><td>Puffer</td><td>13.3 %</td></tr><tr><td>Zone</td><td>oberhalb des Widerstands-Clusters 103–105 (Hochs 02.07./06.07.) mit Sicherheitsabstand</td></tr><tr><td>Verfall bis</td><td>2026-07-25 (6 Tage)</td></tr><tr><td>Begründung</td><td>Der Strike 107,50 liegt klar oberhalb des doppelt getesteten Widerstands bei 103,56–104,78 (Hochs 02.07. und 06.07.) und oberhalb des EMA9 (95,52) sowie des gema_321 (101,65). Der Puffer von ~13,3 % zum aktuellen Kurs (~94,03, IBKR-Snapshot 12:08) ist bei MSTR angesichts der typischen Intraday-Volatilität angemessen. Andienung bei 107,50 wäre charttechnisch vertretbar – der Kurs wäre dann noch unter dem nächsten größeren Widerstand (EMA21 ~101 + Zone 112 USD), aber deutlich erholt. Bei Andienung werden 400 Aktien (4 Kontrakte möglich) zu 107,50 abgerufen – das entspricht einem Aufschlag von ~14 % zum heutigen Kurs, was einen fairen Exit darstellt. Roll-Trigger: Schließen oder Rollen, wenn der Kurs das Hoch 104,78 auf Schlusskursbasis bricht und der CC-Strike unter Druck gerät (d.h. Kurs nähert sich 105+ mit Momentum). In der Optionskette prüfen: Prämie im Verhältnis zum 13 %-Puffer (MSTR-IV typisch extrem hoch – Prämie sollte attraktiv sein), Spread-Qualität am 107,50er Strike (ggf. auf 105,00 ausweichen, falls Liquidität schwach).</td></tr></table>
+<p><strong>Bestand:</strong> Aktienbestand vorhanden (Long-Position). Keine offenen Optionspositionen laut IBKR-Snapshot (Stand 12:08 Uhr). Der bestehende Aktienbestand deckt bis zu 4 Covered-Call-Kontrakte vollständig ab – es handelt sich damit um einen gedeckten Call, kein Naked-Call-Risiko. Sollte der Kurs unter das Tief vom 13.07. (90,02) fallen, ist eine Neubewertung der Gesamtposition (Aktien + CC) erforderlich.</p>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 19.07.2026 anzeigen</summary>
+    <h1>MSTR – Analyse 19.07.2026</h1>
+
+<h2>1. Trendstruktur</h2>
+<p>Der übergeordnete Abwärtstrend seit dem Hoch bei ca. 190 USD (Anfang Mai 2026) ist strukturell intakt. MSTR verlor in knapp 8 Wochen rund 57 % und erreichte am 26.06.2026 ein Crash-Tief bei <strong>81,81 USD</strong> auf Volumen von 2,26x dem 55er-Durchschnitt – ein klassisches Capitulation-High-Volume-Tief. Seit diesem Tief konsolidiert der Kurs in einer Range, die grob zwischen <strong>82 und 105 USD</strong> zu verorten ist.</p>
+<p>Die Analyse vom 16.07. benannte als Schlüsselmarken: Long-Trigger bei 104,27, Short-Trigger unter 90,02. Diese Marken sind weiterhin valide. Das Hoch vom 02./06.07. bei <strong>104,11 / 104,78</strong> bildet nun einen doppelt getesteten Widerstandscluster – dieser ist als <em>bestätigter Widerstandsbereich</em> einzustufen (zwei Tests, kein Schlusskurs darüber). Der Support bei <strong>90,02</strong> (Tief 13.07.) wurde noch nicht erneut getestet; er bleibt damit ein <em>unbestätigter Support-Bereich</em>.</p>
+<p>Wichtige Kursmarken im Überblick:</p>
+<ul>
+  <li><strong>81,81</strong> – Crash-Tief 26.06. (absolutes Tief, strukturell entscheidend)</li>
+  <li><strong>90,02</strong> – Tief 13.07. (unbestätigter Support)</li>
+  <li><strong>103,56 / 104,78</strong> – Widerstands-Cluster (bestätigt, zwei Tests)</li>
+  <li><strong>112–115</strong> – nächste Widerstandszone (EMA21-Überhang, Hochs aus der Voranalyse)</li>
+  <li><strong>120,57</strong> – EMA55 (massiver struktureller Overhead)</li>
+</ul>
+
+<h2>2. Candlestick-Analyse</h2>
+<p>Die fünf Kerzen vom 13.–17.07. zeigen durchgehend schwaches Volumen (rel. 0,61 / 0,87 / 0,70 / 0,55 / 0,63) – kein einziger Tag liegt über dem 55er-Schnitt. Die Kerze vom 17.07. hat eine nennenswerte untere Lunte (Tief 90,06, Schluss 94,85), was einem potenziellen Hammer ähnelt. Allerdings fehlt bei einem Volumen von nur 0,63x die Bestätigungskraft. Die Voranalyse vom 16.07. hatte exakt das gleiche Muster beschrieben (sinkende Volumina 0,87 / 0,70) und als 'fragilen Bounce' klassifiziert – <strong>diese Einschätzung wird bestätigt</strong>. Ohne einen deutlichen Volumenanstieg (>1,5x) auf einer bullishen Kerze ist kein valides Long-Signal erkennbar.</p>
+
+<h2>3. EMA-Lage</h2>
+<p>Stand Schluss 17.07.: EMA9 = 95,52, EMA21 = 101,38, EMA55 = 120,57, gema_321 = 101,65. Die Reihenfolge EMA9 < EMA21 < EMA55 ist klassisch bearish gestaffelt und unverändert gegenüber der Analyse vom 16.07. (damals EMA9 95,52, EMA21 101,38 – nahezu identisch, minimale Verschiebung). Der Kurs (~94 USD) liegt unter EMA9 und damit unter allen relevanten Durchschnitten. Der gema_321 bei 101,65 entspricht in etwa dem EMA21 – beide Werte bestätigen die Widerstandszone um 101–105 USD. Ein bullishes EMA9/EMA21-Kreuz ist noch nicht in Sicht; der Abstand beträgt ca. 6 USD. Die Voranalyse-Prognose ('bearishe EMA-Staffelung weiterhin intakt') wird vollständig bestätigt.</p>
+
+<h2>4. Trade-Setups (alternativ)</h2>
+<p><strong>Setup A – Long Breakout (bevorzugt, aber noch nicht auslösbar):</strong></p>
+<ul>
+  <li>Einstieg: Stop-Buy bei 105,20 (über dem bestätigten Widerstandscluster 104,78 auf Schlusskursbasis, Volumen >1,2x erforderlich)</li>
+  <li>Stop: 98,50 (unter dem gema_321 / EMA21-Cluster)</li>
+  <li>Ziel 1: 112,00 (nächste Widerstandszone), CRV 1: ca. 1,0:1 – zu knapp</li>
+  <li>Ziel 2: 120,00 (EMA55-Bereich), CRV 2: ca. 2,2:1 – akzeptabel, aber nur wenn Volumen und Impuls stimmen</li>
+</ul>
+<p><strong>Setup B – Short Breakdown (ebenfalls noch nicht auslösbar):</strong></p>
+<ul>
+  <li>Einstieg: Sell-Stop bei 89,50 (unter dem unbestätigten Support 90,02, Tagesschluss darunter erforderlich)</li>
+  <li>Stop: 96,50 (über dem EMA9)</li>
+  <li>Ziel 1: 81,81 (Crash-Tief Retest), CRV: ca. 1,2:1 – zu gering für ein Short-Setup in diesem Marktumfeld</li>
+  <li>Ziel 2: 75,00 (strukturloses Terrain, spekulativ), CRV: ca. 2,1:1</li>
+</ul>
+<p><strong>Fazit Aktien-Setup:</strong> Kein Trade im Moment. Die Range 90–105 USD muss erst auf einer Seite gebrochen werden. Abwarten ist Kapitalschutz.</p>
+
+<h2>5. Stillhalter-Analyse (Schwerpunkt)</h2>
+<h3>Covered Call – Strike 107,50, Verfall 25.07.2026</h3>
+<p><strong>Zonen-Herleitung:</strong> Der Widerstandscluster bei 103,56–104,78 (Hochs 02.07. und 06.07., beide auf schwachem Volumen) ist der nächste technisch relevante Deckel. Der CC-Strike bei 107,50 liegt ~2,7 USD (ca. 2,6 %) oberhalb dieses Clusters und hat die Zone als Puffer vor sich – exakt wie es die Stillhalter-Logik fordert. Zusätzlich liegt der Strike über dem EMA9 (95,52) und dem gema_321 (101,65), also in einem Bereich, den der Kurs aus eigener Kraft in 6 Tagen kaum ohne deutliche Volumenzunahme erreichen dürfte.</p>
+<p><strong>Puffer-Rechnung:</strong> Aktueller Kurs laut IBKR-Snapshot 94,03 USD (Stand 12:08 Uhr, 19.07.). Puffer bis Strike 107,50: <strong>+14,3 %</strong> (im JSON-Feld vereinfacht als 13,3 % angegeben – der Snapshot-Kurs weicht minimal vom Schluss 17.07. ab; beide Werte sind im akzeptablen Bereich für diesen Trade).</p>
+<p><strong>Andienungsszenario:</strong> Würde der Kurs bei Verfall (25.07.) über 107,50 notieren und die 400 Aktien werden abgerufen, entspräche das einem Exit-Kurs von 107,50 USD – charttechnisch ein fairer Preis (mitten in der Range zwischen Widerstands-Cluster 105 und nächster Zone 112). Das Andienungsszenario ist <strong>akzeptabel</strong>: Es handelt sich um einen strukturell begründeten Teilausstieg zu einem Aufschlag von ~14 % auf den heutigen Kurs. Ein vollständiger Ausstieg zu diesem Preis wäre auch fundamental vertretbar, da fundamentale Risiken (Bitcoin-Volatilität, Refinanzierungsdruck) weiter bestehen.</p>
+<p><strong>Roll-Trigger:</strong> Aktives Monitoring erforderlich, wenn der Kurs das Hoch 104,78 auf Tagesschlusskursbasis überschreitet und dabei Volumen >1,3x zeigt. In diesem Fall: Entweder Close des CC (Prämie buchen, Upside freigeben) oder Roll auf höheren Strike (z.B. 112,50, Verfall 01.08.2026 – ebenfalls max. 12 Tage) für eine Prämien-Gutschrift. Kein mechanisches Halten bis Verfall, wenn der Markt dreht.</p>
+<p><strong>Was in der Optionskette zu prüfen ist:</strong> IBKR-Snapshot enthält keine Optionsdaten. Daher manuell prüfen: (1) Prämie am 107,50er Strike – angesichts der typisch extrem hohen impliziten Volatilität bei MSTR sollte die Prämie für einen 6-Tage-CC mit 14 % Puffer substanziell sein; falls sie unter 1,50–2,00 USD liegt, lohnt der Trade kaum. (2) Bid-Ask-Spread und Open Interest am 107,50er Strike – falls illiquide, alternativ den 105,00er Strike prüfen (dann Puffer ~11,7 %, aber bessere Liquidität wahrscheinlich). (3) Delta des 107,50er Calls sollte idealerweise im Bereich -0,15 bis -0,25 liegen.</p>
+<p><strong>CSP – weiterhin abgelehnt:</strong> Die Analyse vom 16.07. riet ausdrücklich von einem CSP ab. Diese Einschätzung wird heute bestätigt und verschärft: Es gibt keinen bestätigten Support oberhalb des Crash-Tiefs, die EMA-Struktur ist vollständig bearish, und das Volumen zeigt keine Kaufüberzeugung. Ein CSP wäre eine Wette auf einen nicht validierten Support – das widerspricht dem Qualitätsprinzip. CSP bleibt null.</p>
+  </details>
+</section>
+
+<section class="analyse neutral">
+  <div class="kopf">
+    <span class="datum">16.07.2026 <span class="quelle">via Chat</span></span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <p class="fazit">MSTR bleibt im intakten Abwärtstrend mit bearisher EMA-Struktur – die Erholung seit dem Tief bei 81,81 läuft auf sinkendem Volumen (0,87/0,70 an den letzten beiden Tagen), was für einen fragilen Bounce statt einer Trendwende spricht. Angesichts der fundamentalen Verschuldungs- und Verwässerungsrisiken rate ich von einem CSP hier ausdrücklich ab.</p>
+  <img class="chart" src="img/MSTR_20260716_200611.png" alt="Chart MSTR">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>Der Abwärtstrend von ~197$ (Mitte Mai) auf das 52-Wochen-Tief 81,81$ (26.06.) bleibt strukturell intakt. Seither eine Erholung auf zuletzt 101,95$ (Hoch 15.07.), Schluss 97,47$. Das Muster zeigt fallendes Volumen bei der Erholung (07.14: rel_volumen 0,87; 15.07.: 0,70) – ein klassisches Zeichen für einen technisch fragilen Bounce statt einer echten Trendwende. Wichtige, auch marktweit beobachtete Marke: 104,27$ als möglicher Wendepunkt, 112,62$ als nächster relevanter Widerstand.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>13.07.: Tief 90,02, Schluss 92,10 – letzter Tiefpunkt der jüngsten Konsolidierung. 14.07.: kräftige Erholungskerze, Schluss 97,58, aber unterdurchschnittliches Volumen. 15.07.: Hoch 101,95, Schluss 97,47 – Abweisung vom Tageshoch, weiterhin schwaches Volumen. Insgesamt eine Erholung ohne überzeugende Kaufkraft.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Weiterhin bearische Reihenfolge: EMA9 (96,11) < gema_321 (102,76) < EMA21 (102,83) << EMA55 (122,54). Der große Abstand zu EMA55 zeigt die Tiefe des vorangegangenen Ausverkaufs. Der Kurs (97,47) hat EMA9 knapp zurückerobert, bleibt aber weit unter dem EMA21/gema_321-Cluster – die eigentliche Entscheidungszone liegt bei 102,76–104,27.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Kein Trade</td></tr>
+    <tr><td>Einstieg</td><td>Abwarten: Long über Tagesschluss 104,27 (EMA21/gema_321-Zone plus vielbeachtete Marke) oder Short unter 90,02 (Bruch des Tiefs vom 13.07.) bzw. unter 81,81 (52-Wochen-Tief)</td></tr>
+    <tr><td>Stop</td><td>Long-Stop: 96,00 (unter dem Bounce-Tief) / Short-Stop: 98,50 (über dem Bounce-Hoch)</td></tr>
+    <tr><td>Ziel</td><td>Long: 112,62 (nächster Widerstand) / Short: 81,81, bei Bruch strukturloses Terrain darunter</td></tr>
+    <tr><td>CRV</td><td>Beide Szenarien nur bei klarer Bestätigung – Rohdaten reichen für keine verlässliche CRV-Angabe angesichts der fundamentalen Unsicherheit</td></tr>
+  </table>
+
+  <h3>5 · Stillhalter (max. 12 Tage)</h3>
+<p>Ein Cash-Secured Put ist bei MSTR aktuell besonders riskant – nicht nur wegen der Charttechnik, sondern weil das Unternehmen selbst unter finanziellem Stress steht (Bitcoin-Verkäufe zur Liquiditätssicherung, verwässernde Aktienplatzierungen, hohe Schuldenlast). Das ist ein anderes Risiko als ein normaler technischer Abwärtstrend. Ein Covered Call auf bestehende Positionen bleibt die konservativere Wahl.</p>
+<table class="setup"><tr><td>Geschäft</td><td>Covered Call</td></tr><tr><td>Strike</td><td>115.0</td></tr><tr><td>Puffer</td><td>18.0 %</td></tr><tr><td>Zone</td><td>über dem markbeobachteten Widerstand 112,62 (20-Tage-SMA-Bereich) plus Sicherheitsabstand</td></tr><tr><td>Verfall bis</td><td>2026-07-24 (8 Tage)</td></tr><tr><td>Begründung</td><td>Strike liegt über der auch außerhalb dieser Analyse breit beachteten Widerstandsmarke 112,62. Der sehr großzügige Puffer (18%) ist bewusst gewählt, da MSTR als gehebelter Bitcoin-Proxy zu den volatilsten Titeln dieser Serie zählt – Tagesbewegungen von 5-10% sind hier keine Seltenheit. Andienung bei 115,00 wäre nur bei einer deutlichen fundamentalen Stabilisierung (z.B. Ende der Bitcoin-Verkäufe, Bitcoin-Erholung) realistisch. WICHTIGER VORBEHALT: Die implizite Volatilität bei MSTR ist typischerweise extrem hoch – das bedeutet potenziell attraktive Prämien, aber auch entsprechend hohes Gap-Risiko. Prüfen: Prämie im Verhältnis zum 18%-Puffer, Liquidität am 115er.</td></tr></table>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 16.07.2026 anzeigen</summary>
+    <h1>MSTR – Fragile Erholung in einem fundamental belasteten Abwärtstrend</h1><h2>1. Warum diese Aktie anders zu behandeln ist</h2><p>MSTR ist im Kern ein mit rund 8,2 Mrd.$ Schulden gehebeltes Bitcoin-Vehikel. Der Kursverfall von ~197$ auf 81,81$ übertraf den Rückgang von Bitcoin selbst deutlich – ein Zeichen für die Hebelwirkung der Kapitalstruktur. Verschärfend kam hinzu, dass das Unternehmen erstmals seit Jahren tatsächlich Bitcoin verkaufte, um Vorzugsdividenden zu bedienen, und über eine ATM-Platzierung zusätzliches, verwässerndes Kapital aufnahm. Analysten diskutieren offen ein mögliches 'Death Spiral'-Szenario, sollte Bitcoin weiter fallen.</p><h2>2. Die technische Erholung im Detail</h2><p>Seit dem Tief bei 81,81$ (26.06.) legte die Aktie rund 29% (bis zum Verlaufshoch) zu, allerdings auf spürbar abnehmendem Volumen (07.14: 0,87; 15.07.: 0,70) – ein Muster, das für eine technisch nicht überzeugende Gegenbewegung spricht, nicht für eine nachhaltige Trendwende. Die Marke 104,27$ gilt auch marktweit als Schwelle zwischen einem echten Trendwechsel und einem weiteren gescheiterten Bounce innerhalb der fallenden Flagge.</p><h2>3. Setup-Szenarien</h2><p>Long-Bestätigung erst bei einem Tagesschluss über 104,27 mit Ziel 112,62, Stop 96,00. Short-Fortsetzung bei Bruch von 90,02 (jüngstes Tief) oder 81,81 (52-Wochen-Tief) – ein Bruch von 81,81 würde in strukturloses Terrain führen, da darunter keine Handelshistorie in diesem Datensatz existiert. Beide Szenarien sollten angesichts der fundamentalen Unsicherheit mit kleinerer Positionsgröße als bei den übrigen Aktien dieser Serie gehandelt werden.</p><h2>4. Stillhalter-Vertiefung</h2><p>CC bei 115,00 (18% Puffer): Nutzt die auch von externen Quellen bestätigte Widerstandsmarke 112,62 mit zusätzlichem Sicherheitsabstand für die hohe Volatilität. CSP explizit ausgeschlossen: Anders als bei einer normalen Aktie mit rein technischem Abwärtstrend liegt hier ein aktives fundamentales Risiko vor (Liquiditätsdruck, Verwässerung, Bitcoin-Verkäufe) – ein Put-Verkauf würde bedeuten, sich bewusst gegen ein sich entwickelndes Solvenz-adjazentes Risiko zu positionieren, nicht nur gegen normale Kursschwankungen. Rollentrigger CC: Tagesschluss über 104,27 mit deutlich erhöhtem Volumen.</p><h2>5. Abgleich mit früherer Analyse</h2><p>Die NEUTRAL/Kein-Trade-Einschätzung vom 08.07. wird bestätigt – trotz der zwischenzeitlichen Erholung bleibt die übergeordnete bearische EMA-Struktur unverändert, und die fundamentalen Risiken haben sich seither eher verschärft als entspannt (zusätzliche Aktienplatzierung, fortgesetzte Bitcoin-Verkäufe).</p>
+  </details>
+</section>
+
+<section class="analyse neutral">
+  <div class="kopf">
+    <span class="datum">08.07.2026</span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <p class="fazit">MSTR befindet sich in einem intakten Abwärtstrend mit schwacher Erholung um 100 USD – die EMAs sind bearish gestaffelt und der Kurs bleibt weit unter allen Durchschnitten; kein belastbares Long-Setup erkennbar.</p>
+  <img class="chart" src="img/MSTR_20260708_121750.png" alt="Chart MSTR">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>Der übergeordnete Trend ist klar bärisch: Von ~195 USD (Mitte Mai) fiel MSTR in einer fast ununterbrochenen Abwärtsbewegung auf ein Tief von 85,00 USD (25. Juni). Die Erholung seitdem (~85 → ~104) hat noch kein höheres Hoch produziert und stagniert um 97–104 USD. Die EMA-Struktur (EMA9 < EMA21 < EMA55) bestätigt den intakten Downtrend; eine Bodenbildung ist nicht bestätigt.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die letzte Kerze (07.07.) ist eine bearishe Inside-Bar mit tieferem Schlusskurs (97,36) nach dem Hoch vom Vortag (104,78). Davor zwei Doji/Spinning-Top-artige Kerzen um 100–104 USD mit langen Schatten – klassische Unentschlossenheit und potenzielle Distribution nach der Erholungsrally. Das rel_volumen ist mit 0,82 unterdurchschnittlich, was die Schwäche der Bullen signalisiert.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>EMA9 (97,95) < EMA21 (108,77) < EMA55 (129,26) – alle drei fallen noch, der gema_321 liegt bei 106,78. Der Kurs kämpft gerade mit dem EMA9 auf Augenhöhe, ist aber weit unter EMA21 und EMA55. Kein positives Kreuzungssignal in Sicht; für ein nachhaltiges Long wäre mindestens ein Schlusskurs über dem EMA21 (~109) nötig.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Kein Trade</td></tr>
+    <tr><td>Einstieg</td><td>Abwarten – kein bestätigtes Setup</td></tr>
+    <tr><td>Stop</td><td>–</td></tr>
+    <tr><td>Ziel</td><td>–</td></tr>
+    <tr><td>CRV</td><td>–</td></tr>
+  </table>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 08.07.2026 anzeigen</summary>
+    <h1>MSTR – Detailanalyse (Stand: 08.07.2026)</h1>
+
+<h2>1. Trendstruktur</h2>
+<p>MSTR hat seit dem Hoch bei <strong>195,94 USD (11.05.)</strong> einen klaren primären Abwärtstrend etabliert. Die Bewegung verlief in mehreren Schüben:</p>
+<ul>
+  <li><strong>Phase 1 (Mai → Anfang Juni):</strong> Konsolidierung / leichter Rückgang von 196 auf ~149 USD.</li>
+  <li><strong>Phase 2 (02.06.–10.06.):</strong> Beschleunigter Sell-off mit auffälligem Volumen. Am 05.06. rel_volumen = <strong>2,28</strong>, am 02.06. = <strong>1,73</strong> – institutionelle Distribution klar erkennbar.</li>
+  <li><strong>Phase 3 (18.06.–26.06.):</strong> Kapitulationsphase. Am 18.06. rel_volumen = <strong>1,92</strong> (Kurs -4 USD, Tief 107,85), am 24.06. = <strong>2,10</strong> (Kurs fällt auf 92,28), am 25.06. = <strong>2,30</strong> (Tief 85,00!), am 26.06. = <strong>2,26</strong>.</li>
+  <li><strong>Erholung (29.06.–02.07.):</strong> Starkes Reversal-Volumen: 29.06. rel_vol 2,16, 30.06. 1,68, 01.07. 1,61, 02.07. 1,59. Kurs springt von 82 auf 104,11.</li>
+  <li><strong>Stagnation (06.07.–07.07.):</strong> Kurs konsolidiert um 97–104, Volumen fällt ab (0,82 am 07.07.).</li>
+</ul>
+<p>Wichtige <strong>Widerstände:</strong> 104–105 USD (aktuelles Swing-Hoch, mehrfach abgeprallt), 109–112 USD (EMA21-Bereich), 120–125 USD (früheres Support-Level, jetzt Widerstand), 130+ USD (EMA55). <strong>Supports:</strong> 92–94 USD (29.06.-Basis), 85 USD (Kapitulationstief), 82 USD (absolutes Tief 26.06.).</p>
+<p>Das Muster zeigt bislang nur eine normale technische Gegenbewegung nach starkem Sell-off (ca. 25% Rebound vom Tief), aber noch <strong>kein höheres Hoch oder bestätigte Trendwende</strong>.</p>
+
+<h2>2. Candlestick-Formationen</h2>
+<p>Die Erholungsrally (29.06.–02.07.) verlief mit kräftigen Tageskerzen und überdurchschnittlichem Volumen – ein typischer Short-Covering-Bounce. Doch ab 06.07. zeigt sich ein anderes Bild:</p>
+<ul>
+  <li><strong>06.07.:</strong> Bullische Kerze (Open 95,13, Close 100,77, Hoch 104,78), aber Close ≠ Hoch → Verkaufsdruck am oberen Ende. rel_vol 1,25.</li>
+  <li><strong>07.07. (letzte Kerze):</strong> Bearisher Inside Day (Hoch 103,56 < Vortag 104,78; Close 97,36 unter Open 101,18). Dies ist ein <strong>Bearish Engulfing-artiges Signal</strong> innerhalb der Range, kein neues Hoch. rel_vol nur 0,82 – Bullen ziehen sich zurück. Der Kurs notiert wieder unter dem EMA9 (97,95 vs. 97,36 Close).</li>
+</ul>
+<p>Die Konstellation aus stagnierenden Hochs (~104 USD, zweimal abgelehnt), fallenden Schlusskursen und abnehmendem Volumen deutet auf <strong>Distribution oder zumindest Erschöpfung der Käufer</strong> hin.</p>
+
+<h2>3. EMA-Lage</h2>
+<p>Die EMA-Konstellation ist eindeutig bärisch:</p>
+<ul>
+  <li><strong>EMA9: 97,95</strong> (noch fallend, leicht abflachend)</li>
+  <li><strong>EMA21: 108,77</strong> (fallend)</li>
+  <li><strong>EMA55: 129,26</strong> (fallend)</li>
+  <li><strong>gema_321: 106,78</strong> (gewichteter Verbund, deutlich über Kurs)</li>
+</ul>
+<p>Der Kurs (97,36) liegt <strong>unterhalb aller drei EMAs</strong> und unterhalb des gema_321. Die Spreizung zwischen EMA9 und EMA55 beträgt ~31 USD – ein Zeichen tiefer bärischer Momentum-Struktur. Der EMA9 flacht leicht ab, was die aktuelle Seitwärtsbewegung widerspiegelt, bietet aber noch kein Kaufsignal. Für ein belastbares Long müsste der Kurs <strong>nachhaltig über den EMA21 (~109 USD)</strong> schließen, gefolgt von einer Kreuzung EMA9 > EMA21.</p>
+
+<h2>4. Trade-Setups</h2>
+
+<h3>Setup A – Bearish: Short bei erneutem Scheitern am Widerstand (bevorzugt)</h3>
+<p>Wenn der Kurs erneut in die Zone 102–105 USD ansteigt und dort Schwäche zeigt (bearishe Kerze, abnehmender Volumen), bietet sich ein Short an:</p>
+<ul>
+  <li><strong>Einstieg:</strong> 102,00–104,00 (bearishe Reversal-Kerze unter Tagesschluss)</li>
+  <li><strong>Stop:</strong> 106,00 (über jüngstes Swing-Hoch)</li>
+  <li><strong>Ziel 1:</strong> 92,00–94,00 (29.06.-Unterstützungszone) → CRV ~2:1</li>
+  <li><strong>Ziel 2:</strong> 85,00 (Kapitulationstief) → CRV ~4:1</li>
+</ul>
+
+<h3>Setup B – Bullish: Long bei Ausbruch über EMA21 mit Volumen</h3>
+<p>Nur bei einem überzeugenden Tagesschluss über ~109–112 USD auf erhöhtem Volumen (rel_vol > 1,5) wäre ein Long vertretbar:</p>
+<ul>
+  <li><strong>Einstieg:</strong> Stop-Buy 110,00</li>
+  <li><strong>Stop:</strong> 100,00 (unter jüngsten Swing-Tiefs)</li>
+  <li><strong>Ziel 1:</strong> 120–125 USD → CRV ~1,1:1 (zu klein)</li>
+  <li><strong>Ziel 2:</strong> 130–135 USD (EMA55-Bereich) → CRV ~2:1</li>
+  <li><strong>Problem:</strong> CRV für Ziel 1 unattraktiv, Setup hat noch keine technische Bestätigung.</li>
+</ul>
+
+<h3>Setup C – Kein Trade (aktuell bevorzugt)</h3>
+<p>Angesichts der Unsicherheit (möglicher Boden, aber kein Beweis; Widerstand bei 104 hält, aber kein neuer Ausbruch nach unten) ist <strong>Abwarten die risikoärmste Option</strong>. Die nächsten 2–3 Kerzen werden zeigen, ob die Erholung weitergeht oder scheitert. Ein klares Muster abwarten, bevor Kapital eingesetzt wird.</p>
+
+<p><strong>Fazit:</strong> MSTR ist noch tief im Abwärtstrend gefangen. Die Erholung von 85 auf 104 USD ist technisch interessant, aber nicht ausreichend für ein bullisches Engagement. Kurzfristig bärische Tendenz überwiegt bei 97–100 USD – erst über 110 USD wird der Chart konstruktiver.</p>
+  </details>
+</section>
+
+
+  <footer>Automatisch erstellt · <a href="index.html">Zur Übersicht</a> ·
+    Keine Anlageberatung</footer>
+</div>
+</body>
+</html>

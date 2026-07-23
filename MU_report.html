@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MU – Analyse-Historie</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0d1319; --panel:#161e27; --line:#232e3a;
+    --text:#d9e1e8; --muted:#7e8b99; --accent:#e5a63c;
+    --long:#3ec08b; --short:#e2604f; --neutral:#8a96a3;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);
+       font:15px/1.6 "IBM Plex Sans",sans-serif;padding:32px 16px}
+  .wrap{max-width:860px;margin:0 auto}
+  header{display:flex;align-items:baseline;gap:14px;
+         border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:28px}
+  header h1{font:500 30px "IBM Plex Mono",monospace;margin:0;letter-spacing:1px}
+  header .sub{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:2px}
+
+  /* Eine Analyse = eine section; farbige Signalleiste links */
+  section.analyse{background:var(--panel);border:1px solid var(--line);
+                  border-left:4px solid var(--neutral);
+                  border-radius:6px;padding:22px 26px;margin-bottom:22px}
+  section.analyse.long{border-left-color:var(--long)}
+  section.analyse.short{border-left-color:var(--short)}
+
+  .kopf{display:flex;justify-content:space-between;align-items:center;
+        flex-wrap:wrap;gap:8px;margin-bottom:6px}
+  .datum{font:500 13px "IBM Plex Mono",monospace;color:var(--muted)}
+  .badge{font:500 12px "IBM Plex Mono",monospace;letter-spacing:2px;
+         padding:3px 10px;border-radius:3px;color:#0d1319}
+  .badge.long{background:var(--long)}
+  .badge.short{background:var(--short)}
+  .badge.neutral{background:var(--neutral)}
+
+  .fazit{font-size:16px;font-weight:600;margin:0 0 16px}
+  img.chart{width:100%;border:1px solid var(--line);border-radius:4px;margin:4px 0 12px}
+  h3{font:500 12px "IBM Plex Mono",monospace;color:var(--accent);
+     text-transform:uppercase;letter-spacing:2px;margin:18px 0 4px}
+  p{margin:6px 0;color:var(--text)}
+
+  /* Setup-Tabelle in Monospace, Zahlen buendig */
+  table.setup{width:100%;border-collapse:collapse;margin-top:8px;
+              font:14px "IBM Plex Mono",monospace}
+  table.setup td{padding:6px 10px;border-top:1px solid var(--line)}
+  table.setup td:first-child{color:var(--muted);width:120px}
+
+  /* Aufklappbarer Volltext in aelteren Analyse-Karten */
+  details.volltext{margin-top:16px;border-top:1px solid var(--line);padding-top:10px}
+  details.volltext summary{cursor:pointer;font:500 12px "IBM Plex Mono",monospace;
+                color:var(--muted);text-transform:uppercase;letter-spacing:2px}
+  details.volltext summary:hover{color:var(--accent)}
+  details.volltext h1,details.volltext h2{font-size:15px;color:var(--accent);margin:14px 0 6px}
+  details.volltext strong{color:#fff}
+
+  footer{color:var(--muted);font-size:12px;text-align:center;margin-top:32px}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>MU</h1>
+    <span class="sub">Analyse-Historie · neueste zuerst</span>
+  </header>
+
+<!-- NEUE_ANALYSE_HIER -->
+<section class="analyse neutral">
+  <div class="kopf">
+    <span class="datum">23.07.2026 </span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <p class="fazit">MU zeigt nach dem Tief bei ~804 USD (17.07.) eine deutliche Erholung auf 992 USD – der Kurs testet jetzt die kritische EMA9/EMA21-Konfluenz und den Widerstandsbereich 960–1.000 USD; die Short-These der Vorgänger-Analysen wird partiell falsifiziert, aber noch kein sauberer Trendwechsel bestätigt.</p>
+  <img class="chart" src="img/MU_20260723_122425.png" alt="Chart MU">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>Der Abwärtstrend seit dem Doppeltop-Bereich (1.211–1.255 USD, 22./25.06.) ist strukturell intakt: tiefere Hochs und tiefere Tiefs dominieren das Bild. Das Tief vom 17.07. bei 804 USD ist der bisher tiefste Punkt. Seither zeigt MU jedoch eine V-förmige Erholung: 804 → 865 (20.07.) → 970 (21.07.) → 959 (22.07.) → 992 (aktuell, 23.07.). Diese Bounce-Intensität ist bemerkenswert und übertrifft alle bisherigen Erholungsversuche im Abwärtstrend. Der Kurs nähert sich nun dem entscheidenden Widerstandscluster 960–1.000 USD, welcher den ehemaligen Support-Bereich aus Mitte Juli repräsentiert. Ein nachhaltiger Schlusskurs über 1.000 USD würde das Bild graduell aufhellen.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die letzten drei Kerzen zeichnen ein bullisches Reversal-Muster: Am 17.07. entstand eine Hammer-ähnliche Kerze mit langem Docht nach unten (Tief 804, Schluss 849) bei erhöhtem Volumen (rel. 1.18 – über Durchschnitt). Am 21.07. folgte eine starke Aufwärts-Marubozu mit Schluss 970 (rel. 0.92 – leicht unter Schnitt, was die Nachhaltigkeit noch einschränkt). Am 22.07. eine Doji/Inside-Bar-artige Kerze (High 982, Close 959, rel. Volumen 0.59 – deutlich unter Schnitt): Konsolidierung ohne Verkaufsdruck. Der heutige Gap-up auf 992 (+3.44%) bei noch unbekanntem Tagesvolumen bestätigt die Käufer-Dominanz kurzfristig.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Die EMA-Lage ist gespalten: EMA9 (934) liegt unter EMA21 (959), beide fallen noch – klassisch bärische Reihenfolge. EMA55 (887) zeigt erste Abflachung. Der gema_321 (934) befindet sich unterhalb von EMA21, was den Gesamttrend weiterhin als bärisch klassifiziert. Positiv: Der Kurs bei 992 notiert jetzt ÜBER EMA9 und EMA21 – das ist der erste derartige Test seit dem Breakdown Anfang Juli. Ein Schlusskurs über EMA21 (959) würde ein erstes bullisches Signal senden. Noch kein Golden Cross, kein EMA-Bullish-Stack.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Kein Trade</td></tr>
+    <tr><td>Einstieg</td><td>Kein direktionaler Einstieg – abwarten ob Kurs über 1.000 USD schließt (bullisches Signal) oder am Widerstand scheitert (erneuter Short-Ansatz ab ~1.000–1.020 USD)</td></tr>
+    <tr><td>Stop</td><td>–</td></tr>
+    <tr><td>Ziel</td><td>–</td></tr>
+    <tr><td>CRV</td><td>–</td></tr>
+  </table>
+
+  <h3>5 · Stillhalter (max. 12 Tage)</h3>
+<p>Die Erholung von 804 auf ~992 USD (+23% in 5 Tagen) schafft erstmals seit Wochen eine Basis für einen vorsichtigen Cash-Secured Put – sofern das Tief bei 804 USD als vorläufige Unterstützung respektiert wird. Ein CC ist angesichts fehlenden Aktienbestands nur als Naked Call möglich und aktuell bei laufender Erholung nicht attraktiv. Der CSP mit Strike unterhalb der 840-USD-Zone (nächste technische Unterstützung) ist das präferierte Instrument.</p>
+<table class="setup"><tr><td>Geschäft</td><td>Cash-Secured Put</td></tr><tr><td>Strike</td><td>840.0</td></tr><tr><td>Puffer</td><td>15.3 %</td></tr><tr><td>Zone</td><td>unter dem Tief vom 17.07. (804 USD) und dem Konsolidierungsbereich 840–865 USD (Hochs 17.–20.07.)</td></tr><tr><td>Verfall bis</td><td>2026-08-01 (9 Tage)</td></tr><tr><td>Begründung</td><td>Strike 840 USD liegt unterhalb des wichtigen Konsolidierungsbereichs 840–865 USD, der sich nach dem Tief vom 17.07. (804 USD) gebildet hat. Der Kurs müsste 15.3% fallen, um diesen Strike zu gefährden – und dabei das frische Tief bei 804 USD erneut unterschreiten. Das EMA55 (887 USD) und der Bereich 840–865 USD bilden eine Konfluenz-Unterstützungszone. Andienungsszenario: Eine Andienung zu 840 USD wäre ein Kauf unterhalb des EMA55 in einer Zone, die zuletzt als Boden fungierte – technisch akzeptabel für einen mittelfristig orientierten Anleger. Der Anwender sollte in der Optionskette für Verfall 01.08.2026 prüfen: Prämie bei Strike 840 (sollte angesichts der erhöhten IV nach dem Trendbruch zweistellig sein), Delta (idealerweise -0.15 bis -0.25), Bid-Ask-Spread und Open Interest. Hinweis: Das 804-USD-Tief ist erst ein einmaliger Test – noch kein bestätigter Support. Erster Roll-Trigger: Kurs fällt unter 870 USD (Nähe zur EMA55-Zone).</td></tr></table>
+<p><strong>Bestand:</strong> Laut IBKR-Snapshot (11:37 Uhr, 23.07.2026) bestehen keine offenen Optionspositionen und kein Aktienbestand in MU. Der CC-Setup aus der Analyse vom 19.07. (Strike 950, Verfall 25.07.) wurde nicht eingegangen oder ist ausgelaufen – keine Roll-Empfehlung erforderlich. Der Verfall 25.07. liegt in zwei Tagen; falls doch eine Position besteht, ist sie mit hoher Wahrscheinlichkeit tief im Geld (Kurs 992 > Strike 950) und sollte sofort bewertet werden.</p>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 23.07.2026 anzeigen</summary>
+    <h1>MU – Technische Analyse & Stillhalter-Setup | 23.07.2026</h1>
+
+<h2>Abgleich mit historischen Analysen</h2>
+<p>Die Short-Thesen vom 08.07., 16.07. und 19.07.2026 werden <strong>partiell bestätigt, partiell falsifiziert</strong>. Das Kursziel ~800 USD wurde fast erreicht (Tief 804 USD am 17.07.) – das ist eine starke Bestätigung der bärischen Richtungs-Einschätzung. Der CC-Strike 950 USD aus dem 16.07.-Setup (Verfall 24.07.) wäre heute tief im Geld – ein mahnendes Beispiel für die Naked-Call-Risiken, die in der 19.07.-Analyse explizit benannt wurden. Die aktuelle Erholung auf 992 USD widerspricht der Fortsetzung des Abwärtstrends und erfordert eine Neubewertung. Die Short-These ist damit noch nicht geschlossen, aber die Dynamik hat sich verändert.</p>
+
+<h2>1. Trendstruktur im Detail</h2>
+<p>MU bildet folgende Swing-Struktur aus:</p>
+<ul>
+  <li><strong>Doppeltop-Bereich:</strong> 1.211 USD (22.06.) und 1.255 USD (25.06.) – das strukturelle Hoch</li>
+  <li><strong>Erstes tieferes Tief:</strong> 840 USD (16.–17.07., mehrfach getestet)</li>
+  <li><strong>Absolutes Tief:</strong> 804 USD (17.07., Intraday) – unbestätigter Support (einmaliger Test)</li>
+  <li><strong>Aktuelles Bounce-Hoch:</strong> 992 USD (21.–22.07.), heute bereits überschritten</li>
+  <li><strong>Kritische Widerstandszone:</strong> 960–1.000 USD – Confluence aus ehem. Hochs 21.–22.07., EMA9 (934, steigend), EMA21 (959, noch leicht fallend) und der psychologischen 1.000er-Marke</li>
+</ul>
+<p>Das Sequenz-Muster ist noch <em>bärisch</em> (tieferes Hoch, tieferes Tief), aber das Tempo der Erholung (+23% in 5 Handelstagen) ist ein klares Warnsignal für aktive Short-Positionen. Ein Schlusskurs über 1.000–1.020 USD würde ein <strong>höheres Hoch</strong> gegenüber dem Bounce vom 09.07. (1.035 USD) noch nicht etablieren, aber die Dynamik signifikant verändern. Erst ein Schlusskurs über ~1.050 USD (Swing-Hoch vom 17.07. war 903 – nein: Swing-Hoch 07.07. bei 942, 08.07. bei 959, 09.07. bei 1.035) würde das Bild bullisch kippen.</p>
+
+<h2>2. Candlestick-Analyse</h2>
+<p>Das Reversal-Setup der letzten Kerzen im Detail:</p>
+<ul>
+  <li><strong>17.07. (Hammer):</strong> Open 822, High 904, Low 804, Close 849 – langer unterer Docht signalisiert starke Käufer bei 804. Rel. Volumen 1.18 – leicht über Schnitt, aber kein Blow-Off-Volumen. Dies ist <em>noch kein</em> bestätigter Boden.</li>
+  <li><strong>20.07. (Bullische Folgekerze):</strong> Open 885, High 900, Close 865 – Konsolidierung über Hammer-Niveau. Rel. Volumen 0.70 – unter Schnitt. Schwache Bestätigung.</li>
+  <li><strong>21.07. (Starke Marubozu):</strong> Open 925, High 983, Close 971 – Gap-up, starker Durchbruch durch EMA55 (881). Rel. Volumen 0.92 – noch unter Schnitt. Fehlende Volumen-Bestätigung trübt das Bild.</li>
+  <li><strong>22.07. (Inside Bar / Spinning Top):</strong> High 983, Low 936, Close 959 – Konsolidierung, kein Rücksetzer. Rel. Volumen 0.59 – sehr niedrig. Käufer haben Kontrolle, aber ohne Überzeugung.</li>
+  <li><strong>23.07. (Heutiger Gap-up):</strong> Aktuell 992 (+3.44%) – bricht über das 22.07.-Hoch. Volumen-Daten noch ausstehend. Erst Tagesabschluss gibt Aufschluss.</li>
+</ul>
+<p><strong>Fazit Candlestick:</strong> Bullisches Reversal-Muster in der Entstehung, aber konsistent unter-durchschnittliches Volumen in der Erholungsphase ist ein Yellow Flag. Ein High-Volume-Schlusskurs über 1.000 USD würde die These stärken.</p>
+
+<h2>3. EMA-Analyse und gema_321-Verbund</h2>
+<p>Stand 22.07.2026 (Schlusskurs 959): EMA9 = 934, EMA21 = 959, EMA55 = 887, gema_321 = 934.</p>
+<p>Die Reihenfolge EMA9 (934) unter EMA21 (959) bei EMA55 (887) darunter ist klassisch bärisch, aber in Auflösung begriffen. Bemerkenswertes Detail: EMA9 und gema_321 sind wertgleich bei 934 – kein Kompressions-Artefakt, sondern Konvergenz. Der Kurs bei aktuell 992 liegt <strong>über EMA9 und über EMA21</strong> – das ist der erste derartige Stand seit dem Breakdown Anfang Juli und ein kurzfristig bullisches Signal.</p>
+<p>Für einen nachhaltigen EMA-Bullish-Stack (EMA9 > EMA21 > EMA55, Kurs darüber) ist noch Arbeit nötig. EMA21 muss drehen, EMA9 muss aufholen. Bei aktuellem Kurs ~992 würde EMA9 morgen auf ~945 steigen – der Stack könnte sich in 3–5 Handelstagen formieren, wenn der Kurs stabil bleibt.</p>
+
+<h2>4. Alternative Trade-Setups</h2>
+<p><strong>Setup A – Abwarten und Long-Break (bevorzugt, konservativ):</strong><br/>
+Einstieg: Stop-Buy bei 1.005 USD (Tagesschluss über 1.000 USD abwarten, dann Break-Buy am Folgetag). Stop: 940 USD (unter EMA9 und EMA21). Ziel 1: 1.080 USD (Swing-Hoch 01.07.), Ziel 2: 1.145 USD (Swing-Hoch 29.06.). CRV Ziel 1: ca. 1.2:1 – knapp. CRV Ziel 2: ca. 2.2:1 – attraktiv. Risiko: Fehlausbruch an 1.000er-Marke.</p>
+<p><strong>Setup B – Short-Reversal am Widerstand (für Short-Trader):</strong><br/>
+Einstieg: Limit-Short bei 1.010–1.020 USD (falls Kurs am 1.000er-Bereich scheitert und Umkehrsignal zeigt). Stop: 1.060 USD. Ziel: 870 USD (EMA55-Bereich). CRV: ca. 2.3:1. Voraussetzung: Bärische Tageskerze (Shooting Star / Doji) im 1.000–1.020-Bereich.</p>
+<p><strong>Setup C – Kein direktionaler Trade (aktuell empfohlen):</strong><br/>
+Die Lage ist zu unklar für einen direktionalen Einstieg. Stillhalter-Strategien mit ausreichend Puffer sind die bessere Wahl in diesem Umfeld.</p>
+
+<h2>5. Stillhalter-Analyse (Schwerpunkt)</h2>
+<h3>Cash-Secured Put | Strike 840 | Verfall 01.08.2026</h3>
+<p><strong>Zonen-Herleitung:</strong> Das absolute Tief liegt bei 804 USD (17.07., einmaliger Test – unbestätigter Support). Die Zone 840–865 USD wurde zwischen 17.07. und 20.07. als Basis für den aktuellen Bounce genutzt (Schluss 849 am 17.07., Schluss 865 am 20.07.). Diese Zone ist noch jung und nicht mehrfach bestätigt – technisch ein 'unbestätigter Bereich', aber mit frischer Preis-Aktion. EMA55 bei 887 USD bildet eine erste dynamische Unterstützung oberhalb davon.</p>
+<p><strong>Puffer:</strong> Strike 840 bei aktuellem Kurs 992 = 15.3% Puffer. Der Kurs muss die EMA55 (887), die Konsolidierungszone (840–865) und das absolute Tief (804) durchbrechen, um den Strike zu gefährden – drei Sicherheitsschichten.</p>
+<p><strong>Andienungsszenario:</strong> Andienung zu 840 USD bedeutet Kauf unterhalb des EMA55, in der Zone des frischen Tiefs. Das wäre fundamentales Trendbruch-Territorium – für einen langfristig orientierten MU-Anleger akzeptabel, für einen reinen Trader suboptimal. Wichtig: MU ist ein zyklischer Halbleiter-Wert mit hoher Volatilität. Die Cost-Basis nach Prämienabzug liegt effektiv unter 840 USD.</p>
+<p><strong>Roll-Trigger:</strong> Falls MU unter 890 USD fällt (Verlust des EMA55-Niveaus), sollte der CSP bewertet werden – entweder rollen (Strike tiefer, Laufzeit verlängern, Netto-Kredit) oder schließen, wenn die technische Lage eine Neubewertung erfordert. Ein Bruch unter 840 USD intraday ist ein sofortiger Alarm.</p>
+<p><strong>Optionskette (manuell zu prüfen):</strong> Prämie für CSP Strike 840, Verfall 01.08.2026 – bei aktueller IV (zyklischer Chip-Wert in volatiler Marktphase) ist eine Prämie von 5–15 USD im Bereich des Möglichen. Delta sollte bei -0.15 bis -0.20 liegen. Auf Bid-Ask-Spread und Open Interest achten – MU hat in der Regel gute Options-Liquidität.</p>
+<p><strong>Alternative CSP-Strikes:</strong> Strike 800 USD (unter absolutem Tief, ~19.4% Puffer) für mehr Sicherheit, aber geringere Prämie. Strike 870 USD (~12.3% Puffer, näher an EMA55) für höhere Prämie bei weniger Sicherheitspuffer.</p>
+<h3>Covered Call / Naked Call</h3>
+<p>Kein Aktienbestand (0 Aktien laut IBKR-Snapshot) – ein CC ist nicht möglich. Ein Naked Call oberhalb des 1.000–1.020 USD Widerstands wäre bei laufender Erholung riskant und widerspricht der NEUTRAL-Einschätzung. Daher kein CC/Naked-Call-Setup für heute. Falls der Kurs am 1.000er-Widerstand scheitert und wieder unter 950 USD fällt, wäre ein Naked Call Strike 1.050 USD für Verfall 01.08.2026 erneut prüfbar – aber erst nach technischer Bestätigung des Scheiterns.</p>
+  </details>
+</section>
+
+<section class="analyse short">
+  <div class="kopf">
+    <span class="datum">19.07.2026 </span>
+    <span class="badge short">SHORT</span>
+  </div>
+  <p class="fazit">MU bleibt im intakten Abwärtstrend – der EMA-Stack ist vollständig bärisch geordnet, der Kurs notiert unter allen EMAs, und die Bounce-Versuche scheitern konsequent an fallenden Widerständen; die Short-These vom 08. und 16.07. wird bestätigt.</p>
+  <img class="chart" src="img/MU_20260719_131607.png" alt="Chart MU">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>MU hat das Doppeltop-Areal bei 1.211–1.255 USD (Juni-Hochs) nachhaltig verlassen und durchläuft seit Ende Juni einen beschleunigten Abwärtstrend mit einer Kette fallender Hochs und fallender Tiefs: Swing-Hoch 1.255 USD (25.06.) → 1.168 USD (24.06.-Bereich) → 1.148 USD (29.06.) → 994 USD (14.07.) → 887 USD (16.07.), Swing-Lows sukzessive tiefer. Der Kurs notiert aktuell bei ~853 USD und hat die im 16.07.-Setup genannte psychologische Marke 800–840 USD fast erreicht. Primärer Trend: SHORT. Die unbestätigte Unterstützungszone 800–840 USD liegt unmittelbar darunter.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die letzten drei Kerzen zeigen ein klassisches Bärenmuster: 15.07. eine lange schwarze Kerze mit hohem Volumen (rel. 1.03), Schlusskurs 904 USD; 16.07. erneute Ausverkaufskerze auf 853 USD (rel. 0.88); 17.07. ein Inside-Day-artiger Bounce-Versuch (High 903, Close 849 USD) mit erhöhtem Volumen (rel. 1.18) – die Kerze schließt jedoch nahe dem Tief, was den Bounce-Fehlschlag dokumentiert. Kein bärisches Engulfing, aber auch kein bullisches Reversal-Signal erkennbar; der Selling Pressure hält an.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Die EMA-Struktur ist klar bärisch: EMA9 (928) > EMA21 (967) > EMA55 (882) in Bezug auf Niveau, wobei EMA9 und EMA21 beide fallend und weit über dem Kurs (853 USD) liegen – das ist ein ungewöhnliches Kompressions-Artefakt, weil EMA9 unter EMA21 liegt, EMA55 aber darunter fällt (882). EMA9 (928) < EMA21 (967) < Kurs 853 USD: Kurs läuft unter allen drei EMAs. Der gema_321 liegt bei ~933 und fällt steil – der gesamte gewichtete EMA-Verbund ist als Deckel über dem Kurs zu verstehen. Jeder Bounce in den 880–930-USD-Bereich trifft auf den EMA55 (882) und den fallenden EMA9 (928) als Widerstand.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Short</td></tr>
+    <tr><td>Einstieg</td><td>887.00 (Limit-Short bei Bounce in EMA55-Zone 880–900 USD)</td></tr>
+    <tr><td>Stop</td><td>940.00 (über EMA9 bei 928 und Widerstands-Cluster 930–940 USD)</td></tr>
+    <tr><td>Ziel</td><td>800.00 (psychologische Marke / unbestätigte Unterstützungszone 800–840 USD)</td></tr>
+    <tr><td>CRV</td><td>1.5 : 1 (bei Ziel 760 USD steigt CRV auf 2.4 : 1)</td></tr>
+  </table>
+
+  <h3>5 · Stillhalter (max. 12 Tage)</h3>
+<p>Die Marktstruktur erlaubt weiterhin keinen Cash-Secured Put – kein bestätigter Support unter dem Kurs, und das 800-USD-Niveau ist bisher nur eine psychologische Marke ohne technische Bestätigung. Ein Covered Call auf Bounce-Niveau bleibt das einzige sinnvolle Stillhalter-Instrument; da kein Aktienbestand (0 Stück laut IBKR-Snapshot) vorliegt, handelt es sich um einen Naked Call mit entsprechend erhöhtem Risikoprofil – nur für erfahrene Stillhalter geeignet.</p>
+<table class="setup"><tr><td>Geschäft</td><td>Covered Call</td></tr><tr><td>Strike</td><td>950.0</td></tr><tr><td>Puffer</td><td>11.3 %</td></tr><tr><td>Zone</td><td>über EMA9 (928 USD) und Widerstands-Cluster 930–960 USD (Swing-Hochs 07.–14.07.)</td></tr><tr><td>Verfall bis</td><td>2026-07-25 (6 Tage)</td></tr><tr><td>Begründung</td><td>Strike 950 USD liegt klar oberhalb des fallenden EMA9 (928 USD) und des Widerstands-Clusters aus den Swing-Hochs 07.–14.07. (942–994 USD, Schwerpunkt 930–960 USD). Der Kurs müsste vom aktuellen Niveau rund 11,3% steigen, um in Gefahr zu geraten – und dabei gleich drei Widerstandsebenen (EMA55 bei 882, EMA9 bei 928, Cluster 930–960) überwinden. Andienungsszenario: Ein Anstieg über 950 USD würde eine fundamentale Trendwende signalisieren (Bruch über alle fallenden EMAs und den Widerstands-Cluster) – in diesem Fall wäre die gesamte Short-These zu revidieren und der Verlust aus dem Naked Call wäre der geringere Schaden. Wichtig: Da kein Aktienbestand vorliegt, ist dies ein Naked Call (unbegrenztes Upside-Risiko). Der Anwender muss in der Optionskette für Verfall 25.07.2026 die Prämie bei Strike 950 USD prüfen – bei der aktuell erhöhten Volatilität (Abwärtstrend mit täglichen Ranges von 50–100 USD) sollte eine zweistellige Prämie stehen. Auf Bid-Ask-Spread und Open Interest achten; ggf. Strike 1000 USD als Alternative für mehr Puffer.</td></tr></table>
+<p><strong>Bestand:</strong> Laut IBKR-Snapshot (12:10 Uhr, 19.07.2026) bestehen keine offenen Optionspositionen in MU. Der CC vom 16.07.-Setup (Strike 950, Verfall 24.07.) wurde offenbar nicht eingegangen oder ist bereits ausgelaufen – keine Roll-Empfehlung erforderlich. Für einen Neueinstieg als Naked Call auf Bounce-Niveau gelten die obigen Parameter.</p>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 19.07.2026 anzeigen</summary>
+    <h1>MU – Technische Analyse &amp; Stillhalter-Setup | 19.07.2026</h1>
+
+<h2>Abgleich mit früheren Analysen</h2>
+<p>Die Short-These vom <strong>08.07.2026</strong> (Einstieg 960, Ziel 860 USD) wird vollständig bestätigt: MU hat das Ziel 860 USD unterschritten und notiert aktuell bei ~853 USD. Die Analyse vom <strong>16.07.2026</strong> (Einstieg 887, Ziel 800 USD) ist ebenfalls auf Kurs – der Kurs hat das Einstiegsniveau bereits unterschritten, das Ziel 800 USD liegt noch vor uns. Der CC-Strike 950 (Verfall 24.07.) aus der 16.07.-Analyse bietet laut IBKR-Snapshot keine offene Position – es ist unklar, ob er nicht eingegangen wurde. Für den 19.07. gilt: Die bearishe Struktur ist intakt, keine Signale einer Trendwende.</p>
+
+<h2>1. Trendstruktur</h2>
+<p>MU durchläuft seit dem Doppeltop-Bereich <strong>1.211–1.255 USD</strong> (Hochs 22.06. und 25.06.2026) einen nachhaltigen Abwärtstrend. Die Sequenz fallender Hochs und Tiefs ist eindeutig:</p>
+<ul>
+  <li>Doppeltop: 1.213 USD (22.06.) und 1.255 USD (25.06.) – klassische Distribution</li>
+  <li>Folge-Hochs: 1.148 USD (29.06.) → 994 USD (14.07.) → 887 USD (16.07.) – jedes Bounce-Hoch tiefer als das vorherige</li>
+  <li>Swing-Lows: 1.023 USD (01.07.) → 950 USD (07.07.) → 840 USD (16.07.) → 804 USD (17.07. intraday)</li>
+</ul>
+<p>Der nächste relevante <strong>Unterstützungsbereich liegt bei 800–840 USD</strong> – dieser wurde noch nicht mehrfach getestet und gilt daher als <em>unbestätigter Bereich</em>. Die psychologische Marke 800 USD ist das primäre Kursziel. Darunter wäre der Bereich <strong>760–780 USD</strong> die nächste Orientierung (Konsolidierungstiefs aus dem Mai-Cluster Anfang Mai 2026 nicht vorhanden; aus Fibonacci-Projektion des Doppeltop-Abfalls ab 1.255 USD: 0.5-Retracement auf ~730 USD).</p>
+<p><strong>Widerstandscluster nach oben:</strong></p>
+<ul>
+  <li>EMA55: 882 USD (fallend) – erste Hürde</li>
+  <li>EMA9: 928 USD (fallend) – zweite Hürde</li>
+  <li>Swing-Hochs 07.–14.07.: 930–994 USD – Widerstands-Cluster (mehrfach getestet, mehrfach gescheitert)</li>
+  <li>EMA21: 967 USD (fallend) – innerhalb des Clusters</li>
+  <li>1.000-USD-Marke: psychologische Resistance</li>
+</ul>
+
+<h2>2. Candlestick-Formationen</h2>
+<p>Die letzten drei Tageskerzen sind aufschlussreich:</p>
+<ul>
+  <li><strong>15.07.</strong>: Eröffnung 975, Tief 873, Schluss 904 USD – Long Body mit langem unteren Docht; hohe Range, erhöhtes Volumen (rel. 1.03). Momentaner Bounce-Versuch, aber Schlusskurs weit unter Eröffnung → Bären kontrollieren den Schluss.</li>
+  <li><strong>16.07.</strong>: Eröffnung 866, Hoch 887, Tief 840, Schluss 853 USD – kompakter Bärenkörper, kein echter Bounce. Volumen 0.88× Durchschnitt – kein Panik-Selling, aber stetiger Abwärtsdruck.</li>
+  <li><strong>17.07.</strong>: Eröffnung 822, Hoch 903, Tief 804, Schluss 848 USD – Inside-artiger Tag mit großer Range und erhöhtem Volumen (rel. 1.18). Das Hoch bei 903 (nahe EMA55 bei 882) wurde <em>nicht gehalten</em>; Schluss nahe dem Tief = Failed Bounce. Dies ist ein bearishes Signal: Käufer konnten den Bounce nicht verteidigen.</li>
+</ul>
+<p>Kein bullisches Reversal-Muster erkennbar (kein Hammer mit langem Docht und Schluss nahe Hoch, kein Engulfing). Die Kerzenkonstellation bestätigt den Verkaufsdruck.</p>
+
+<h2>3. EMA-Lage</h2>
+<p>Die EMA-Reihenfolge ist nominal ungewöhnlich: EMA9 (928) &lt; EMA21 (967), aber EMA55 (882) liegt darunter. Das entsteht, weil EMA55 träger auf den langen Aufwärtstrend März–Juni reagiert und noch nicht so weit gefallen ist wie EMA9/21 relativ zum aktuellen Kurs. <strong>Kurs (853) liegt unter allen drei EMAs</strong> – das ist das entscheidende bärische Signal. Der gema_321 bei ~933 USD fällt steil und bildet gemeinsam mit EMA9 und EMA21 einen Deckel über dem Markt.</p>
+<p><strong>Abstand zum EMA55 (882):</strong> ~3,4% – der nächste relevante EMA. Ein Bounce bis 882 wäre charttechnisch möglich (Mean-Reversion-Versuch), würde aber im Abwärtstrend als Verkaufsgelegenheit gewertet. Der <strong>EMA55 fällt erstmals seit Wochen</strong> (von 884 auf 882 in den letzten Tagen) – auch der langfristige Anker dreht nun bärisch.</p>
+
+<h2>4. Trade-Setup-Alternativen</h2>
+<p><strong>Setup A (bevorzugt) – Short auf Bounce:</strong></p>
+<ul>
+  <li>Einstieg: 887 USD (Limit-Short bei Bounce in EMA55-Zone 880–900)</li>
+  <li>Stop: 940 USD (über EMA9 und Widerstands-Cluster)</li>
+  <li>Ziel 1: 800 USD → CRV 1.6 : 1</li>
+  <li>Ziel 2: 760 USD → CRV 2.4 : 1</li>
+</ul>
+<p><strong>Setup B – Aggressiver Short auf aktuellem Niveau:</strong></p>
+<ul>
+  <li>Einstieg: 853 USD (Market/Limit)</li>
+  <li>Stop: 910 USD (über 17.07.-Hoch bei 903 + Puffer)</li>
+  <li>Ziel: 800 USD → CRV 0.9 : 1 (unattraktiv)</li>
+  <li>Ziel 2: 760 USD → CRV 1.6 : 1 (akzeptabel)</li>
+  <li>Einschränkung: Kein Puffer nach oben; nur bei klarem Tagesschluss unter 853 vertretbar.</li>
+</ul>
+<p><strong>Setup C – Warten auf Bestätigung des 800-USD-Bruchs (Ausbruchs-Short):</strong></p>
+<ul>
+  <li>Einstieg: 798 USD (Stop-Sell unter psychologischer Marke)</li>
+  <li>Stop: 840 USD</li>
+  <li>Ziel: 760 USD → CRV 0.95 : 1 (gering)</li>
+  <li>Nur interessant, wenn der 800-USD-Bereich mehrfach getestet und gebrochen wird.</li>
+</ul>
+<p>Bevorzugtes Setup bleibt <strong>Setup A</strong> – der Bounce bietet Einstiegspräzision und ein akzeptables CRV.</p>
+
+<h2>5. Stillhalter-Schwerpunkt: Naked Call auf Bounce</h2>
+<p><strong>⚠️ Wichtiger Hinweis:</strong> Laut IBKR-Snapshot (19.07.2026, 12:10 Uhr) hält der Anwender <strong>0 MU-Aktien</strong>. Ein Covered Call ist daher nicht möglich. Das beschriebene Setup ist ein <strong>Naked Call</strong> mit theoretisch unbegrenztem Verlustrisiko – nur für erfahrene Stillhalter mit entsprechendem Margin-Rahmen geeignet.</p>
+
+<p><strong>Strike-Herleitung 950 USD (Naked Call):</strong></p>
+<ul>
+  <li>Zone 1 – EMA55 bei 882 USD: erster Widerstand; Kurs müsste diese Zone überwinden</li>
+  <li>Zone 2 – EMA9 bei 928 USD: zweiter Widerstand; fallender EMA9 als dynamischer Deckel</li>
+  <li>Zone 3 – Swing-Hochs-Cluster 07.–14.07. (942–994 USD): mehrfach getesteter, bestätigter Widerstandsbereich</li>
+  <li>Strike 950 liegt <em>oberhalb</em> aller drei Zonen → der Kurs muss 11,3% steigen UND drei Widerstandsebenen überwinden, um den Strike zu erreichen</li>
+  <li>Puffer zum aktuellen Kurs (853 USD): <strong>~11,3%</strong></li>
+</ul>
+
+<p><strong>Andienungsszenario:</strong> Würde MU auf 950 USD ansteigen, hätte der Kurs alle fallenden EMAs nach oben durchbrochen und den Widerstands-Cluster überwunden – das wäre eine fundamentale Trendwende. In diesem Szenario ist die gesamte Short-Analyse hinfällig, und der Verlust aus dem Naked Call wäre das geringere Problem im Vergleich zu einer falsch positionierten Gesamtstrategie. Ein solcher Anstieg ohne Katalysator (z.B. Earnings-Surprise, Macro-Schock) ist im aktuellen technischen Umfeld wenig wahrscheinlich.</p>
+
+<p><strong>Roll-Trigger:</strong> Sollte MU einen Tagesschluss über 900 USD (Bruch über EMA55) erzielen, ist der Naked Call zu evaluieren und ggf. auf einen höheren Strike (z.B. 1.000 USD) zu rollen oder zu schließen. Ein Schluss über 940 USD (Widerstands-Cluster) wäre ein klares Schließ-Signal ohne Diskussion.</p>
+
+<p><strong>Alternative – Strike 1.000 USD:</strong> Für einen konservativeren Ansatz bietet sich Strike 1.000 USD an (Puffer ~17,2%, psychologische Marke, oberhalb des gesamten Widerstands-Clusters). Geringere Prämie, aber deutlich mehr Sicherheitsmarge. In der Optionskette für Verfall <strong>25.07.2026</strong> sollten Prämie, Delta (idealerweise Delta &lt; -0.15) und Bid-Ask-Spread für beide Strikes verglichen werden.</p>
+
+<p><strong>Was in der Optionskette zu prüfen ist:</strong></p>
+<ul>
+  <li>Prämie bei Strike 950 und 1.000 USD für Verfall 25.07.2026 (Mid-Preis)</li>
+  <li>Delta: sollte im Bereich -0.10 bis -0.20 liegen für ein konservatives Stillhalter-Profil</li>
+  <li>Bid-Ask-Spread: bei MU-Optionen auf enge Spreads achten (Large-Cap, aber hohe IV kann Spreads aufweiten)</li>
+  <li>IV-Niveau: bei aktuell erhöhter historischer Volatilität sollten die Prämien attraktiv sein</li>
+  <li>Open Interest: ausreichend für sauberen Einstieg und ggf. Roll</li>
+</ul>
+  </details>
+</section>
+
+<section class="analyse short">
+  <div class="kopf">
+    <span class="datum">16.07.2026 </span>
+    <span class="badge short">SHORT</span>
+  </div>
+  <p class="fazit">MU setzt den Abwärtstrend fort – der Bruch unter 900 USD mit beschleunigtem EMA-Zerfall bestätigt die Short-These vom 08.07.; nächste relevante Unterstützung liegt erst im 800–840-USD-Bereich.</p>
+  <img class="chart" src="img/MU_20260716_201220.png" alt="Chart MU">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>MU befindet sich in einem intakten kurzfristigen Abwärtstrend. Nach dem Doppeltop-Bereich bei 1.211–1.255 USD (22./25. Juni) hat die Aktie konsequent niedrigere Hochs und niedrigere Tiefs ausgebildet: 1.213,56 → 1.198,71 → 1.148,79 → 994,80 → 978,40 → 887,71 USD. Das heutige Tagestief bei 840,51 USD und der Schlusskurs bei 846,00 USD markieren ein neues Mehrwochen-Tief. Der Bereich 900–960 USD, der zuletzt als Unterstützung fungierte, ist gebrochen. Die nächste potenzielle Stützzone liegt im Bereich 800–840 USD, abgeleitet aus den Konsolidierungslevels von Ende Mai / Anfang Juni (Cluster um 895–928 USD ist ebenfalls gefallen). EMA55 bei 882,59 USD wurde heute ebenfalls dynamisch unterschritten – ein bärisches Signal.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die gestrige Kerze (15.07.) war bereits ein deutlicher Bear-Candle mit langer unterer Docht-Verlängerung (Low 873,63, Close 904,28), was kurzfristigen Verkaufsdruck signalisierte. Die heutige Kerze (16.07.) setzt das fort: Eröffnung bei 866,77, Tageshoch 887,71, Tief 840,51, Schluss 846,00 – ein kleiner Körper mit oberem Docht, was anzeigt, dass jedes Erholungsversuch intraday abverkauft wurde. Kein Kerzenmuster, das Bodenbildung anzeigt. Das Volumen mit rel_volumen 0,56 (nur 56% des 55er-Schnitts) ist unterdurchschnittlich – der Selloff geschieht unter geringem Volumen, was jedoch in Sommermärkten üblich ist und keine Entwarnung gibt, solange kein Reversal-Muster auf hohem Volumen erscheint.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Die EMA-Struktur ist eindeutig bärisch: EMA9 (947,32) < EMA21 (978,63), und der Kurs (846,00) liegt deutlich unterhalb aller drei EMAs – EMA55 bei 882,59, EMA21 bei 978,63, EMA9 bei 947,32. Der gema_321 bei 946,97 bestätigt den bearischen Verbund: Kurs ist ca. 12% unter dem gewichteten EMA-Verbund. EMA9 und EMA21 zeigen weiter nach unten, EMA55 beginnt abzuflachen. Keine Kreuzung oder Kompression erkennbar – die Abstände weiten sich. Die Short-These der Analyse vom 08.07. (Ziel ~850 USD) hat sich damit fast punktgenau bewahrheitet.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Short</td></tr>
+    <tr><td>Einstieg</td><td>887,71 (Limit-Short bei Bounce in den 880–900-USD-Bereich / ehem. EMA55-Zone)</td></tr>
+    <tr><td>Stop</td><td>955,00 (über EMA9 und letztem Swing-Hoch vom 14.07. bei 994,80)</td></tr>
+    <tr><td>Ziel</td><td>800,00 (unbestätigter Bereich / psychologische Marke / proj. Ausbruchs-Messregel)</td></tr>
+    <tr><td>CRV</td><td>1.3 : 1 (konservativ; bei Ziel 760 USD steigt CRV auf 2.0 : 1)</td></tr>
+  </table>
+
+  <h3>5 · Stillhalter (max. 12 Tage)</h3>
+<p>Im laufenden Abwärtstrend ist ein Cash-Secured Put aktuell nicht sinnvoll – kein tragfähiger Support wurde bisher bestätigt, und Andienung wäre verfrüht. Ein Covered Call (oder Naked Call für erfahrene Stillhalter) auf einem Bounce oberhalb des gebrochenen EMA55-Bereichs (880–900 USD) ist das passende Instrument für dieses Umfeld.</p>
+<table class="setup"><tr><td>Geschäft</td><td>Covered Call</td></tr><tr><td>Strike</td><td>950.0</td></tr><tr><td>Puffer</td><td>12.4 %</td></tr><tr><td>Zone</td><td>über EMA9 (947 USD) und Widerstandscluster 940–960 USD (Hochs vom 07.–10.07.)</td></tr><tr><td>Verfall bis</td><td>2026-07-24 (8 Tage)</td></tr><tr><td>Begründung</td><td>Strike 950 liegt oberhalb des Widerstands-Clusters aus den Hochs vom 07.–10. Juli (942–998 USD, Schwerpunkt 940–960 USD) und über dem fallenden EMA9 (947 USD). Der Kurs müsste ca. 12,4% steigen, um in Gefahr zu geraten – angesichts des intakten Abwärtstrends ein attraktiver Puffer. Andienungsszenario: Wäre ein Kursanstieg über 950 USD ein Problem? In dem Fall hätte sich die Trendstruktur fundamental verändert (Bruch über EMA9 und Widerstandszone), was ohnehin eine Neubeurteilung erfordert. Der Anwender sollte in der Optionskette die Prämie bei Strike 950 für den 24.07.-Verfall prüfen – angesichts der erhöhten historischen Volatilität der letzten Wochen sollte hier eine attraktive Prämie stehen. Auf Liquidität (Bid-Ask-Spread) und IV-Niveau achten.</td></tr></table>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 16.07.2026 anzeigen</summary>
+    <h1>MU – Detailanalyse vom 16.07.2026</h1>
+
+<h2>Abgleich mit der Analyse vom 08.07.2026</h2>
+<p>Die Short-These vom 08.07. wird durch die heutigen Daten <strong>vollständig bestätigt und übertroffen</strong>. Das damalige Kursziel lag bei ~850 USD (EMA55-Bereich / Mai-Unterstützung). Der heutige Schlusskurs von 846,00 USD hat dieses Ziel nahezu exakt erreicht. Der empfohlene Einstieg bei 960 USD per Limit-Bounce war mit dem High vom 09.07. (1.035,50 USD) und dem anschließenden Verfall ideal positionierbar. Der damalige Stop bei 1.020 USD wurde nie ausgelöst – ein sauberer Trade. Der EMA55 (damals als Zielzone genannt) bei heute 882,59 USD wurde heute dynamisch unterschritten.</p>
+
+<h2>1. Trendstruktur – Tiefenanalyse</h2>
+<p>MU hat nach dem <strong>Doppeltop bei 1.211–1.255 USD</strong> (22./25. Juni 2026, bestätigt durch das zweite High vom 25.06. mit Volumen 1,63x) einen klassischen Abwärtstrend etabliert:</p>
+<ul>
+  <li>Swing-High 1: 1.213,56 USD (22.06.) → Swing-Low: 1.023,65 USD (29.06.)</li>
+  <li>Swing-High 2: 1.255,00 USD (25.06.) – marginales neues Hoch, kein Momentum</li>
+  <li>Swing-Low: 950,07 USD (14.07.) → heute neues Low bei 840,51 USD</li>
+</ul>
+<p>Die <strong>Nackenlinie des Doppeltops</strong> lag grob bei ~1.030–1.050 USD (Tiefs vom 23.–24. Juni). Diese wurde am 01./02. Juli gebrochen. Das Kursmessziel eines solchen Doppeltops (Höhe: ~220 USD) projiziert auf den Ausbruchspunkt (~1.050 USD) ergibt ein theoretisches Ziel von <strong>~830 USD</strong> – kongruent mit dem aktuellen Preisbereich.</p>
+<p>Die Zone <strong>800–840 USD</strong> ist als nächste potenzielle Unterstützung zu identifizieren: Hier lagen die Hochs und Konsolidierungen vom 11.–14. Mai 2026 (Cluster 795–818 USD). Dies ist jedoch bisher <strong>unbestätigt als Support</strong> – erst ein Test mit anschließender Stabilisierung würde diese Zone validieren. Darunter kommt der Bereich 750–770 USD (Konsolidierung Ende April / Anfang Mai) in Frage.</p>
+
+<h2>2. Candlestick-Analyse – letzte 5 Kerzen</h2>
+<p>Die letzten fünf Kerzen zeichnen ein konsistent bärisches Bild:</p>
+<ul>
+  <li><strong>10.07.</strong> (rel_vol 0,60): Kleiner Bear-Body 998→979 – Abpraller von 998 nach unten, niedriges Volumen.</li>
+  <li><strong>13.07.</strong> (rel_vol 0,67): Lücke nach unten (Open 929, weit unter dem Close vom 10.07. 979), Close 937 – Schwäche.</li>
+  <li><strong>14.07.</strong> (rel_vol 0,58): Erholungsversuch bis 994,80 (High), aber Schluss nur 983 – keine Stärke trotz grüner Kerze.</li>
+  <li><strong>15.07.</strong> (rel_vol 1,03): <strong>Volumen-Spike auf 100% des Schnitts</strong> – Bear-Kerze mit Open 975, Close 904, Low 873. Deutlicher Verkaufsdruck, Break unter 900 USD intraday.</li>
+  <li><strong>16.07.</strong> (rel_vol 0,56): Fortsetzung des Abverkaufs, aber schwaches Volumen. Open 866, High 887 (Bounce abverkauft), Low 840, Close 846. <strong>Bear-Candle mit kurzem oberem Docht</strong> – Kaufversuche wurden sofort abverkauft. Kein Reversal-Signal.</li>
+</ul>
+
+<h2>3. EMA-Lage – Vertiefung</h2>
+<p>Der Kurs (846 USD) handelt aktuell <strong>11% unter EMA9 (947)</strong>, <strong>13,5% unter EMA21 (978)</strong> und <strong>4,4% unter EMA55 (882)</strong>. Der gema_321 bei 946,97 liegt ebenfalls deutlich über dem Kurs. Interessant: EMA55 (882,59) > EMA9 (947,32)? Nein – EMA9 (947) > EMA55 (882) > Kurs (846). Die Reihenfolge EMA21 > EMA9 > EMA55 ist eine <strong>Kompressions-Anomalie</strong> im Übergang: EMA21 (978) steht noch über EMA9 (947), obwohl der Trend schon seit Wochen fällt – das liegt am trägen EMA21, der den rapiden Anstieg von März–Juni noch nachzieht. In wenigen Tagen dürfte EMA9 unter EMA21 kreuzen (Death Cross im Kurzfristbereich), was weiteres bearisches Signal wäre.</p>
+
+<h2>4. Alternative Trade-Setups</h2>
+<p><strong>Setup A (bevorzugt) – Short-Continuation bei Bounce:</strong></p>
+<ul>
+  <li>Einstieg: 880–900 USD (Limit-Short, ex-EMA55-Zone und gebrochener Support)</li>
+  <li>Stop: 955 USD (über EMA9 und Widerstandscluster)</li>
+  <li>Ziel 1: 800 USD → CRV bei Einstieg 890: (890-800)/(955-890) = 90/65 = <strong>1,4 : 1</strong></li>
+  <li>Ziel 2: 760 USD → CRV: (890-760)/65 = <strong>2,0 : 1</strong></li>
+</ul>
+<p><strong>Setup B – Abwarten auf Stabilisierung (Long-Kontra, nur für aggressive Trader):</strong></p>
+<ul>
+  <li>Erst bei einem Schlusskurs über 900 USD mit hohem Volumen (>1,3x Schnitt) als Reversal-Signal in Betracht ziehen</li>
+  <li>Aktuell kein valides Long-Setup – wird daher nicht weiter ausgeführt</li>
+</ul>
+<p><strong>Setup C – Momentum-Short ohne Bounce:</strong></p>
+<ul>
+  <li>Stop-Sell unter heutigem Tief: Einstieg bei 840 USD (Unterschreitung)</li>
+  <li>Stop: 887 USD (heutiges Hoch)</li>
+  <li>Ziel: 760 USD → CRV: (840-760)/(887-840) = 80/47 = <strong>1,7 : 1</strong></li>
+  <li>Risiko: Kein Puffer, direktes Momentum-Spiel – geeignet nur bei Volumenanstieg</li>
+</ul>
+
+<h2>5. Stillhalter-Strategie – Detailbetrachtung</h2>
+<h3>Warum kein CSP?</h3>
+<p>Ein Cash-Secured Put erfordert eine identifizierbare, mehrfach getestete Unterstützungszone als Sicherheitspuffer. Der Bereich 800–840 USD ist bisher <strong>unbestätigt</strong> als Support – er wurde noch nie von unten getestet und hochgekauft. Bei einem laufenden Abwärtstrend mit intaktem Momentum und ohne Bodenbildungssignal wäre ein CSP hier auf hohem Andienungsrisiko. Andienung zu 800 USD wäre zwar langfristig möglicherweise attraktiv, aber zu früh ohne technische Bestätigung. <strong>CSP = null bis zur Bodenbildung.</strong></p>
+
+<h3>Covered Call / Naked Call – Strike 950 USD, Verfall 24.07.2026</h3>
+<p><strong>Zonen-Herleitung:</strong> Der Bereich 940–960 USD ist durch folgende Datenpunkte als Widerstand identifiziert:</p>
+<ul>
+  <li>Closing-Hochs 07.07. (938,38) und 08.07. (948,80) – dieser Bereich war zuletzt Unterstützung, gilt nun als Widerstand (Rolle getauscht)</li>
+  <li>EMA9 bei 947,32 USD – fallender EMA9 als dynamischer Widerstand</li>
+  <li>Der gema_321 bei 946,97 USD – Verbund-Widerstand</li>
+</ul>
+<p>Der Strike 950 liegt damit <strong>über dem gesamten EMA-Widerstandsverbund</strong> und dem Kurscluster. Puffer: (950 - 846) / 846 = <strong>12,3%</strong>.</p>
+<p><strong>Andienungsszenario:</strong> Ein Kursanstieg über 950 USD bis zum 24.07. würde bedeuten, dass MU in 8 Handelstagen ~12% zulegt. Dies wäre nur möglich bei einem fundamentalen Katalysator (z.B. unerwartete Earnings-Guidance) oder einer kompletten Trendumkehr. In dem Fall hätte sich die gesamte Trendstruktur verändert – der Stillhalter würde den CC dann idealerweise vorher rollen (Roll-Trigger: Kursanstieg über 900 USD auf hohem Volumen >1,3x Schnitt oder Annäherung an Strike auf 5% Distanz).</p>
+<p><strong>Roll-Trigger explizit:</strong></p>
+<ul>
+  <li>Defensives Rollen: Kurs steigt über 920 USD (< 3,2% zum Strike) – Roll auf 1.000 USD / nächsten Verfall</li>
+  <li>Offensives Rollen: Kurs fällt unter 800 USD – CC eindecken (Gewinn mitnehmen), ggf. neuen CC auf niedrigerem Strike neu etablieren</li>
+</ul>
+<p><strong>Was in der Optionskette prüfen:</strong> Prämie bei Strike 950 Call, Verfall 24.07.2026 – angesichts der HV der letzten Wochen (MU hatte Moves von 5–15% in Einzeltagen) sollte die IV erhöht sein. Bid-Ask-Spread beachten (bei illiquideren Strikes kann dieser erheblich sein). Open Interest >500 Kontrakte anstreben für vernünftige Fills.</p>
+  </details>
+</section>
+
+<section class="analyse short">
+  <div class="kopf">
+    <span class="datum">08.07.2026</span>
+    <span class="badge short">SHORT</span>
+  </div>
+  <p class="fazit">MU bricht nach Doppeltop-Bereich um 1.211-1.255 USD mit beschleunigtem Verkaufsdruck unter alle kurzfristigen EMAs ein – kurzfristig bärisches Bild mit Ziel ~850 USD.</p>
+  <img class="chart" src="img/MU_20260708_121844.png" alt="Chart MU">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>Nach einem imposanten Aufwärtstrend von ~320 USD (März) auf das Allzeithoch ~1.255 USD (25. Juni) hat MU eine klare Topbildung vollzogen: Das Hoch vom 22. Juni (1.213 USD) wurde am 25. Juni knapp übertroffen (1.255 USD), seither folgen tiefere Hochs und tiefere Tiefs. Der Kurs hat in weniger als zwei Wochen über 23 % korrigiert. Das nächste nennenswerte Support-Niveau liegt im Bereich 850–900 USD (EMA55 und frühere Konsolidierungszone Mai).</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die letzten drei Kerzen zeigen klare Schwäche: Am 1. Juli eine lange rote Kerze mit tiefem Close (1.032 USD), am 2. Juli weitere Abgaben bis ~950 USD Intraday-Tief, und die letzte Kerze vom 7. Juli öffnete mit Gap-Down bei 923 USD und schloss auf 938 USD – ein schwacher Abpraller ohne bullische Überzeugung. Das rel. Volumen ist moderat (0,99), was auf noch keine Kapitulation hindeutet.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Der EMA9 (1.033) liegt bereits deutlich unter EMA21 (1.020), beide fallen steil. Der EMA55 (866) ist weit entfernt, der Kurs (938) liegt nun unter EMA9 und EMA21 – bärische EMA-Reihenfolge. Der gema_321 (1.001) fällt ebenfalls und bestätigt den intakten Abwärtstrend im EMA-Verbund.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Short</td></tr>
+    <tr><td>Einstieg</td><td>960.00 (Limit bei Bounce in EMA9-Widerstandszone)</td></tr>
+    <tr><td>Stop</td><td>1.020.00 (über EMA21 und letztem Swing-Hoch)</td></tr>
+    <tr><td>Ziel</td><td>860.00 (EMA55-Bereich / Mai-Unterstützung)</td></tr>
+    <tr><td>CRV</td><td>1.7 : 1</td></tr>
+  </table>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 08.07.2026 anzeigen</summary>
+    <h1>MU – Detailanalyse (08. Juli 2026)</h1><h2>1. Trendstruktur</h2><p>MU hat einen der stärksten Aufwärtstrends im Halbleitersektor hinter sich: Von ~312 USD (31. März) auf das Allzeithoch von 1.255 USD am 25. Juni – ein Anstieg von fast 300 % in drei Monaten. Dieser Impuls wurde maßgeblich getrieben durch Earnings-Erwartungen und KI-Nachfrage-Fantasie im DRAM/NAND-Bereich.</p><p><strong>Topbildung:</strong> Das Hoch vom 22. Juni (1.213,56 USD) wurde am 25. Juni mit 1.255 USD marginal überboten – klassisches Doppel-/Dreifach-Top-Muster in Entstehung. Seitdem: tiefere Hochs (26. Juni: 1.198 USD, 29. Juni: 1.148 USD, 7. Juli: 942 USD). Die Tiefpunkte sinken ebenfalls. Die Struktur zeigt klar: <strong>Trendwende von Aufwärts auf Abwärts.</strong></p><p><strong>Wichtige Support-Levels:</strong></p><ul><li>~975–984 USD: Tiefs der letzten Tage (2./6. Juli)</li><li>~891 USD: Intraday-Tief 7. Juli</li><li>~850–870 USD: EMA55 + Konsolidierung Ende Mai</li><li>~750–770 USD: Mai-Hochpunkt-Bereich (Unterstützung aus dem Ausbruch)</li></ul><p><strong>Wichtige Widerstands-Levels:</strong></p><ul><li>~1.020–1.033 USD: EMA21/EMA9 (fallend)</li><li>~1.051–1.065 USD: Tiefs aus 23./24. Juni</li><li>~1.213–1.255 USD: Allzeithoch-Bereich</li></ul><h2>2. Candlestick-Formationen</h2><p>Die Kerzen der letzten fünf Handelstage zeichnen ein eindeutig bärisches Bild:</p><ul><li><strong>30. Juni:</strong> Schwacher Close (1.154 USD) trotz pos. Eröffnung – Wick-Verteilung nach oben.</li><li><strong>1. Juli:</strong> Starke rote Kerze (Open 1.082, Close 1.032) mit erhöhtem Volumen (rel. 0,98 = fast Durchschnitt), Unterschreitung wichtiger Supports.</li><li><strong>2. Juli:</strong> Weitere Abgabe (Close 975, Intraday-Tief 950) bei rel. Volumen 1,18 – Verkaufsdruck nimmt zu.</li><li><strong>6. Juli:</strong> Leichte Erholung (Close 984), aber sehr schwaches Volumen (rel. 0,71) – kein Kaufinteresse, Dead-Cat-Bounce-Charakter.</li><li><strong>7. Juli:</strong> Gap-Down-Eröffnung bei 923 USD, Tief bei 891 USD, Close 938 USD – bärische Bestätigung. Kein Reversal-Signal. rel. Volumen 0,99.</li></ul><p>Keine bullischen Umkehrformationen (kein Hammer, kein Morning Star) erkennbar. Die Abfolge schwacher Closes auf fallenden Levels ist das Gegenteil eines Reversal-Setups.</p><h2>3. EMA-Analyse</h2><p><strong>Aktuelle Werte (07. Juli):</strong> EMA9: 1.033 | EMA21: 1.020 | EMA55: 866 | gema_321: 1.001 | Kurs: 938</p><p>Der Kurs (938) liegt <strong>unter EMA9 (1.033) und EMA21 (1.020)</strong> – beide fallen steil. Die bärische Kreuzung (EMA9 unter EMA21) ist vollzogen. Der Abstand des Kurses zum EMA55 (866) beträgt noch ~72 USD – das zeigt, dass eine weitere Annäherung/Mean-Reversion zum EMA55 plausibel ist.</p><p>Der <strong>gema_321 (1.001)</strong> dreht nach unten und liegt ebenfalls über dem Kurs, was den übergeordneten Verkaufsdruck im gewichteten EMA-Verbund bestätigt. Normalerweise fungiert der gema_321 als dynamischer Support in Aufwärtstrends – aktuell ist er Widerstand.</p><p>Der EMA55 bei 866 USD ist der nächste relevante magnetische Bereich nach unten. In starken Korrekturphasen von MU (z.B. März 2026: Absturz von 462 auf 312) wurde der EMA55 häufig als erste Anlaufstelle genutzt.</p><h2>4. Trade-Setup</h2><p><strong>Setup A (bevorzugt): Short bei Bounce in EMA9-Zone</strong></p><ul><li><strong>Einstieg:</strong> ~960 USD (Limit-Order bei Pullback in den Bereich 950–980, unter EMA9)</li><li><strong>Stop:</strong> 1.020 USD (über EMA21 und dem Hoch vom 6. Juli)</li><li><strong>Ziel 1:</strong> ~891 USD (Intraday-Tief 7. Juli / psycholog. 900er-Marke) → CRV ~1.1:1</li><li><strong>Ziel 2:</strong> ~860 USD (EMA55-Bereich) → CRV ~1.7:1</li><li><strong>Ziel 3:</strong> ~800 USD (runder Support / Mai-Hochbereich) → CRV ~2.7:1</li></ul><p><strong>Setup B: Aggressiver Short bei heutigem Kurs</strong></p><ul><li><strong>Einstieg:</strong> ~938 USD (Market, aktueller Kurs)</li><li><strong>Stop:</strong> 985 USD (über letztem Swing-Hoch 6. Juli)</li><li><strong>Ziel 1:</strong> ~860 USD → CRV ~1.7:1</li><li><strong>Ziel 2:</strong> ~800 USD → CRV ~2.9:1</li></ul><p><strong>Setup C: Long-Reversal (nur wenn Signale erscheinen)</strong></p><ul><li>Erst bei Hammer/Bullish-Engulfing mit Volumen >1,5x auf EMA55-Niveau (~860 USD) in Betracht ziehen.</li><li>Aktuell kein Trigger vorhanden – Setup C wird verworfen.</li></ul><p><strong>Risikofaktoren:</strong> MU ist ein volatiler Halbleiter-Titel. Positive Branchen-News (AI-Capex, DRAM-Preiserhöhungen) könnten zu V-förmigen Rebounds führen. Position-Sizing entsprechend begrenzen. Das fehlende Kapitulationsvolumen (kein rel. Volumen >2,0x in der Korrektur) deutet darauf hin, dass die Korrektur möglicherweise noch nicht zu Ende ist.</p>
+  </details>
+</section>
+
+
+  <footer>Automatisch erstellt · <a href="index.html">Zur Übersicht</a> ·
+    Keine Anlageberatung</footer>
+</div>
+</body>
+</html>

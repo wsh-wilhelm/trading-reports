@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trading-Übersicht</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0d1319; --panel:#161e27; --line:#232e3a;
+    --text:#d9e1e8; --muted:#7e8b99; --accent:#e5a63c;
+    --long:#3ec08b; --short:#e2604f; --neutral:#8a96a3;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);
+       font:15px/1.6 "IBM Plex Sans",sans-serif;padding:32px 16px}
+  .wrap{max-width:860px;margin:0 auto}
+  header{border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:28px}
+  header h1{font:500 26px "IBM Plex Mono",monospace;margin:0;letter-spacing:1px}
+  header .stand{color:var(--muted);font:13px "IBM Plex Mono",monospace}
+
+  .sortleiste{display:flex;align-items:center;gap:8px;margin-bottom:18px}
+  .sortleiste .label{color:var(--muted);font:12px "IBM Plex Mono",monospace;
+                     text-transform:uppercase;letter-spacing:2px}
+  .sortleiste button{background:var(--panel);border:1px solid var(--line);
+                     color:var(--text);font:500 13px "IBM Plex Mono",monospace;
+                     padding:6px 14px;border-radius:4px;cursor:pointer}
+  .sortleiste button:hover{border-color:var(--accent)}
+  .sortleiste button.aktiv{border-color:var(--accent);color:var(--accent)}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px}
+  a.card{display:block;text-decoration:none;color:var(--text);
+         background:var(--panel);border:1px solid var(--line);
+         border-left:4px solid var(--neutral);border-radius:6px;
+         padding:16px 18px;transition:border-color .15s}
+  a.card:hover{border-color:var(--accent)}
+  a.card.long{border-left-color:var(--long)}
+  a.card.short{border-left-color:var(--short)}
+  .card img.chart{width:100%;border:1px solid var(--line);border-radius:4px;margin-bottom:10px}
+  .card .kopf{display:flex;justify-content:space-between;align-items:baseline}
+  .card .ticker{font:500 20px "IBM Plex Mono",monospace}
+  .badge{font:500 11px "IBM Plex Mono",monospace;letter-spacing:2px;
+         padding:2px 8px;border-radius:3px;color:#0d1319}
+  .badge.long{background:var(--long)}
+  .badge.short{background:var(--short)}
+  .badge.neutral{background:var(--neutral)}
+  .card .datum{color:var(--muted);font:12px "IBM Plex Mono",monospace;margin:4px 0 8px}
+  .quelle{font:500 10px "IBM Plex Mono",monospace;color:var(--muted);
+          border:1px solid var(--line);border-radius:3px;padding:1px 6px;
+          margin-left:6px;text-transform:uppercase;letter-spacing:1px;
+          vertical-align:middle}
+  .card .fazit{font-size:14px;margin:0 0 10px}
+  .card .crv{font:13px "IBM Plex Mono",monospace;color:var(--accent)}
+  .snapshots{margin-top:10px;border-top:1px solid var(--line);padding-top:8px}
+  .snap-titel{font:500 10px "IBM Plex Mono",monospace;color:var(--muted);
+              text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+  .snap{font:11px "IBM Plex Mono",monospace;color:var(--muted);
+        line-height:1.7;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  footer{color:var(--muted);font-size:12px;text-align:center;margin-top:32px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Trading-Übersicht</h1>
+    <span class="stand">Stand: 23.07.2026 13:27</span>
+  </header>
+
+  <div class="sortleiste">
+    <span class="label">Sortieren:</span>
+    <button id="sort-name" onclick="sortiere('name')">Name</button>
+    <button id="sort-datum" onclick="sortiere('datum')">Datum</button>
+  </div>
+
+  <div class="grid" id="karten-grid">
+<a class="card neutral" href="ADBE_report.html">
+  <img class="chart" src="img/ADBE_20260723_114223.png" alt="Chart ADBE">
+  <div class="kopf">
+    <span class="ticker">ADBE</span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">ADBE hat die gesamte Erholung seit dem Juli-Tief in zwei Tagen abgegeben – Kurs unter EMA9/21, gema_321 dreht ab, der Short Call 250 (1 DTE, Preis 0.06) ist wertlos und läuft morgen aus; kein neues Setup mit vertretbarem CRV.</p>
+  <span class="crv">CRV Kein valides Setup: Kurs zwischen Support 212.9 und Widerstand 229–232, CRV zu gering für direktionalen Trade</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:36 · 220.89 · +1.16% · SC 250: 0.06 / Δ +0.01 / 1 DTE</div></div>
+</a>
+
+<a class="card short" href="AMAT_report.html">
+  <img class="chart" src="img/AMAT_20260723_114357.png" alt="Chart AMAT">
+  <div class="kopf">
+    <span class="ticker">AMAT</span>
+    <span class="badge short">SHORT</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">AMAT konsolidiert nach dem Abwärtsdruck der Vorwochen in einer engen Range um 525–565 – der EMA-Verbund bleibt bärisch, ein technischer Bounce bietet weiterhin Short-Einstiegs- und Naked-Call-Opportunitäten im Widerstandsbereich.</p>
+  <span class="crv">CRV 2.0 : 1 (bei Einstieg 567, Stop 592, Ziel 517)</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:37 · 555.54 · +0.29%</div></div>
+</a>
+
+<a class="card short" href="AMD_report.html">
+  <img class="chart" src="img/AMD_20260723_114533.png" alt="Chart AMD">
+  <div class="kopf">
+    <span class="ticker">AMD</span>
+    <span class="badge short">SHORT</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">AMD erholt sich kräftig vom 460er-Tief zurück über 550, aber der übergeordnete Impuls-Bruch der 498–507-Zone ist strukturell relevant – die Erholung ist bislang ein Pullback in Widerstandszone, kein Trendwechsel; Short-Bias bleibt.</p>
+  <span class="crv">CRV 1,9 : 1 (Ziel 1 bei 520) / 3,3 : 1 (Ziel 2 bei 493)</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:36 · 557.20 · +0.88%</div></div>
+</a>
+
+<a class="card neutral" href="AMZN_report.html">
+  <img class="chart" src="img/AMZN_20260723_114712.png" alt="Chart AMZN">
+  <div class="kopf">
+    <span class="ticker">AMZN</span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">AMZN bricht am 23.07. intraday mit -2,03% auf 239,87 USD deutlich unter die EMA-Cluster-Zone (245–247) ein – die Long-These der Voranalysen ist damit vorerst invalidiert, das Primärziel 262,00 bleibt unerreicht, und die Aktie steuert auf die erste kritische Support-Zone bei 232–238 zu.</p>
+  <span class="crv">CRV Kein direktionaler Trade mit gutem CRV auf aktuellem Niveau identifizierbar – abwarten</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:36 · 239.87 · -2.03%</div></div>
+</a>
+
+<a class="card neutral" href="AVGO_report.html">
+  <img class="chart" src="img/AVGO_20260723_114901.png" alt="Chart AVGO">
+  <div class="kopf">
+    <span class="ticker">AVGO</span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">AVGO testet mit dem gestrigen Ausbruchsversuch (Hoch 398,59) exakt den Widerstandscluster 399–402, ohne ihn zu schließen – der EMA-Verbund dreht erstmals nach oben, doch ohne Volumen-Bestätigung bleibt der Bias neutral mit leichter Long-Neigung.</p>
+  <span class="crv">CRV —</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:37 · 398.77 · +0.49%</div></div>
+</a>
+
+<a class="card neutral" href="BAYN_report.html">
+  <img class="chart" src="img/BAYN_20260719_122323.png" alt="Chart BAYN">
+  <div class="kopf">
+    <span class="ticker">BAYN</span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <div class="datum">19.07.2026 </div>
+  <p class="fazit">BAYN stabilisiert sich nach der Korrektur vom ATH (53,92) oberhalb der Gap-Zone um 45,00–45,50 – kein klares direktionales Setup, aber ein defensiver CSP unterhalb der Konsolidierungszone bleibt konstruierbar, während ein CC mangels Aktienbestand und wegen offenem ATH-Potenzial nicht empfohlen wird.</p>
+  <span class="crv">CRV ca. 2.0 : 1 (nur bei Bestätigung über 50,36)</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 19.07.2026</div><div class="snap">11:26 · - · </div>
+<div class="snap">11:35 · - · </div></div>
+</a>
+
+<a class="card neutral" href="BX_report.html">
+  <img class="chart" src="img/BX_20260723_115039.png" alt="Chart BX">
+  <div class="kopf">
+    <span class="ticker">BX</span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">BX hat nach dem Post-Earnings-Hoch bei 131 eine klare Korrektur eingeleitet – der Kurs notiert wieder unter dem EMA9 und nähert sich dem kritischen Ausbruchsniveau 124–126, das nun als Schlüssel-Support getestet wird.</p>
+  <span class="crv">CRV None</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:36 · 122.04 · -0.64%</div></div>
+</a>
+
+<a class="card short" href="CAT_report.html">
+  <img class="chart" src="img/CAT_20260723_115221.png" alt="Chart CAT">
+  <div class="kopf">
+    <span class="ticker">CAT</span>
+    <span class="badge short">SHORT</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">CAT hält sich in einem intakten Abwärtstrend mit fallenden EMAs und gescheitertem Erholungsversuch – der Short-Bias der Voranalysen bleibt vollumfänglich gültig, ein Naked Call oberhalb des Widerstands ist das einzige vertretbare Stillhalter-Setup.</p>
+  <span class="crv">CRV 1.05 : 1 (primär) / 2.09 : 1 (Ziel 2 bei 775)</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:36 · 891.69 · +0.27%</div></div>
+</a>
+
+<a class="card short" href="CCL_report.html">
+  <img class="chart" src="img/CCL_20260723_115351.png" alt="Chart CCL">
+  <div class="kopf">
+    <span class="ticker">CCL</span>
+    <span class="badge short">SHORT</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">CCL bleibt im strukturellen Abwärtstrend unter allen drei EMAs – die Erholung Mitte Juli ist vollständig abverkauft, der Kurs nähert sich dem Juli-Tief bei 25,27 bei weiterhin unterdurchschnittlichem Volumen; Short-Bias bestätigt, kein Stillhalter-Setup ohne Aktienbestand möglich.</p>
+  <span class="crv">CRV 1,9 : 1 (Ziel 1) / 3,8 : 1 (Ziel 2)</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:37 · 26.03 · -0.27%</div></div>
+</a>
+
+<a class="card neutral" href="COIN_report.html">
+  <img class="chart" src="img/COIN_20260723_131157.png" alt="Chart COIN">
+  <div class="kopf">
+    <span class="ticker">COIN</span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">COIN hat nach dem bullischen Ausbruch am 21. Juli (rel. Volumen 1.57x, Hoch 181.49$) wieder zurückgesetzt – die Trendwende-Bestätigung über 170$ wurde zwar intraday geholt, aber nicht gehalten; der CC aus der 19.07.-Analyse ist abgelaufen, nun bietet sich ein neuer Covered Call auf den bestehenden 800er-Bestand an.</p>
+  <span class="crv">CRV 2.5 : 1</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:36 · 167.66 · +0.93%</div></div>
+</a>
+
+<a class="card neutral" href="CRM_report.html">
+  <img class="chart" src="img/CRM_20260723_115726.png" alt="Chart CRM">
+  <div class="kopf">
+    <span class="ticker">CRM</span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">CRM bricht am 22.07. mit einem Bearish Engulfing klar unter den EMA9/21-Cluster (~168) und testet damit die kritische Unterstützungszone 161–163 – das Long-Bias der Voranalysen ist vorerst neutralisiert, der CC 182,50 (Verfall 25.07.) ist wertlos verfallen bzw. steht kurz davor, der Bestand bleibt long und wartet auf Stabilisierung.</p>
+  <span class="crv">CRV n/a</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:38 · 164.60 · +0.98%</div></div>
+</a>
+
+<a class="card neutral" href="CRWD_report.html">
+  <img class="chart" src="img/CRWD_20260723_115930.png" alt="Chart CRWD">
+  <div class="kopf">
+    <span class="ticker">CRWD</span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">CRWD hat nach dem Juli-Spike eine klare Korrektur eingeleitet – die bullische Struktur ist noch intakt, aber der Kurs testet kritische Support-Zonen; der Short Put 180 läuft morgen aus und ist top-of-mind.</p>
+  <span class="crv">CRV Kein aktiver Neueinstieg – laufende Position; bei Reversal-Einstieg 191: CRV ~2,0:1 bis Ziel 203</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:38 · 189.59 · +0.62% · SP 180: 1.25 / Δ - / 1 DTE</div></div>
+</a>
+
+<a class="card neutral" href="CRWV_report.html">
+  <img class="chart" src="img/CRWV_20260723_120132.png" alt="Chart CRWV">
+  <div class="kopf">
+    <span class="ticker">CRWV</span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">CRWV erholt sich kräftig aus der März-Zone – der Rebound läuft, EMAs drehen noch nicht, aber der Kurs nähert sich dem Widerstandscluster 85–88: Covered Call auf den Aktienbestand ist das klare Gebot der Stunde.</p>
+  <span class="crv">CRV –</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:36 · 84.60 · +2.37%</div></div>
+</a>
+
+<a class="card neutral" href="DELL_report.html">
+  <img class="chart" src="img/DELL_20260723_120322.png" alt="Chart DELL">
+  <div class="kopf">
+    <span class="ticker">DELL</span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">DELL hat am 22. Juli mit einem explosiven Anstieg von 404 auf 442 USD (rel. Volumen 0,78x – kein Volumen-Breakout) den EMA9 zurückerobert und die Widerstandszone 430–444 USD von unten angekratzt – der Short-Bias der Voranalysen wird damit kurzfristig herausgefordert, aber noch nicht gebrochen.</p>
+  <span class="crv">CRV Long ca. 1,5:1 (zu 465) / Short ca. 1,5:1 (zu 391) – beide erst nach klarem Trigger aktiv</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:37 · 441.50 · -0.07%</div></div>
+</a>
+
+<a class="card long" href="F_report.html">
+  <img class="chart" src="img/F_20260723_120501.png" alt="Chart F">
+  <div class="kopf">
+    <span class="ticker">F</span>
+    <span class="badge long">LONG</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">F setzt den Ausbruch fort und drückt am 22.07. auf rel_volumen 0,97 das Tageshoch auf 14,70 – das nächste Kursziel 15,00 rückt in Griffweite; der Covered Call bleibt das Kerninstrument, ein neuer CC auf den 15,00er-Strike ist nach dem Ablauf des 25.07.-Verfalls fällig.</p>
+  <span class="crv">CRV 2,6 : 1 (Erstziel ab 14,38) / 4,7 : 1 (Hauptziel)</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:38 · 14.38 · -0.28%</div></div>
+</a>
+
+<a class="card long" href="FDX_report.html">
+  <img class="chart" src="img/FDX_20260723_120650.png" alt="Chart FDX">
+  <div class="kopf">
+    <span class="ticker">FDX</span>
+    <span class="badge long">LONG</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">FDX bricht am 22.07. mit erhöhtem Volumen über das Rejection-Level 320,16 hinaus auf 321,02 und liefert damit den lang erwarteten technischen Range-Break – der erste valide Long-Trigger seit Monaten.</p>
+  <span class="crv">CRV Setup A (ab 321, Stop 311, Ziel 330): CRV ~0,9:1 – nur bei Pullback-Einstieg sinnvoll; Setup B (ab 321, Stop 311, Ziel 338): CRV ~1,7:1</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:37 · 321.00 · -0.01%</div></div>
+</a>
+
+<a class="card long" href="FUTU_report.html">
+  <img class="chart" src="img/FUTU_20260723_120831.png" alt="Chart FUTU">
+  <div class="kopf">
+    <span class="ticker">FUTU</span>
+    <span class="badge long">LONG</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">FUTU zeigt nach dem katastrophalen Mai-Crash eine konstruktive Bodenbildung mit frischen Ausbruchssignalen – der EMA9 kreuzt den EMA21 aufwärts und der Kurs testet die 107er-Marke, was selektive Stillhalter-Entries auf der Long-Seite rechtfertigt.</p>
+  <span class="crv">CRV ca. 2.0 : 1 (abhängig vom Einstiegsniveau)</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:38 · 106.89 · +0.75%</div></div>
+</a>
+
+<a class="card short" href="GOOGL_report.html">
+  <img class="chart" src="img/GOOGL_20260723_121039.png" alt="Chart GOOGL">
+  <div class="kopf">
+    <span class="ticker">GOOGL</span>
+    <span class="badge short">SHORT</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">GOOGL bricht am 23.07. mit -4% auf 328,49 unter das Sommer-Tief 341,36 ein – die gesamte Rally-Struktur seit März kollabiert, alle EMAs fallen, kein CSP-Fundament in Sicht; Short-Bias dominiert, der CC auf den Aktienbestand ist das einzig valide Instrument.</p>
+  <span class="crv">CRV Bounce-Short ab 341: Stop 349 → Ziel 321: CRV 2,5 : 1 / Ziel 307: CRV 4,3 : 1</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:37 · 328.49 · -3.98%</div></div>
+</a>
+
+<a class="card long" href="HAG_report.html">
+  <img class="chart" src="img/HAG_20260719_123349.png" alt="Chart HAG">
+  <div class="kopf">
+    <span class="ticker">HAG</span>
+    <span class="badge long">LONG</span>
+  </div>
+  <div class="datum">19.07.2026 </div>
+  <p class="fazit">HAG hat am 17.07. mit einer starken Bullish-Engulfing-Kerze aus dem Range-Boden abgedreht und testet nun den EMA55-Widerstand – der erste echte Ausbruchsversuch seit der Konsolidierungsphase, der ein Long-Bias und einen Covered Call auf die bestehende Position rechtfertigt.</p>
+  <span class="crv">CRV Ziel 1: ~1,3:1 / Ziel 2: ~2,1:1 (bei Einstieg ~76,35, Stop 73,50)</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 19.07.2026</div><div class="snap">11:28 · - · </div>
+<div class="snap">11:35 · - · </div></div>
+</a>
+
+<a class="card neutral" href="HPE_report.html">
+  <img class="chart" src="img/HPE_20260723_121235.png" alt="Chart HPE">
+  <div class="kopf">
+    <span class="ticker">HPE</span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">HPE zeigt nach dem Bounce von 41 USD einen überraschend starken Aufwärtsimpuls mit zwei bullischen Tageskerzen und Kursanstieg auf 48,41 USD – der Short-Bias der Voranalysen wird zunehmend herausgefordert, solange der Kurs unter 50–51 USD bleibt jedoch kein Trendwechsel bestätigt.</p>
+  <span class="crv">CRV n/a</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:37 · 48.41 · +0.58%</div></div>
+</a>
+
+<a class="card neutral" href="IBM_report.html">
+  <img class="chart" src="img/IBM_20260723_121409.png" alt="Chart IBM">
+  <div class="kopf">
+    <span class="ticker">IBM</span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">IBM konsolidiert auf tiefem Post-Crash-Niveau ohne bestätigte Unterstützung – der bestehende Short Put 195 läuft morgen aus und ist bei 5,6% Puffer noch komfortabel, aber ein neues Stillhaltergeschäft ist ohne belastbare technische Basis nicht vertretbar.</p>
+  <span class="crv">CRV None</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:38 · 206.00 · +0.11% · SP 195: 2.53 / Δ -0.24 / 1 DTE</div></div>
+</a>
+
+<a class="card long" href="JPM_report.html">
+  <img class="chart" src="img/JPM_20260723_132724.png" alt="Chart JPM">
+  <div class="kopf">
+    <span class="ticker">JPM</span>
+    <span class="badge long">LONG</span>
+  </div>
+  <div class="datum">23.07.2026 <span class="quelle">via Chat</span></div>
+  <p class="fazit">JPM testet aktuell zum zweiten Mal das Allzeithoch bei 351,24 nach einer durch die Zone 337,30/338,87 bestätigten Konsolidierung – die bullische EMA-Struktur bleibt intakt, allerdings läuft der aktuelle Anstieg mit unterdurchschnittlichem Volumen, weshalb ein bestätigter Ausbruch abgewartet werden sollte.</p>
+  <span class="crv">CRV 1.8 : 1</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:37 · 349.95 · +0.5%</div></div>
+</a>
+
+<a class="card neutral" href="MDT_report.html">
+  <img class="chart" src="img/MDT_20260723_121542.png" alt="Chart MDT">
+  <div class="kopf">
+    <span class="ticker">MDT</span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">MDT pausiert nach der Juli-Rallye in einer engen Konsolidierung knapp unter dem 82er-Niveau – kein neues Setup, aber der Covered Call auf den 85er oder 86er Strike bleibt das klare Stillhalter-Instrument für die bestehende Long-Aktienposition.</p>
+  <span class="crv">CRV n/a</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:36 · 81.93 · +0.05%</div></div>
+</a>
+
+<a class="card long" href="MRK_report.html">
+  <img class="chart" src="img/MRK_20260723_121721.png" alt="Chart MRK">
+  <div class="kopf">
+    <span class="ticker">MRK</span>
+    <span class="badge long">LONG</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">MRK hält nach dem Pullback vom Hoch (131,74) die bullische Struktur oberhalb EMA9/21 – der Trend ist intakt, ein frischer CSP auf technisch abgeleitetem Support bietet sich an.</p>
+  <span class="crv">CRV 2.8 : 1</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:37 · 127.69 · +0.17%</div></div>
+</a>
+
+<a class="card neutral" href="MS_report.html">
+  <img class="chart" src="img/MS_20260723_121910.png" alt="Chart MS">
+  <div class="kopf">
+    <span class="ticker">MS</span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">MS stabilisiert sich nach dem Post-Earnings-Reversal in der Zone 215–219 $, beide bestehenden Short Puts (205 / 210, Verfall 24.07.) sind mit 1 DTE und minimalen Restwerten praktisch am Ziel – Fokus liegt auf dem Aufbau des nächsten CSP-Setups nach dem morgigen Verfall.</p>
+  <span class="crv">CRV —</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:37 · 218.65 · +0.07% · SP 205: 0.08 / Δ - / 1 DTE; SP 210: 0.29 / Δ -0.09 / 1 DTE</div></div>
+</a>
+
+<a class="card neutral" href="MSFT_report.html">
+  <img class="chart" src="img/MSFT_20260723_122055.png" alt="Chart MSFT">
+  <div class="kopf">
+    <span class="ticker">MSFT</span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">MSFT dreht nach dem Scheitern an der 401-Widerstandszone mit zwei schwachen Kerzen wieder nach unten – der EMA-Verbund komprimiert, der Ausbruch vom 15.07. wird zunehmend in Frage gestellt; kein frisches Long-Setup, Stillhalter-Fokus auf CC zur Risikosteuerung des Bestands.</p>
+  <span class="crv">CRV –</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:36 · 386.50 · -0.98%</div></div>
+</a>
+
+<a class="card neutral" href="MSTR_report.html">
+  <img class="chart" src="img/MSTR_20260723_122242.png" alt="Chart MSTR">
+  <div class="kopf">
+    <span class="ticker">MSTR</span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">MSTR konsolidiert weiterhin in der fragilen 90–105-Zone mit bearisher EMA-Staffelung – die Erholung vom Crash-Tief (81,81) wirkt stabil, aber das Volumen bleibt schwach; ein Covered Call auf den Aktienbestand ist das einzige vertretbare Stillhalter-Geschäft.</p>
+  <span class="crv">CRV Beide Szenarien nur bei klarer Bestätigung auslösbar – kein bevorzugtes Setup heute</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:36 · 99.60 · -0.41%</div></div>
+</a>
+
+<a class="card neutral" href="MU_report.html">
+  <img class="chart" src="img/MU_20260723_122425.png" alt="Chart MU">
+  <div class="kopf">
+    <span class="ticker">MU</span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">MU zeigt nach dem Tief bei ~804 USD (17.07.) eine deutliche Erholung auf 992 USD – der Kurs testet jetzt die kritische EMA9/EMA21-Konfluenz und den Widerstandsbereich 960–1.000 USD; die Short-These der Vorgänger-Analysen wird partiell falsifiziert, aber noch kein sauberer Trendwechsel bestätigt.</p>
+  <span class="crv">CRV –</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:37 · 992.50 · +3.44%</div></div>
+</a>
+
+<a class="card neutral" href="NVDA_report.html">
+  <img class="chart" src="img/NVDA_20260723_122606.png" alt="Chart NVDA">
+  <div class="kopf">
+    <span class="ticker">NVDA</span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">NVDA hat gestern mit rel. Volumen 0,89 die Mai-Widerstandszone 213–220,78 von unten angetestet (Tageshoch 214,39), dreht heute vorbörslich wieder zurück – die Range zwischen Junizone ~192–200 und Maiwiderstand bleibt strukturell intakt, kein Richtungsbruch in Sicht.</p>
+  <span class="crv">CRV Long ~1,6:1 (Ziel 1) / ~3,4:1 (Ziel 2) / Short ~2,0:1 (Ziel 1) – alle erst nach Bestätigung aktiv</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:37 · 210.80 · -0.59%</div></div>
+</a>
+
+<a class="card long" href="NVO_report.html">
+  <img class="chart" src="img/NVO_20260719_124105.png" alt="Chart NVO">
+  <div class="kopf">
+    <span class="ticker">NVO</span>
+    <span class="badge long">LONG</span>
+  </div>
+  <div class="datum">19.07.2026 </div>
+  <p class="fazit">NVO hält den Aufwärtstrend intakt und testet nach dem erfolgreichen Ausbruch über 50.90 nun das nächste Ziel bei ~55 – der Covered-Call-Fokus ist angesichts des Aktienbestands das primäre Stillhalter-Instrument.</p>
+  <span class="crv">CRV 2.1 : 1</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 19.07.2026</div><div class="snap">11:26 · 51.48 · +0.0%</div>
+<div class="snap">11:51 · - · </div>
+<div class="snap">12:08 · 51.48 · +0.0%</div></div>
+</a>
+
+<a class="card short" href="ORCL_report.html">
+  <img class="chart" src="img/ORCL_20260723_122745.png" alt="Chart ORCL">
+  <div class="kopf">
+    <span class="ticker">ORCL</span>
+    <span class="badge short">SHORT</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">ORCL im intakten Abwärtstrend – Kurs bei 126,62 USD, alle EMAs fallen steil, kein technischer Boden bestätigt; Short-Bias bleibt die einzig konsistente Haltung, der Short Put 117 / 24.07. läuft morgen aus und ist mit Abstand zum Strike komfortabel.</p>
+  <span class="crv">CRV 3.2 : 1</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:36 · 126.62 · +0.62% · SP 117: 0.41 / Δ - / 1 DTE</div></div>
+</a>
+
+<a class="card neutral" href="PLTR_report.html">
+  <img class="chart" src="img/PLTR_20260723_122941.png" alt="Chart PLTR">
+  <div class="kopf">
+    <span class="ticker">PLTR</span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">PLTR bricht am 22.07. mit einer langen roten Kerze unter die Konsolidierungszone 128–134 ein und testet die kritische Support-Basis 122–126; der bestehende Short Call 143 (Verfall morgen, 24.07.) verfällt wertlos – neues Direktional-Setup erst nach Stabilisierung abwarten.</p>
+  <span class="crv">CRV n/a – kein Einstieg</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:36 · 125.29 · +0.58% · SC 143: 0.04 / Δ - / 1 DTE</div></div>
+</a>
+
+<a class="card neutral" href="PURR_report.html">
+  <img class="chart" src="img/PURR_20260723_123132.png" alt="Chart PURR">
+  <div class="kopf">
+    <span class="ticker">PURR</span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">PURR pendelt seit dem Tief bei 6,31$ (17.07.) in einer engen Range zwischen 6,68$ und 7,25$ ohne Volumen-Bestätigung – der Abwärtstrend ist strukturell intakt, aber der Kurs zeigt erste Stabilisierungsansätze, die noch keine klare Richtungsentscheidung erlauben.</p>
+  <span class="crv">CRV 2.5 : 1 (zum Ziel 6,31) / 3.5 : 1 (zum Ziel 6,00)</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:38 · 6.88 · +0.44%</div></div>
+</a>
+
+<a class="card neutral" href="QCOM_report.html">
+  <img class="chart" src="img/QCOM_20260723_123252.png" alt="Chart QCOM">
+  <div class="kopf">
+    <span class="ticker">QCOM</span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">QCOM zeigt erste Stabilisierungsansätze nach dem langen Abwärtstrend, aber noch keine bestätigte Trendwende – Stillhalter-Setup noch nicht reif, Setup-Qualität bleibt unter Short-Schwelle.</p>
+  <span class="crv">CRV –</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:37 · 176.00 · +0.21%</div></div>
+</a>
+
+<a class="card short" href="RHM_report.html">
+  <img class="chart" src="img/RHM_20260719_124752.png" alt="Chart RHM">
+  <div class="kopf">
+    <span class="ticker">RHM</span>
+    <span class="badge short">SHORT</span>
+  </div>
+  <div class="datum">19.07.2026 </div>
+  <p class="fazit">RHM bleibt im intakten Abwärtstrend mit fallenden EMAs und schwacher Erholung – das Short-Bias aus der Voranalyse vom 10.07. wird bestätigt, kurzfristige Stabilisierungsversuche ändern nichts am Gesamtbild.</p>
+  <span class="crv">CRV 2,4 : 1 (zum Primärziel 930, Stop 1.050)</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 19.07.2026</div><div class="snap">11:28 · - · </div>
+<div class="snap">11:35 · - · </div></div>
+</a>
+
+<a class="card short" href="SPCX_report.html">
+  <img class="chart" src="img/SPCX_20260723_123447.png" alt="Chart SPCX">
+  <div class="kopf">
+    <span class="ticker">SPCX</span>
+    <span class="badge short">SHORT</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">SPCX befindet sich weiterhin im freien Fall – neue ATLs täglich, EMA-Fächer vollständig bärisch, kein technischer Support in Sicht; der bestehende Short Put 100 / 31.07. liegt mit 16,2% Puffer komfortabel, sollte aber engmaschig überwacht werden.</p>
+  <span class="crv">CRV 2,0 : 1 (Ziel 1) / 3,3 : 1 (Ziel 2)</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:38 · 116.21 · +0.82% · SP 100: 1.42 / Δ - / 8 DTE</div></div>
+</a>
+
+<a class="card neutral" href="TPR_report.html">
+  <img class="chart" src="img/TPR_20260723_123630.png" alt="Chart TPR">
+  <div class="kopf">
+    <span class="ticker">TPR</span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">TPR bricht intraday mit -3,4% unter den EMA-Cluster und testet die Juli-Tiefzone – der CSP bei 135 aus der 19.07.-Analyse steht unter Druck; kein neues direktionales Setup, aber ein überarbeiteter CSP tiefer in der Struktur ist vertretbar.</p>
+  <span class="crv">CRV Short ~2,5:1 / Long ~2,0:1 – beide nur bei Triggerbestätigung valid</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:38 · 138.80 · -3.43%</div></div>
+</a>
+
+<a class="card short" href="TSLA_report.html">
+  <img class="chart" src="img/TSLA_20260723_123816.png" alt="Chart TSLA">
+  <div class="kopf">
+    <span class="ticker">TSLA</span>
+    <span class="badge short">SHORT</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">TSLA bricht mit -5,82% auf 352,25 brutal durch das dreifach bestätigte Junitief-Cluster – der Short Put 360 (Verfall morgen) ist tief im Geld und erfordert sofortiges Handeln, während der Short Call 400 wertlos verfällt.</p>
+  <span class="crv">CRV Pullback-Einstieg ~368: Ziel 340 → ~1,8:1 / Ziel 337 → ~2,0:1</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:36 · 352.25 · -5.82% · SC 400: 3.00 / Δ - / 1 DTE; SP 360: 5.13 / Δ - / 1 DTE</div></div>
+</a>
+
+<a class="card short" href="UAL_report.html">
+  <img class="chart" src="img/UAL_20260723_124006.png" alt="Chart UAL">
+  <div class="kopf">
+    <span class="ticker">UAL</span>
+    <span class="badge short">SHORT</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">UAL setzt die strukturelle Korrektur fort – nach Bruch der 119er-Zone und gescheiterter Erholung zeigt der Kurs bei 116,62 keine Stabilisierungszeichen; alle EMAs fallen, der gema_321 fungiert als dynamischer Deckel, Short bleibt die trendkonforme These.</p>
+  <span class="crv">CRV 2,1 : 1 (Ziel 1) / 3,2 : 1 (Ziel 2)</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:37 · 116.62 · -0.55%</div></div>
+</a>
+
+<a class="card neutral" href="UNH_report.html">
+  <img class="chart" src="img/UNH_20260719_133707.png" alt="Chart UNH">
+  <div class="kopf">
+    <span class="ticker">UNH</span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <div class="datum">19.07.2026 </div>
+  <p class="fazit">UNH konsolidiert nach dem Earnings-Gap (16.07.) weiterhin im Bereich 418–437 ohne klare Richtungsentscheidung – kein valides direktionales Trade-Setup, aber ein technisch sauber ableitbarer CSP unterhalb der Post-Earnings-Unterstützung ist vertretbar.</p>
+  <span class="crv">CRV None</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:37 · 429.51 · -0.42%</div></div>
+</a>
+
+<a class="card long" href="UPS_report.html">
+  <img class="chart" src="img/UPS_20260723_124142.png" alt="Chart UPS">
+  <div class="kopf">
+    <span class="ticker">UPS</span>
+    <span class="badge long">LONG</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">UPS konsolidiert nach dem Momentum-Hoch vom 17.07. bei 118,42 konstruktiv zwischen 113–117, die EMA-Struktur ist bullisch intakt – ein gesunder Pullback ohne Trendbruch, der frische Stillhalter-Einstiege auf tiefem Niveau ermöglicht.</p>
+  <span class="crv">CRV 1.9 : 1 (Einstieg 115,25, Stop 112,00, Ziel 119,50)</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:37 · 115.81 · -0.02%</div></div>
+</a>
+
+<a class="card long" href="USB_report.html">
+  <img class="chart" src="img/USB_20260723_124314.png" alt="Chart USB">
+  <div class="kopf">
+    <span class="ticker">USB</span>
+    <span class="badge long">LONG</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">USB setzt den Aufwärtstrend nach den Q2-Earnings fort, konsolidiert eng unter dem Allzeithoch bei 64,84 auf erhöhtem Volumen – der Trend ist klar bullisch, ein CSP unterhalb der 62/61-Zone bleibt das bevorzugte Stillhalter-Setup.</p>
+  <span class="crv">CRV 2.2 : 1</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:36 · 64.63 · +0.25%</div></div>
+</a>
+
+<a class="card neutral" href="V_report.html">
+  <img class="chart" src="img/V_20260723_124457.png" alt="Chart V">
+  <div class="kopf">
+    <span class="ticker">V</span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">V konsolidiert nach dem Hochpunkt bei 365.14 USD (16.07.) in einem geordneten, aber zunehmend ermüdenden Pullback – die Trendstruktur ist intakt, doch der dreitägige Rücksetzer unter rückläufigem Volumen warnt vor voreiligem Long-Einstieg; das CSP-Setup bleibt der primäre Hebel.</p>
+  <span class="crv">CRV ~1.8 : 1 (bei Einstieg 358, Stop 348, Ziel 372 – noch nicht attraktiv genug für Einstieg)</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:37 · 353.12 · -0.08%</div></div>
+</a>
+
+<a class="card long" href="WFC_report.html">
+  <img class="chart" src="img/WFC_20260723_124646.png" alt="Chart WFC">
+  <div class="kopf">
+    <span class="ticker">WFC</span>
+    <span class="badge long">LONG</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">WFC konsolidiert auf hohem Niveau knapp unter dem Swing-Hoch bei 89,79 USD – der Aufwärtstrend ist intakt, die EMAs sind bullisch aufgestellt, und der IBKR-Aktienbestand von 200 Aktien ermöglicht erstmals den Einsatz von Covered Calls als primäres Stillhalter-Instrument.</p>
+  <span class="crv">CRV 2.5 : 1 (Pullback-Einstieg 86,25, Stop 85,50, Ziel 90,00)</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:38 · 86.99 · +0.66%</div></div>
+</a>
+
+<a class="card short" href="WMT_report.html">
+  <img class="chart" src="img/WMT_20260723_131505.png" alt="Chart WMT">
+  <div class="kopf">
+    <span class="ticker">WMT</span>
+    <span class="badge short">SHORT</span>
+  </div>
+  <div class="datum">23.07.2026 </div>
+  <p class="fazit">WMT setzt den Abwärtstrend konsequent fort – nach dem Scheitern an der 117,18/118,09-Zone hat der Kurs zügig Richtung 107,25-Tief beschleunigt und schließt bei 109,33 mit intakter bärischer EMA-Struktur; Short-Continuation bleibt das favoritierte Setup, ein CSP ist mangels bestätigter Unterstützung weiterhin nicht darstellbar.</p>
+  <span class="crv">CRV 2,4 : 1 bis 107,25 / 4,3 : 1 bis 104,00 (beim Einstieg 112,00)</span>
+  <div class="snapshots"><div class="snap-titel">Preisaktionen 23.07.2026</div><div class="snap">11:38 · 109.33 · +-0.0%</div></div>
+</a>
+
+  </div>
+
+  <footer>Automatisch erstellt · Keine Anlageberatung</footer>
+</div>
+
+<script>
+// Sortiert die Karten im Grid nach Name (Ticker) oder Datum.
+// Erneuter Klick auf denselben Knopf dreht die Richtung um.
+var richtung = { name: 1, datum: -1 };   // Datum startet mit "neueste zuerst"
+var aktiv = null;
+
+function datumsWert(text) {
+  // Fischt das Datum aus dem Text (neben dem Datum kann z.B. das
+  // "via Chat"-Label stehen) und macht daraus einen sortierbaren
+  // ISO-String: "10.07.2026 via Chat" -> "2026-07-10"
+  var m = text.match(/(\d{1,2})\.(\d{1,2})\.(\d{4})/);
+  if (!m) return text.trim();
+  var pad = function (s) { return s.length < 2 ? "0" + s : s; };
+  return m[3] + "-" + pad(m[2]) + "-" + pad(m[1]);
+}
+
+function sortiere(nach) {
+  if (aktiv === nach) {
+    richtung[nach] = -richtung[nach];    // Richtung umdrehen
+  }
+  aktiv = nach;
+
+  var grid = document.getElementById("karten-grid");
+  var karten = Array.from(grid.children);
+
+  karten.sort(function (a, b) {
+    var wa, wb;
+    if (nach === "name") {
+      wa = a.querySelector(".ticker").textContent.trim();
+      wb = b.querySelector(".ticker").textContent.trim();
+    } else {
+      wa = datumsWert(a.querySelector(".datum").textContent);
+      wb = datumsWert(b.querySelector(".datum").textContent);
+    }
+    return wa < wb ? -richtung[nach] : wa > wb ? richtung[nach] : 0;
+  });
+
+  karten.forEach(function (k) { grid.appendChild(k); });
+
+  // Aktiven Knopf markieren und Richtung als Pfeil anzeigen
+  ["name", "datum"].forEach(function (n) {
+    var btn = document.getElementById("sort-" + n);
+    btn.classList.toggle("aktiv", n === nach);
+    var basis = n === "name" ? "Name" : "Datum";
+    btn.textContent = (n === nach)
+      ? basis + " " + (richtung[n] === 1 ? "\u25B2" : "\u25BC")
+      : basis;
+  });
+}
+
+// Standard-Sortierung beim Laden: neueste Karten zuerst
+document.addEventListener("DOMContentLoaded", function () {
+  sortiere("datum");
+});
+</script>
+</body>
+</html>

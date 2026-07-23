@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NVO – Analyse-Historie</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0d1319; --panel:#161e27; --line:#232e3a;
+    --text:#d9e1e8; --muted:#7e8b99; --accent:#e5a63c;
+    --long:#3ec08b; --short:#e2604f; --neutral:#8a96a3;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);
+       font:15px/1.6 "IBM Plex Sans",sans-serif;padding:32px 16px}
+  .wrap{max-width:860px;margin:0 auto}
+  header{display:flex;align-items:baseline;gap:14px;
+         border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:28px}
+  header h1{font:500 30px "IBM Plex Mono",monospace;margin:0;letter-spacing:1px}
+  header .sub{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:2px}
+
+  /* Eine Analyse = eine section; farbige Signalleiste links */
+  section.analyse{background:var(--panel);border:1px solid var(--line);
+                  border-left:4px solid var(--neutral);
+                  border-radius:6px;padding:22px 26px;margin-bottom:22px}
+  section.analyse.long{border-left-color:var(--long)}
+  section.analyse.short{border-left-color:var(--short)}
+
+  .kopf{display:flex;justify-content:space-between;align-items:center;
+        flex-wrap:wrap;gap:8px;margin-bottom:6px}
+  .datum{font:500 13px "IBM Plex Mono",monospace;color:var(--muted)}
+  .badge{font:500 12px "IBM Plex Mono",monospace;letter-spacing:2px;
+         padding:3px 10px;border-radius:3px;color:#0d1319}
+  .badge.long{background:var(--long)}
+  .badge.short{background:var(--short)}
+  .badge.neutral{background:var(--neutral)}
+
+  .fazit{font-size:16px;font-weight:600;margin:0 0 16px}
+  img.chart{width:100%;border:1px solid var(--line);border-radius:4px;margin:4px 0 12px}
+  h3{font:500 12px "IBM Plex Mono",monospace;color:var(--accent);
+     text-transform:uppercase;letter-spacing:2px;margin:18px 0 4px}
+  p{margin:6px 0;color:var(--text)}
+
+  /* Setup-Tabelle in Monospace, Zahlen buendig */
+  table.setup{width:100%;border-collapse:collapse;margin-top:8px;
+              font:14px "IBM Plex Mono",monospace}
+  table.setup td{padding:6px 10px;border-top:1px solid var(--line)}
+  table.setup td:first-child{color:var(--muted);width:120px}
+
+  /* Aufklappbarer Volltext in aelteren Analyse-Karten */
+  details.volltext{margin-top:16px;border-top:1px solid var(--line);padding-top:10px}
+  details.volltext summary{cursor:pointer;font:500 12px "IBM Plex Mono",monospace;
+                color:var(--muted);text-transform:uppercase;letter-spacing:2px}
+  details.volltext summary:hover{color:var(--accent)}
+  details.volltext h1,details.volltext h2{font-size:15px;color:var(--accent);margin:14px 0 6px}
+  details.volltext strong{color:#fff}
+
+  footer{color:var(--muted);font-size:12px;text-align:center;margin-top:32px}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>NVO</h1>
+    <span class="sub">Analyse-Historie · neueste zuerst</span>
+  </header>
+
+<!-- NEUE_ANALYSE_HIER -->
+<section class="analyse long">
+  <div class="kopf">
+    <span class="datum">19.07.2026 </span>
+    <span class="badge long">LONG</span>
+  </div>
+  <p class="fazit">NVO hält den Aufwärtstrend intakt und testet nach dem erfolgreichen Ausbruch über 50.90 nun das nächste Ziel bei ~55 – der Covered-Call-Fokus ist angesichts des Aktienbestands das primäre Stillhalter-Instrument.</p>
+  <img class="chart" src="img/NVO_20260719_124105.png" alt="Chart NVO">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>NVO befindet sich in einem intakten, mehrstufigen Aufwärtstrend seit dem Tief bei ~35.13 (30. März). Die Trendstruktur zeigt eine Abfolge höherer Hochs und höherer Tiefs: 36.82 → 42.86 → 48.50 → 51.77 (16. Juli, neues Swing-Hoch). Das Swing-Hoch aus der Analyse vom 08.07. bei ~50.90 wurde am 15./16. Juli mit Schlusskursen von 50.56 bzw. 51.48 klar gebrochen. Der letzte Schlusskurs (17. Juli) bei 50.32 zeigt einen leichten Rücksetzer nach dem Ausbruch – ein normales Pullback-Verhalten. Primärer Support liegt im Bereich 49.00–49.30 (mehrfach getestet in KW28/29), sekundärer Support bei 47.60–48.00.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die Kerze vom 16. Juli ist eine starke Bullish-Marubozu-artige Kerze (Open 50.91, High 51.77, Close 51.48) mit engem Schatten – klares Kaufsignal nach dem Ausbruch über 50.90. Die Folgekerze vom 17. Juli (Open 51.06, High 51.40, Low 50.00, Close 50.32) ist ein sogenannter Bearish Inside Day oder Shooting-Star-Kandidat: Der Kurs eröffnet nahe dem Hoch und schließt tiefer, was kurzfristigen Verkaufsdruck signalisiert. Der Schatten nach unten bis 50.00 – ein runder psychologischer Level – wurde gehalten. Kein Trendumkehrsignal, aber ein Warnsignal für kurzfristige Schwäche.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Die EMA-Konstellation ist klar bullisch: EMA9 (49.82) > EMA21 (48.45) > EMA55 (46.16), gema_321 bei 48.75 – alle steigend, Reihenfolge intakt. Der Kurs (50.32) notiert oberhalb aller drei EMAs mit komfortablem Abstand. EMA9 hat EMA21 bereits Anfang Juli gekreuzt (Golden Cross im kurzen Fenster) und läuft nun parallel nach oben. Der gema_321 bei 48.75 fungiert als dynamische Support-Zone beim nächsten Pullback.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Long</td></tr>
+    <tr><td>Einstieg</td><td>51.50 (Stop-Buy über Hoch vom 16. Juli / Ausbruchsniveau)</td></tr>
+    <tr><td>Stop</td><td>49.00 (unter dem getesteten Support-Cluster 49.00–49.30)</td></tr>
+    <tr><td>Ziel</td><td>55.50</td></tr>
+    <tr><td>CRV</td><td>2.1 : 1</td></tr>
+  </table>
+
+  <h3>5 · Stillhalter (max. 12 Tage)</h3>
+<p>Mit 400 Aktien im Bestand ist ein Covered Call das passgenaue Instrument – der Bestand deckt 4 Kontrakte vollständig. Ein CSP wäre technisch zwar möglich, widerspricht aber der Long-Positionierung und dem intakten Aufwärtstrend; daher kein CSP empfohlen. Der CC soll oberhalb des nächsten nennenswerten Widerstands platziert werden und profitiert von der Konsolidierungsphase nach dem Ausbruch.</p>
+<table class="setup"><tr><td>Geschäft</td><td>Covered Call</td></tr><tr><td>Strike</td><td>55.0</td></tr><tr><td>Puffer</td><td>6.7 %</td></tr><tr><td>Zone</td><td>oberhalb des Projektionsziels ~55 / runder Widerstand; kein struktureller Widerstand durch mehrfache Tests bestätigt, aber charttechnisches Kursziel der Ausbruchs-Bewegung</td></tr><tr><td>Verfall bis</td><td>2026-07-25 (6 Tage)</td></tr><tr><td>Begründung</td><td>Ein CC mit Strike 55.00 liegt 6.7% über dem aktuellen Kurs (50.32 Schlusskurs 17.07.) und damit deutlich oberhalb des Ausbruchsniveaus 50.90 sowie des nächsten runden Widerstands bei 52.50–53.00. Der Strike 55.00 entspricht dem Kursziel der Bewegung – eine Andienung (Abgabe der Aktien zu 55.00) wäre fundamental und technisch akzeptabel und würde die Position profitabel schließen. Prüfe in der Optionskette: Liegt die Prämie im Verhältnis zum Puffer noch bei vertretbaren Werten (grob 0.20–0.40 bei dieser IV-Lage zu erwarten)? Delta sollte deutlich unter 0.20 liegen. Liquidität und Spread im 55er-Strike der Juli-Wochenserie prüfen.</td></tr></table>
+<p><strong>Bestand:</strong> Aktienbestand vorhanden (Long-Position). Ein Covered Call auf Basis dieses Bestands ist möglich und sinnvoll – der Bestand deckt mehrere Kontrakte. Keine bestehenden Short-Optionen laut IBKR-Snapshot. Sollte der Kurs die 55.00 vor Verfall erreichen, entweder rollen (Roll Up & Out auf nächsten Verfall und/oder höheren Strike, z.B. 57.50 für 01.08.) oder Andienung akzeptieren. Roll-Trigger: Kurs steigt über 53.50 mit mehr als 2 Tagen Restlaufzeit → Roll prüfen.</p>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 19.07.2026 anzeigen</summary>
+    <h1>NVO – Detailanalyse 19. Juli 2026</h1>
+
+<h2>Abgleich mit der Analyse vom 08.07.2026</h2>
+<p>Die Analyse vom 08.07. war klar <strong>LONG</strong> mit Einstieg bei 50.90 (Stop-Buy über das Swing-Hoch). Dieses Setup hat funktioniert: Am 15. Juli wurde das Level 50.90 intraday überschritten (High 51.00, Close 50.56), und am 16. Juli erfolgte der bestätigte Schlusskurs-Ausbruch bei 51.48 – neues Swing-Hoch bei 51.77. Das Ziel 55.50 ist noch nicht erreicht. Die Aussage der Voranalyse wird damit vollständig bestätigt. Stop bei 48.40 wurde zu keiner Zeit getestet; das Tief der Konsolidierung lag bei 48.29 (14. Juli) und hielt damit gerade so. Wer den Stop eng bei 48.40 hatte, wurde möglicherweise knapp ausgestoppt – dieses Level sollte für neue Setups als kritische Zone im Blick bleiben.</p>
+
+<h2>1. Trendstruktur – Detailanalyse</h2>
+<p>Der übergeordnete Trend ist aufwärts gerichtet seit dem Mehrjahrestief bei ~35.13 (30. März 2026). Die wichtigen strukturellen Stufen im Aufstieg:</p>
+<ul>
+  <li><strong>Basis-Support 35.00–36.00:</strong> Boden März/April, mehrfach bestätigt (30.03., 31.03., 01.04.)</li>
+  <li><strong>Konsolidierung 39–41 (April):</strong> Mehrfach gehandelt, jetzt weit entfernt und nur noch für den übergeordneten Chart relevant</li>
+  <li><strong>Acceleration-Zone 43.75–45.80 (Mai):</strong> Mehrfach gehandelt, jetzt primärer Support auf dem Weg zurück falls größere Korrektur</li>
+  <li><strong>Konsolidierungszone 47.60–48.50 (KW28, 06.–14. Juli):</strong> Siebenmal im Bereich 48.29–49.64 gehandelt – das ist eine bestätigte Support-Zone. Dieser Bereich ist jetzt der kurzfristig wichtigste Rücklauf-Support.</li>
+  <li><strong>Ausbruchsniveau 50.90–51.00:</strong> Bisheriges Swing-Hoch, am 15./16. Juli gebrochen. Dieses Level wandelt sich zu Support.</li>
+  <li><strong>Swing-Hoch 51.77 (16. Juli):</strong> Aktuelles Allzeithoch der Bewegung in diesem Datensatz. Nächster relevanter Widerstand liegt bei 52.50 (runder Level) und 55.00 (Kursziel-Projektion).</li>
+</ul>
+<p>Der Rücksetzer am 17. Juli (Close 50.32) ist nach einem Ausbruch normal – ein Pullback in die Zone 50.00–50.90 wäre technisch gesund und würde erst dann zur Warnung, wenn 49.00 unterschritten wird.</p>
+
+<h2>2. Candlestick-Formationen</h2>
+<p>Die letzten vier Kerzen zeigen ein klassisches Ausbruchs-Pullback-Muster:</p>
+<ul>
+  <li><strong>15. Juli (High 51.00, Close 50.56, rel. Volumen 0.75):</strong> Erste Überschreitung des 50.90-Levels, schwaches Volumen – Ausbruch noch nicht überzeugend bestätigt.</li>
+  <li><strong>16. Juli (High 51.77, Close 51.48, rel. Volumen 0.72):</strong> Starke Bullish-Marubozu-artige Kerze, Schlusskurs-Bestätigung des Ausbruchs. Volumen unterdurchschnittlich (0.72x) – für eine Bestätigung wäre Volumen über 1.0x wünschenswert, aber kein Disqualifikationsmerkmal im aktuellen Niedrigvolumen-Regime des Titels.</li>
+  <li><strong>17. Juli (High 51.40, Low 50.00, Close 50.32, rel. Volumen 0.71):</strong> Bearish Inside/Reversal-Candle. Der Kurs konnte das neue Hoch nicht halten, schließt unter dem Vortagesschluss. Der Docht nach oben (bis 51.40) zeigt Verkaufsdruck im 51er-Bereich. Das Halten der runden 50.00 ist positiv.</li>
+</ul>
+<p>Zusammenfassung: Kurzfristig leichter Verkaufsdruck nach dem Ausbruch – kein Trendumkehrsignal, aber kein Setup für aggressive Käufe in der Eröffnung am 19. Juli ohne erneuten Anstieg über 51.50.</p>
+
+<h2>3. EMA-Lage</h2>
+<p>EMA-Reihenfolge: <strong>EMA9 49.82 > EMA21 48.45 > EMA55 46.16</strong>, gema_321 = 48.75. Alle EMAs steigen dynamisch, die Abstände zwischen ihnen weiten sich – das ist das klassische Bild einer beschleunigenden Aufwärtsbewegung. Der Kurs (50.32) notiert ~0.50 Punkte über EMA9, was moderate Überdehnung anzeigt. Bei einem Pullback wäre EMA9 (~49.85 bei Trendfortsetzung) die erste Anlaufstelle, gefolgt von gema_321 (~48.80). EMA21 bei 48.45 entspricht dem unteren Ende der Konsolidierungszone – ein Test dieses Levels wäre das Maximum eines gesunden Pullbacks im Aufwärtstrend.</p>
+
+<h2>4. Alternative Trade-Setups</h2>
+
+<p><strong>Setup A – Momentum-Long über dem Ausbruchs-Hoch (bevorzugtes Setup):</strong></p>
+<ul>
+  <li>Einstieg: 51.50 (Stop-Buy über High vom 16. Juli 51.77 – leicht angepasst auf Handelspraxis)</li>
+  <li>Stop: 49.00 (unter Support-Cluster)</li>
+  <li>Ziel 1: 53.00 – CRV 0.6:1 (Teilgewinnmitnahme)</li>
+  <li>Ziel 2: 55.50 – CRV 2.1:1 (Hauptziel, Projektion der Ausbruchsbewegung)</li>
+  <li>Bewertung: Valides Momentum-Setup, aber das Volumen der letzten Kerzen ist unterdurchschnittlich – Bestätigung durch Volumenanstieg beim Ausbruch über 51.77 wäre ideal.</li>
+</ul>
+
+<p><strong>Setup B – Pullback-Long an EMA9/50.00-Support:</strong></p>
+<ul>
+  <li>Einstieg: 50.00–50.30 (Limit-Order in die Schwäche, wenn 50.00 hält)</li>
+  <li>Stop: 49.00</li>
+  <li>Ziel: 55.50 – CRV 4.9:1 (sehr attraktiv)</li>
+  <li>Bewertung: Besseres Risiko-Rendite-Verhältnis, erfordert aber Geduld und Konfirmation durch bullische Umkehrkerze im 50er-Bereich. Für bestehende Positionen (Aktienbestand) nicht relevant als Einstieg, aber als Referenz für Roll-Entscheidungen relevant.</li>
+</ul>
+
+<p><strong>Setup C – Kein Trade:</strong> Falls der Kurs unter 49.00 schließt (Invaliedierung der Trendstruktur), wäre eine neutrale Haltung angebracht bis Klärung.</p>
+
+<h2>5. Stillhalter – Detailanalyse (Schwerpunkt)</h2>
+
+<h3>Positionslage laut IBKR-Snapshot</h3>
+<p>Der Snapshot (12:08 Uhr, 19.07.2026) zeigt <strong>400 Aktien im Bestand</strong>, keine laufenden Short-Optionen. Der aktuelle Kurs zum Snapshot-Zeitpunkt: 51.48 (identisch mit Schlusskurs 16. Juli – möglicherweise Pre-Market oder verzögerter Kurs). Die Analyse basiert auf dem Schlusskurs 17. Juli (50.32) als letztem bestätigten OHLCV-Datenpunkt.</p>
+
+<h3>CSP – Nicht empfohlen</h3>
+<p>Ein Cash-Secured Put würde implizit eine Bereitschaft zum Kauf weiterer Aktien unter aktuellem Niveau signalisieren. Angesichts des bereits vorhandenen Aktienbestands und des intakten Aufwärtstrends ist das zwar nicht per se falsch, aber die Verkettungs-Logik warnt: Ein CSP mit Strike nahe dem EMA9-Support (~49.50–50.00) würde genau in die Zone fallen, die als Pullback-Einstieg dient – das ist inkonsistent, weil der CSP den Rücksetzer monetarisieren würde, den Setup B (Pullback-Long) als Chance definiert. Daher: CSP auf null gesetzt, Fokus auf CC.</p>
+
+<h3>Covered Call – Primäres Instrument</h3>
+<p><strong>Strike-Herleitung:</strong> Der nächste bestätigte Widerstand liegt am Swing-Hoch 51.77 (16. Juli). Darüber ist die Luft technisch dünn bis zum runden Level 52.50 und dann dem Kursziel 55.00. Ein CC-Strike bei 55.00 bietet:</p>
+<ul>
+  <li>Puffer: 6.7% über Schlusskurs 50.32 (bzw. ~6.8% unter dem IBKR-Kurs 51.48 gerechnet: ca. 6.8% Puffer)</li>
+  <li>Die Zone 51.77–53.00 liegt komplett als Puffer <em>vor</em> dem Strike – das ist korrekte Stillhalter-Logik.</li>
+  <li>Andienungsszenario: Eine Abgabe zu 55.00 wäre nach dem langen Aufstieg von ~35 auf ~55 fundamental und technisch absolut akzeptabel. Das entspricht ca. +57% seit dem Tief – eine Abgabe in Stärke, nicht in Panik.</li>
+</ul>
+<p><strong>Verfall:</strong> 25. Juli 2026 (Freitag, 6 Tage Restlaufzeit). Das ist die nächste Standard-Options-Expiration und hält sich innerhalb der 12-Tage-Regel.</p>
+<p><strong>Was in der Optionskette zu prüfen ist:</strong></p>
+<ul>
+  <li>Prämie Mid-Market für CC 55.00 mit Verfall 25.07. – bei üblicher IV sollte das im Bereich 0.10–0.30 liegen. Ist die Prämie unter 0.10, lohnt der Aufwand kaum.</li>
+  <li>Delta: Sollte unter 0.15 liegen (OTM-Situation bestätigen).</li>
+  <li>Bid-Ask-Spread: NVO ist ein liquider Large-Cap, Spreads sollten eng sein (unter 0.05 idealtypisch).</li>
+  <li>Alternativ-Strike 52.50 prüfen: Liegt näher am Kurs (~4.3% Puffer), höhere Prämie, aber geringerer Puffer falls der Ausbruch sich fortsetzt. Nur wählen, wenn Prämie bei 55.00 unzureichend.</li>
+</ul>
+<p><strong>Roll-Trigger:</strong> Sobald NVO über 53.50 mit mehr als 2 Tagen bis Verfall steigt und der CC-Preis auf das 2–3-fache der vereinnahmten Prämie angestiegen ist → Roll Up & Out: Strike auf 57.50, Verfall 01.08.2026 (13 Tage – Grenzfall, alternativ 57.50 mit Verfall 25.07. und sofortigem Re-Sell auf 01.08.). Ziel: Partizipation an weiterer Aufwärtsbewegung erhalten, ohne Aktien vorzeitig abzugeben. Falls Kurs bis Verfall unter 51.00 fällt und der CC nahezu wertlos ist (unter 0.02): Frühzeitiger Rückkauf und ggf. Re-Sell auf nächste Woche möglich.</p>
+  </details>
+</section>
+
+<section class="analyse long">
+  <div class="kopf">
+    <span class="datum">08.07.2026</span>
+    <span class="badge long">LONG</span>
+  </div>
+  <p class="fazit">NVO befindet sich in einem intakten Aufwärtstrend mit bullischer EMA-Konstellation und konsolidiert knapp unter dem Swing-Hoch bei ~50.90 – ein Ausbruch bietet ein attraktives Long-Setup.</p>
+  <img class="chart" src="img/NVO_20260708_122031.png" alt="Chart NVO">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>NVO hat nach dem Tief bei ~35.12 (30. März) eine ausgeprägte Erholungsbewegung gestartet. Die Struktur zeigt steigende Hochs und Tiefs: 35.12 → 44.87 → 42.25 (Korrektur) → 50.895 (aktuelles Hoch am 2. Juli). Der übergeordnete Trend ist klar bullisch. Wichtige Unterstützung liegt bei 47.60–48.00 (letzte Korrektur-Tiefs), darunter bei 46.45–46.50. Widerstand ist das Swing-Hoch bei 50.895.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die letzten beiden Kerzen (2. und 6./7. Juli) zeigen nach dem starken Aufwärtstag (50.895 Hoch) eine Konsolidierung mit leichtem Pullback auf ~49.26 und anschließender Erholung auf 49.64 – ein gesundes Consolidation-Muster. Kein Hinweis auf Distributionskerzen; die Körper sind moderat, was auf Akkumulation hindeutet.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Die EMA-Konstellation ist klar bullisch: EMA9 (48.45) > EMA21 (46.80) > EMA55 (44.93), und der gema_321 (47.31) steigt stetig an. Der Kurs notiert deutlich über allen drei EMAs. EMA9 agiert als dynamische Unterstützung im laufenden Aufwärtstrend. Das Volumen war an den Ausbruchstagen (22.–26. Juni) mit rel_volumen 1.14–1.32 erhöht, was den Trend bestätigt.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Long</td></tr>
+    <tr><td>Einstieg</td><td>50.90 (Stop-Buy über Swing-Hoch vom 2. Juli)</td></tr>
+    <tr><td>Stop</td><td>48.40 (unter dem lokalen Pullback-Tief vom 6. Juli)</td></tr>
+    <tr><td>Ziel</td><td>55.50</td></tr>
+    <tr><td>CRV</td><td>2.3 : 1</td></tr>
+  </table>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 08.07.2026 anzeigen</summary>
+    <h1>NVO – Detailanalyse (08. Juli 2026)</h1><h2>1. Trendstruktur</h2><p>NVO hat nach dem markanten Verkaufsdruck im Februar/März 2026 (Tief bei 35.12 am 30. März) eine nachhaltige Trendumkehr vollzogen. Die Erholungsphase lässt sich in drei Phasen unterteilen:</p><ul><li><strong>Phase 1 (März–April):</strong> Bodenbildung zwischen 35.12 und 41.23. Langsame Erholung, EMAs noch in bärischer Reihenfolge.</li><li><strong>Phase 2 (Mai):</strong> Beschleunigung auf 47.55 (6. Mai) mit erhöhtem Volumen (rel_volumen 1.46 am 6. Mai – auffällig hoch). Danach Konsolidierung bei 44–47.</li><li><strong>Phase 3 (Juni–Juli):</strong> Ausbruch aus der Konsolidierung am 22. Juni (Kerze mit rel_volumen 1.14, Kurs von 43.90 auf 45.88) und Fortsetzung auf das aktuelle Hoch bei 50.895 am 2. Juli.</li></ul><p>Wichtige Kursmarken: <strong>Unterstützung</strong> bei 48.40–48.55 (Pullback-Tiefs 6./7. Juli), 47.60–47.87 (Tiefs 30. Juni/6. Juli-Bereich), 46.45 (Tief 22. Juni = Ausbruchsbasis), 44.93 (EMA55). <strong>Widerstand</strong> bei 50.895 (Swing-Hoch 2. Juli) und psychologisch 52.00/55.00.</p><h2>2. Candlestick-Formationen</h2><p>Die letzten fünf Kerzen zeigen ein typisches Ausbruchs-Konsolidierungs-Muster:</p><ul><li><strong>02. Juli:</strong> Starke Aufwärtskerze (49.78→50.895, close 50.43) mit erhöhtem Volumen (rel_volumen 0.80 – moderat, aber ausreichend für den Ausbruch).</li><li><strong>06. Juli:</strong> Leichter Pullback auf Tief 48.55, close 49.26. Kleine Kerze mit kompaktem Körper – kein Verkaufsdruck.</li><li><strong>07. Juli:</strong> Erholung auf 49.64, Tageshoch 50.44 – zeigt, dass der Markt das Ausbruchsniveau verteidigt. Inside-Day-Charakter relativ zum 2. Juli – bullische Konsolidierung.</li></ul><p>Keine Distributionszeichen (keine langen Oberschatten auf hohem Volumen). Das Muster ist konstruktiv für eine Fortsetzung nach oben.</p><h2>3. EMA-Lage</h2><p>Die EMA-Konstellation ist eindeutig bullisch:</p><ul><li><strong>EMA9:</strong> 48.45 – steigt steil an</li><li><strong>EMA21:</strong> 46.80 – steigt an</li><li><strong>EMA55:</strong> 44.93 – steigt an</li><li><strong>gema_321:</strong> 47.31 – ebenfalls im Aufwärtstrend</li></ul><p>Die Reihenfolge EMA9 > EMA21 > EMA55 ist seit Ende Mai etabliert und zunehmend gespreizt – ein Zeichen für Trendstärke. Der Kurs (49.64) liegt ~1.19 über EMA9, was eine leichte Überdehnung andeutet, aber im Kontext der starken Phase noch im normalen Bereich liegt. Die Konsolidierung der letzten zwei Tage lässt EMA9 aufholen. Das Volumen-Profil zeigt, dass die großen Ausbruchstage (6. Mai: 1.46×, 22. Juni: 1.14×, 23. Juni: 1.17×, 26. Juni: 1.32×) jeweils von erhöhtem Volumen begleitet wurden – institutionelle Partizipation wahrscheinlich.</p><h2>4. Trade-Setups</h2><h3>Setup A (Bevorzugt): Ausbruchs-Long</h3><p><strong>Einstieg:</strong> 50.90 (Stop-Buy über das Hoch vom 2. Juli bei 50.895) – bestätigt den Ausbruch auf neue Hochs.</p><p><strong>Stop:</strong> 48.40 (knapp unter dem Tief vom 6. Juli bei 48.55, gibt dem Trade Raum für normale Schwankungen ohne EMA9 zu unterschreiten).</p><p><strong>Ziel 1:</strong> 54.00 (Projektion: 50% der ersten großen Aufwärtsimpulse, psychologischer Widerstand) → CRV: (54.00-50.90)/(50.90-48.40) = 3.10/2.50 = <strong>1.24:1</strong></p><p><strong>Ziel 2:</strong> 56.50 (100%-Extension des Mai-Aufwärtsimpulses von 41.17 auf 47.55 = +6.38, projiziert ab 48.40) → CRV: (56.50-50.90)/2.50 = <strong>2.24:1</strong></p><h3>Setup B: Pullback-Long</h3><p><strong>Einstieg:</strong> 48.00–48.40 (Rücklauf zur letzten Unterstützungszone und EMA9-Nähe)</p><p><strong>Stop:</strong> 47.30 (unter dem Tief vom 30. Juni bei 47.87, Puffer zur EMA9-Zone)</p><p><strong>Ziel:</strong> 52.00–54.00 → CRV: (52.00-48.20)/(48.20-47.30) = 3.80/0.90 = <strong>4.2:1</strong> – attraktiver, aber erfordert Geduld/Limit-Order</p><h3>Setup C: Konservativ – Bestätigung über 52.00</h3><p><strong>Einstieg:</strong> 52.10 (Stop-Buy über psychologischen Widerstand 52.00)</p><p><strong>Stop:</strong> 50.00</p><p><strong>Ziel:</strong> 57.00 → CRV: (57.00-52.10)/(52.10-50.00) = 4.90/2.10 = <strong>2.33:1</strong></p><p><strong>Bevorzugtes Setup: A</strong> – bestes Timing, klarer Trigger, CRV vertretbar. Risikomanagement: Positionsgröße so wählen, dass der Stop-Abstand von ~2.50 USD maximal 1–2% des Depots riskiert.</p>
+  </details>
+</section>
+
+
+  <footer>Automatisch erstellt · <a href="index.html">Zur Übersicht</a> ·
+    Keine Anlageberatung</footer>
+</div>
+</body>
+</html>

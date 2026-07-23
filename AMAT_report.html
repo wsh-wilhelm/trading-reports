@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AMAT – Analyse-Historie</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0d1319; --panel:#161e27; --line:#232e3a;
+    --text:#d9e1e8; --muted:#7e8b99; --accent:#e5a63c;
+    --long:#3ec08b; --short:#e2604f; --neutral:#8a96a3;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);
+       font:15px/1.6 "IBM Plex Sans",sans-serif;padding:32px 16px}
+  .wrap{max-width:860px;margin:0 auto}
+  header{display:flex;align-items:baseline;gap:14px;
+         border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:28px}
+  header h1{font:500 30px "IBM Plex Mono",monospace;margin:0;letter-spacing:1px}
+  header .sub{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:2px}
+
+  /* Eine Analyse = eine section; farbige Signalleiste links */
+  section.analyse{background:var(--panel);border:1px solid var(--line);
+                  border-left:4px solid var(--neutral);
+                  border-radius:6px;padding:22px 26px;margin-bottom:22px}
+  section.analyse.long{border-left-color:var(--long)}
+  section.analyse.short{border-left-color:var(--short)}
+
+  .kopf{display:flex;justify-content:space-between;align-items:center;
+        flex-wrap:wrap;gap:8px;margin-bottom:6px}
+  .datum{font:500 13px "IBM Plex Mono",monospace;color:var(--muted)}
+  .badge{font:500 12px "IBM Plex Mono",monospace;letter-spacing:2px;
+         padding:3px 10px;border-radius:3px;color:#0d1319}
+  .badge.long{background:var(--long)}
+  .badge.short{background:var(--short)}
+  .badge.neutral{background:var(--neutral)}
+
+  .fazit{font-size:16px;font-weight:600;margin:0 0 16px}
+  img.chart{width:100%;border:1px solid var(--line);border-radius:4px;margin:4px 0 12px}
+  h3{font:500 12px "IBM Plex Mono",monospace;color:var(--accent);
+     text-transform:uppercase;letter-spacing:2px;margin:18px 0 4px}
+  p{margin:6px 0;color:var(--text)}
+
+  /* Setup-Tabelle in Monospace, Zahlen buendig */
+  table.setup{width:100%;border-collapse:collapse;margin-top:8px;
+              font:14px "IBM Plex Mono",monospace}
+  table.setup td{padding:6px 10px;border-top:1px solid var(--line)}
+  table.setup td:first-child{color:var(--muted);width:120px}
+
+  /* Aufklappbarer Volltext in aelteren Analyse-Karten */
+  details.volltext{margin-top:16px;border-top:1px solid var(--line);padding-top:10px}
+  details.volltext summary{cursor:pointer;font:500 12px "IBM Plex Mono",monospace;
+                color:var(--muted);text-transform:uppercase;letter-spacing:2px}
+  details.volltext summary:hover{color:var(--accent)}
+  details.volltext h1,details.volltext h2{font-size:15px;color:var(--accent);margin:14px 0 6px}
+  details.volltext strong{color:#fff}
+
+  footer{color:var(--muted);font-size:12px;text-align:center;margin-top:32px}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>AMAT</h1>
+    <span class="sub">Analyse-Historie · neueste zuerst</span>
+  </header>
+
+<!-- NEUE_ANALYSE_HIER -->
+<section class="analyse short">
+  <div class="kopf">
+    <span class="datum">23.07.2026 </span>
+    <span class="badge short">SHORT</span>
+  </div>
+  <p class="fazit">AMAT konsolidiert nach dem Abwärtsdruck der Vorwochen in einer engen Range um 525–565 – der EMA-Verbund bleibt bärisch, ein technischer Bounce bietet weiterhin Short-Einstiegs- und Naked-Call-Opportunitäten im Widerstandsbereich.</p>
+  <img class="chart" src="img/AMAT_20260723_114357.png" alt="Chart AMAT">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>AMAT hat nach dem Blow-off-Top bei 739,67 (30.06.) eine klare Abwärtsstruktur etabliert: Das erste Swing-Low lag bei 513,22 (17.07.), seither bildet sich eine Konsolidierungsphase zwischen <strong>513–525 (Support)</strong> und <strong>563–575 (Widerstand)</strong>. Die letzten drei Kerzen (17.07., 20.07., 21.07., 22.07.) zeigen steigende Hochs und Tiefs – ein potenzieller Mini-Bounce – jedoch ohne nachhaltigen Volumen-Anstieg und weiterhin unterhalb des gesamten EMA-Verbunds. Der übergeordnete Downtrend (Hochs: 739 → 629 → 614 → 572) ist intakt. Weder wurde ein höheres Hoch über 591 (16.07.) noch ein Bruch der Abwärtstrendstruktur vollzogen.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die letzten vier Kerzen zeigen einen verhaltenen Bounce ohne Überzeugung: 17.07. eine lange Abwärtskerze mit unterem Docht (Erholung vom Intraday-Low 513,22), 20.07. eine Inside-Candle mit engem Spread bei unterdurchschnittlichem Volumen (rel. Vol. 0,66), 21.07. eine moderat bullische Kerze (564,55 Close, rel. Vol. 0,77), 22.07. eine bearishe Umkehr – <strong>Doji/Shooting-Star-ähnlich</strong> mit Oberschatten bis 563,34 und Rückgang auf 553,92, bei sehr niedrigem Volumen (rel. Vol. 0,50 – nur 50% des 55er-Schnitts). Das schwache Volumen des Bounce und die Rejection an der Widerstandszone 563–575 schwächen die Kaufseite erheblich.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>EMA-Verbund bleibt bärisch geordnet: EMA9 (562,82) < EMA21 (571,50) < gema_321 (560,05) – der Kurs (553,92 Close, IBKR 555,54) liegt <em>unterhalb</em> aller drei EMAs und damit unterhalb des gewichteten Verbunds. Die EMAs konvergieren zunehmend (Spread EMA9/EMA21 nur noch ~8,7 Punkte), was eine Kompressionsphase anzeigt. EMA55 (528,86) steigt noch leicht an und bildet eine dynamische Untergrenze. Der gema_321 bei 560,05 fungiert als kurzfristige Decke; der Kurs hat diese Linie seit dem 06.07. nicht mehr nachhaltig überwunden. Vorherige Analysen (Short-Bias, EMA-Decke bei 575–585) werden durch aktuelle Daten bestätigt – die EMA-Struktur hat sich weiter nach unten verdichtet.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Short</td></tr>
+    <tr><td>Einstieg</td><td>563,00–572,00 (Limit-Short bei Bear-Rally in EMA9/gema_321-Zone)</td></tr>
+    <tr><td>Stop</td><td>592,00 (über Swing-High 16.07. bei 591,09 und EMA21-Cluster)</td></tr>
+    <tr><td>Ziel</td><td>525,00 (Konsolidierungs-Support) / 513,00 (Intraday-Low 17.07.)</td></tr>
+    <tr><td>CRV</td><td>2.0 : 1 (bei Einstieg 567, Stop 592, Ziel 517)</td></tr>
+  </table>
+
+  <h3>5 · Stillhalter (max. 12 Tage)</h3>
+<p>Kein Aktienbestand vorhanden (IBKR: 0 Aktien, keine offenen Optionen). Ein Covered Call scheidet aus. Das einzig saubere Stillhalter-Instrument im laufenden Abwärtstrend ist ein Naked Call oberhalb des EMA-Verbund-Widerstands. Ein CSP bleibt weiterhin unattraktiv: Die 513–525er-Zone ist erst einmal getestet worden (17.07.), damit noch kein bestätigter Support – ein unbestätigter Bereich ohne ausreichende Puffertiefe für ein risikogerechtes CSP.</p>
+<table class="setup"><tr><td>Geschäft</td><td>Covered Call</td></tr><tr><td>Strike</td><td>595.0</td></tr><tr><td>Puffer</td><td>7.1 %</td></tr><tr><td>Zone</td><td>Widerstandscluster 575–591 (EMA21-Decke 571,50, gema_321 560,05, Swing-Highs 14.07. bei 614, 15.07. bei 611,72, Rejection 16.07. bei 591,09)</td></tr><tr><td>Verfall bis</td><td>2026-08-01 (9 Tage)</td></tr><tr><td>Begründung</td><td>Der Strike 595 liegt oberhalb des mehrfach abgeprallten Widerstandsbereichs 575–591 (Rejection 16.07. bei 591,09, EMA21 bei 571,50, gema_321 bei 560,05). Vom IBKR-Kurs 555,54 besteht ein Puffer von ca. 7,1% zum Strike. Der Kurs müsste den gesamten EMA-Verbund (EMA9 562, EMA21 571) UND die Widerstandszone 575–591 überwinden – beides gegen den intakten Abwärtstrend. Das Naked-Call-Risiko ist theoretisch unbegrenzt; ein vorab definierter Schließungs-Trigger bei Kurs über 580 (Bruch der EMA21-Zone auf Tagesbasis) ist zwingend. Andienungs-Check: Bei 595 liegt AMAT über dem gesamten EMA-Verbund und hätte den Abwärtstrend gebrochen – sofortige Gegenkontrolle und Positionsschließung erforderlich. In der Optionskette zu prüfen: Prämie (IV nach dem Sell-off erhöht, sollte attraktiv sein), Delta (Ziel ≤ 0.20), Bid-Ask-Spread (Liquidität AMAT üblicherweise gut), Open Interest am Strike 595.</td></tr></table>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 23.07.2026 anzeigen</summary>
+    <h1>AMAT – Detailanalyse 23.07.2026</h1>
+
+<h2>1. Trendstruktur & historischer Abgleich</h2>
+<p>Die übergeordnete Trendstruktur wurde in den drei Voranalysen (08.07., 16.07., 19.07.) konsistent als Short eingestuft – diese Einschätzung wird durch die aktuellen Daten <strong>vollumfänglich bestätigt</strong>. Das Blow-off-Top bei <strong>739,67 (30.06.)</strong> markiert das unangefochtene Allzeit- bzw. Swing-Hoch dieser Bewegung. Die anschließende Abwärtsstruktur zeigt klassisch sinkende Hochs: 708,99 (29.06.) → 629,00 (06.07.) → 614,14 (14.07.) → 591,09 (16.07.) → 572,50 (21.07.). Das erste relevante Swing-Low liegt bei <strong>513,22 (17.07.)</strong>; dieser Level ist der primäre Support der aktuellen Konsolidierung.</p>
+<p>Die Konsolidierungsrange der letzten vier Handelstage (<strong>513–565</strong>) ist charttechnisch als <em>Bear-Flag-Ansatz</em> oder bestenfalls als neutrale Kompressionsphase zu lesen – noch kein Bruch nach oben, der eine Trendwende signalisieren würde. Kritisch: Das 17.07.-Low bei 513,22 wurde nur einmal getestet, ist also als <strong>unbestätigter Support</strong> zu deklarieren. Erst ein zweiter Hold würde diese Zone als echten Boden qualifizieren.</p>
+
+<h2>2. Volumenanalyse</h2>
+<p>Die Volumenstruktur des Bounce ist auffällig schwach: 20.07. rel. Volumen 0,66, 21.07. rel. Volumen 0,77, 22.07. rel. Volumen <strong>0,50 – nur 50% des 55er-Schnitts</strong>. Das ist das niedrigste relative Volumen seit Wochen und signalisiert kein echtes Käuferinteresse. Im Vergleich: Die starken Abwärtstage (17.07. rel. Vol. 1,04; 07.07. rel. Vol. 1,32; 02.07. rel. Vol. 1,62) hatten deutlich überdurchschnittliches Volumen. Der Bounce läuft also auf Luft – ein klassisches Merkmal einer bärischen Erholung im Trend.</p>
+
+<h2>3. EMA-Analyse & gema_321-Verbund</h2>
+<p>Stand 22.07.: EMA9 = 562,82 | EMA21 = 571,50 | EMA55 = 528,86 | gema_321 = 560,05. Die Reihenfolge EMA9 < EMA21 ist bärisch geordnet. Der Kurs (Close 553,92; IBKR 555,54) liegt <em>unterhalb aller drei EMAs</em> und unterhalb des gema_321-Verbunds (560,05). Die Konvergenz von EMA9 und gema_321 (Abstand < 3 Punkte) zeigt eine kurzfristige Kompression an – diese löst sich typischerweise in Trendrichtung auf, also nach unten. EMA55 (528,86) steigt noch leicht und bildet eine dynamische Untergrenze; sie trifft auf die Support-Zone 525–530. Die Voranalyse vom 16.07. nannte den EMA9/21-Cluster bei 575–585 als Widerstand – dieser hat sich durch den weiteren EMA-Verfall auf <strong>562–571</strong> verschoben und damit die Widerstandszone für den aktuellen Bounce präzisiert.</p>
+
+<h2>4. Setup-Alternativen</h2>
+<p><strong>Setup A (bevorzugt) – Limit-Short bei Bear-Rally:</strong> Einstieg 563–572 (EMA9/gema_321-Zone), Stop 592 (über Rejection-High 16.07. bei 591,09 und EMA21), Ziel 1: 525 (Konsolidierungs-Support), Ziel 2: 513 (17.07.-Low). CRV zu Ziel 1: ca. 1,5:1 (bei Einstieg 567, Stop 592, Ziel 525), CRV zu Ziel 2: ca. 2,1:1 (Ziel 513). <em>Qualitätsnote:</em> Nur bei Intraday-Rally in die Zone – kein Blindeinstieg bei aktuellen Kursen.</p>
+<p><strong>Setup B (aggressiver) – Direkteinstieg Short jetzt:</strong> Einstieg 555–558 (aktueller IBKR-Kurs), Stop 592, Ziel 513. CRV: ca. 1,2:1 – zu eng für den moderaten Risk-Ansatz. Nicht bevorzugt.</p>
+<p><strong>Setup C (konservativ, auf Trendbestätigung warten):</strong> Einstieg Short erst bei erneutem Bruch unter 525 (Bestätigung des Abwärtstrends), Stop 558, Ziel 490 (nächste runde Marke / Lücke). CRV: ca. 3,5:1. Setzt voraus, dass die Konsolidierung nach unten aufgelöst wird.</p>
+
+<h2>5. Stillhalter-Analyse (Schwerpunkt)</h2>
+<p><strong>Warum kein CSP:</strong> Der primäre Support bei 513,22 (17.07.-Low) ist erst einmal getestet worden – ein <em>unbestätigter Bereich</em>. Ein CSP unterhalb von 513 (z.B. Strike 490–500) hätte zwar ausreichend Puffer, aber die technische Basis für einen tragfähigen Boden fehlt. Zudem wäre ein Andienungsszenario bei 490–500 charttechnisch in einer Zone ohne nächste Unterstützung akzeptabel nur für Trader, die AMAT mittelfristig Long-Exposure aufbauen möchten – das entspricht nicht dem aktuellen Bias. <strong>CSP bleibt null.</strong></p>
+
+<p><strong>Naked Call – Strike-Herleitung und Zonen-Konfluenz:</strong> Der Strike 595 wird aus folgender Konfluenz abgeleitet:</p>
+<ul>
+  <li><strong>EMA21 bei 571,50</strong> – erste Widerstandslinie, die der Kurs seit 06.07. nicht nachhaltig überwunden hat</li>
+  <li><strong>gema_321 bei 560,05</strong> – aktuelle kurzfristige Decke</li>
+  <li><strong>Swing-High Rejection 16.07. bei 591,09</strong> – letzter signifikanter bärischer Abprall nach Intraday-Rally</li>
+  <li><strong>EMA9 bei 562,82</strong> – zweite Widerstandslinie im Verbund</li>
+</ul>
+<p>Der Strike 595 liegt <strong>oberhalb aller vier Konfluenzebenen</strong>. Puffer zum IBKR-Kurs 555,54: <strong>7,1%</strong>. Für einen Kursanstieg auf 595 müsste AMAT den gesamten EMA-Verbund und das letzte Rejection-High brechen – das wäre ein charttechnischer Trendbruch, der aktives Management erfordert.</p>
+
+<p><strong>Andienungsszenario (Naked Call 595):</strong> Da kein Aktienbestand vorhanden ist, handelt es sich um einen Naked Call mit theoretisch unbegrenztem Verlustpotenzial. Folgende Roll-/Close-Trigger sind vorab zu definieren:</p>
+<ul>
+  <li><strong>Sofort schließen bei:</strong> Tagesschluss über 580 (nachhaltiger Bruch EMA21) – Trendstruktur wäre kompromittiert</li>
+  <li><strong>Rollen erwägen bei:</strong> Kurs nähert sich 575–580 mit steigendem Volumen – Strike auf 615–620 rollen (nächster Widerstandscluster: Hochs 14./15.07. bei 611–614), Verfall innerhalb von 12 Tagen</li>
+  <li><strong>Verfallstermin:</strong> 01.08.2026 (9 Tage Restlaufzeit, innerhalb der 12-Tage-Grenze)</li>
+</ul>
+<p><strong>In der Optionskette manuell zu prüfen:</strong> Prämie am Strike 595 (IV nach dem Sell-off erhöht – sollte attraktive Prämie liefern), Delta (Ziel ≤ 0.20 für konservative Positionierung), Bid-Ask-Spread (AMAT üblicherweise liquide, trotzdem prüfen), Open Interest (ausreichend für saubere Ausführung zum Mid).</p>
+
+<h2>6. Abgleich frühere Analysen</h2>
+<p>Alle drei Voranalysen (SHORT-Bias) werden bestätigt. Der Setup vom 08.07. (Einstieg 570, Ziel 500) hat den Markt korrekt antizipiert – AMAT fiel bis 513,22. Der CC-Strike 610 (16.07.) ist wertlos verfallen (Kurs weit darunter). Der Naked Call Strike 600 (19.07., Verfall 25.07.) ist bei aktuellem Kurs 555,54 tief im OTM-Bereich – falls noch offen, Prämie größtenteils verfallen, Close oder Halten bis Verfall je nach Restprämie und Margin-Situation sinnvoll. Der aktuelle Setup verschiebt den Widerstand auf 562–591 (EMA-Kompression) und den Strike auf 595 – konsistent mit der bärischen Struktur-Entwicklung.</p>
+  </details>
+</section>
+
+<section class="analyse short">
+  <div class="kopf">
+    <span class="datum">19.07.2026 </span>
+    <span class="badge short">SHORT</span>
+  </div>
+  <p class="fazit">AMAT hat das Blow-off-Top bei 739 bestätigt abgearbeitet – der Abwärtstrend beschleunigt sich, EMA-Verbund dreht weiter nach unten, kurzfristiger Bounce-Versuch bietet Short-Einstieg.</p>
+  <img class="chart" src="img/AMAT_20260719_125413.png" alt="Chart AMAT">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>Der übergeordnete Abwärtstrend seit dem Blow-off-Top bei 739,67 (30.06.) ist intakt. AMAT hat in nur 13 Handelstagen ~29% korrigiert (739 → 513 Intraday-Low 17.07.). Die Struktur zeigt klare tiefere Hochs und tiefere Tiefs: Swing-High 14.07. bei 614,13, nächstes Hoch 15.07. bei 611,72, dann 16.07. Rejection bei 591,09 und 17.07. Absturz auf 513,22. Das Tief vom 07.07. bei 527,63 wurde am 17.07. intraday mit 513,22 unterschritten – eine klare Bestätigung der bearishen Struktur. Der Schlusskurs 17.07. bei 529,66 liegt knapp über diesem Swing-Low. Support-Zone 500–527 (mehrfache Tests) ist nun der kritische Bereich.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die Kerze vom 17.07. (open 532,40 / high 551,18 / low 513,22 / close 529,66) ist eine lange Bärkerze mit unterem Docht – der Kurs hat einen kurzen Käufer-Reflex unter 515 gezeigt, konnte aber nicht nachhaltig erholen. Volumen bei rel. 1.04 – leicht überdurchschnittlich. Der Schlusskurs nahe dem Tagestief signalisiert fortgesetzten Verkaufsdruck. Kein bullishes Umkehrmuster erkennbar. Der IBKR-Snapshot zeigt den aktuellen Kurs bei ~560,93 (+5,9% gegenüber Schlusskurs 17.07.) – heute findet offenbar ein Bounce statt, der als potenzielle Short-Einstiegsgelegenheit zu werten ist.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>EMA9 (575,03) liegt unter EMA21 (578,97), beide deutlich unter gema_321 (568,27) – Achtung: EMA9 < EMA21 < gema_321, was die bearishe Reihenfolge bestätigt. EMA55 bei 526,61 nähert sich dem aktuellen Kursniveau von ~561. Der gema_321 fällt steil von 601,67 (01.07.) auf 568,27 (17.07.) – der EMA-Verbund dreht nach unten durch. Der aktuelle Bounce auf ~561 testet exakt den Bereich zwischen EMA55 (526) und EMA9/21-Cluster (575–579). Das ist klassisches Bear-Rally-Territorium.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Short</td></tr>
+    <tr><td>Einstieg</td><td>565,00–575,00 (Limit-Short bei Bear-Rally in EMA9/21-Zone)</td></tr>
+    <tr><td>Stop</td><td>596,00 (über Swing-High 14.07. bei 614 / konservativ über 16.07.-High 591,09)</td></tr>
+    <tr><td>Ziel</td><td>513,00 (17.07. Intraday-Low) / 500,00 (runde Unterstützung, Ziel 2)</td></tr>
+    <tr><td>CRV</td><td>2.4 : 1 (bei Einstieg 570, Stop 596, Ziel 513)</td></tr>
+  </table>
+
+  <h3>5 · Stillhalter (max. 12 Tage)</h3>
+<p>Kein Aktienbestand vorhanden (IBKR: 0 Aktien, keine offenen Optionen). Ein Covered Call scheidet mangels Basiswert aus. Ein Naked Call auf den EMA9/21-Widerstandscluster ist das passende Stillhalter-Instrument im laufenden Abwärtstrend – allerdings mit unbegrenztem theoretischen Risiko, was eine strikte Positionssteuerung erfordert. Ein CSP ist wegen fehlender bestätigter Support-Zone oberhalb von 500 weiterhin nicht empfohlen.</p>
+<table class="setup"><tr><td>Geschäft</td><td>Covered Call</td></tr><tr><td>Strike</td><td>600.0</td></tr><tr><td>Puffer</td><td>7.0 %</td></tr><tr><td>Zone</td><td>EMA9/21-Cluster 575–580 + Widerstandsbereich 590–614 (Hochs 14./15.07.)</td></tr><tr><td>Verfall bis</td><td>2026-07-25 (6 Tage)</td></tr><tr><td>Begründung</td><td>Der Strike 600 liegt oberhalb des mehrfach abgeprallten Widerstandsbereichs 590–614 (Hochs 14.07. bei 614,13 / 15.07. bei 611,72 / Rejection 16.07. bei 591,09). Vom aktuellen IBKR-Kurs 560,93 besteht ein Puffer von ~7,0% zum Strike. Der Kurs müsste nicht nur den EMA9/21-Cluster (575–579) überwinden, sondern auch die Widerstandszone 590–614 durchbrechen – beides gegen den laufenden Abwärtstrend. Andienungs-Check: Da kein Aktienbestand besteht, handelt es sich um einen Naked Call mit theoretisch unbegrenztem Verlustpotenzial. Sollte AMAT auf 600 steigen, wäre das ein klarer Bruch der bearishen Struktur (neues Hoch über 14.07.), was eine sofortige Gegenkontrolle und ggf. Schließung der Position erfordern würde. In der Optionskette zu prüfen: Prämie (sollte angesichts des erhöhten IV nach dem Sell-off attraktiv sein), Bid-Ask-Spread (Liquidität bei AMAT üblicherweise gut), Delta (Ziel < 0.20) und Open Interest am Strike 600.</td></tr></table>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 19.07.2026 anzeigen</summary>
+    <h1>AMAT – Technische Analyse & Stillhalter-Report | 19.07.2026</h1>
+
+<h2>Abgleich mit früheren Analysen</h2>
+<p>Die Short-Empfehlung vom 08.07.2026 (Einstieg 570, Ziel 500, Stop 598) und die Folgeanalyse vom 16.07.2026 (Einstieg 580, Ziel 527, Stop 605) werden durch die neuen Daten <strong>vollständig bestätigt und übertroffen</strong>. AMAT hat am 17.07. intraday bis 513,22 korrigiert – das erste Ziel der 08.07-Analyse (500er-Zone) wird zunehmend realistisch. Das Covered-Call-Setup vom 16.07. (Strike 610, Verfall 24.07.) liegt aktuell tief im Geld und wäre – sofern gehalten – bereits ein erheblicher Gewinner auf Paper-Basis. Der neue Schlusskurs 529,66 liegt klar unterhalb der damaligen Zielprojektionen, was die bearishe Einschätzung nachdrücklich stützt.</p>
+
+<h2>1. Trendstruktur</h2>
+<p>AMAT vollzieht eine strukturelle Korrektur nach einer parabolischen Rallye: Vom Tief März (~320) bis zum Blow-off-Top 30.06. bei 739,67 legte die Aktie ~130% zu. Die anschließende Korrektur ist mit -29% in 13 Handelstagen außergewöhnlich scharf. Die Kursstruktur zeigt:</p>
+<ul>
+<li><strong>Tieferes Hoch:</strong> 14.07. @ 614,13 → 15.07. @ 611,72 → 16.07. Rejection @ 591,09</li>
+<li><strong>Tieferes Tief:</strong> 07.07. Low @ 527,63 → 17.07. Intraday-Low @ 513,22 (bestätigt)</li>
+<li><strong>Kritische Support-Zone 500–527:</strong> Mehrfach getestet, aber noch nicht strukturell durchbrochen auf Schlusskursbasis. Das 07.07.-Tief bei 527,63 hielt als Schlusskurs (554,50), das 17.07.-Tief bei 513,22 schloss sich bei 529,66 – Käufer verteidigen die Zone, aber mit abnehmender Überzeugung.</li>
+<li><strong>Unbestätigter Bounce heute:</strong> IBKR zeigt aktuell 560,93 – ein Bounce von ~5,9% gegenüber dem 17.07.-Schluss. Dies bewegt den Kurs in den EMA55/EMA9-Bereich (526–575) und stellt keinen strukturellen Wendepunkt dar.</li>
+</ul>
+<p>Nächste relevante Unterstützungen: 500,00 (runde Marke / psychologisch), 480–490 (Juni-Konsolidierungsbereich Anfang Juni), darunter 450 (Multiple-Unterstützung Mai). Erste Widerstände: 575–580 (EMA9/21-Cluster fallend), 590–614 (Swing-High-Cluster 14./15.07.).</p>
+
+<h2>2. Candlestick-Formationen</h2>
+<p>Die letzten relevanten Kerzen im Überblick:</p>
+<ul>
+<li><strong>14.07. (595,70):</strong> Bullische Marubozu-Kerze mit hohem High (614,13) – Kaufversuch, der jedoch nicht bestätigt wurde.</li>
+<li><strong>15.07. (579,43):</strong> Bearishe Engulfing-ähnliche Kerze (open 610,38, close 579,43) – Rejection des 614er-Hochs, Distribucionskerze.</li>
+<li><strong>16.07. (560,93):</strong> Bearishe Kerze, Tagesrange 557–591, Schlusskurs nahe Tageslow – Verkaufsdruck dominiert.</li>
+<li><strong>17.07. (529,66):</strong> Starke Bärkerze mit unterem Docht (Low 513,22). Der Docht zeigt kurzfristige Käufer, aber Schlusskurs nahe Low. Vol 1.04x Schnitt – kein Panikvolumen, aber solide Bestätigung des Abwärtsdrucks.</li>
+</ul>
+<p>Kein bullishes Reversal-Muster auf Tagesbasis erkennbar. Der heutige Bounce (laut IBKR) ohne begleitende Kerzendaten ist charttechnisch noch nicht bewertbar – als Bear-Rally-Reflex einzustufen bis zum Beweis des Gegenteils.</p>
+
+<h2>3. EMA-Analyse</h2>
+<p>Der EMA-Verbund zeigt eine klassisch bearishe Konfiguration im Entstehen:</p>
+<ul>
+<li><strong>EMA9 (575,03) < EMA21 (578,97):</strong> Death Cross vollzogen, bearishe Reihenfolge.</li>
+<li><strong>gema_321 (568,27):</strong> Fällt steil – von 601,67 am 01.07. auf 568,27 am 17.07., ein Rückgang von ~33 Punkten in 12 Tagen. Das ist ein beschleunigter Abwärts-Impuls im gewichteten Verbund.</li>
+<li><strong>EMA55 (526,61):</strong> Nähert sich dem aktuellen Kursniveau (~561). Ein Touch des EMA55 von oben bei gleichzeitig fallendem EMA9/21 wäre ein klassisches Bear-Flag-Signal.</li>
+<li><strong>Aktueller Kurs 560,93 (IBKR):</strong> Liegt zwischen EMA55 (526) und EMA9 (575) – mitten in der Bear-Rally-Zone. Ein Anstieg bis EMA9/21-Cluster bei 575–579 wäre technisch als Shorteinstieg optimal.</li>
+</ul>
+
+<h2>4. Trade-Setups (Direktionale Trades)</h2>
+<p><strong>Setup A (Bevorzugt) – Limit-Short bei Bear-Rally:</strong></p>
+<ul>
+<li>Einstieg: 565–575 (Limit Short, Ziel EMA9-Cluster von unten)</li>
+<li>Stop: 596,00 (über Swing-Low-Cluster 16.07. bei 591,09 + Puffer)</li>
+<li>Ziel 1: 513,00 (17.07. Intraday-Low) – CRV ~1.7:1</li>
+<li>Ziel 2: 500,00 (runde Unterstützung / psychologisches Level) – CRV ~2.4:1</li>
+<li>Ziel 3: 480,00 (Juni-Basis-Konsolidierung) – CRV ~3.0:1</li>
+</ul>
+<p><strong>Setup B – Aggressiver Breakdown-Short:</strong></p>
+<ul>
+<li>Einstieg: 529,00 (Stop-Sell unter 17.07.-Schluss, bei erneutem Unterschreiten)</li>
+<li>Stop: 556,00 (über 17.07.-High)</li>
+<li>Ziel 1: 513,00 – CRV ~0.6:1 (ungünstig, nur kleiner Puffer)</li>
+<li>Ziel 2: 500,00 – CRV ~1.1:1</li>
+<li><em>Hinweis: Setup B nur interessant, wenn Bounce heute scheitert und AMAT wieder unter 530 dreht.</em></li>
+</ul>
+<p><strong>Setup C – Bullishes Reversal (Gegenthese):</strong> Nur valide bei Schlusskurs über 614 (letztes relevantes Swing-High). Solange nicht eingetreten, bleibt Short-Bias dominant. Dieser Fall würde auch die Stillhalter-Logik komplett umkehren.</p>
+
+<h2>5. Stillhalter-Setups (Schwerpunkt)</h2>
+<p><strong>Ausgangslage (IBKR-Snapshot 12:09 Uhr):</strong> Kein Aktienbestand, keine offenen Optionen. Freie Hand für neue Positionen.</p>
+
+<h3>Naked Call – Strike 600, Verfall 25.07.2026</h3>
+<p><strong>Zonen-Herleitung:</strong> Der Strike 600 liegt oberhalb des doppelt bestätigten Widerstandsbereichs 590–614 (Hochs: 14.07. @ 614,13, 15.07. @ 611,72, Rejection 16.07. @ 591,09). Der Kurs müsste vom aktuellen Stand (~561) zunächst EMA9 (575) überwinden, dann die gesamte 590–614er-Zone durchbrechen, um in die Verlustzone zu gelangen. Das erscheint technisch sehr unwahrscheinlich, solange der Abwärtstrend intakt ist.</p>
+<p><strong>Puffer-Mathematik:</strong> 7,0% zum aktuellen Kurs (561 → 600). Die Zone 590–614 bildet einen zusätzlichen Puffer von ~30 Punkten zwischen aktuellem Strike und nächstem strukturellen Widerstand.</p>
+<p><strong>Andienungsszenario:</strong> Sollte AMAT auf 600 steigen, wäre das charttechnisch ein vollständiger Bruch der Abwärtsstruktur (neues Hoch über 591). In diesem Szenario ist die Short-These gescheitert. Roll-Trigger: Bei Annäherung an 575–580 (EMA9/21) sollte die Position beobachtet werden; bei Schlusskurs über 591 (letztes Swing-High 16.07.) sofortige Schließung oder Roll auf höheren Strike erwägen (z.B. 625–630, Verfall gleichbleibt). <strong>Wichtig: Naked Call = unbegrenztes theoretisches Verlustrisiko. Zwingend Stop-Loss auf Optionsebene definieren (z.B. 2x Prämie).</strong></p>
+<p><strong>In der Optionskette manuell zu prüfen:</strong></p>
+<ul>
+<li>Prämie: Sollte nach dem starken Sell-off und erhöhter IV attraktiv sein. Mindestanforderung: ~1,0–1,5% des aktuellen Kurses (ca. 5,50–8,50 USD pro Aktie) für einen 7%-Puffer mit 6 DTE.</li>
+<li>Delta: Ziel < -0.20 (Verkäufer-Perspektive), je weiter OTM desto besser.</li>
+<li>Liquidität: AMAT hat üblicherweise gute Optionsliquidität. Bid-Ask-Spread unter 10–15% der Prämie anstreben.</li>
+<li>Implizite Volatilität: Nach dem Sell-off erhöht – gut für Prämienverkäufer. IV-Percentile prüfen; falls >70. Perzentile, sind die Prämien strukturell attraktiv.</li>
+</ul>
+<p><strong>Warum kein CSP:</strong> Der Support bei 500–527 ist noch nicht mehrfach auf Schlusskursbasis bestätigt. Der 17.07.-Close bei 529,66 liegt nur knapp über dem 07.07.-Tief von 527,63 – ein einmaliger Test, der als 'unbestätigter Bereich' gilt. Ein CSP in dieser Zone würde den Strike genau in die Zielzone des direktionalen Short-Setups legen (logische Inkonsistenz per Verkettungs-Prüfung). Erst bei einem doppelten Close-Bounce von der 500–510-Zone mit Volumenbestätigung käme ein CSP ~480–490 in Betracht.</p>
+  </details>
+</section>
+
+<section class="analyse short">
+  <div class="kopf">
+    <span class="datum">16.07.2026 </span>
+    <span class="badge short">SHORT</span>
+  </div>
+  <p class="fazit">AMAT zeigt nach dem Blow-off-Top bei ~739 eine strukturelle Schwäche – EMA-Verbund dreht, Kursdruck bleibt unter gema_321, Short-Bias wird bestätigt.</p>
+  <img class="chart" src="img/AMAT_20260716_202930.png" alt="Chart AMAT">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>Der übergeordnete Trend hat sich nach dem Rallye-Hoch vom 30.06. bei <strong>739,67</strong> klar gebrochen. Seither zeigt AMAT eine Serie fallender Hochs: 708,99 (29.06.) → 629,98 (09.07.) → 614,13 (14.07.) → 591,09 (16.07., Intraday-High). Die Tiefseite bestätigt das Bild: 581,90 (02.07.) → 527,63 (07.07.) → 557,16 (15.07.). Aktueller Schlusskurs: <strong>563,62</strong>. Der unmittelbar relevante Support liegt im Bereich <strong>527–545</strong> (Tief 07.07. / Gap-Zone), darunter die psychologische 500er-Marke und der EMA55 bei ~527. Der Widerstand liegt bei <strong>590–603</strong> (EMA21-Bereich / Vortageshoch).</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die letzte Kerze (16.07.) ist eine <strong>bearishe Marubozu-artige Kerze</strong> mit engem Körper nahe dem Tagestief: Open 562,54, High 591,09, Low 558,50, Close 563,62 – der Kurs eröffnete schwach, rallyte kurz in die 591er-Resistance und fiel zurück. Das Muster ist ein klassischer <strong>Failed Rally / Bearish Rejection</strong> vom EMA9/EMA21-Bereich. Das Volumen (rel_volumen 0,41) ist unterdurchschnittlich, was die fehlende Käufer-Überzeugung unterstreicht. Die Kerze vom 15.07. (Shooting Star-Variante, Close 579,43 bei High 611,72) bestätigt den Widerstand im 590–612er-Bereich.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Die EMA-Struktur ist klar bärisch: EMA9 (586,91) < EMA21 (584,14) – beide fallen und liegen <strong>über dem Kurs</strong> (563,62), bilden also Decke. Der EMA55 (526,60) steigt noch leicht, liegt aber weit unter dem Kurs. Der gema_321 (575,94) liegt ebenfalls über dem Schlusskurs, was bedeutet: AMAT handelt <strong>unterhalb des gesamten gewichteten EMA-Verbunds</strong> – ein klar bärisches Alignment. Der EMA9 hat den EMA21 von oben gekreuzt (Death Cross im kurzfristigen Bereich) und beide nähern sich von oben dem Kurs an, ohne dass Kaufdruck entsteht.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Short</td></tr>
+    <tr><td>Einstieg</td><td>580,00 (Limit-Short bei Bear-Rally in EMA9/EMA21-Zone)</td></tr>
+    <tr><td>Stop</td><td>605,00 (über Swing-High 14.07. und EMA21-Cluster)</td></tr>
+    <tr><td>Ziel</td><td>527,00 (Tief 07.07. / Support-Zone)</td></tr>
+    <tr><td>CRV</td><td>2.1 : 1</td></tr>
+  </table>
+
+  <h3>5 · Stillhalter (max. 12 Tage)</h3>
+<p>Im laufenden Abwärtstrend mit Kurs unterhalb des gesamten EMA-Verbunds ist ein Cash-Secured Put mangels tragfähigem Support oberhalb von 527 riskant – ein Covered Call auf bestehende Positionen oder ein Naked Call (für erfahrene Trader) im Widerstandsbereich ist das sauberere Stillhalter-Geschäft. CSP kommt erst bei einem Test und Bestätigung der 527–500er-Zone in Frage.</p>
+<table class="setup"><tr><td>Geschäft</td><td>Covered Call</td></tr><tr><td>Strike</td><td>610.0</td></tr><tr><td>Puffer</td><td>8.2 %</td></tr><tr><td>Zone</td><td>Widerstandscluster 590–614 (Hochs 14./15.07., EMA21-Decke)</td></tr><tr><td>Verfall bis</td><td>2026-07-24 (8 Tage)</td></tr><tr><td>Begründung</td><td>Der Strike 610 liegt oberhalb der mehrfach getesteten und abgeprallten Widerstandszone 590–614 (Hochs vom 14.07. bei 614,13, 15.07. bei 611,72, Rejection 16.07. bei 591,09). Der Kurs müsste >8% steigen, um den Strike zu erreichen – gegen den laufenden Trend und bei unterdurchschnittlichem Volumen. Die Zone hat als Decke bisher gehalten. Andienungs-Check: Sollte AMAT tatsächlich auf 610 steigen, wäre das charttechnisch ein Bruch des Abwärtstrends – ein Abgabepreis von 610 auf eine Long-Position wäre in dem Szenario vertretbar. Der Anwender sollte in der Optionskette prüfen: Prämie relativ zum Puffer (8,2%), Liquidität (Open Interest / Bid-Ask-Spread) und implizite Volatilität nach dem Sell-off.</td></tr></table>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 16.07.2026 anzeigen</summary>
+    <h1>AMAT – Detailanalyse 16.07.2026</h1>
+
+<h2>Abgleich mit der Analyse vom 08.07.2026</h2>
+<p>Die Short-Empfehlung vom 08.07. mit Einstieg bei <strong>570,00</strong>, Stop 598,00 und Ziel 500,00 wird durch die aktuelle Marktstruktur <strong>teilweise bestätigt</strong>. Der Einstieg bei 570 war erreichbar (Kurs handelte in der Folgewoche mehrfach in diesem Bereich), der Stop bei 598 wurde durch das Hoch vom 09.07. (629,98) <strong>verletzt</strong> – wer konsequent gestoppt wurde, ist raus. Wer mit etwas mehr Spielraum arbeitete oder den Einstieg auf die Bear-Rally am 09.07. wartete, ist im Trade. Das Ziel 500 (EMA55-Zone, damals bei ~510) ist noch nicht erreicht; der EMA55 steht aktuell bei 526,60. Die übergeordnete Short-These bleibt intakt, die Ausführung war anspruchsvoll.</p>
+
+<h2>1. Trendstruktur</h2>
+<p>Das Blow-off-Top bei <strong>739,67 (30.06.)</strong> markiert das Ende einer parabolischen Rallye von ~370 auf ~740 innerhalb weniger Monate. Seither: klare Distribution. Die fallenden Hochs im Detail:</p>
+<ul>
+  <li>739,67 → 708,99 (29.06.) → 669,22 (25.06. war noch Teil der Rallye) → 629,98 (09.07.) → 614,13 (14.07.) → <strong>591,09 (16.07., Intraday-Abpraller)</strong></li>
+</ul>
+<p>Die Tiefs: 581,90 (02.07.) → 527,63 (07.07.) → 546,18 (08.07.) → 557,16 (15.07.) → <strong>558,50 (16.07.)</strong>. Wichtig: Das Tief vom 07.07. bei 527,63 ist der kritische <strong>Pivot-Support</strong>. Ein Bruch darunter öffnet den Weg zur runden 500er-Marke, wo der EMA55 in ca. 1–2 Wochen aufwarten könnte (aktuell 526,60, steigt aber nur noch moderat).</p>
+<p>Der Bereich <strong>590–614</strong> ist mehrfach bestätigter Widerstand (Hochs 14.07., 15.07., Rejection 16.07., vormals Support aus Mitte Juni). Darunter liegt ein <strong>unbestätigter Support-Bereich bei 568–573</strong> (Close-Cluster 06.07./15.07./16.07.) – einfacher Test, noch keine Konfluenz-Zone.</p>
+
+<h2>2. Candlestick-Formationen</h2>
+<p>Die letzten drei Kerzen erzählen eine konsistente Geschichte:</p>
+<ul>
+  <li><strong>14.07.</strong>: Hammer-ähnlich mit hohem Upper Shadow (High 614,13, Close 595,70) – Ablehnung der 614er-Resistance bei normalem Volumen (0,66x).</li>
+  <li><strong>15.07.</strong>: Shooting Star / Bearish Engulf-Ansatz (High 611,72, Close 579,43, deutlicher Körper nach unten) bei 0,83x Volumen – Bestätigung der Decke.</li>
+  <li><strong>16.07.</strong>: Failed Rally – Open 562,54, kurze Aufwärtsbewegung auf 591,09 (genau in die EMA9/EMA21-Zone), dann Abverkauf auf Close 563,62. <strong>Rel. Volumen 0,41</strong> – extrem dünn. Das deutet darauf hin, dass kein echter Käufer-Conviction vorhanden ist; die Rally war Short-Covering oder dünner Market-Making-Effekt.</li>
+</ul>
+
+<h2>3. EMA-Lage und gema_321</h2>
+<p>Die EMA-Konstellation ist eindeutig bärisch:</p>
+<ul>
+  <li>EMA9: 586,91 – fällt</li>
+  <li>EMA21: 584,14 – fällt</li>
+  <li>EMA55: 526,60 – steigt noch leicht (langer Nachlauf der Sommer-Rallye)</li>
+  <li>gema_321: 575,94 – fällt</li>
+  <li>Kurs: <strong>563,62 – unterhalb aller drei EMAs und des gema_321</strong></li>
+</ul>
+<p>Der EMA9 hat den EMA21 nach unten gekreuzt (kurzfristiges Death Cross). Bemerkenswert: EMA55 liegt noch unter dem Kurs – das ist kein klassisches Triple-Death-Cross, aber der gema_321 als gewichteter Verbund zeigt klar nach unten. Der EMA55 bei 526,60 fungiert als <strong>magnetischer Zielbereich</strong> in einem Mean-Reversion-Szenario.</p>
+
+<h2>4. Trade-Setups (Alternativen)</h2>
+
+<p><strong>Setup A (bevorzugt) – Short auf Bear-Rally:</strong></p>
+<ul>
+  <li>Einstieg: <strong>580,00</strong> (Limit-Short bei Anstieg in EMA9/gema_321-Zone)</li>
+  <li>Stop: <strong>605,00</strong> (über Swing-High 14.07. bei 614, engerer Stop über 592)</li>
+  <li>Ziel 1: <strong>545,00</strong> (Zwischentief-Cluster) → CRV 1,4:1</li>
+  <li>Ziel 2: <strong>527,00</strong> (Tief 07.07., bestätigter Pivot) → CRV 2,1:1</li>
+  <li>Ziel 3: <strong>500,00</strong> (psychologisch + EMA55-Annäherung) → CRV 3,2:1</li>
+</ul>
+
+<p><strong>Setup B – Aggressiver Short bei aktuellem Kurs:</strong></p>
+<ul>
+  <li>Einstieg: <strong>563,00–565,00</strong> (Market/Limit jetzt)</li>
+  <li>Stop: <strong>592,00</strong> (über Intraday-High 16.07.)</li>
+  <li>Ziel: <strong>527,00</strong> → CRV 1,3:1 – weniger attraktiv, aber zeitsparender</li>
+</ul>
+
+<p><strong>Setup C – Warten auf Bruch unter 557:</strong></p>
+<ul>
+  <li>Einstieg: <strong>556,00</strong> (Stop-Sell unter Tief 15.07. bei 557,16 und Tief 16.07. bei 558,50)</li>
+  <li>Stop: <strong>575,00</strong></li>
+  <li>Ziel: <strong>527,00</strong> → CRV 1,5:1 – sauberste Bestätigung, aber enger Stop</li>
+</ul>
+
+<h2>5. Stillhalter-Setups (Schwerpunkt)</h2>
+
+<h3>Covered Call / Naked Call: Strike 610 – Verfall 24.07.2026</h3>
+<p><strong>Zonen-Herleitung:</strong> Der Bereich 590–614 wurde innerhalb von 3 Handelstagen dreifach getestet und abgelehnt (Hochs: 614,13 / 611,72 / 591,09). Diese Konfluenz aus altem Support (Juni-Bereich) und aktuellem Widerstand macht die Zone zu einer validen Decke. Der Strike 610 liegt mit <strong>8,2% Puffer</strong> zum aktuellen Schlusskurs von 563,62 am oberen Ende dieser Zone – erst ein klarer Schlusskurs über 614 würde das Bild ändern.</p>
+
+<p><strong>Andienungsszenario:</strong> Steigt AMAT auf 610, wäre das charttechnisch ein Bruch des Abwärtstrends und ein Angriff auf den Bereich der alten Swing-Hochs aus früh-Juli. Ein Abgabepreis von 610 auf eine bestehende Long-Position (Covered Call) wäre in dem Szenario absolut akzeptabel – man gibt zu einem Niveau ab, das dem Markt aktuell als klare Resistance dient. Als Naked Call nur für erfahrene Trader mit entsprechendem Margin-Management.</p>
+
+<p><strong>Roll-Trigger:</strong> Ein Schlusskurs über <strong>614,00</strong> (Bestätigung des Ausbruchs) wäre das Signal, den Call zu rollen – auf höheren Strike (z.B. 640/650) und/oder auf den nächsten Verfallstermin (31.07.2026). Kein Rollen solange der Kurs unter 590 bleibt.</p>
+
+<p><strong>Was in der Optionskette zu prüfen ist:</strong></p>
+<ul>
+  <li>Prämie: Ist der Call 610 mit Verfall 24.07. ausreichend prämiert (Faustregel: mindestens 0,3–0,5% des Strike-Preises als Prämie, also ~1,83–3,05 USD)?</li>
+  <li>Implizite Volatilität: Nach dem Sell-off von 739 auf ~560 könnte IV erhöht sein – das würde die Prämie attraktiver machen.</li>
+  <li>Bid-Ask-Spread und Open Interest prüfen – AMAT ist liquide, sollte kein Problem sein.</li>
+  <li>Delta des 610er Calls sollte idealerweise unter 0,20 liegen (OTM-Komfortzone).</li>
+</ul>
+
+<p><strong>Warum kein CSP:</strong> Ein Cash-Secured Put würde eine tragfähige Unterstützungszone voraussetzen, die klar als Boden funktioniert. Der Bereich 527–545 ist zwar ein Swing-Tief, wurde aber erst <strong>einmal</strong> getestet (07.07.) – das ist ein unbestätigter Bereich, kein etablierter Support. Im laufenden Abwärtstrend mit Momentum nach unten und ohne Anzeichen einer Bodenbildung (kein Volumen-Climax, kein Hammer-Bottom mit Bestätigung) ist das Risiko einer Andienung deutlich erhöht. CSP erst nach einem zweiten Test mit Bestätigung (z.B. bullishe Umkehrkerze auf hohem Volumen) in der 527–500er-Zone sinnvoll – dann mit Strike um 490–500.</p>
+  </details>
+</section>
+
+<section class="analyse short">
+  <div class="kopf">
+    <span class="datum">08.07.2026</span>
+    <span class="badge short">SHORT</span>
+  </div>
+  <p class="fazit">AMAT bricht nach einer extremen Rallye von ~370 auf ~740 scharf ein – EMA-Kreuzungssignal und Momentum-Umkehr sprechen für weiteren Abwärtsdruck.</p>
+  <img class="chart" src="img/AMAT_20260708_114642.png" alt="Chart AMAT">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>AMAT vollzog von Ende März bis 30. Juni eine massive Aufwärtsbewegung von ~320 auf das Hoch bei 739,67 (+130%). Seitdem folgt eine scharfe Korrektur: Die letzten 5 Kerzen bilden fallende Hochs und Tiefs (694,64 → 650,91 → 603,04 → 592,79 → 554,50). Das letzte Swing-Low bei 527,63 ist das niedrigste Niveau seit dem 11. Juni. Kritische Unterstützungszonen liegen bei 580–592 (kurzfristig) und 500–510 (EMA55-Bereich).</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die letzte Kerze (07.07.) ist ein starker Abwärts-Marubozu: Open 545,35, Close 554,50, Tagesrange 527,63–558,28 bei rel. Volumen 1,32. Davor ein bearisher Außentag (02.07., rel. Volumen 1,62) und ein weiterer Verluststag (06.07., rel. Volumen 0,92). Drei aufeinanderfolgende Abwärtskerzen nach dem Hoch mit Bestätigungsvolumen signalisieren Distributionsdruck.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>EMA9 (612,55) liegt bereits unter EMA21 (586,66) – eine frische bearishe Kreuzung. Der Kurs (554,50) notiert deutlich unterhalb aller drei EMAs (EMA9/21/55: 612/587/511). Der gema_321 bei 586,92 wirkt nun als Widerstand. Der EMA9 dreht steil nach unten, der Abstand Kurs zu EMA9 beträgt bereits ~58 Punkte, was auf überschossene Short-Dynamik hinweist, aber der Trend ist klar bärisch.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Short</td></tr>
+    <tr><td>Einstieg</td><td>570.00 (Limit bei Bear-Rally in EMA-Bereich)</td></tr>
+    <tr><td>Stop</td><td>598.00 (über letztem Swing-High 06.07. und gema_321)</td></tr>
+    <tr><td>Ziel</td><td>500.00 (EMA55-Zone)</td></tr>
+    <tr><td>CRV</td><td>2.5 : 1</td></tr>
+  </table>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 08.07.2026 anzeigen</summary>
+    <h1>AMAT – Detailanalyse (08.07.2026)</h1><h2>1. Trendstruktur</h2><p>AMAT hat eine der stärksten Rallyes im Halbleitersektor vollzogen: Von einem Tief bei 316,66 (09.03.2026) bis zum Allzeithoch bei 739,67 (30.06.2026) – ein Anstieg von 134% in knapp 4 Monaten. Diese Bewegung war geprägt von einem aufsteigenden Trendkanal mit höheren Hochs und Tiefs sowie starkem Momentum-Volumen (rel. Volumen 1,5–3,3 an den stärksten Aufwärtstagen).</p><p>Die Wende zeigt sich in den letzten 6 Handelstagen mit klarer Struktur: <strong>Swing-High 739,67 (30.06.)</strong> → 693,78 (01.07.) → 656,998 (02.07.) → 629,00 (06.07.) → 558,28 (07.07.). Jedes neue Tageshoch ist niedriger als das vorherige – klassische Abwärtstrendstruktur. Das aktuelle Tief bei 527,63 unterschreitet das vorherige Tief (573,51 vom 23.06.) signifikant und markiert damit einen klaren Trendbruch nach unten.</p><p><strong>Wichtige Widerstandszonen:</strong> 580–600 (gema_321 + ehem. Unterstützung), 620–643 (EMA9-Bereich), 650–660 (früheres Swing-Low/-High). <strong>Unterstützungszonen:</strong> 527–554 (aktueller Kursbereich), 500–511 (EMA55), 463–468 (EMA55 von Mitte Juni).</p><h2>2. Candlestick-Formationen</h2><p>Die letzten 5 Kerzen erzählen eine konsistente Geschichte der Schwäche:</p><ul><li><strong>30.06. (723,00):</strong> Starke Aufwärtskerze, Schlusskurs nahe Tageshoch – letzter Bullentag, rel. Volumen 1,84.</li><li><strong>01.07. (650,91):</strong> Massiver Abwärtstag, Range 639–694, Close weit unten. Bearisher Momentum-Tag, rel. Volumen 1,76 – Distributionssignal.</li><li><strong>02.07. (603,04):</strong> Bearisher Außentag (High 656,998 unter Vortages-High), Long Upper Shadow deutet auf gescheiterte Erholung. Rel. Volumen 1,62 – Verkaufsdruck bestätigt.</li><li><strong>06.07. (592,79):</strong> Kleiner Körper, Range 591–629, niedrigeres Hoch und Tief. Rel. Volumen 0,92 – Bear-Flag-Charakter.</li><li><strong>07.07. (554,50):</strong> Großer Abwärts-Marubozu (Open 545,35 nahe Tief 527,63, Close 554,50). Intraday-Erholung vom Tief, aber Tagesperformance –6,5%. Rel. Volumen 1,32 – Panikverkäufe mit anschließendem Buying-Dip, der aber nicht zur Schlusskursstärke reichte. Mögliche kurzfristige Gegenbewegung, aber kein Trendwendesignal.</li></ul><p>Die Formation der letzten 3 Kerzen (06.+07.07.) könnte als Bear-Flag interpretiert werden: Konsolidierung auf niedrigem Niveau nach starkem Rückgang, was eine Fortsetzung des Abwärtstrends wahrscheinlicher macht.</p><h2>3. EMA-Analyse</h2><p><strong>Aktuelle EMA-Werte (07.07.):</strong> EMA9 = 612,55 | EMA21 = 586,66 | EMA55 = 510,54 | gema_321 = 586,92</p><p>Die Reihenfolge war bis vor kurzem bullisch (EMA9 > EMA21 > EMA55), aber EMA9 hat EMA21 bereits nach unten gekreuzt – ein bearishes Death-Cross-Signal auf Tagesbasis. Der Kurs bei 554,50 liegt <strong>58 Punkte unter EMA9</strong> und <strong>32 Punkte unter EMA21</strong>, aber noch <strong>44 Punkte über EMA55</strong>.</p><p>Der gema_321 bei 586,92 zeigt erstmals seit April eine Verlangsamung und beginnt zu drehen – ein wichtiger Indikator für den Gesamttrend. Solange der Kurs unter dem gema_321 bleibt, ist das übergeordnete Momentum bärisch.</p><p>Der EMA55 bei 510,54 stellt das nächste signifikante Kursziel dar. Ein Test dieses Levels würde einer Kursrückgang von weiteren ~8% vom aktuellen Niveau bedeuten. Der EMA55-Verlauf ist noch stark ansteigend (500 → 511 in den letzten 3 Wochen), was dynamischen Support bietet.</p><p><strong>Auffällige Volumentage der Rallye (Bestätigung der Erschöpfung):</strong> 25.06. (rel. 2,01), 26.06. (rel. 3,27 – Extremvolumen!), 30.06. (rel. 1,84) – diese Spitzenvolumina nahe des Hochs sind klassische Zeichen von Distributionsphasen.</p><h2>4. Trade-Setups</h2><p><strong>Setup A – Bevorzugter Short bei Gegenbewegung (mittleres Risiko):</strong></p><ul><li>Einstieg: 568–572 (Limit-Short bei Bounce in den 570er-Bereich, unterhalb gema_321 und EMA21)</li><li>Stop: 598,00 (über letztem Swing-High 06.07. und gema_321)</li><li>Ziel 1: 527 (letztes Swing-Tief) → CRV 1,5:1</li><li>Ziel 2: 500–511 (EMA55-Zone) → CRV ~2,5:1</li><li>Ziel 3: 468 (EMA55-Niveau von Anfang Juni) → CRV ~3,7:1</li></ul><p><strong>Setup B – Aggressiver Short (höheres Risiko):</strong></p><ul><li>Einstieg: Market/554 (sofort, da Trendfolge)</li><li>Stop: 580 (über kurzfristigem Widerstand)</li><li>Ziel 1: 527 → CRV 1,0:1 (zu gering)</li><li>Ziel 2: 500 → CRV 2,0:1</li><li>Hinweis: Abstand zu Stop zu gering für gutes CRV, abwarten empfohlen.</li></ul><p><strong>Setup C – Long-Rebound (konträr, spekulativ):</strong></p><ul><li>Einstieg: 528–532 (nahe letztem Tief + Retest)</li><li>Stop: 515 (unter EMA55)</li><li>Ziel: 580–590 (gema_321-Test)</li><li>CRV: ~3,5:1 – nur bei klarer Bestätigungskerze!</li><li>Hinweis: Aktuell nicht bevorzugt, da übergeordneter Trend klar bärisch.</li></ul><p><strong>Fazit:</strong> Setup A (Short auf Bounce in ~570) bietet das beste Risiko-Ertrags-Verhältnis. Der übergeordnete Trend ist gebrochen, alle EMAs drehen bärisch, und das Distributionsvolumen am Top war außergewöhnlich hoch (rel. 3,27 am 26.06.). Ein Rücktest des EMA55 bei ~510 erscheint wahrscheinlich.</p>
+  </details>
+</section>
+
+
+  <footer>Automatisch erstellt · <a href="index.html">Zur Übersicht</a> ·
+    Keine Anlageberatung</footer>
+</div>
+</body>
+</html>

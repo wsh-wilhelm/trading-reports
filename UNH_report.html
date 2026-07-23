@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UNH – Analyse-Historie</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0d1319; --panel:#161e27; --line:#232e3a;
+    --text:#d9e1e8; --muted:#7e8b99; --accent:#e5a63c;
+    --long:#3ec08b; --short:#e2604f; --neutral:#8a96a3;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);
+       font:15px/1.6 "IBM Plex Sans",sans-serif;padding:32px 16px}
+  .wrap{max-width:860px;margin:0 auto}
+  header{display:flex;align-items:baseline;gap:14px;
+         border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:28px}
+  header h1{font:500 30px "IBM Plex Mono",monospace;margin:0;letter-spacing:1px}
+  header .sub{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:2px}
+
+  /* Eine Analyse = eine section; farbige Signalleiste links */
+  section.analyse{background:var(--panel);border:1px solid var(--line);
+                  border-left:4px solid var(--neutral);
+                  border-radius:6px;padding:22px 26px;margin-bottom:22px}
+  section.analyse.long{border-left-color:var(--long)}
+  section.analyse.short{border-left-color:var(--short)}
+
+  .kopf{display:flex;justify-content:space-between;align-items:center;
+        flex-wrap:wrap;gap:8px;margin-bottom:6px}
+  .datum{font:500 13px "IBM Plex Mono",monospace;color:var(--muted)}
+  .badge{font:500 12px "IBM Plex Mono",monospace;letter-spacing:2px;
+         padding:3px 10px;border-radius:3px;color:#0d1319}
+  .badge.long{background:var(--long)}
+  .badge.short{background:var(--short)}
+  .badge.neutral{background:var(--neutral)}
+
+  .fazit{font-size:16px;font-weight:600;margin:0 0 16px}
+  img.chart{width:100%;border:1px solid var(--line);border-radius:4px;margin:4px 0 12px}
+  h3{font:500 12px "IBM Plex Mono",monospace;color:var(--accent);
+     text-transform:uppercase;letter-spacing:2px;margin:18px 0 4px}
+  p{margin:6px 0;color:var(--text)}
+
+  /* Setup-Tabelle in Monospace, Zahlen buendig */
+  table.setup{width:100%;border-collapse:collapse;margin-top:8px;
+              font:14px "IBM Plex Mono",monospace}
+  table.setup td{padding:6px 10px;border-top:1px solid var(--line)}
+  table.setup td:first-child{color:var(--muted);width:120px}
+
+  /* Aufklappbarer Volltext in aelteren Analyse-Karten */
+  details.volltext{margin-top:16px;border-top:1px solid var(--line);padding-top:10px}
+  details.volltext summary{cursor:pointer;font:500 12px "IBM Plex Mono",monospace;
+                color:var(--muted);text-transform:uppercase;letter-spacing:2px}
+  details.volltext summary:hover{color:var(--accent)}
+  details.volltext h1,details.volltext h2{font-size:15px;color:var(--accent);margin:14px 0 6px}
+  details.volltext strong{color:#fff}
+
+  footer{color:var(--muted);font-size:12px;text-align:center;margin-top:32px}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>UNH</h1>
+    <span class="sub">Analyse-Historie · neueste zuerst</span>
+  </header>
+
+<!-- NEUE_ANALYSE_HIER -->
+<section class="analyse neutral">
+  <div class="kopf">
+    <span class="datum">19.07.2026 </span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <p class="fazit">UNH konsolidiert nach dem Earnings-Gap (16.07.) weiterhin im Bereich 418–437 ohne klare Richtungsentscheidung – kein valides direktionales Trade-Setup, aber ein technisch sauber ableitbarer CSP unterhalb der Post-Earnings-Unterstützung ist vertretbar.</p>
+  <img class="chart" src="img/UNH_20260719_133707.png" alt="Chart UNH">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>Der langfristige Aufwärtstrend seit dem März-Tief (255,97 am 27.03.) ist strukturell intakt: höhere Tiefs (259, 269, 281, 415) und höhere Hochs bis zum Earnings-Gap-Hoch bei 461,62 (16.07.). Allerdings ist die kurzfristige Struktur nach dem Earnings-Spike unklar – UNH hat das Intraday-Hoch 461,62 nicht verteidigt und schloss am 16.07. lediglich bei 423,38, was einem Schlusskurs nahe dem unteren Bereich des Earnings-Tages entspricht. Der 17.07. bestätigte mit Hoch 437,47 und Schluss 426,09 die Konsolidierung. Kurzfristig existieren keine bestätigten neuen Hochs nach dem 16.07., was die Trendstruktur auf Tagesbasis in einer Warteposition hält.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Der 16.07. ist eine klassische <strong>Long-Shadow-Kerze</strong> (bearisher Abschluss nach Earnings-Spike): Eröffnung 449,39, Hoch 461,62, Tief 420,37, Schluss 423,38 – eine massive Doji-artige Ablehnung mit oberer Lunte von ~38 Punkten. Der 17.07. zeigt eine bullische Erholung (Schluss 426,09 über Eröffnung 426,72 nur marginal, aber Hoch 437,47 getestet), kann jedoch die Earnings-Kerze nicht überwinden. Das Muster insgesamt signalisiert <strong>Absorption und Unsicherheit</strong> – kein klares Reversal, aber auch keine Kapitulation nach unten.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>EMA9 (423,99), EMA21 (418,64) und EMA55 (395,84) sind geordnet bullisch (9 > 21 > 55), der gema_321 liegt bei 417,52 – der Kurs notiert exakt am EMA9 (423,38 ≈ 423,99). Die EMA-Struktur stützt den übergeordneten Aufwärtstrend, liefert aber keinen neuen Long-Impuls, solange der Kurs am EMA9 klebt und nicht dynamisch abhebt. Der Abstand EMA9 zu EMA55 beträgt ~28 Punkte – keine extreme Überdehnung, normaler Aufwärtsmodus.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Kein Trade</td></tr>
+    <tr><td>Einstieg</td><td>Kein valides direktionales Setup – Ausbruch über 437,47 (17.07.-Hoch) abwarten für Long-Trigger; Short erst unterhalb 418,52 (15.07.-Tief) relevant</td></tr>
+    <tr><td>Stop</td><td>None</td></tr>
+    <tr><td>Ziel</td><td>None</td></tr>
+    <tr><td>CRV</td><td>None</td></tr>
+  </table>
+
+  <h3>5 · Stillhalter (max. 12 Tage)</h3>
+<p>Die bullische EMA-Struktur und der intakte Makro-Aufwärtstrend sprechen weiterhin für den Verkauf von Cash-Secured Puts. Ein Covered Call ist mangels Aktienbestand (0 Aktien im Depot laut IBKR) nicht möglich – ein Naked Call wird bei moderater Risikotoleranz nicht empfohlen. Der CSP profitiert von der Post-Earnings-Beruhigung (IV-Normalisierung läuft), sollte aber mit ausreichend Puffer zur volatilen Earnings-Kerze platziert werden.</p>
+<table class="setup"><tr><td>Geschäft</td><td>Cash-Secured Put</td></tr><tr><td>Strike</td><td>410.0</td></tr><tr><td>Puffer</td><td>3.2 %</td></tr><tr><td>Zone</td><td>unter Post-Earnings-Intraday-Tief 420,37 (16.07.) und Swing-Tief 15.07. bei 414,37 – Zone 414–420 als erste Unterstützung</td></tr><tr><td>Verfall bis</td><td>2026-07-25 (6 Tage)</td></tr><tr><td>Begründung</td><td>Der Strike 410 liegt klar unterhalb des Post-Earnings-Tiefs vom 16.07. (420,37) und unterhalb des 15.07.-Swing-Tiefs (414,37). Die Zone 414–420 hat sich als Unterstützungscluster etabliert (Tief 16.07., Tief 15.07., Tief 06.07. bei 415,05 – mehrfach getestet und gehalten). Der Strike 410 bietet damit die gesamte Zone als Puffer vor sich. Puffer zum aktuellen Kurs 423,38: ca. 3,2%. Ein Andienungsszenario zu 410 wäre technisch als attraktive Kaufzone zu werten – die Zone um 414–420 wäre dann bereits unterschritten, was einen substanziellen Trendbruch bedeuten würde, aber 410 liegt noch über dem EMA21 (418,64)... Korrekt: Bei Andienung zu 410 wäre der EMA21 bereits unterschritten, daher ist die Qualität der Andienung grenzwertig akzeptabel. Der Anwender sollte in der Optionskette prüfen: Prämie am Strike 410 mit Verfall 25.07. (Restlaufzeit 6 Tage – IV nach Earnings dürfte gefallen sein, daher Prämie realistisch prüfen ob mindestens 0,5% des Strikes = ~2,05$ erzielbar), Bid-Ask-Spread auf Liquidität (UNH ist liquide, Spreads typisch eng), Delta idealerweise zwischen -0,15 und -0,25.</td></tr></table>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 19.07.2026 anzeigen</summary>
+    <h1>UNH – Technische Analyse vom 19.07.2026</h1>
+
+<h2>0. Abgleich mit früheren Analysen</h2>
+<p>Die Analysen vom 10.07. und 13.07. empfahlen LONG mit Stop-Buy über 432 und Ziel 450–452. Dieser Long-Trigger wurde am 15.07. intraday angerissen (Hoch 424,11 – noch nicht ausgelöst) und dann durch den Earnings-Spike am 16.07. quasi mit einem Gap überholt: UNH eröffnete bei 449,39 und erreichte 461,62. Das Kursziel 452 wurde damit überschossen. Die Analyse vom 16.07. deklarierte korrekt NEUTRAL auf Basis veralteter Pre-Earnings-Daten. <strong>Bestätigt:</strong> Der Long-Bias war strukturell richtig; die Targets wurden durch den Earnings-Katalysator erreicht und übertroffen. <strong>Verworfen:</strong> Der CSP-Strike 415 aus der 13.07.-Analyse ist durch den Earnings-Move jetzt als unterste Stützzone relativiert – 415 hat am 16.07. intraday gehalten (Tief 420,37), was die Zone sogar bestätigt, sie aber enger macht als erwartet. Der CC-Strike 440 aus der 13.07.-Analyse wäre durch den Earnings-Spike ab 449,39 sofort ausgebucht worden – gut, dass er als optionale Ergänzung kommuniziert war.</p>
+
+<h2>1. Trendstruktur – Detailanalyse</h2>
+<p>Der primäre Aufwärtstrend ist seit dem panischen Verkaufstag am 20.03.2026 (rel. Volumen: 3,93 – größter Volumentag im Datensatz, Schluss 275,59) intakt. Die Sequenz höherer Tiefs ist klar: 255,97 (27.03.) → 268,05 (26.03., unbestätigter Bereich) → 261,79 (30.03.) → 363,87 (05.05., lokales Tief nach Hochphase) → 376,86 (26.05.) → 399,53 (17.06.) → 415,05 (06.07.) → 414,37 (15.07.) → 420,37 (16.07.-Earnings-Tief).</p>
+<p>Die Zone <strong>414–420</strong> ist damit dreifach bestätigt (15.07., 16.07. und 06.07.) und stellt die kritische kurzfristige Unterstützung dar. Darunter liegt EMA21 bei aktuell 418,64 – dieser sinkt täglich leicht, da der Kurs seit dem 16.07. seitwärts tendiert. Der nächste relevante Support darunter wäre die Zone um 405–408 (Konsolidierungs-Cluster Juni, Tiefs 17.06./18.06.). Widerstand: Das Earnings-Hoch 461,62 ist der klare Deckel; darunter liegt das 17.07.-Hoch 437,47 als nächste relevante Marke.</p>
+<p><strong>Kurzfristiges Bild:</strong> UNH befindet sich in einer Post-Earnings-Digestion. Das Volumen normalisiert sich: 16.07. mit rel. Volumen 1,96, 17.07. mit 1,58 – beide noch über Schnitt, aber abnehmend. Ein Muster aus zwei Kerzen reicht nicht für eine neue Trendbestimmung.</p>
+
+<h2>2. Candlestick-Analyse – Vertiefung</h2>
+<p>Die Earnings-Kerze (16.07.) ist technisch eine <strong>bearishe Umkehrkerze im Kontext des Spikes</strong>: Eröffnung 449,39, Hoch 461,62, Schluss 423,38. Der Körper ist deutlich bärisch (Eröffnung >> Schluss), die obere Lunte dominiert. Im Kontext eines Earnings-Gaps ist diese Formation als <strong>'Shooting Star' oder 'Bearish Engulfing nach Gap'</strong> zu lesen – sie signalisiert, dass die Bullen den Spike nicht halten konnten. Gleichwohl: Der Schluss bei 423,38 liegt über dem Pre-Earnings-Schlusskurs vom 15.07. (418,52), was grundsätzlich bullisch bleibt.</p>
+<p>Der 17.07. (Hoch 437,47, Schluss 426,09) zeigt einen gescheiterten Recovery-Versuch bis 437,47 – dieser Level (17.07.-Hoch) ist damit der nächste kurzfristige Widerstand. Das Schlussniveau 426,09 liegt im Niemandsland zwischen 420-Support und 437-Widerstand.</p>
+
+<h2>3. EMA-Struktur – Konfluenz-Herleitung</h2>
+<p>EMA9: 423,99 | EMA21: 418,64 | EMA55: 395,84 | gema_321: 417,52. Die Reihenfolge ist geordnet bullisch, keine Kompressions-Artefakte. Der Kurs (423,38 laut IBKR, entspricht dem letzten CSV-Schluss) notiert exakt zwischen EMA9 (423,99) und dem letzten Schlusskurs – quasi am EMA9 klebend. Dies ist eine neutrale Position: kein Rückfall unter EMA9 (noch), aber kein Ausbruch nach oben.</p>
+<p>Kritischer Level: Ein Tagesschluss unter EMA9 (~424) wäre ein erstes Warnsignal, ein Schluss unter EMA21 (~418–419) ein stärkeres Negativ-Signal und würde die Support-Zone 414–420 erneut testen. Der gema_321 bei 417,52 konvergiert mit der EMA21 – das ist ein Konfluenz-Support-Cluster bei ca. <strong>417–419</strong>, der kurzfristig als letzter Puffer vor einem tieferen Rücksetzer gilt.</p>
+
+<h2>4. Trade-Setups (Alternative Szenarien)</h2>
+<p><strong>Setup A – Long-Ausbruch (bevorzugt bei Ausbruch):</strong> Einstieg per Stop-Buy über 437,50 (über 17.07.-Hoch 437,47). Stop bei 420,00 (unter Post-Earnings-Tief 420,37). Ziel 1: 450,00 (runde Marke, CRV ca. 0,7:1 – unattraktiv). Ziel 2: 461,62 (Earnings-Hoch, CRV ca. 1,4:1 – grenzwertig). <em>Fazit: Setup erst bei höherem Ziel valide – kein Trade empfohlen.</em></p>
+<p><strong>Setup B – Long-Pullback (falls Support hält):</strong> Einstieg bei 420–421 (Rückkehr in Support-Zone, Bestätigung durch Reversal-Kerze). Stop bei 413,00 (unter 15.07.-Tief 414,37). Ziel 437,47 (17.07.-Hoch). CRV: ca. 2,0:1 – vertretbar, aber Setup erfordert aktives Monitoring und tritt nur bei Rücksetzer ein.</p>
+<p><strong>Setup C – Short (nur bei Breakdown):</strong> Einstieg per Stop-Sell unter 413,00 (unter 15.07.-Tief). Stop bei 423,00. Ziel 405,00 / 399,00. CRV ca. 1,1:1 / 1,75:1. <em>Gegen den übergeordneten Trend – nur für sehr kurzfristige Trader; nicht empfohlen.</em></p>
+<p><strong>Aktuell bevorzugt: Kein direktionaler Trade.</strong> Die Post-Earnings-Konsolidierung ohne klares Ausbruchssignal rechtfertigt keinen aktiven Einstieg. Abwarten bis Ausbruch über 437,47 oder Pullback in Support-Zone.</p>
+
+<h2>5. Stillhalter-Strategie – Hauptabschnitt</h2>
+<p><strong>Ausgangslage:</strong> Laut IBKR-Snapshot (12:09 Uhr, 19.07.2026) sind keine Aktien und keine Optionspositionen in UNH vorhanden. Kurs zum Snapshot-Zeitpunkt: 423,38. Der Snapshot ist tagesfrisch und als aktuell zu bewerten.</p>
+
+<p><strong>Covered Call:</strong> Nicht möglich, da 0 Aktien im Bestand. Ein Naked Call würde bei moderater Risikotoleranz das Risikoprofil sprengen (unbegrenzte Verlustseite nach oben, Earnings-Hoch 461,62 noch im Raum) – daher explizit <strong>nicht empfohlen</strong>.</p>
+
+<p><strong>Cash-Secured Put – Strike 410, Verfall 25.07.2026:</strong></p>
+<ul>
+  <li><strong>Zonen-Herleitung:</strong> Die kritische Unterstützungszone liegt bei 414–420 (dreifach bestätigt: Tief 06.07. bei 415,05, Tief 15.07. bei 414,37, Earnings-Tief 16.07. bei 420,37). Der Strike 410 liegt <em>unterhalb</em> dieser gesamten Zone – er hat die Zone als Puffer vor sich, wie gefordert. Puffer zum Kurs 423,38: ca. 3,2%.</li>
+  <li><strong>Konfluenz:</strong> Bei 410 liegt keine spezifische historische Unterstützungsmarke, aber die Zone 405–408 (Juni-Konsolidierungscluster) wäre darunter der nächste Boden. Ein Andienungsszenario zu 410 würde einen Bruch der 414–420-Zone voraussetzen – das wäre ein negatives technisches Signal. Die Frage ist daher: Wäre der Kauf zu 410 akzeptabel? <em>Grenzwertig ja:</em> Der EMA21 liegt bei ~418, bei Andienung wäre er unterschritten, aber der EMA55 (395,84) bietet tiefer liegend noch ein Fangnetz. Langfristig bleibende Bullen können 410 als fairen Einstandspreis im intakten Makro-Aufwärtstrend bewerten.</li>
+  <li><strong>Roll-Trigger:</strong> Sollte UNH die Zone 414–420 mit einem Tagesschluss nachhaltig unterschreiten, ist das der Anlass zum Handeln: Entweder frühzeitiger Rückkauf des CSP mit Verlust (Schadensbegrenzung) oder Roll auf einen tieferen Strike (z.B. 400) mit längerem Verfall – wobei der nächste verfügbare Standardverfall innerhalb 12 Tage zu wählen ist. Ein Roll sollte nur für eine Prämie erfolgen, die den erhöhten Puffer rechtfertigt.</li>
+  <li><strong>Was in der Optionskette zu prüfen ist:</strong> Nach dem Earnings-Event dürfte die IV deutlich gefallen sein (IV-Crush). Damit sind die Prämien am Strike 410 für Verfall 25.07. wahrscheinlich moderat. Der Anwender sollte prüfen: (1) Ist die Mid-Prämie mindestens ~2,00–2,50$ (ca. 0,5% des Strikes)? (2) Bid-Ask-Spread: UNH ist sehr liquide, Spreads sollten eng sein (unter 0,30$). (3) Delta: Idealerweise zwischen -0,15 und -0,25, was dem Strike 410 bei aktueller IV entsprechen sollte. (4) Open Interest am 410er Strike für Verfall 25.07. auf ausreichende Handelbarkeit prüfen.</li>
+</ul>
+
+<p><strong>Alternativer CSP-Strike 415 (aggressiver):</strong> Der Strike 415 liegt <em>innerhalb</em> der Unterstützungszone 414–420, was laut Prinzip der Zonen-Herleitung (Strike soll Zone als Puffer VOR sich haben) suboptimal ist. Dieser Strike wird daher nicht als Primärempfehlung ausgewiesen, wäre aber für Anwender mit Präferenz für höhere Prämien diskutierbar – mit dem klaren Hinweis, dass Andienung bei 415 wahrscheinlicher ist und die Zone 414–420 dann bereits gebrochen wäre.</p>
+  </details>
+</section>
+
+<section class="analyse neutral">
+  <div class="kopf">
+    <span class="datum">16.07.2026 <span class="quelle">via Chat</span></span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <p class="fazit">WICHTIG: Diese Analyse basiert auf Daten bis 15.07., einen Tag vor der Q2-Zahlenveröffentlichung von heute Morgen (16.07.) – die Aktie notiert vorbörslich bereits rund 7% höher bei ~448$. Die hier beschriebene technische Lage (Long-Trigger ausgelöst und noch am selben Tag ausgestoppt) ist durch das Earnings-Ereignis überholt und sollte NICHT als aktuelle Handelsgrundlage verwendet werden.</p>
+  <img class="chart" src="img/UNH_20260716_200616.png" alt="Chart UNH">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>Auf Basis der Daten bis 15.07. (vor den Zahlen): Der Long-Trigger der 13.07.-Analyse (432,00) wurde am 14.07. mit einem Hoch von 432,15 knapp ausgelöst, doch bereits am 15.07. fiel der Kurs auf ein Tief von 414,37 – unter den Stop (420,50) und sogar unter den in derselben Analyse empfohlenen CSP-Strike (415,00). Auslöser war laut Berichterstattung sektorweite Vorsicht vor den eigenen Zahlen, verstärkt durch schwache Peer-Ergebnisse (Elevance Health) und eine ausgeweitete DOJ-Untersuchung. Diese gesamte Struktur ist durch die heutige Kursreaktion (vorbörslich +7%) bereits überholt.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>14.07.: Hoch 432,15 (Trigger erreicht), Schluss 425,19 – erste Schwäche trotz Trigger. 15.07.: Tief 414,37, Schluss 418,52 – Stop-Niveau unterschritten, Position (falls eröffnet) ausgestoppt. Diese Kerzenfolge ist die letzte vor dem Earnings-Ereignis von heute und hat für die aktuelle Kurslage keine Aussagekraft mehr.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Stand 15.07.: EMA9 (423,49) > EMA21 (417,35) > EMA55 (393,66), noch bullisch, aber der Kurs war bereits unter EMA9 gefallen. Mit der vorbörslichen +7%-Reaktion auf die Zahlen sind diese EMA-Abstände ohnehin nicht mehr aktuell – die EMAs werden sich mit den neuen Kursdaten deutlich verschieben.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Kein Trade</td></tr>
+    <tr><td>Einstieg</td><td>Kein valides Setup auf Basis veralteter Vor-Earnings-Daten – nach Vorliegen aktueller Nachbörsen-/Vorbörsen-bestätigter Kursdaten neu bewerten</td></tr>
+    <tr><td>Stop</td><td>None</td></tr>
+    <tr><td>Ziel</td><td>None</td></tr>
+    <tr><td>CRV</td><td>None</td></tr>
+  </table>
+
+  <h3>5 · Stillhalter (max. 12 Tage)</h3>
+<p>Jede Stillhalter-Empfehlung auf Basis der 15.07.-Daten wäre irreführend: Die implizite Volatilität dürfte nach der Zahlenveröffentlichung stark gefallen sein (IV-Crush), und die Kurszonen von gestern (z.B. der CSP-Strike 415 aus der Vorlage) sind durch den ~7%-Sprung komplett irrelevant geworden. Erst mit den tatsächlichen Nachbörsendaten lassen sich neue, sinnvolle Strikes ableiten.</p>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 16.07.2026 anzeigen</summary>
+    <h1>UNH – Datenstand überholt durch Earnings-Event von heute</h1><h2>1. Was die 15.07.-Daten noch zeigen</h2><p>Der Long-Trigger der 13.07.-Analyse (432,00) wurde am 14.07. ausgelöst, aber bereits am 15.07. mit einem Tief von 414,37 unter den Stop (420,50) gedrückt – ein kompletter Fehlausbruch innerhalb von zwei Tagen. Bemerkenswert: Auch der zeitgleich empfohlene CSP-Strike (415,00) wurde intraday touchiert, was gezeigt hätte, wie eng dieser Puffer in der Praxis war.</p><h2>2. Warum das jetzt zweitrangig ist</h2><p>UNH hat heute Morgen (16.07., vor Börsenöffnung) die Q2-Zahlen veröffentlicht. Die Aktie notiert vorbörslich bei etwa 448$ – ein Sprung von rund 7% gegenüber dem letzten Schlusskurs in deinen Daten (418,52$). Das ist ein Ereignis, das die gesamte technische Struktur (EMA-Lage, Zonen, Trigger) von einem Tag auf den anderen neu definiert. Jede Fortführung der bisherigen Short-/Long-Logik auf Basis der alten Zahlen wäre technisch nicht mehr haltbar.</p><h2>3. Kontext zur Vorgeschichte</h2><p>Die Schwäche am 14./15.07. lässt sich im Nachhinein einordnen: Sektorweite Vorsicht vor der eigenen Zahlenvorlage, verstärkt durch einen enttäuschenden Quartalsbericht des Wettbewerbers Elevance Health (rund -30% erwarteter EPS-Rückgang) sowie eine ausgeweitete DOJ-Kartelluntersuchung, in der UNH als einer der betroffenen Versicherer genannt wird. Diese Faktoren erklären die Vorsicht vor den Zahlen, sagen aber nichts über die tatsächliche Reaktion auf die heute veröffentlichten Ergebnisse aus.</p><h2>4. Empfehlung für dein weiteres Vorgehen</h2><p>Für eine seriöse Stillhalter- oder Aktien-Analyse nach diesem Ereignis brauchst du aktualisierte Kursdaten, die den heutigen Handelstag (mindestens die vorbörsliche Reaktion, idealerweise den regulären Handelsschluss) enthalten. Auf dieser Basis lassen sich dann neue Zonen (z.B. das Gap-Niveau, ein möglicher Pullback-Support) technisch sauber ableiten. Eine Stillhalter-Position unmittelbar nach einem +7%-Gap zu eröffnen, ohne die neue Volatilitäts- und Zonenlage zu kennen, wäre methodisch nicht zu rechtfertigen.</p><h2>5. Abgleich mit früheren Analysen</h2><p>Die Long-These vom 08./10./13.07. lief zunächst wie erwartet, wurde aber am 15.07. – noch vor den eigentlichen Zahlen – ausgestoppt. Die heutige Kursreaktion macht eine Neubewertung der gesamten Analysekette erforderlich, nicht nur eine Fortschreibung der bisherigen Trendlinie.</p>
+  </details>
+</section>
+
+<section class="analyse long">
+  <div class="kopf">
+    <span class="datum">13.07.2026 </span>
+    <span class="badge long">LONG</span>
+  </div>
+  <p class="fazit">UNH hält den intakten Aufwärtstrend mit bullischer EMA-Struktur – die Konsolidierung im Bereich 415–432 bietet weiterhin ein valides Long-Setup, frühere Analysen werden bestätigt.</p>
+  <img class="chart" src="img/UNH_20260713_211305.png" alt="Chart UNH">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>UNH befindet sich seit dem Tief bei ~255 (Ende März 2026) in einem klar definierten Aufwärtstrend mit steigenden Hochs und Tiefs. Das jüngste Swing-Hoch liegt bei 434,30 (09.07.), das letzte relevante Swing-Tief bei 415,05 (06.07.). Der Kurs konsolidiert aktuell im Bereich 415–432, was als Pauseformation im Trend zu werten ist. Wichtige Unterstützungszonen liegen bei 415–420 (Swing-Tief 06.07. + EMA9-Bereich) und 405–410 (Juni-Konsolidierungszone). Oberseitiger Widerstand bei 432–435 (Mehrwochenhoch).</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die letzte Kerze (13.07.) zeigt eine kleine bullische Kerze mit Schlusskurs 429,51 – Eröffnung 426,47, Hoch 431,55, Tief 425,53. Das Volumen ist mit rel_volumen 0,30 sehr niedrig (nur 30% des 55er-Schnitts), was auf eine ruhige Sommerhandelssession hindeutet und keine Trendumkehr signalisiert. Die Kerze vom 10.07. (Doji-ähnlich, rel_vol 0,55) und die heutige Kerze zeigen eine kompakte Konsolidierung ohne Verkaufsdruck.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Die EMA-Struktur ist klar bullisch: EMA9 (424,71) > EMA21 (416,48) > EMA55 (391,55), der gewichtete GEMA_321 liegt bei 416,44 und steigt an. Der Kurs (429,51) notiert über allen EMAs und dem GEMA_321. EMA9 und EMA21 divergieren weiter nach oben, was die Trendstärke bestätigt. Der Abstand EMA55 zum Kurs beträgt ca. 38 Punkte – keine überhitzte Lage, solider Aufwärtstrend.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Long</td></tr>
+    <tr><td>Einstieg</td><td>432.00 (Stop-Buy über das Hoch vom 13.07. bei 431.55 / Ausbruch über Widerstand 432)</td></tr>
+    <tr><td>Stop</td><td>420.50 (unter Swing-Tief 06.07. bei 415.05 und EMA9-Zone)</td></tr>
+    <tr><td>Ziel</td><td>452.00 (Projektion +5% vom Ausbruchspunkt / runde Widerstandszone)</td></tr>
+    <tr><td>CRV</td><td>2.2 : 1</td></tr>
+  </table>
+
+  <h3>5 · Stillhalter (max. 12 Tage)</h3>
+<p>Der intakte Aufwärtstrend mit klar steigendem EMA-Verbund eignet sich hervorragend für Cash-Secured Puts unterhalb der Swing-Tief-Zone. Ein Covered Call ist bei noch nicht erreichtem Kursziel weniger attraktiv, wird aber als Zusatzposition für Bestandshalter angegeben.</p>
+<table class="setup"><tr><td>Geschäft</td><td>Cash-Secured Put</td></tr><tr><td>Strike</td><td>415.0</td></tr><tr><td>Puffer</td><td>3.4 %</td></tr><tr><td>Zone</td><td>unter Swing-Tief 06.07. bei 415.05 / EMA9-Stützbereich 420–424</td></tr><tr><td>Verfall bis</td><td>2026-07-25 (12 Tage)</td></tr><tr><td>Begründung</td><td>Der Strike 415 liegt unterhalb des Swing-Tiefs vom 06.07. bei 415,05 und unterhalb des EMA9 (424,71). Die Zone 415–420 fungiert als erste starke Unterstützung im laufenden Aufwärtstrend. Ein Rücksetzer bis 415 würde einem normalen Pullback entsprechen und wäre technisch als Kaufgelegenheit zu werten – Andienung zu 415 wäre akzeptabel. Puffer zum Schlusskurs 429,51: ca. 3,4%. Der Anwender sollte in der Optionskette prüfen: Prämie im Verhältnis zum Puffer (mindestens 0,5–1,0% des Strike-Wertes wünschenswert), Bid-Ask-Spread auf Liquidität prüfen, Open Interest am Strike 415 für ausreichende Handelbarkeit.</td></tr></table>
+<table class="setup"><tr><td>Geschäft</td><td>Covered Call</td></tr><tr><td>Strike</td><td>440.0</td></tr><tr><td>Puffer</td><td>2.4 %</td></tr><tr><td>Zone</td><td>über Mehrwochenhoch 434,30 (09.07.) / runde Widerstandszone 435–440</td></tr><tr><td>Verfall bis</td><td>2026-07-25 (12 Tage)</td></tr><tr><td>Begründung</td><td>Für Bestandshalter bietet ein Covered Call bei 440 einen Strike oberhalb des aktuellen Hochs bei 434,30. Die Zone 435–440 stellt den nächsten relevanten Widerstandsbereich dar. Puffer zum Schlusskurs 429,51: ca. 2,4%. Andienung zu 440 wäre bei einem weiteren Ausbruch akzeptabel, da das Kursziel im Basiswert-Setup bei ~452 liegt – der CC würde jedoch Upside ab 440 kappen. Der Anwender sollte prüfen: Prämie vs. entgangener Kursgewinn bis Ziel 452, Liquidität am Strike 440.</td></tr></table>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 13.07.2026 anzeigen</summary>
+    <h1>UNH – Detailanalyse 13.07.2026</h1>
+
+<h2>1. Trendstruktur</h2>
+<p>UNH befindet sich seit dem Mehrjahrestief bei ca. <strong>255,97 (27.03.2026)</strong> in einem ausgeprägten Aufwärtstrend. Die Trendstruktur ist durch klar steigende Hochs und steigende Tiefs definiert:</p>
+<ul>
+  <li>Tief 27.03.: 255,97 → Hoch 21.04.: 357,68 → Tief 06.07.: 415,05 → Hoch 09.07.: 434,30</li>
+  <li>Jede Korrekturphase wurde bei höherem Niveau abgefangen, was den Trend strukturell bestätigt.</li>
+</ul>
+<p><strong>Wichtige Supportzonen:</strong></p>
+<ul>
+  <li><strong>415–420:</strong> Swing-Tief 06.07. (415,05) + EMA9-Bereich (424,71 per 13.07., fallend bei Kursrücksetzer) – erste und wichtigste Unterstützung im kurzfristigen Bild.</li>
+  <li><strong>405–410:</strong> Juni-Konsolidierungszone (mehrere Schlusskurse 405–413 im Zeitraum 08.–17.06.) – zweite Auffanglinie.</li>
+  <li><strong>395–400:</strong> GEMA_321 (416,44 heute, aber bei längerem Rücksetzer Bereich um 395–400) + psychologisches Level.</li>
+</ul>
+<p><strong>Wichtige Widerstandszonen:</strong></p>
+<ul>
+  <li><strong>432–435:</strong> Aktuelles Mehrwochenhoch (434,30 vom 09.07.) – unmittelbarer Widerstand.</li>
+  <li><strong>445–450:</strong> Projektion aus dem Impuls Mai–Juli, runde Widerstandszone.</li>
+  <li><strong>452–455:</strong> Kursziel Long-Setup Voranalysen.</li>
+</ul>
+<p>Die früheren Analysen vom 08.07. und 10.07. mit LONG-Empfehlung werden durch die aktuelle Datenlage <strong>vollständig bestätigt</strong>. Der Einstieg über 428,70 (Setup 08.07.) wurde triggeriert, der Kurs erreichte 434,30 als Zwischenhoch. Das Ziel 448–450 ist noch nicht erreicht.</p>
+
+<h2>2. Candlestick-Analyse</h2>
+<p>Die letzten fünf Kerzen zeigen ein konsistentes Bild einer bullischen Konsolidierung nach dem Ausbruch über 430:</p>
+<ul>
+  <li><strong>09.07.:</strong> Starke bullische Kerze, Hoch 434,30, Schluss 431,68 – Ausbruch auf Mehrwochenhoch, rel_vol 0,76 (moderat).</li>
+  <li><strong>10.07.:</strong> Bearish engulf / Rücksetzer auf 424,62, Tief 423,65. Volumenschwach (rel_vol 0,55). Kein Panikverkauf.</li>
+  <li><strong>13.07.:</strong> Erholungskerze, Schluss 429,51 nach Tief 425,53. rel_vol nur 0,30 – extrem ruhiger Handel (Montag, Sommersaison). Kein Verkaufsdruck sichtbar.</li>
+</ul>
+<p>Die niedrigen Volumina (0,30–0,55x) in der Konsolidierungsphase sind <strong>bullisch zu interpretieren</strong>: Der Markt verkauft nicht, er atmet nur. Ein Ausbruch über 432–434 auf höherem Volumen wäre ein starkes Kaufsignal.</p>
+
+<h2>3. EMA-Analyse</h2>
+<p>Die EMA-Konstellation ist eindeutig bullisch:</p>
+<ul>
+  <li><strong>EMA9: 424,71</strong> – liegt nahe unter dem aktuellen Kurs (429,51), dient als dynamischer Support.</li>
+  <li><strong>EMA21: 416,48</strong> – zweite Stützlinie, fällt mit dem Swing-Tief 415,05 nahezu zusammen → starke Konfluenzzone 415–417.</li>
+  <li><strong>EMA55: 391,55</strong> – weit unter Kursniveau, bestätigt den starken mittelfristigen Aufwärtstrend.</li>
+  <li><strong>GEMA_321: 416,44</strong> – gewichteter Verbund steigt kontinuierlich, Kurs hat 13-Punkte-Abstand nach oben. Keine Überhitzung.</li>
+</ul>
+<p>Alle EMAs steigen, EMA9 > EMA21 > EMA55, GEMA_321 ebenfalls aufwärts geneigt. Eine Korrektur bis EMA9 (424) oder EMA21 (416) wäre im Trend absolut normal. Solange der Kurs über GEMA_321 (416) notiert, ist der Trend intakt.</p>
+
+<h2>4. Trade-Setups</h2>
+<p><strong>Setup A (bevorzugt) – Ausbruchs-Long:</strong></p>
+<ul>
+  <li>Einstieg: <strong>432,00</strong> (Stop-Buy über aktuelles Konsolidierungshoch 431,55)</li>
+  <li>Stop: <strong>420,50</strong> (unter Swing-Tief 06.07. 415,05 mit Puffer, Risikozone klar definiert)</li>
+  <li>Ziel 1: <strong>445,00</strong> (~+3% vom Einstieg) → CRV 1,1:1</li>
+  <li>Ziel 2: <strong>452,00</strong> (~+5% vom Einstieg, Projektionsziel) → CRV 1,7:1</li>
+  <li>Ziel 3: <strong>458,00</strong> (erweiterte Projektion +6%) → CRV 2,3:1</li>
+  <li>Positionsgröße: Risiko (432–420,50 = 11,50 Punkte) definiert Lot-Größe.</li>
+</ul>
+<p><strong>Setup B – Pullback-Long (aggressiver):</strong></p>
+<ul>
+  <li>Einstieg: <strong>423,00–425,00</strong> (Rücksetzer an EMA9, Limit-Order)</li>
+  <li>Stop: <strong>413,00</strong> (unter EMA21 und Swing-Tief 415,05)</li>
+  <li>Ziel: <strong>452,00</strong> → CRV 2,1:1</li>
+  <li>Risiko: Kein Ausbruchsbestätigung, daher kleinere Position.</li>
+</ul>
+<p><strong>Setup C – Short (Gegenläufer, nicht bevorzugt):</strong> Kein valides Short-Setup gegeben. Trendstruktur und EMA-Lage sprechen klar gegen Short-Positionen. Erst ein Schlusskurs unter 410 würde das bullische Bild in Frage stellen.</p>
+
+<h2>5. Stillhalter-Setups (Schwerpunkt)</h2>
+<p><strong>Cash-Secured Put (CSP) – Hauptempfehlung:</strong></p>
+<p>Der Aufwärtstrend und die EMA-Struktur eignen sich ideal für den Verkauf von Cash-Secured Puts. Der technisch abgeleitete Strike lautet:</p>
+<ul>
+  <li><strong>Strike: 415</strong> (Verfall: spätestens <strong>25.07.2026</strong>, 12 Tage Restlaufzeit)</li>
+  <li>Puffer zum Schlusskurs 429,51: <strong>ca. 3,4%</strong></li>
+  <li>Begründung der Zonen-Herleitung: Der Strike 415 liegt <em>unterhalb</em> des Swing-Tiefs vom 06.07. bei 415,05 und fällt mit dem Bereich des EMA21 (416,48) zusammen. Diese doppelte Konfluenz (strukturelles Swing-Tief + EMA21) macht 415 zur stärksten nahegelegenen Unterstützungszone. Ein Kurs unter 415 würde erstmals ein tieferes Tief im Aufwärtstrend markieren und das bullische Bild beeinträchtigen.</li>
+  <li><strong>Andienungsszenario:</strong> Ein Kauf zu 415 wäre fundamental und technisch akzeptabel – der Kurs notierte erst am 06.07. auf diesem Niveau und ist seitdem gestiegen. Der EMA55 bei 391 bietet weiteren Downside-Puffer. UNH bei 415 wäre im mittelfristigen Trend eine attraktive Kaufgelegenheit.</li>
+  <li><strong>Anpassung/Rollen:</strong> Unterschreitet der Kurs 420 (erste Warnstufe) mit erhöhtem Volumen, sollte der Put frühzeitig gerollt oder geschlossen werden, bevor der Strike in den Geld gerät.</li>
+  <li><strong>In der Optionskette prüfen:</strong> Prämie am Strike 415 (Ziel: mind. 1,50–2,00 USD für 0,35–0,48% auf den Strike), Bid-Ask-Spread, Open Interest für Liquidität. IV-Niveau nach dem ruhigen Handelstag heute möglicherweise gedrückt.</li>
+</ul>
+<p><strong>Covered Call (CC) – für Bestandshalter:</strong></p>
+<ul>
+  <li><strong>Strike: 440</strong> (Verfall: spätestens <strong>25.07.2026</strong>)</li>
+  <li>Puffer zum Schlusskurs 429,51: <strong>ca. 2,4%</strong></li>
+  <li>Begründung: Der Strike 440 liegt klar oberhalb des aktuellen Mehrwochenhochs (434,30) und in der Zone 435–445, die als nächster Widerstandsbereich gilt. Damit wird Upside-Potenzial bis ca. 434 vollständig behalten.</li>
+  <li><strong>Einschränkung:</strong> Das Kursziel im Direktinvestment-Setup liegt bei 452. Ein CC zu 440 würde die Position bei 440 abdienen und ca. 12 Punkte Upside kappen. Nur geeignet für Anleger, die 440 als Exit-Level akzeptieren oder die Prämie als Kompensation für stagnierende Kursbewegung sehen.</li>
+  <li><strong>Andienungsszenario:</strong> Abgabe zu 440 wäre akzeptabel; der Kurs befindet sich im Aufwärtstrend und 440 liegt über dem aktuellen Kurs.</li>
+  <li><strong>In der Optionskette prüfen:</strong> Prämie am Strike 440, Delta sollte unter 0,30 liegen für konservative Stillhalter, Liquidität am Strike.</li>
+</ul>
+  </details>
+</section>
+
+<section class="analyse long">
+  <div class="kopf">
+    <span class="datum">10.07.2026</span>
+    <span class="badge long">LONG</span>
+  </div>
+  <p class="fazit">UNH setzt den intakten Aufwärtstrend fort – der Ausbruch über 430 mit neuem Mehrwochenhoch bestätigt das Long-Setup der Voranalyse, EMA-Struktur bleibt bullisch.</p>
+  <img class="chart" src="img/UNH_20260710_081303.png" alt="Chart UNH">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>UNH befindet sich seit dem Tief bei ~255 (27.03.) in einem klaren Aufwärtstrend mit einer Abfolge höherer Hochs und Tiefs: 346→354→371→415→428→431.68 (09.07.). Der übergeordnete Trend ist intakt. Wichtige Supports: 420-423 (letztes Swing-Tief 06.07.), 414-416 (EMA9-Zone), 406-408 (EMA21-Bereich). Nächster Widerstand: 435-440 (Projektionszone), danach 448+.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die letzte Kerze vom 09.07. zeigt eine bullische Aufwärtskerze (Open 427.11, Close 431.68) mit neuem Hoch bei 434.30 – ein Breakout über das bisherige Wochenhoch von 430.77. Das Volumen war mit rel_volumen 0.76 moderat, aber ausreichend für einen sauberen Ausbruch. Keine bearischen Umkehrsignale sichtbar.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Die EMA-Struktur ist klar bullisch: EMA9 (423.23) > EMA21 (414.23) > EMA55 (388.87), alle steigend. gema_321 bei 414.50 liegt deutlich unter dem Kurs (431.68), was den Aufwärtsimpuls bestätigt. Der Abstand EMA9 zum Kurs beträgt ~8 Punkte – gesund, nicht überhitzt.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Long</td></tr>
+    <tr><td>Einstieg</td><td>432.00 (Stop-Buy über Tageshoch 09.07. bei 434.30, alternativ Marktorder)</td></tr>
+    <tr><td>Stop</td><td>420.50 (unter Swing-Tief 06.07. bei 415.05 und EMA9-Bereich)</td></tr>
+    <tr><td>Ziel</td><td>450.00 (Projektionsziel ~+5% / nächste runde Widerstandszone)</td></tr>
+    <tr><td>CRV</td><td>2.3 : 1</td></tr>
+  </table>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 10.07.2026 anzeigen</summary>
+    <h1>UNH – Tagesanalyse 10.07.2026</h1><h2>1. Trendstruktur</h2><p>UNH befindet sich seit dem Tief bei <strong>255.97 (27.03.2026)</strong> in einem starken, mehrstufigen Aufwärtstrend. Die Abfolge steigender Hochs und Tiefs ist klar definiert:</p><ul><li>Tief 255.97 → Hoch 357.68 (21.04.): Erster großer Impulslauf (+40%)</li><li>Konsolidierung 363–384 (Mai): Gesundes Durchatmen oberhalb EMA9/21</li><li>Zweiter Impulslauf ab Juni: 376 → 415 (25.06.) → 427 (26.06.) → 431.68 (09.07.)</li></ul><p>Wichtige <strong>Support-Zonen</strong>: 420–423 (letztes Swing-Tief 06.07.), 414–416 (EMA9 aktuell bei 423.23, leicht darunter), 406–409 (EMA21 + gema_321-Bereich), 388–390 (EMA55). <strong>Widerstandszonen</strong>: 434–435 (Tageshoch 09.07.), 440–445 (psychologische Zone), 448–452 (Projektion +5% vom letzten Breakout-Niveau).</p><p>Der Ausbruch über 430.77 (Hoch 08.07.) mit Schlusskurs bei 431.68 ist ein technisches Kaufsignal. Das Hoch vom 26.06. bei 427.93 wurde ebenfalls überwunden.</p><h2>2. Candlestick-Formationen</h2><p>Die letzten fünf Kerzen zeigen ein interessantes Muster:</p><ul><li><strong>06.07.</strong>: Leicht bearische Kerze (Close 417.99 vs. Open 423.49), Tagesrange ~9 Punkte – temporäre Schwäche nach dem Juni-Hoch. rel_volumen 0.86 – durchschnittlich.</li><li><strong>07.07.</strong>: Bullische Erholungskerze, Close 428.19, Hoch 428.60 – Test des Hochs vom 26.06.</li><li><strong>08.07.</strong>: Enger Doji/Inside-Day-Charakter (Open 427.15, Close 425.60, Hoch 430.77), rel_volumen nur 0.52 – sehr geringes Volumen, Markt nimmt Luft.</li><li><strong>09.07.</strong>: <strong>Bullische Ausbruchskerze</strong> – Open 427.11, High 434.30, Close 431.68. Neues Mehrwochenhoch. rel_volumen 0.76 – moderat, aber Ausbruch ist valide. Keine bearische Umkehrformation erkennbar.</li></ul><p>Die Konsolidierung der Tage 06.–08.07. mit engem Range hat den Ausbruch aufgebaut (Bull-Flag-Charakter). Die Folgekerze vom 09.07. bestätigt die Fortsetzung.</p><h2>3. EMA-Lage (9/21/55 und gema_321)</h2><p>Die EMA-Konstellation ist eindeutig bullisch:</p><ul><li><strong>EMA9: 423.23</strong> – steil steigend, Kurs (431.68) liegt ~8.45 Punkte darüber</li><li><strong>EMA21: 414.23</strong> – steigend, Abstand zum Kurs ~17.45 Punkte</li><li><strong>EMA55: 388.87</strong> – steigend, Abstand ~42.81 Punkte</li><li><strong>gema_321: 414.50</strong> – als gewichteter Verbund ebenfalls steigend, Kurs liegt ~17 Punkte darüber</li></ul><p>Reihenfolge: EMA9 > EMA21 > EMA55 – klassisch bullisches Alignment. Alle EMAs steigen mit konsistenter Dynamik. Der Abstand EMA9 zum Kurs von ~8 Punkten signalisiert Momentum ohne extreme Überhitzung. Seit Anfang April hat sich der Kurs nie nachhaltig unter EMA21 geschlossen, was die Trendstärke unterstreicht.</p><p>Die Voranalyse vom 08.07. mit Long-Empfehlung wird <strong>vollständig bestätigt</strong>: Der damals postulierte Einstieg per Stop-Buy über 428.70 wurde am 09.07. mit dem Anstieg auf 431.68 ausgelöst.</p><h2>4. Trade-Setup (konkrete Szenarien)</h2><p><strong>Setup A – Bevorzugtes Momentum-Setup (Long):</strong></p><ul><li>Einstieg: 432.00 (knapp über aktuellem Kurs, ggf. Marktorder oder Stop-Buy bei 434.50 über Tageshoch)</li><li>Stop: 420.50 (unter dem Swing-Tief vom 06.07. bei 415.05; EMA9 bei 423 bietet weitere Unterstützung)</li><li>Ziel 1: 442.00 (+2.3%, Zwischenziel runde Zone)</li><li>Ziel 2: 450.00 (+4.2%, CRV ~2.3:1 bei Stop 420.50)</li><li>CRV zu Ziel 2: (450-432)/(432-420.50) = 18/11.5 = <strong>1.57:1</strong> minimal, zu Ziel 450 von Einstieg 432 bei Stop 420.50 = 18/11.5 ≈ 1.57, zu Ziel 455: 23/11.5 = <strong>2.0:1</strong></li></ul><p><strong>Setup B – Konservativerer Einstieg nach Pullback:</strong></p><ul><li>Einstieg: 423.00–425.00 (Pullback auf EMA9-Zone)</li><li>Stop: 416.00 (unter EMA9 mit Puffer)</li><li>Ziel: 448.00–452.00</li><li>CRV: (450-424)/(424-416) = 26/8 = <strong>3.25:1</strong></li></ul><p><strong>Setup C – Breakout-Fortsetzung (aggressiv):</strong></p><ul><li>Einstieg: Stop-Buy bei 435.00 (über Tageshoch 09.07. mit Puffer)</li><li>Stop: 422.00</li><li>Ziel: 455.00</li><li>CRV: (455-435)/(435-422) = 20/13 = <strong>1.54:1</strong></li></ul><p><strong>Risikofaktoren:</strong> Volumen bei letzten Kerzen unter Durchschnitt (rel_volumen 0.52–0.78) – der Ausbruch wurde nicht mit starkem Volumen bestätigt. Ein Rückfall unter 420 würde das Setup invalidieren. Gesamtmarktrisiken (Makro/Sektor Healthcare) beachten.</p>
+  </details>
+</section>
+
+<section class="analyse long">
+  <div class="kopf">
+    <span class="datum">08.07.2026</span>
+    <span class="badge long">LONG</span>
+  </div>
+  <p class="fazit">UNH befindet sich in einem intakten Aufwärtstrend mit bullischer EMA-Struktur und testet nach einer kurzen Konsolidierung wieder Hochs – Long-Setup mit gutem CRV.</p>
+  <img class="chart" src="img/UNH_20260708_122749.png" alt="Chart UNH">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>UNH hat sich von einem Tief um 255 (Ende März 2026) auf aktuell ~428 erholt und dabei eine Serie steigender Hochs und Tiefs ausgebildet. Der übergeordnete Trend ist klar aufwärtsgerichtet. Das Allzeithoch des betrachteten Zeitraums liegt bei ~430 (02.07.2026); die aktuelle Kerze nähert sich diesem Niveau erneut. Wichtige Unterstützungszonen liegen bei ~415 (Tief 06.07.) und ~405–408 (EMA21/gema_321-Bereich).</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die letzte Kerze (07.07.) zeigt eine bullische Marubozu-artige Kerze (Open 423.95, Close 428.19, Hoch 428.60) mit vergleichsweise kleiner oberer Lunte – der Kurs schloss nahe dem Tageshoch, was Kaufdruck signalisiert. Die Vortageskerze (06.07.) war eine Innenkerze/Korrekturkerze mit niedrigerem Close (417.99), was der heutige Anstieg bereits erfolgreich überwunden hat.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Die EMA-Struktur ist klar bullisch: EMA9 (420.0) > EMA21 (411.2) > EMA55 (385.9), alle steigend. Der gema_321 bei 411.4 liegt deutlich unterhalb des Kurses (428.19), was einen etablierten Aufwärtstrend bestätigt. Der Kurs handelt komfortabel über allen EMAs ohne überdehnte Abstände, die auf eine unmittelbare Korrektur hindeuten würden.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Long</td></tr>
+    <tr><td>Einstieg</td><td>428.70 (Stop-Buy über Tageshoch 07.07.)</td></tr>
+    <tr><td>Stop</td><td>414.50 (unter Tief 06.07. und EMA9-Bereich)</td></tr>
+    <tr><td>Ziel</td><td>448.00 (Projektionsziel +5% / nächste runde Widerstandszone)</td></tr>
+    <tr><td>CRV</td><td>2.1 : 1</td></tr>
+  </table>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 08.07.2026 anzeigen</summary>
+    <h1>UNH – Detailanalyse (Stand: 08.07.2026)</h1>
+
+<h2>1. Trendstruktur</h2>
+<p><strong>Übergeordneter Trend: Klar aufwärts.</strong> Nach einem markanten Einbruch von ~307 (07.04.) auf ~255 (27.03.) vollzog UNH eine V-förmige Erholung, getrieben durch einen Volume-Spike am 21.04. (rel. Volumen: 2.89x) mit einem Single-Candle-Move von 323 auf 346. Seitdem zeigt die Aktie eine Serie klarer höherer Hochs und höherer Tiefs:</p>
+<ul>
+  <li>Hoch 357.68 (21.04.) → Hoch 404.15 (13.05.) → Hoch 415.98 (10.06.) → Hoch 430.20 (02.07.)</li>
+  <li>Tief 348.95 (27.04.) → Tief 376.41 (26.05.) → Tief 394.99 (17.06.) → Tief 413.25 (30.06.)</li>
+</ul>
+<p><strong>Schlüssellevels:</strong></p>
+<ul>
+  <li>Widerstand: 430.20 (Allzeithoch des Betrachtungszeitraums, 02.07.)</li>
+  <li>Unterstützung 1: 413–415 (Tief 06.07. + 30.06., kongruent mit EMA9-Anstiegszone)</li>
+  <li>Unterstützung 2: 406–411 (EMA21/gema_321-Cluster)</li>
+  <li>Unterstützung 3: 395–400 (EMA9-Bereich Mitte Juni, mehrfach getestet)</li>
+</ul>
+<p>Der Aufwärtstrend ist strukturell intakt. Die Konsolidierung 29.06.–06.07. (Range ca. 415–430) sieht wie eine gesunde Pause vor dem nächsten Schub aus.</p>
+
+<h2>2. Candlestick-Formationen</h2>
+<p>Die letzten drei Kerzen zeigen ein klares Muster:</p>
+<ul>
+  <li><strong>26.06. (427.89, rel. Vol. 1.41x):</strong> Starke Ausbruchskerze über 420-Bereich mit überdurchschnittlichem Volumen – bullisches Signal.</li>
+  <li><strong>29.06.–30.06.:</strong> Zwei Korrekturkerzen (Close 419.82 / 415.63), die jedoch über dem Ausbruchsniveau schließen – normale Konsolidierung nach dem Ausbruch.</li>
+  <li><strong>01.07. (Close 426.54) + 02.07. (Close 425.36):</strong> Erneuter Test der 425–430-Zone, leichte Schwäche danach.</li>
+  <li><strong>06.07. (Close 417.99):</strong> Innenkerze/Down-Kerze – kurzfristiger Rücksetzer mit normalem Volumen (0.86x), kein Panikverkauf.</li>
+  <li><strong>07.07. (Close 428.19, Open 423.95, Hoch 428.60):</strong> Bullische Recovery-Kerze, schließt nahe Tageshoch – potenzielle Resumption des Uptrends. Volumen bei 0.78x – solide, kein Exhaustion-Signal.</li>
+</ul>
+<p>Das Muster ähnelt einem "Bullish Flag" oder "High Tight Flag": starker Impuls, kurze Konsolidierung, nun Ausbruchsversuch.</p>
+
+<h2>3. EMA-Analyse</h2>
+<p><strong>EMA-Reihenfolge (07.07.):</strong> EMA9 (420.0) > EMA21 (411.2) > EMA55 (385.9) – perfekte bullische Stapelung, alle drei Linien steigend.</p>
+<p><strong>gema_321: 411.4</strong> – der gewichtete EMA-Verbund liegt ~16.8 Punkte unter dem aktuellen Kurs (428.19), was einen gesunden, aber nicht überhitzten Abstand darstellt.</p>
+<p><strong>Kurs-zu-EMA-Abstände:</strong></p>
+<ul>
+  <li>Kurs zu EMA9: +8.2 Punkte (~1.9%) – der Kurs handelt knapp über dem EMA9, was auf Nähe zur dynamischen Unterstützung hinweist</li>
+  <li>Kurs zu EMA21: +17.0 Punkte (~4.1%) – normaler Abstand in einem Trendmarkt</li>
+  <li>Kurs zu EMA55: +42.3 Punkte (~11%) – reflektiert die starke Erholung seit April</li>
+</ul>
+<p>Der EMA9 hat in der Konsolidierung (29.06.–06.07.) als dynamische Unterstützung fungiert (Tiefs knapp über oder am EMA9). Der heutige Anstieg über EMA9 und zurück Richtung Hochs ist ein bullisches Signal.</p>
+
+<h2>4. Trade-Setups</h2>
+
+<h3>Setup A (Bevorzugt): Breakout Long über ATH</h3>
+<p><strong>Logik:</strong> Ausbruch über das bisherige Hoch bei 430.20 mit Momentum-Bestätigung.</p>
+<ul>
+  <li><strong>Einstieg:</strong> 430.50 (Stop-Buy über ATH 430.20 + Buffer)</li>
+  <li><strong>Stop:</strong> 414.50 (unter Tief 06.07. bei 415.05)</li>
+  <li><strong>Ziel 1:</strong> 448.00 (~5% über Einstieg / psychologischer Widerstand)</li>
+  <li><strong>Ziel 2:</strong> 462.00 (nächste Projektion via Equal-Move der letzten Impulswelle)</li>
+  <li><strong>Risiko:</strong> 430.50 – 414.50 = 16.00 Punkte</li>
+  <li><strong>CRV zu Ziel 1:</strong> (448.00 – 430.50) / 16.00 = <strong>1.1 : 1</strong> (knapp)</li>
+  <li><strong>CRV zu Ziel 2:</strong> (462.00 – 430.50) / 16.00 = <strong>2.0 : 1</strong></li>
+</ul>
+
+<h3>Setup B (Aggressiv): Soforteinstieg nahe aktuellem Kurs</h3>
+<p><strong>Logik:</strong> Kauf bei heutigem Close-Niveau (~428), da die bullische Kerze bereits Stärke zeigt und der Kurs über EMA9 handelt.</p>
+<ul>
+  <li><strong>Einstieg:</strong> 428.70 (leicht über Tageshoch 07.07. als Bestätigung)</li>
+  <li><strong>Stop:</strong> 414.50 (unter Tief 06.07.)</li>
+  <li><strong>Ziel 1:</strong> 448.00</li>
+  <li><strong>Ziel 2:</strong> 462.00</li>
+  <li><strong>Risiko:</strong> 428.70 – 414.50 = 14.20 Punkte</li>
+  <li><strong>CRV zu Ziel 1:</strong> (448.00 – 428.70) / 14.20 = <strong>1.4 : 1</strong></li>
+  <li><strong>CRV zu Ziel 2:</strong> (462.00 – 428.70) / 14.20 = <strong>2.35 : 1</strong> ✓</li>
+</ul>
+
+<h3>Setup C (Konservativ): Rücksetzer-Long auf EMA21-Niveau</h3>
+<p><strong>Logik:</strong> Warten auf einen tieferen Rücksetzer zum EMA21 (~411–413) für besseres CRV.</p>
+<ul>
+  <li><strong>Einstieg:</strong> 413.00 (Limit-Buy im EMA21-Bereich)</li>
+  <li><strong>Stop:</strong> 403.00 (unter dem gema_321 und letztem Swing-Tief Mitte Juni)</li>
+  <li><strong>Ziel:</strong> 448.00</li>
+  <li><strong>Risiko:</strong> 10.00 Punkte</li>
+  <li><strong>CRV:</strong> (448.00 – 413.00) / 10.00 = <strong>3.5 : 1</strong> ✓✓ – aber Rücksetzer muss erst eintreten</li>
+</ul>
+
+<h3>Wichtige Konfluenzzonen</h3>
+<ul>
+  <li><strong>413–415:</strong> EMA9 + Swing-Tiefs 06./30.06. – starke Unterstützung</li>
+  <li><strong>405–411:</strong> EMA21 + gema_321 – nächste Unterstützungszone</li>
+  <li><strong>430–432:</strong> ATH-Widerstandszone – Ausbruch darüber öffnet Luft nach oben</li>
+</ul>
+
+<p><strong>Fazit:</strong> UNH zeigt eine starke Trendstruktur mit bullischer EMA-Konstellation. Setup B (aggressiv, sofortiger Einstieg über Tageshoch) mit Stop unter 414.50 und Ziel 462 bietet ein akzeptables CRV von 2.35:1. Setup C für geduldige Trader mit besserem Einstieg. Kein Short-Setup erkennbar solange der Kurs über EMA21 bei 411 schließt.</p>
+  </details>
+</section>
+
+
+  <footer>Automatisch erstellt · <a href="index.html">Zur Übersicht</a> ·
+    Keine Anlageberatung</footer>
+</div>
+</body>
+</html>

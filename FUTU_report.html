@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FUTU – Analyse-Historie</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0d1319; --panel:#161e27; --line:#232e3a;
+    --text:#d9e1e8; --muted:#7e8b99; --accent:#e5a63c;
+    --long:#3ec08b; --short:#e2604f; --neutral:#8a96a3;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);
+       font:15px/1.6 "IBM Plex Sans",sans-serif;padding:32px 16px}
+  .wrap{max-width:860px;margin:0 auto}
+  header{display:flex;align-items:baseline;gap:14px;
+         border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:28px}
+  header h1{font:500 30px "IBM Plex Mono",monospace;margin:0;letter-spacing:1px}
+  header .sub{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:2px}
+
+  /* Eine Analyse = eine section; farbige Signalleiste links */
+  section.analyse{background:var(--panel);border:1px solid var(--line);
+                  border-left:4px solid var(--neutral);
+                  border-radius:6px;padding:22px 26px;margin-bottom:22px}
+  section.analyse.long{border-left-color:var(--long)}
+  section.analyse.short{border-left-color:var(--short)}
+
+  .kopf{display:flex;justify-content:space-between;align-items:center;
+        flex-wrap:wrap;gap:8px;margin-bottom:6px}
+  .datum{font:500 13px "IBM Plex Mono",monospace;color:var(--muted)}
+  .quelle{font:500 10px "IBM Plex Mono",monospace;color:var(--muted);
+          border:1px solid var(--line);border-radius:3px;padding:1px 6px;
+          margin-left:6px;text-transform:uppercase;letter-spacing:1px;
+          vertical-align:middle}
+  .badge{font:500 12px "IBM Plex Mono",monospace;letter-spacing:2px;
+         padding:3px 10px;border-radius:3px;color:#0d1319}
+  .badge.long{background:var(--long)}
+  .badge.short{background:var(--short)}
+  .badge.neutral{background:var(--neutral)}
+
+  .fazit{font-size:16px;font-weight:600;margin:0 0 16px}
+  img.chart{width:100%;border:1px solid var(--line);border-radius:4px;margin:4px 0 12px}
+  h3{font:500 12px "IBM Plex Mono",monospace;color:var(--accent);
+     text-transform:uppercase;letter-spacing:2px;margin:18px 0 4px}
+  p{margin:6px 0;color:var(--text)}
+
+  /* Setup-Tabelle in Monospace, Zahlen buendig */
+  table.setup{width:100%;border-collapse:collapse;margin-top:8px;
+              font:14px "IBM Plex Mono",monospace}
+  table.setup td{padding:6px 10px;border-top:1px solid var(--line)}
+  table.setup td:first-child{color:var(--muted);width:120px}
+
+  /* Aufklappbarer Volltext in aelteren Analyse-Karten */
+  details.volltext{margin-top:16px;border-top:1px solid var(--line);padding-top:10px}
+  details.volltext summary{cursor:pointer;font:500 12px "IBM Plex Mono",monospace;
+                color:var(--muted);text-transform:uppercase;letter-spacing:2px}
+  details.volltext summary:hover{color:var(--accent)}
+  details.volltext h1,details.volltext h2{font-size:15px;color:var(--accent);margin:14px 0 6px}
+  details.volltext strong{color:#fff}
+
+  footer{color:var(--muted);font-size:12px;text-align:center;margin-top:32px}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>FUTU</h1>
+    <span class="sub">Analyse-Historie · neueste zuerst</span>
+  </header>
+
+<!-- NEUE_ANALYSE_HIER -->
+<section class="analyse long">
+  <div class="kopf">
+    <span class="datum">23.07.2026 </span>
+    <span class="badge long">LONG</span>
+  </div>
+  <p class="fazit">FUTU zeigt nach dem katastrophalen Mai-Crash eine konstruktive Bodenbildung mit frischen Ausbruchssignalen – der EMA9 kreuzt den EMA21 aufwärts und der Kurs testet die 107er-Marke, was selektive Stillhalter-Entries auf der Long-Seite rechtfertigt.</p>
+  <img class="chart" src="img/FUTU_20260723_120831.png" alt="Chart FUTU">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>FUTU hat zwischen Mai und Juni einen massiven Abwärtstrend von ~170 USD auf ein Tief bei ~80 USD durchlaufen (Crash-Kerze 22.05. mit rel_volumen 22.06 – außergewöhnlich). Seit dem Tief bei 80.50 USD baut der Kurs eine Serie höherer Tiefs auf: 80.50 → 88.78 → 89.21 → 91.20 → 92.11 → 92.54 → 94.10. Das Hoch der Erholung liegt aktuell bei 110.18 USD (22.07.). Damit ist eine erste Trendwende-Struktur mit höheren Tiefs etabliert, bestätigte höhere Hochs fehlen jedoch noch – das bisherige Erholungshoch von 107.83 (26.05.) wurde am 22.07. mit 110.18 USD überboten, was ein prozyklisches Kaufsignal darstellt. Die Zone 88–95 USD hat sich als tragfähige Basis erwiesen (multiple Tests).</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die letzten drei Kerzen zeigen eine klare Beschleunigung: 20.07. bullischer Inside-Bar-Bounce (~98.28 Close), 21.07. starke Aufwärtskerze mit Close bei 103.66 (rel_vol 0.54, moderat), 22.07. Continuation-Kerze mit Hoch 110.18 und Close 106.09 – ein leichter Pullback vom Tageshoch signalisiert zunächst Widerstand im 107–110er-Bereich. Der Body ist klar bullisch, kein Bärensignal. Der aktuelle Kurs von 106.89 (IBKR-Snapshot, +0.75 %) setzt den Aufwärtstrend intraday fort.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>EMA9 (99.99) kreuzt EMA21 (99.32) bullisch nach oben – klassisches Golden-Cross-Signal auf Tagesbasis. EMA55 (109.19) liegt noch darüber und bildet den nächsten dynamischen Widerstand. Der gema_321 (101.30) zeigt aufwärts und liegt zwischen EMA9/21 und EMA55, was die Übergangsphase vom Bär- zum Bullentrend visualisiert. Der Kurs (106.89) handelt oberhalb aller Short-EMAs (9/21), aber noch unter dem EMA55 – der Abstand zum EMA55 beträgt nur ~2.1 %, ein Test dieses Widerstands ist unmittelbar bevorstehend.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Long</td></tr>
+    <tr><td>Einstieg</td><td>107.50 (Stop-Buy über das Intraday-Hoch 22.07. bei 110.18 wäre aggressiv; konservativer Einstieg per Limit im Bereich 104–106 beim nächsten Pullback auf EMA9)</td></tr>
+    <tr><td>Stop</td><td>94.50 (unter letztem bestätigten Aufwärts-Pivot und 95er-Supportzone)</td></tr>
+    <tr><td>Ziel</td><td>118.00 (EMA55-Bereich und nächste Widerstandszone April-Hochs Cluster)</td></tr>
+    <tr><td>CRV</td><td>ca. 2.0 : 1 (abhängig vom Einstiegsniveau)</td></tr>
+  </table>
+
+  <h3>5 · Stillhalter (max. 12 Tage)</h3>
+<p>Die Marktstruktur – Bodenbildung, bullisches EMA-Kreuz, höhere Tiefs – spricht klar für Cash-Secured Puts unterhalb des etablierten Supports. Ein Covered Call kommt mangels Aktienbestand (0 Aktien laut IBKR) nicht infrage; ein Naked Call wäre angesichts des aufwärtsgerichteten Momentums kontraproduktiv.</p>
+<table class="setup"><tr><td>Geschäft</td><td>Cash-Secured Put</td></tr><tr><td>Strike</td><td>95.0</td></tr><tr><td>Puffer</td><td>11.1 %</td></tr><tr><td>Zone</td><td>Unterhalb der bestätigten Support-Cluster-Zone 95–97 USD (mehrfach getestet: 07.07. Tief 91.86, 17.07. Tief 92.54, 08.07. Tief 92.11 – die Zone 94–96 hat vielfachen Boden gezeigt)</td></tr><tr><td>Verfall bis</td><td>2026-08-01 (9 Tage)</td></tr><tr><td>Begründung</td><td>Der Strike 95.00 liegt rund 11 % unter dem aktuellen Kurs (106.89) und unterhalb der multipel bestätigten Support-Zone 94–97 USD. Eine Andienung zu 95 USD wäre technisch akzeptabel: Man würde Aktien nahe dem Bodenbereich des Erholungsmusters erwerben, das sich seit Mai aufgebaut hat. Der Puffer deckt einen vollständigen Rückfall auf den Unterkanten-Support ab. In der Optionskette ist zu prüfen: Liegt die Prämie bei mindestens 0.80–1.20 USD (Mid) für einen sinnvollen Ertrag? Delta sollte im Bereich -0.15 bis -0.25 liegen. Auf Liquidität achten (Bid/Ask-Spread ≤ 0.20 USD). Falls IV nach den jüngsten Aufwärts-Moves gesunken ist, ggf. auf den nächsten volatilen Tag warten.</td></tr></table>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 23.07.2026 anzeigen</summary>
+    <h1>FUTU Holdings – Technische Analyse &amp; Stillhalter-Report</h1>
+<h2>Stand: 23. Juli 2026 | Kurs: 106.89 USD (IBKR, 11:38 Uhr)</h2>
+
+<h2>1. Trendstruktur – Der lange Weg aus dem Crash</h2>
+<p>FUTU hat zwischen April und Mai 2026 eine der extremsten Einzelbewegungen in seiner jüngeren Geschichte erlebt. Vom Hoch bei <strong>168.96 USD (17.04.)</strong> kollabierte der Kurs auf ein Tief von <strong>80.50 USD am 22.05.</strong> – ein Rückgang von -52 % in unter fünf Wochen. Die Crash-Kerze vom 22.05. ist mit einem <strong>rel_volumen von 22.06</strong> (22-faches 55-Tage-Durchschnittsvolumen, absolutes Volumen: 61,3 Mio. Aktien) als Kapitulations-Event einzustufen. Solche Volumen-Spikes markieren häufig strukturelle Wendepunkte, da 'Weak Hands' in Panik liquidieren und institutionelle Käufer absorbieren.</p>
+<p>Die anschließende Erholung verlief zunächst chaotisch (Volatilität im Bereich 89–114 USD bis Ende Mai/Anfang Juni), bevor sich der Kurs in einem engen Korridor zwischen <strong>89 und 104 USD</strong> konsolidierte (Juni 2026). Innerhalb dieser Konsolidierung bildete sich eine solide Basis:</p>
+<ul>
+<li>Tief 08.06.: 89.21 USD</li>
+<li>Tief 09.06.: 88.78 USD (unbestätigter Double-Bottom-Bereich)</li>
+<li>Tief 05.06.: 91.20 USD</li>
+<li>Tief 26.06.: 94.16 USD (höheres Tief – erste Struktur)</li>
+<li>Tief 07.07.: 91.86 USD (Re-Test der Zone, gehalten)</li>
+<li>Tief 17.07.: 92.54 USD (erneuter Re-Test, gehalten)</li>
+</ul>
+<p>Das entscheidende Signal: Am <strong>22.07.</strong> überwand FUTU das bisherige Erholungshoch von 107.83 USD (26.05.) mit einem Tageshoch von <strong>110.18 USD</strong>. Das ist ein prozyklisches Long-Signal – erstmals seit dem Crash ein höheres signifikantes Hoch. Die vorherige Analyse gibt es nicht (keine früheren Reports vorhanden), daher keine Vergleichsaussagen zu verwerfen oder zu bestätigen.</p>
+
+<h2>2. Candlestick-Formationen</h2>
+<p>Die Kerzenstruktur der letzten fünf Handelstage ist eindeutig bullisch:</p>
+<ul>
+<li><strong>17.07. (Donnerstag):</strong> Bearishe Kerze, Tief 92.54 – letzter signifikanter Pullback mit rel_vol 0.40 (schwaches Volumen = kein Distribution-Signal).</li>
+<li><strong>20.07. (Montag):</strong> Bullische Erholungskerze vom 97-er Niveau, Close 98.28, rel_vol 0.32 – Akkumulation bei schwachem Volumen, normal für frühe Aufwärtsphasen.</li>
+<li><strong>21.07.:</strong> Starke Aufwärtskerze, Open 99.49, Close 103.66 – Breakout über 100 USD mit rel_vol 0.54.</li>
+<li><strong>22.07.:</strong> Fortsetzungskerze, Hoch 110.18, Close 106.09 – Long Upper Shadow (~4 USD) zeigt ersten Widerstand im 107–110er-Bereich, aber Close weit oben im Body, kein Reversal-Signal.</li>
+<li><strong>23.07. intraday:</strong> IBKR zeigt +0.75 % auf 106.89 – Kurs stabilisiert sich über dem gestrigen Close. Kein Abverkauf, Konsolidierung auf hohem Niveau.</li>
+</ul>
+
+<h2>3. EMA-Analyse – Golden Cross und der EMA55-Test</h2>
+<p>Die EMA-Konstellation ist klar:</p>
+<ul>
+<li><strong>EMA9: 99.99</strong> – hat EMA21 (99.32) bullisch gekreuzt. Golden Cross auf Tagesbasis.</li>
+<li><strong>EMA21: 99.32</strong> – dreht nach oben, erste Bestätigung des neuen Aufwärtstrends.</li>
+<li><strong>EMA55: 109.19</strong> – liegt noch über dem Kurs, fungiert als dynamischer Widerstand. Abstand: ~2.1 % nach oben.</li>
+<li><strong>gema_321: 101.30</strong> – zeigt aufwärts, liegt zwischen dem EMA9/21-Verbund und dem EMA55. Diese Positionierung ist typisch für eine Übergangsphase: Der Verbund 'läuft nach oben durch'.</li>
+</ul>
+<p>Kritisch zu vermerken: Der EMA55 bei 109.19 ist das nächste technische Ziel. Ein Schlusskurs darüber würde den Bullcase erheblich verstärken. Die langen Monate des Abwärtstrends haben den EMA55 weit nach oben verzerrt – er wird noch mehrere Wochen fallen, selbst wenn der Kurs stabil bleibt, was Ausbrüche darüber erleichtert.</p>
+
+<h2>4. Trade-Setups (A/B/C)</h2>
+
+<p><strong>Setup A – Momentum-Long (aggressiv):</strong><br/>
+Einstieg: Stop-Buy bei 110.50 (über das Hoch vom 22.07. bei 110.18)<br/>
+Stop: 101.50 (unter EMA9/21-Cluster ~100 USD, runder Puffer)<br/>
+Ziel 1: 118.00 (nächste Resistance-Cluster aus April-Konsolidierung 113–118)<br/>
+Ziel 2: 125.00 (struktureller Bereich März/April-Basis)<br/>
+CRV Ziel 1: (118 - 110.50) / (110.50 - 101.50) = 7.50 / 9.00 = <strong>0.83:1</strong> – zu schmal für diesen Ansatz. Setup A ist nur bei starkem Momentum-Signal sinnvoll, Positionsgröße entsprechend reduzieren.</p>
+
+<p><strong>Setup B – Pullback-Long (bevorzugt):</strong><br/>
+Einstieg: Limit 103.00–105.00 (Pullback auf gema_321/EMA9-Bereich)<br/>
+Stop: 94.50 (unter letzter bestätigter Tiefpunkt-Zone 94–95 USD)<br/>
+Ziel 1: 118.00 | CRV: (118 - 104) / (104 - 94.50) = 14 / 9.50 = <strong>1.47:1</strong><br/>
+Ziel 2: 125.00 | CRV: (125 - 104) / (104 - 94.50) = 21 / 9.50 = <strong>2.21:1</strong><br/>
+Dieses Setup bietet das beste Risiko/Ertrag-Profil und ist das bevorzugte Setup.</p>
+
+<p><strong>Setup C – Breakout-Retest (konservativ):</strong><br/>
+Einstieg: Bestätigung eines Schlusskurses über EMA55 (aktuell 109.19), Limit-Entry am nächsten Tag bei 109.50<br/>
+Stop: 103.00 (vorheriger Widerstand wird zu Support)<br/>
+Ziel: 125.00 | CRV: (125 - 109.50) / (109.50 - 103) = 15.50 / 6.50 = <strong>2.38:1</strong></p>
+
+<h2>5. Stillhalter-Analyse (Schwerpunkt) – Cash-Secured Put</h2>
+
+<p><strong>Kein Aktienbestand vorhanden (IBKR: 0 Aktien)</strong>. Ein Covered Call scheidet damit aus. Ein Naked Call wäre angesichts des bullischen Momentums kontraproduktiv und bringt unbegrenztes Verlustrisiko – kein empfohlenes Setup.</p>
+
+<p><strong>Cash-Secured Put – Strike 95.00, Verfall 01.08.2026 (9 Tage):</strong></p>
+<p>Zonen-Herleitung: Die Zone 92–97 USD hat zwischen dem 07.07. und dem 17.07. mindestens vier signifikante Tiefpunkte gesehen (91.86, 92.11, 92.54, 94.10, 94.32, 94.75). Diese multiple Bestätigung qualifiziert den Bereich als tragfähige Supportzone. Der Strike 95.00 USD liegt <strong>an der Oberkante dieser Zone</strong> – noch korrekter wäre ein Strike von 92.50, der noch tiefer in der Zone liegt. Empfehlung: Strike <strong>95.00</strong> für etwas mehr Prämie, oder <strong>92.50</strong> für maximalen Sicherheitspuffer.</p>
+
+<p><strong>Puffer-Berechnung:</strong><br/>
+Strike 95.00 / Kurs 106.89: Puffer = (106.89 - 95.00) / 106.89 = <strong>11.1 %</strong><br/>
+Strike 92.50 / Kurs 106.89: Puffer = (106.89 - 92.50) / 106.89 = <strong>13.5 %</strong></p>
+
+<p><strong>Andienungsszenario:</strong> Würde der Kurs bis zum 01.08. unter 95.00 USD fallen, erwerbe ich Aktien zu einem Preis, der mitten in der bestätigten Bodenzone liegt. Technisch wäre das ein attraktiver Einstieg für eine Long-Position, zumal der Support dort vielfach getestet wurde. Die Andienung ist akzeptabel.</p>
+
+<p><strong>Was in der Optionskette zu prüfen ist:</strong></p>
+<ul>
+<li>Prämie Mid-Price für 95P 01.08.: Sollte mindestens <strong>0.60–0.90 USD</strong> betragen, um den Aufwand zu rechtfertigen (Ziel: ca. 0.6–0.8 % auf das eingesetzte Kapital in 9 Tagen).</li>
+<li>Delta: Sollte im Bereich <strong>-0.12 bis -0.22</strong> liegen.</li>
+<li>Bid/Ask-Spread: Unter <strong>0.20 USD</strong> für ausreichende Liquidität (FUTU-Optionen sind nicht immer tief liquide).</li>
+<li>Open Interest: Prüfe, ob ausreichend OI vorhanden ist, um die Position bei Bedarf schließen zu können.</li>
+<li>Implied Volatility: Nach dem starken Run der letzten Tage könnte IV erhöht sein – das begünstigt den Prämien-Verkauf. Falls IV-Crush erwartet wird, ggf. Verkauf heute noch ausführen.</li>
+</ul>
+
+<p><strong>Roll-Trigger:</strong> Fällt der Kurs unter 98 USD (Nähe EMA9/21), ist die Position zu beobachten. Unterschreitet er 95 USD mit mehr als 2 Tagen verbleibender Laufzeit, Roll-Kandidat prüfen: neuer Strike 90.00, Verfall 08.08.2026, falls der Support bei 88–89 USD als neue Verteidigungslinie dient. Ein Unterschreiten von 88 USD (Crashtief Cluster) würde das Bodenbildungsszenario invalidieren – dann Position schließen.</p>
+
+<p><strong>Alternative Verfallstermine:</strong> Der nächste Standard-Freitag ist <strong>25.07.2026 (2 Tage)</strong> – zu kurz für sinnvolle Prämie. Der folgende Freitag <strong>01.08.2026 (9 Tage)</strong> ist die Primäroption. <strong>08.08.2026 (16 Tage)</strong> würde die 12-Tage-Regel überschreiten und ist daher ausgeschlossen.</p>
+  </details>
+</section>
+
+
+  <footer>Automatisch erstellt · <a href="index.html">Zur Übersicht</a> ·
+    Keine Anlageberatung</footer>
+</div>
+</body>
+</html>

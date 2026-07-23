@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RHM – Analyse-Historie</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0d1319; --panel:#161e27; --line:#232e3a;
+    --text:#d9e1e8; --muted:#7e8b99; --accent:#e5a63c;
+    --long:#3ec08b; --short:#e2604f; --neutral:#8a96a3;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);
+       font:15px/1.6 "IBM Plex Sans",sans-serif;padding:32px 16px}
+  .wrap{max-width:860px;margin:0 auto}
+  header{display:flex;align-items:baseline;gap:14px;
+         border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:28px}
+  header h1{font:500 30px "IBM Plex Mono",monospace;margin:0;letter-spacing:1px}
+  header .sub{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:2px}
+
+  /* Eine Analyse = eine section; farbige Signalleiste links */
+  section.analyse{background:var(--panel);border:1px solid var(--line);
+                  border-left:4px solid var(--neutral);
+                  border-radius:6px;padding:22px 26px;margin-bottom:22px}
+  section.analyse.long{border-left-color:var(--long)}
+  section.analyse.short{border-left-color:var(--short)}
+
+  .kopf{display:flex;justify-content:space-between;align-items:center;
+        flex-wrap:wrap;gap:8px;margin-bottom:6px}
+  .datum{font:500 13px "IBM Plex Mono",monospace;color:var(--muted)}
+  .quelle{font:500 10px "IBM Plex Mono",monospace;color:var(--muted);
+          border:1px solid var(--line);border-radius:3px;padding:1px 6px;
+          margin-left:6px;text-transform:uppercase;letter-spacing:1px;
+          vertical-align:middle}
+  .badge{font:500 12px "IBM Plex Mono",monospace;letter-spacing:2px;
+         padding:3px 10px;border-radius:3px;color:#0d1319}
+  .badge.long{background:var(--long)}
+  .badge.short{background:var(--short)}
+  .badge.neutral{background:var(--neutral)}
+
+  .fazit{font-size:16px;font-weight:600;margin:0 0 16px}
+  img.chart{width:100%;border:1px solid var(--line);border-radius:4px;margin:4px 0 12px}
+  h3{font:500 12px "IBM Plex Mono",monospace;color:var(--accent);
+     text-transform:uppercase;letter-spacing:2px;margin:18px 0 4px}
+  p{margin:6px 0;color:var(--text)}
+
+  /* Setup-Tabelle in Monospace, Zahlen buendig */
+  table.setup{width:100%;border-collapse:collapse;margin-top:8px;
+              font:14px "IBM Plex Mono",monospace}
+  table.setup td{padding:6px 10px;border-top:1px solid var(--line)}
+  table.setup td:first-child{color:var(--muted);width:120px}
+
+  /* Aufklappbarer Volltext in aelteren Analyse-Karten */
+  details.volltext{margin-top:16px;border-top:1px solid var(--line);padding-top:10px}
+  details.volltext summary{cursor:pointer;font:500 12px "IBM Plex Mono",monospace;
+                color:var(--muted);text-transform:uppercase;letter-spacing:2px}
+  details.volltext summary:hover{color:var(--accent)}
+  details.volltext h1,details.volltext h2{font-size:15px;color:var(--accent);margin:14px 0 6px}
+  details.volltext strong{color:#fff}
+
+  footer{color:var(--muted);font-size:12px;text-align:center;margin-top:32px}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>RHM</h1>
+    <span class="sub">Analyse-Historie · neueste zuerst</span>
+  </header>
+
+<!-- NEUE_ANALYSE_HIER -->
+<section class="analyse short">
+  <div class="kopf">
+    <span class="datum">19.07.2026 </span>
+    <span class="badge short">SHORT</span>
+  </div>
+  <p class="fazit">RHM bleibt im intakten Abwärtstrend mit fallenden EMAs und schwacher Erholung – das Short-Bias aus der Voranalyse vom 10.07. wird bestätigt, kurzfristige Stabilisierungsversuche ändern nichts am Gesamtbild.</p>
+  <img class="chart" src="img/RHM_20260719_124752.png" alt="Chart RHM">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>Der übergeordnete Abwärtstrend ist intakt: RHM hat seit dem Allzeithoch über 1.650 eine Serie fallender Hochs und Tiefs gebildet. Der katastrophale Crash-Tag vom 24.06. (Close 949, rel. Volumen 5,54x – Extremwert) markierte das aktuelle Swing-Tief bei 930. Die Erholung seither lief bis maximal 1.146 (02.07.) und dreht seither wieder südwärts. Der Schlusskurs vom 17.07. bei 984,20 notiert deutlich unter allen EMAs und unter dem Reaktionshoch von 1.146. Das Muster aus Erholung → Scheitern → neues Abwärtsimpuls wiederholt sich. Kein tragfähiger Support wurde bisher etabliert; die Zone 930–949 (Crash-Tiefs) ist der einzige mehrfach angetestete Bereich, der als kritisches Unterstützungsniveau gilt.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die letzten fünf Kerzen (13.–17.07.) zeigen ein zermürbendes Konsolidierungsmuster auf niedrigem Niveau: kleinere Körper, mehrfach Dochte nach oben (983, 990), die abverkauft wurden. Die Kerze vom 17.07. (Low 937,60, Close 984,20) hat einen relevanten unteren Docht und schließt near high – kurzfristig leicht bullisch, aber im Kontext des übergeordneten Trends nur als Bear-Flag-Abschluss zu interpretieren. Volumina durchgehend unter Schnitt (0,51–0,97x), was die fehlende Kaufüberzeugung unterstreicht.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Die EMA-Struktur ist klar bärisch: EMA9 (1.000,82) < EMA21 (1.044,45) < EMA55 (1.156,99) – alle drei fallen. Der gewichtete gema_321 liegt bei 1.041,39, ebenfalls fallend. Der Kurs bei 984,20 notiert unter allen drei EMAs sowie unter dem gema_321 – maximaler Druck nach unten. Der Abstand zum EMA55 beträgt rund 17%, was den massiven strukturellen Schaden dokumentiert. Keine Konvergenz, keine bullische Kreuzung in Sicht – das EMA-Bild bestätigt vollständig das Short-Bias aus der Voranalyse.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Short</td></tr>
+    <tr><td>Einstieg</td><td>984,20 (bereits aktiv) oder bei Bounce-Scheitern unterhalb 1.010–1.015 (Bereich EMA9)</td></tr>
+    <tr><td>Stop</td><td>1.050 (über EMA21 und letztem Reaktionshoch 07.07. bei 1.146 – enger Stop möglich bei 1.020 für aggressivere Trader)</td></tr>
+    <tr><td>Ziel</td><td>930 (Crash-Tief 24.06.) als primäres Ziel, 870 als sekundäres Kursziel</td></tr>
+    <tr><td>CRV</td><td>2,4 : 1 (zum Primärziel 930, Stop 1.050)</td></tr>
+  </table>
+
+  <h3>5 · Stillhalter (max. 12 Tage)</h3>
+<p>Im intakten Abwärtstrend mit Kurs deutlich unter allen EMAs ist ein Cash-Secured Put (CSP) strukturell ungeeignet – es existiert kein tragfähiger Support oberhalb der Crash-Tiefs bei 930–949, der als Puffer dienen könnte. Ein Covered Call (CC) passt zur bärischen Marktstruktur, setzt jedoch einen Aktienbestand voraus. Da laut IBKR-Snapshot kein Aktienbestand vorhanden ist, wäre ein CC ein Naked Call mit entsprechend anderem Risikoprofil – dies ist explizit zu beachten.</p>
+<table class="setup"><tr><td>Geschäft</td><td>Covered Call</td></tr><tr><td>Strike</td><td>1050.0</td></tr><tr><td>Puffer</td><td>6.7 %</td></tr><tr><td>Zone</td><td>oberhalb EMA21-Bereich 1.044 und Reaktionshoch 07.07. bei 1.146 – Strike 1.050 liegt im Widerstandscluster</td></tr><tr><td>Verfall bis</td><td>2026-07-25 (Freitag, 6 Tage)</td></tr><tr><td>Begründung</td><td>Der Strike 1.050 liegt knapp über dem EMA21 (1.044) und bietet ca. 6,7% Puffer zum letzten Schlusskurs (984,20). Die Zone 1.040–1.060 ist Widerstandscluster (EMA21, mehrfaches Scheitern in KW28). Im Abwärtstrend ist das Scheitern der Erholung an diesem Level hochwahrscheinlich. Andienungsszenario: Eine Andienung (Kursanstieg über 1.050) wäre strukturell überraschend und würde eine echte Trendwende signalisieren – sie wäre als Roll-Trigger zu werten. ACHTUNG: Ohne Aktienbestand ist dies ein Naked Call mit theoretisch unbegrenztem Verlustpotenzial. In der Optionskette zu prüfen: ausreichende Prämie für den Puffer (Richtwert >0,5% des Underlyings), Liquidität (enger Spread, ausreichend Open Interest), Delta idealerweise unter 0,25.</td></tr></table>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 19.07.2026 anzeigen</summary>
+    <h1>RHM – Technische Analyse & Stillhalter-Report (19.07.2026)</h1>
+
+<h2>Abgleich mit der Voranalyse vom 10.07.2026</h2>
+<p>Die SHORT-Empfehlung vom 10.07. wird durch die seither eingelaufenen Daten <strong>vollständig bestätigt</strong>. Der damalige Einstiegsbereich 1.005–1.013 war korrekt – der Kurs ist seither von ~1.013 auf 984,20 (17.07.) gefallen. Das primäre Kursziel 930 (Crash-Tief 24.06.) ist noch nicht erreicht; das CRV hat sich durch den Kursrückgang leicht verbessert. Der Stop bei 1.080 (über EMA9 und Swing-Hoch 08.07.) wurde nicht ausgelöst; EMA9 ist inzwischen auf 1.000,82 gefallen und liegt nun nur noch ~1,7% über dem aktuellen Kurs – der Stop kann bei laufender Short-Position auf ca. 1.050 (über EMA21) nachgezogen werden.</p>
+
+<h2>1. Trendstruktur – erweiterte Analyse</h2>
+<p>RHM befindet sich in einem mehrstufigen Abwärtstrend, der mit dem Hochpunkt über 1.650 begann. Die relevanten Strukturpunkte:</p>
+<ul>
+  <li><strong>Allzeithoch-Bereich:</strong> ~1.650–1.675 (März 2026)</li>
+  <li><strong>Erste Beschleunigung:</strong> 07.05. (rel. Volumen 2,03x) und 08.05. (2,54x) – Kurssturz von 1.435 auf 1.218</li>
+  <li><strong>Crash-Tag 24.06.:</strong> rel. Volumen 5,54x (!), Low 930, Close 949 – stärkstes Einzeltages-Signal im gesamten Datensatz</li>
+  <li><strong>Erholungsversuch:</strong> Reaktionshoch 1.146 am 02.07. (rel. Volumen 1,31x, moderat) – kein Kaufdruck, nur Short-Covering</li>
+  <li><strong>Aktuelle Konsolidierung:</strong> 13.–17.07. im Bereich 936–990, Volumina durchgehend unter Schnitt (0,51–0,97x)</li>
+</ul>
+<p>Das Muster ist klassisch: Crash → schwache Erholung mit fallendem Volumen → erneute Distribution. Die Zone <strong>930–949</strong> (Crash-Tiefs) ist der einzige mehrfach identifizierbare Support; ein erster Test dieser Zone liegt vor, ein zweiter Test ist strukturell wahrscheinlich.</p>
+<p><strong>Unbestätigter Bereich:</strong> 940–950 wurde zweimal angetastet (24.06. Close 949, 25.06. Low 900, aber Close 947) – die Zone 930–950 gilt als <em>schwach bestätigter</em> Support, kein verlässliches Auffangnetz.</p>
+
+<h2>2. Candlestick-Analyse – letzte Kerzen im Detail</h2>
+<p>Die Kerzensequenz 13.–17.07. im Detail:</p>
+<ul>
+  <li><strong>13.07.:</strong> High 1.015, Low 942, Close 979,20 – Hammer-Ansatz, aber Schlusskurs nicht überzeugend; rel. Volumen 0,97x</li>
+  <li><strong>14.07.:</strong> Inside-Day, Close 979,90 – Konsolidierung ohne Richtungsentscheid</li>
+  <li><strong>15.07.:</strong> Low 936,20 – Test der 940er-Zone, Close 976,10 – Erholung vom Tief, aber dünnes Volumen (0,63x)</li>
+  <li><strong>16.07.:</strong> Enge Range 959–978, Close 963,90 – schwächste Kerze der Woche, Volumina auf Jahrestief-Niveau (0,51x)</li>
+  <li><strong>17.07.:</strong> Low 937,60 – erneuter Test der kritischen Zone, Close 984,20 mit Docht nach unten; rel. Volumen 0,82x</li>
+</ul>
+<p>Das Gesamtbild: <strong>Bear Flag</strong> auf sehr niedrigem Volumen. Kein einziger dieser Tage zeigt Kaufdruck, der eine strukturelle Wende rechtfertigen würde. Der wiederholte Test der 937–942-Zone ohne Stabilisierung auf Volumen ist ein Warnsignal für Long-Positionen.</p>
+
+<h2>3. EMA-Verbund – Positionierung und Implikationen</h2>
+<p>Aktuelle EMA-Werte (17.07.):</p>
+<ul>
+  <li>EMA9: 1.000,82 (fallend, ~1,7% über Kurs)</li>
+  <li>EMA21: 1.044,45 (fallend, ~6,1% über Kurs)</li>
+  <li>EMA55: 1.156,99 (fallend, ~17,6% über Kurs)</li>
+  <li>gema_321: 1.041,39 (fallend)</li>
+</ul>
+<p>Die bärische EMA-Kaskade (9 < 21 < 55, alle fallend) ist lehrbuchhaft. Der Kurs ist bereits unter EMA9 gebrochen – damit fehlt auch der letzte dynamische Support. Der Abstand EMA9 zum Kurs (~16 Punkte) ist minimal; ein Bounce zum EMA9 wäre ein klassischer Short-Einstieg. Der gema_321 bei 1.041 deckt sich gut mit dem identifizierten Widerstandscluster 1.040–1.060.</p>
+
+<h2>4. Trade-Setups – Alternativen A/B/C</h2>
+
+<p><strong>Setup A – Continuation Short (bevorzugt):</strong></p>
+<ul>
+  <li>Einstieg: 984 (aktuell aktiv) oder Bounce-Scheitern an EMA9 (~1.000–1.005)</li>
+  <li>Stop: 1.050 (über EMA21 und gema_321-Bereich)</li>
+  <li>Ziel 1: 930 (Crash-Tief) → CRV 0,8:1 vom aktuellen Kurs, 1,1:1 bei Einstieg 1.000</li>
+  <li>Ziel 2: 870 (strukturelles Projektziel) → CRV 2,4:1 vom aktuellen Kurs, 2,8:1 bei Einstieg 1.000</li>
+</ul>
+
+<p><strong>Setup B – Aggressiver Short bei Bounce:</strong></p>
+<ul>
+  <li>Einstieg: 1.010–1.020 (Bereich EMA9, falls Bounce)</li>
+  <li>Stop: 1.060 (knapp über EMA21)</li>
+  <li>Ziel 1: 930 → CRV 1,9:1</li>
+  <li>Ziel 2: 870 → CRV 3,6:1</li>
+  <li>Kommentar: Bestes Risikoprofil, erfordert Geduld auf den Bounce</li>
+</ul>
+
+<p><strong>Setup C – Breakdown-Trade:</strong></p>
+<ul>
+  <li>Einstieg: Break unter 930 (neues Tief) als Stop-Sell</li>
+  <li>Stop: 965</li>
+  <li>Ziel: 870 → CRV 1,7:1</li>
+  <li>Kommentar: Momentum-Play, höheres Gap-Risiko, niedrigere Trefferwahrscheinlichkeit ohne Pullback</li>
+</ul>
+
+<h2>5. Stillhalter-Analyse (Schwerpunkt)</h2>
+
+<h3>Cash-Secured Put (CSP) – Warum kein Setup</h3>
+<p>Ein CSP ist in der aktuellen Marktlage nicht empfehlenswert. Die Gründe:</p>
+<ul>
+  <li>Kein etablierter Support oberhalb von 930 – jeder CSP-Strike mit vernünftigem Puffer (z.B. 900) liegt faktisch unter dem Crash-Tief und bietet keinen technischen Halt</li>
+  <li>Der übergeordnete Trend ist klar abwärts gerichtet; ein Short-Put verkauft Versicherung gegen weitere Kursrückgänge – in einem Abwärtstrend ist das strukturell nachteilig</li>
+  <li>Andienungsszenario bei einem CSP auf 900: Kauf zu 900 wäre zu einem Zeitpunkt, wenn der Markt signifikant unter dem Crash-Tief notiert – kein attraktiver Entry aus technischer Sicht</li>
+</ul>
+
+<h3>Covered Call / Naked Call – Setup und Herleitung</h3>
+<p><strong>Strike-Herleitung:</strong> Der Widerstandscluster 1.040–1.060 ergibt sich aus drei Konfluenzpunkten:</p>
+<ol>
+  <li>EMA21 aktuell bei 1.044,45 – dynamischer Widerstand, fallend</li>
+  <li>gema_321 bei 1.041,39 – gewichteter EMA-Verbund als Trendfilter</li>
+  <li>Mehrfaches Scheitern der Erholung in diesem Bereich (07.07. High 1.146 → Abwärts, aber auch intraday-Caps der letzten Woche)</li>
+</ol>
+<p>Strike 1.050 liegt mittig in dieser Zone und bietet einen Puffer von 6,7% zum letzten Schlusskurs (984,20). Der Strike hat die Widerstandszone <em>vor</em> sich (er liegt in ihr, nicht darunter) – was im aktuellen Kontext akzeptabel ist, da das Scheitern an der Zone das Wahrscheinlichkeitsszenario darstellt.</p>
+
+<p><strong>Andienungsszenario:</strong> Würde RHM auf 1.050 steigen und der Call zugewiesen, hätte der Kurs EMA9, gema_321 und EMA21 überwunden. Dies entspräche einer echten Trendwende und wäre ein Signal, die Short-Positionierung vollständig zu überdenken. In diesem Fall wäre der Naked Call zu schließen (Verlust begrenzen) oder zu rollen: Roll auf höheren Strike (z.B. 1.100) mit gleichem oder nächstem Verfall (01.08.2026), sofern noch ausreichend Prämie vorhanden.</p>
+
+<p><strong>Roll-Trigger für den Naked Call:</strong></p>
+<ul>
+  <li>Primärer Trigger: Kurs schließt über 1.020 (über EMA9) auf erhöhtem Volumen (>1,2x Schnitt)</li>
+  <li>Sekundärer Trigger: Delta des Short Calls nähert sich -0,40 oder höher</li>
+  <li>Aktion: Roll auf Strike 1.100 (über Reaktionshoch 07.07.), Verfall 01.08.2026 (maximale Laufzeit 12 Tage)</li>
+</ul>
+
+<p><strong>Wichtiger Hinweis – Naked Call:</strong> Da laut IBKR-Snapshot <strong>kein Aktienbestand</strong> (0 Stück) in RHM vorhanden ist, ist der verkaufte Call ein <em>Naked Call</em> mit theoretisch unbegrenztem Verlustpotenzial im Falle eines Short-Squeeze oder positiver Newsüberraschung. Das Risikoprofil unterscheidet sich fundamental vom Covered Call. Positionsgröße und Margin-Anforderungen sind entsprechend zu berücksichtigen. In der Optionskette zu prüfen: Prämie im Mid (Richtwert >0,5% des Strike-Werts = ~5,25 EUR), Spread-Enge, Open Interest >500 Kontrakte je Strike.</p>
+
+<p><strong>Verfall:</strong> 25.07.2026 (Freitag, 6 Tage Restlaufzeit) – innerhalb der 12-Tage-Grenze, ausreichend kurz für Theta-Vorteil.</p>
+  </details>
+</section>
+
+<section class="analyse short">
+  <div class="kopf">
+    <span class="datum">10.07.2026 </span>
+    <span class="badge short">SHORT</span>
+  </div>
+  <p class="fazit">RHM befindet sich nach dem massiven Einbruch Ende Juni in einem intakten Abwärtstrend mit fallenden EMAs und schwacher Erholung, die nun wieder abbricht.</p>
+  <img class="chart" src="img/RHM_20260710_094549.png" alt="Chart RHM">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>Der Kurs brach am 24.06.2026 mit rel. Volumen von 5,54 von ~1.167 auf ~949 ein (Tagesrange 930–1.080) und bildete ein markantes neues Tief. Die anschließende Erholung bis 1.133 (06.07.) scheiterte deutlich unterhalb des alten Unterstützungsbereichs 1.150–1.200 und hinterließ ein niedrigeres Hoch. Aktuell zeigt RHM mit dem heutigen Schlusskurs von ~1.005 ein neues Tief im Kontext der Erholungsphase – die Sequenz fallender Hochs (1.307 → 1.233 → 1.133) und fallender Tiefs (1.145 → 930 → 995) ist klar bearish.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die letzten drei Kerzen (08.–10.07.) zeigen ein klares Verteilungsmuster: Nach dem gescheiterten Hochpunkt bei 1.146 (07.07.) folgen zwei Abwärtskerzen mit tieferen Schlusskursen (1.059 → 1.013 → 1.005). Die heutige Kerze (10.07.) ist eine enge Doji-artige Kerze mit sehr niedrigem Volumen (rel. 0,09 – Intraday-Daten), was auf einen Handelstag mit wenig Aktivität hindeutet, aber der Trend bleibt abwärts gerichtet.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Alle drei EMAs verlaufen klar abwärts in bearisher Staffelung (EMA9: 1.053 < EMA21: 1.087 < EMA55: 1.193), der Kurs (1.005) liegt deutlich unterhalb aller EMAs. Der gema_321 bei 1.088 bestätigt den intakten Abwärtstrend. Ein bullisches Kreuz oder eine Annäherung an die EMA-Cluster ist derzeit nicht erkennbar.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Short</td></tr>
+    <tr><td>Einstieg</td><td>1.013 (Break des gestrigen Tiefs bestätigt, Einstieg bereits aktiv ~1.005–1.013)</td></tr>
+    <tr><td>Stop</td><td>1.080 (über EMA9 und letztem Swing-Hoch vom 08.07.)</td></tr>
+    <tr><td>Ziel</td><td>930 (Tief vom 24.06.2026)</td></tr>
+    <tr><td>CRV</td><td>1.1 : 1 (zum primären Ziel), 2.8 : 1 (zum Ziel 870)</td></tr>
+  </table>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 10.07.2026 anzeigen</summary>
+    <h1>RHM – Detailanalyse vom 10.07.2026</h1><h2>1. Trendstruktur</h2><p>RHM befand sich von März bis Mitte Juni 2026 in einem ausgeprägten Abwärtstrend. Vom Hoch bei ca. 1.656 (10.03.2026) fiel der Kurs in mehreren Schüben auf das Tief bei 1.155 (13.05.2026), gefolgt von einer flachen Konsolidierung zwischen 1.120 und 1.305 (Mai–Juni). Diese Konsolidierung brach am <strong>24.06.2026 mit explosivem Volumen (rel. 5,54 – 554% des 55-Tage-Schnitts)</strong> massiv nach unten aus. Der Kurs kollabierte von 1.075 auf ein Tagestief von 930, schloss bei 949. Dieses Ereignis markiert den schwersten Tageseinbruch im gesamten Beobachtungszeitraum.</p><p>Die Erholung danach verlief zögerlich: 25.–26.06. Stabilisierung um 947, dann schrittweise Erholung bis zum Swing-Hoch von <strong>1.146 am 07.07.2026</strong>. Dieses Hoch liegt deutlich unterhalb der alten Unterstützungszone 1.150–1.200, die damit zur Widerstandszone wurde. Seitdem zeigt der Kurs wieder Schwäche: 1.059 (08.07.) → 1.013 (09.07.) → 1.005 (10.07.). Die Struktur lautet: Fallende Hochs (1.305 → 1.233 → 1.146) und fallende Tiefs (1.145 → 930). Klarer Abwärtstrend ohne bullische Umkehrsignale.</p><p><strong>Wichtige Levels:</strong> Widerstand: 1.080 (EMA9), 1.087 (gema_321), 1.133–1.146 (letztes Swing-Hoch). Unterstützung/Ziele: 930 (Tief 24.06.), darunter ~870 (projiziertes Ziel aus Flaggenmessung).</p><h2>2. Candlestick-Formationen</h2><p>Der <strong>24.06.2026</strong> hinterließ eine Marubozu-artige Abwärtskerze mit extremem Volumen – ein klassisches Panic-Selling-Signal, das aber in einem bereits geschwächten Trend auftritt und als Fortsetzungsformation zu werten ist, nicht als Umkehr. Die anschließende Erholung (25.06.–07.07.) verlief mit nachlassendem Volumen (max. rel. 1,39 am 01.07.), was die Kraft des Rebounds in Frage stellt.</p><p>Die letzten drei Handelstage zeigen ein <strong>bearisches Muster</strong>: Am 07.07. entstand eine Abwärtskerze von 1.146 auf 1.112 (höheres Volumen als Vortag). Am 08.07. folgte ein weiterer Rückgang auf 1.059 mit einer langen unteren Dochte (Intraday-Tief 1.053) – kein Reversal-Signal, da der Schlusskurs nahe dem Tief. Am 09.07. Einbruch auf 1.013 mit höherem Volumen (rel. 0,90). Heute (10.07.) Doji/Spinning Top bei extrem niedrigem Volumen (rel. 0,09 – offenbar erst teilweise gehandelter Tag), Kurs bei 1.005.</p><h2>3. EMA-Lage</h2><p>Die EMA-Staffelung ist klar bearish: <strong>EMA9 (1.053) < EMA21 (1.087) < EMA55 (1.193)</strong>. Alle drei EMAs fallen. Der gema_321 bei 1.088 befindet sich ebenfalls im Abwärtstrend und liegt ~8,3% über dem aktuellen Kurs – ein großer negativer Abstand, der die Überschreitung aller EMAs als signifikanten Widerstandsblock kennzeichnet.</p><p>Der Kurs (1.005) handelt mit deutlichem Abstand unter dem EMA9 (1.053, ~4,8% Abstand), unter dem EMA21 (1.087, ~8,2%) und weit unter dem EMA55 (1.193, ~18,7%). Kein EMA-Kreuz nach oben in Sicht. Der Verlauf des gema_321 ist seit dem 24.06.-Crash steil nach unten gerichtet und zieht weiter ab.</p><p>Die Erholung vom 25.06. bis 07.07. versuchte, den EMA9 zu überwinden (Hoch 07.07.: 1.146, EMA9 war damals ~1.083) – eine kurzfristige Überschreitung gelang intraday (z.B. 02.07.: Hoch 1.121, EMA9 bei 1.055), aber der Kurs fiel danach wieder. Dies zeigt, dass die EMAs aktive Widerstände sind.</p><h2>4. Trade-Setup</h2><p><strong>Setup A – Bevorzugtes Short-Setup (Break-Continuation):</strong></p><ul><li><strong>Richtung:</strong> Short</li><li><strong>Einstieg:</strong> ~1.005–1.013 (aktueller Kursbereich, da der Break des 09.07.-Tiefs bei 1.013 bereits erfolgt ist). Für neue Positionen: Einstieg auf Erholung bis 1.040–1.053 (EMA9-Bereich).</li><li><strong>Stop:</strong> 1.080 (über EMA9 und letztem Swing-Hoch vom 08.07. bei 1.121 – konservativer Stop bei 1.125)</li><li><strong>Ziel 1:</strong> 930 (Tief 24.06.2026) – CRV vom Einstieg 1.013: (1.013-930)/(1.080-1.013) = 83/67 ≈ <strong>1,2:1</strong></li><li><strong>Ziel 2:</strong> 870 (Projektion: Flaggenmessung / runde Marke) – CRV: (1.013-870)/(1.080-1.013) = 143/67 ≈ <strong>2,1:1</strong></li><li><strong>Einstieg auf Bounce (konservativ):</strong> Einstieg 1.050, Stop 1.125, Ziel 870 → CRV: (1.050-870)/(1.125-1.050) = 180/75 = <strong>2,4:1</strong></li></ul><p><strong>Setup B – Wartend (Bestätigung durch zweites Tief unter 930):</strong> Falls 930 gebrochen wird, aggressiver Einstieg unter 925, Stop 970, Ziel 800–820. CRV ~2,5:1.</p><p><strong>Warnung / Gegenthese:</strong> Das extreme Volumen am 24.06. (rel. 5,54) könnte eine Capitulation sein. Falls der Kurs über 1.150 zurückkehrt und dort schließt, wäre das Bild zu überprüfen. Aktuell gibt es keine technischen Anzeichen dafür.</p>
+  </details>
+</section>
+
+
+  <footer>Automatisch erstellt · <a href="index.html">Zur Übersicht</a> ·
+    Keine Anlageberatung</footer>
+</div>
+</body>
+</html>

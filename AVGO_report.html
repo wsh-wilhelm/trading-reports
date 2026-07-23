@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AVGO – Analyse-Historie</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0d1319; --panel:#161e27; --line:#232e3a;
+    --text:#d9e1e8; --muted:#7e8b99; --accent:#e5a63c;
+    --long:#3ec08b; --short:#e2604f; --neutral:#8a96a3;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);
+       font:15px/1.6 "IBM Plex Sans",sans-serif;padding:32px 16px}
+  .wrap{max-width:860px;margin:0 auto}
+  header{display:flex;align-items:baseline;gap:14px;
+         border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:28px}
+  header h1{font:500 30px "IBM Plex Mono",monospace;margin:0;letter-spacing:1px}
+  header .sub{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:2px}
+
+  /* Eine Analyse = eine section; farbige Signalleiste links */
+  section.analyse{background:var(--panel);border:1px solid var(--line);
+                  border-left:4px solid var(--neutral);
+                  border-radius:6px;padding:22px 26px;margin-bottom:22px}
+  section.analyse.long{border-left-color:var(--long)}
+  section.analyse.short{border-left-color:var(--short)}
+
+  .kopf{display:flex;justify-content:space-between;align-items:center;
+        flex-wrap:wrap;gap:8px;margin-bottom:6px}
+  .datum{font:500 13px "IBM Plex Mono",monospace;color:var(--muted)}
+  .quelle{font:500 10px "IBM Plex Mono",monospace;color:var(--muted);
+          border:1px solid var(--line);border-radius:3px;padding:1px 6px;
+          margin-left:6px;text-transform:uppercase;letter-spacing:1px;
+          vertical-align:middle}
+  .badge{font:500 12px "IBM Plex Mono",monospace;letter-spacing:2px;
+         padding:3px 10px;border-radius:3px;color:#0d1319}
+  .badge.long{background:var(--long)}
+  .badge.short{background:var(--short)}
+  .badge.neutral{background:var(--neutral)}
+
+  .fazit{font-size:16px;font-weight:600;margin:0 0 16px}
+  img.chart{width:100%;border:1px solid var(--line);border-radius:4px;margin:4px 0 12px}
+  h3{font:500 12px "IBM Plex Mono",monospace;color:var(--accent);
+     text-transform:uppercase;letter-spacing:2px;margin:18px 0 4px}
+  p{margin:6px 0;color:var(--text)}
+
+  /* Setup-Tabelle in Monospace, Zahlen buendig */
+  table.setup{width:100%;border-collapse:collapse;margin-top:8px;
+              font:14px "IBM Plex Mono",monospace}
+  table.setup td{padding:6px 10px;border-top:1px solid var(--line)}
+  table.setup td:first-child{color:var(--muted);width:120px}
+
+  /* Aufklappbarer Volltext in aelteren Analyse-Karten */
+  details.volltext{margin-top:16px;border-top:1px solid var(--line);padding-top:10px}
+  details.volltext summary{cursor:pointer;font:500 12px "IBM Plex Mono",monospace;
+                color:var(--muted);text-transform:uppercase;letter-spacing:2px}
+  details.volltext summary:hover{color:var(--accent)}
+  details.volltext h1,details.volltext h2{font-size:15px;color:var(--accent);margin:14px 0 6px}
+  details.volltext strong{color:#fff}
+
+  footer{color:var(--muted);font-size:12px;text-align:center;margin-top:32px}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>AVGO</h1>
+    <span class="sub">Analyse-Historie · neueste zuerst</span>
+  </header>
+
+<!-- NEUE_ANALYSE_HIER -->
+<section class="analyse neutral">
+  <div class="kopf">
+    <span class="datum">23.07.2026 </span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <p class="fazit">AVGO testet mit dem gestrigen Ausbruchsversuch (Hoch 398,59) exakt den Widerstandscluster 399–402, ohne ihn zu schließen – der EMA-Verbund dreht erstmals nach oben, doch ohne Volumen-Bestätigung bleibt der Bias neutral mit leichter Long-Neigung.</p>
+  <img class="chart" src="img/AVGO_20260723_114901.png" alt="Chart AVGO">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>Die Trendstruktur zeigt eine laufende Gegenbewegung innerhalb eines intakten mittelfristen Abwärtstrends. Das Tief vom 17.07. bei 357,80 (intraday) bildete das jüngste Swing-Low nach dem dreifachen Test der Zone 368–372. Seitdem steigen die Hochs (<strong>377,35 → 383,59 → 398,59</strong>) und die Tiefs (<strong>357,80 → 375,96 → 380,00</strong>), was eine kurzfristige Aufwärtsstruktur andeutet. Entscheidend: Das Post-Crash-Hoch vom 10.07. bei <strong>402,44</strong> und das Hoch vom 15.07. bei <strong>399,00</strong> bilden den nächsten Widerstandscluster – dieser wird heute bereits intraday getestet (Kurs 398,77). Ein nachhaltiger Schlusskurs <em>über</em> 402,44 würde die kurzfristige Trendwende bestätigen; darunter bleibt die Erholung ein Rebound im Downtrend.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die Kerze vom 22.07. ist die auffälligste der jüngsten Sequenz: langer oberer Docht (Hoch 398,59, Schluss 396,81), was auf Verkaufsdruck direkt im Widerstandsbereich hindeutet – klassisches <strong>Shooting-Star-Muster</strong> mit leichter Verschiebung. Davor: drei aufeinanderfolgende bullische Kerzen (20.–22.07.) mit steigenden Schlussständen, alle auf unterdurchschnittlichem Volumen (rel. Volumen 0,54 / 0,64 / 0,63). Die schwache Volumenentwicklung bei der Erholung widerspricht einer strukturellen Trendumkehr – der Rebound wirkt eher technisch/katalysatorgetrieben (EMA-Kompression) als fundamental fundiert.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Die EMA-Struktur hat sich gegenüber der 19.07.-Analyse spürbar verändert: <strong>EMA9 (385,26) &lt; EMA21 (386,02) &lt; EMA55 (389,18)</strong> – die bärische Reihenfolge bleibt formal intakt, doch der Abstand komprimiert stark. Der <strong>gema_321 liegt bei 386,17</strong>, nur knapp unter dem aktuellen Kurs (398,77), was den ersten echten Test des gewichteten EMA-Verbunds von oben seit dem Crash markiert. Bemerkenswert: EMA9 und EMA21 verlaufen seit dem 20.07. flach bis leicht steigend – ein mögliches Vorzeichen einer bullischen Kreuzung. Solange EMA9 nicht nachhaltig über EMA21 und der Kurs nicht über EMA55 (389,18) schließt, bleibt die übergeordnete EMA-Struktur bärisch geordnet.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Kein Trade</td></tr>
+    <tr><td>Einstieg</td><td>Kein aktiver Einstieg – Marktstruktur erfordert Bestätigung</td></tr>
+    <tr><td>Stop</td><td>—</td></tr>
+    <tr><td>Ziel</td><td>—</td></tr>
+    <tr><td>CRV</td><td>—</td></tr>
+  </table>
+
+  <h3>5 · Stillhalter (max. 12 Tage)</h3>
+<p>Der heutige Kursanstieg auf 398,77 bringt AVGO direkt in den Widerstandscluster 399–412. Der CC auf diesen Bereich ist damit das einzige saubere Stillhalter-Setup: technisch klar verankert, mit dem Widerstandscluster als natürlichem Puffer vor dem Strike. Ein CSP kommt trotz der verbesserten Kurslage nicht infrage – die Zone 368–372 ist nach dem Intraday-Bruch auf 357,80 (17.07.) strukturell kompromittiert, und ein neuer Support-Boden bei 380 ist erst durch einen einzigen Test belegt (unbestätigter Bereich). Qualität vor Vollständigkeit: kein CSP.</p>
+<table class="setup"><tr><td>Geschäft</td><td>Covered Call</td></tr><tr><td>Strike</td><td>410.0</td></tr><tr><td>Puffer</td><td>2.8 %</td></tr><tr><td>Zone</td><td>über Widerstandscluster 399–412 (fallende Hochs: 15.07. bei 399,00 / 10.07. bei 402,44 / 18.06. bei 412,70) – unverändert aus den Voranalysen</td></tr><tr><td>Verfall bis</td><td>2026-08-01 (9 Tage)</td></tr><tr><td>Begründung</td><td>Der Strike 410 liegt oberhalb eines dreifach bestätigten Widerstandsclusters (399,00 / 402,44 / 412,70). Durch den Kursanstieg der letzten Tage hat sich der Puffer von 9,5% (Stand 17.07.) auf jetzt ~2,8% stark verengt. Das ist die kritische Abwägung: Die technische Verankerung des Strikes ist nach wie vor sauber, aber der enge Puffer erhöht das Andienungsrisiko deutlich – ein einziger starker Aufwärtstag mit Schlusskurs über 402,44 würde die Widerstandszone brechen und den CC unter Druck setzen. Andienungsszenario: Ein Anstieg über 410 würde eine vollständige strukturelle Trendumkehr bedeuten und wäre – ohne Aktienbestand (IBKR: 0 Stück) – ein <strong>Naked Call mit unbegrenztem Verlustrisiko</strong>. In der Optionskette manuell prüfen: Ist die Prämie am 410er Strike bei ~2,8% Puffer noch attraktiv genug? Implizite Volatilität nach dem Sell-off vom 17.07. dürfte noch erhöht sein – das begünstigt die Prämie. Alternativ: Strike 415 prüfen (Puffer ~4,1%, Zone bleibt identisch). Roll-Trigger: Tagesschluss über 403 → CC sofort schließen oder auf 420+ rollen.</td></tr></table>
+<p><strong>Bestand:</strong> Keine offenen Optionspositionen und kein Aktienbestand in AVGO laut IBKR-Snapshot (Stand 11:37 Uhr). Der empfohlene CC ist damit ein <strong>Naked Call</strong> – Margin-Anforderungen bei IBKR vor Eröffnung zwingend prüfen. Der in der 19.07.-Analyse empfohlene Naked-Call-CC 400 (Verfall 25.07.) ist offenbar nicht eingegangen worden (keine Position im Snapshot) – das war im Nachhinein korrekt, da AVGO von 374 auf knapp 399 gestiegen ist und der Strike 400 heute bereits intraday getestet wird.</p>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 23.07.2026 anzeigen</summary>
+    <h1>AVGO – Detailanalyse 23.07.2026</h1>
+
+<h2>1. Trendstruktur – Abgleich mit Voranalysen</h2>
+<p>Die <strong>19.07.-Analyse</strong> wurde mit NEUTRAL / leichter Short-Neigung und einem Short-Rebound-Setup bei 383,00 abgegeben. Dieser Einstieg wurde nicht ausgelöst – AVGO notierte am 19.07. beim Analysezeitpunkt bei ~374,50 (Schluss 378,16 am 20.07.) und stieg seitdem kontinuierlich. Das Short-Setup ist damit <strong>obsolet</strong>. Die Zielzone 358,00 (Retest Hammer-Tief) wurde nicht mehr angelaufen.</p>
+<p>Die Sequenz der letzten vier Handelstage (20.–23.07.) zeigt eine klare kurzfristige Aufwärtsstruktur mit höheren Hochs (<strong>383,59 → 390,58 → 398,59 → intraday ~399</strong>) und höheren Tiefs (<strong>375,96 → 379,22 → 380,00</strong>). Das ist technisch eine <em>höhere Hoch / höheres Tief</em>-Struktur – das erste Anzeichen einer kurzfristigen Trendwende seit dem Crash vom 04.06.</p>
+<p>Entscheidende Niveaus für den weiteren Verlauf:</p>
+<ul>
+  <li><strong>399,00 / 402,44:</strong> Widerstandscluster aus zwei lokalen Hochs (15.07. / 10.07.) – heute intraday bereits getestet. Schlusskurs darüber = bullisches Signal.</li>
+  <li><strong>412,70:</strong> Post-Crash-Hoch vom 18.06. – nächster relevanter Widerstand im bullischen Szenario.</li>
+  <li><strong>388,90–389,18 (EMA55):</strong> Dynamischer Widerstand, der gestern (Schluss 396,81) bereits gebrochen wurde – jetzt potenzielle Unterstützung.</li>
+  <li><strong>380,00 / 379,22:</strong> Unbestätigter Support-Bereich (erst ein Test, 20.–21.07.) – kein valider Boden im technischen Sinne.</li>
+  <li><strong>368–372:</strong> Zone aus der Voranalyse – durch den Intraday-Bruch auf 357,80 (17.07.) strukturell kompromittiert. Ihre Funktion als primärer Support ist geschwächt; sie könnte als sekundäre Unterstützung fungieren, falls der Kurs nochmals fällt.</li>
+</ul>
+
+<h2>2. Candlestick-Analyse</h2>
+<p>Die Kerze vom <strong>22.07.</strong> (Schluss 396,81, Hoch 398,59, Tief 380,00, Eröffnung 380,20) ist eine <strong>große bullische Kerze mit langem oberen Docht</strong>. Der Kurs öffnete auf dem Tagestief, stieg bis 398,59 und schloss bei 396,81 – der Docht zeigt Verkaufsdruck genau im Widerstandsbereich. rel. Volumen: 0,63 (unterdurchschnittlich). Das ist ein klassisches Warnsignal: Starke Kursbewegung auf schwachem Volumen = mangelnde Überzeugung der Käufer.</p>
+<p>Davor: Die Kerzen vom 20.–21.07. (rel. Volumen 0,54 / 0,64) sind ebenfalls volumenschwach. Die gesamte Erholungssequenz seit dem 17.07. läuft auf <strong>unter 70% des Durchschnittsvolumens</strong> – ein konsistentes Bild: technischer Rebound, kein institutionelles Kaufinteresse. Zum Vergleich: Der Ausverkauf vom 04.06. (rel. Volumen 3,40) und 05.06. (2,11) hatten ein Vielfaches des normalen Volumens.</p>
+
+<h2>3. EMA-Analyse – Trendwende im Ansatz</h2>
+<p>Die EMA-Lage hat sich gegenüber dem 17.07. verändert: <strong>EMA9 (385,26) unter EMA21 (386,02) unter EMA55 (389,18)</strong> – bärische Reihenfolge formal intakt, aber der Abstand zwischen den EMAs beträgt nur noch ~4 Punkte. Der <strong>gema_321 bei 386,17</strong> liegt erstmals seit dem Crash unter dem Schlusskurs (396,81 gestern / ~399 heute).</p>
+<p>Kritische Beobachtung: EMA9 und EMA21 flachen seit dem 20.07. ab und zeigen erste steigende Tendenz. Sollte EMA9 über EMA21 kreuzen (bullisches Kurzfrist-Signal) und der Kurs über EMA55 (389,18) nachhaltig schließen (was gestern bereits geschah), ist eine EMA-Restrukturierung in Gang. Für eine vollständige Trendwende (EMA9 &gt; EMA21 &gt; EMA55 in bullischer Reihenfolge) sind noch mehrere Tage mit steigenden Kursen erforderlich.</p>
+
+<h2>4. Trade-Setups – Alternative Szenarien</h2>
+<p><strong>Setup A (Bullischer Ausbruch – bevorzugt bei Bestätigung):</strong> Schlusskurs heute über 402,44 mit überdurchschnittlichem Volumen (rel. Volumen &gt; 1,2) wäre ein valides Long-Signal. Einstieg: 403,00 (Stop-Buy über 402,44). Stop: 389,00 (unter EMA55 und gema_321). Ziel 1: 412,70 (Post-Crash-Hoch 18.06.) → CRV ~0,7:1 (zu schwach). Ziel 2: 425,00 (nächster Widerstand Mitte April) → CRV ~1,6:1 (akzeptabel). <em>Fazit: Setup nur bei starkem Volumen valide – aktuell nicht aktiv, da Volumen fehlt.</em></p>
+<p><strong>Setup B (Scheitern am Widerstand – Short-Rebound):</strong> Abweisende Tageskerze heute mit Schluss unter 393,00 (Bestätigung Shooting-Star-Muster vom 22.07.). Einstieg: 392,00 (Stop-Sell). Stop: 403,00. Ziel: 372,00 (Zone aus Voranalysen). CRV: ~2,5:1. <em>Fazit: Logisch konsistent mit dem übergeordneten Abwärtstrend, aber erst bei heutiger Bestätigung relevant.</em></p>
+<p><strong>Setup C (Kein Trade heute):</strong> Der Kurs kämpft exakt am Widerstand – weder Ausbruch noch Scheitern ist bestätigt. Bevorzugte Haltung: <strong>abwarten, kein aktiver Richtungs-Trade</strong>.</p>
+
+<h2>5. Stillhalter-Analyse (Schwerpunkt)</h2>
+<h3>Covered Call / Naked Call – Strike 410</h3>
+<p><strong>Zonen-Herleitung:</strong> Der Strike 410 liegt ~2,8% über dem aktuellen Kurs (398,77) und oberhalb des dreifach bestätigten Widerstandsclusters (399,00 / 402,44 / 412,70). Die Zone 399–412 hat seit dem Post-Crash-Hoch vom 18.06. (412,70) drei relevante Hochpunkte produziert und damit Widerstandscharakter. Der Strike soll den Widerstand als Puffer <em>vor sich haben</em> – das ist bei 410 erfüllt, aber der Puffer zur unmittelbaren Widerstandskante (399,00) beträgt nur ~2,8%. Das ist dünn.</p>
+<p><strong>Kritische Abwägung zum Puffer:</strong> In den Voranalysen (17.07.) hatte der Strike 410 noch 9,5% Puffer – dieser ist durch den Kursanstieg auf ~399 jetzt auf 2,8% geschrumpft. Wer einen höheren Puffer präferiert, sollte <strong>Strike 415 prüfen</strong> (Puffer ~4,1%, immer noch innerhalb des Widerstandsclusters) oder <strong>Strike 420</strong> (Puffer ~5,3%, knapp über dem Cluster). Die Entscheidung hängt von der verfügbaren Prämie ab: Bei erhöhter impliziter Volatilität (nach dem Sell-off vom 17.07. wahrscheinlich) kann der 410er trotz engem Puffer eine attraktive Prämie liefern.</p>
+<p><strong>Andienungsszenario:</strong> Ohne Aktienbestand (IBKR: 0 Stück) ist jeder Short Call ein <strong>Naked Call mit theoretisch unbegrenztem Verlustrisiko</strong>. Eine Andienung ist bei einem Naked Call nicht anwendbar – stattdessen droht bei Kurs über Strike eine unbegrenzte Mark-to-Market-Verlustentwicklung. <strong>Margin-Anforderungen zwingend vorab bei IBKR prüfen.</strong></p>
+<p><strong>Roll-Trigger und Management:</strong> Der wichtigste Trigger ist ein Tagesschluss über <strong>402,44</strong> – das würde den Widerstandscluster brechen und das technische Bild bullisch umkehren. Bei einem solchen Schlusskurs: CC sofort schließen (Verlust begrenzen) oder auf <strong>415–420, Verfall 08.08.</strong> rollen (innerhalb 12-Tage-Frist). Ein zweiter Trigger ist ein Schlusskurs über <strong>412,70</strong> (Post-Crash-Hoch) – dann ist der übergeordnete Abwärtstrend strukturell in Frage gestellt; in diesem Fall kein Rollen, sondern Schließen.</p>
+<p><strong>In der Optionskette manuell zu prüfen:</strong> Prämie am 410er (und 415er) für Verfall 01.08.2026; Bid/Ask-Spread und Open Interest zur Beurteilung der Liquidität; implizite Volatilität im Vergleich zur historischen Volatilität der letzten 30 Tage; Delta sollte idealerweise zwischen -0,20 und -0,30 liegen.</p>
+<h3>CSP – Warum kein Setup</h3>
+<p>Der einzige technisch vertretbare CSP-Anker wäre die Zone 368–372. Diese ist jedoch nach dem Intraday-Bruch auf 357,80 (17.07.) strukturell geschwächt – ein Strike bei 358 (wie in der 17.07.-Analyse) hätte eine sehr geringe Prämie und liegt ~10% unter dem aktuellen Kurs. Ein CSP mit ~10% Puffer auf 12 Tage Laufzeit liefert in der Regel kaum attraktive Prämien. Zudem widerspricht es der Logik, gleichzeitig einen Naked Call (bärische Ausrichtung) und einen CSP (bullische Ausrichtung) zu eröffnen – Verkettungs-Prüfung negativ. <strong>Kein CSP.</strong></p>
+<h3>Abgleich mit historischen Analysen</h3>
+<p>Die <strong>16.07.-Analyse</strong> (CC 410, Verfall 25.07.) war technisch korrekt – der Strike wurde nie bedroht (Kurs fiel auf 357,80). Die <strong>17.07.-Analyse</strong> (CSP 358, CC 410, Verfall 24.07.) war ebenfalls korrekt – beide Strikes blieben weit außerhalb der Reichweite. Die <strong>19.07.-Analyse</strong> (Naked Call CC 400, Verfall 25.07.) war rückblickend das richtige Setup, um nicht einzugehen – AVGO stieg von ~374 auf 399 und hätte den Strike 400 heute intraday getestet. Der in der 19.07.-Analyse genannte Roll-Trigger (Schlusskurs über 393) wäre am 21.07. (Schluss 386,50) noch nicht ausgelöst worden, aber am 22.07. (Schluss 396,81) hätte der Trigger gegriffen und eine sofortige Reaktion erfordert.</p>
+  </details>
+</section>
+
+<section class="analyse neutral">
+  <div class="kopf">
+    <span class="datum">19.07.2026 </span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <p class="fazit">AVGO erholt sich von einem Doppel-Tief im Bereich 357–372, doch der fallende EMA-Verbund und fehlende Volumen-Bestätigung lassen keinen klaren Long-Trend erkennen – neutraler Bias mit leichter Short-Neigung, Stillhalter-Fokus auf CC.</p>
+  <img class="chart" src="img/AVGO_20260719_125553.png" alt="Chart AVGO">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>AVGO befindet sich seit dem Post-Earnings-Crash am 04.06. (Tief 403,01, Schlusskurs 418,91) in einem intakten Abwärtstrend mit fallenden Hochs und fallenden Tiefs. Die Sequenz lautet: Hoch 495,00 (03.06.) → Hoch 412,70 (18.06.) → Hoch 402,44 (10.07.) → Hoch 399,00 (15.07.) – damit ist die Abwärts-Struktur mit drei bestätigten fallenden Hochs klar etabliert. Auf der Unterseite wurde die Zone 368–372 inzwischen <strong>viermal</strong> getestet (10.06. Tief 371,17; 01.07. Tief 368,03; 16.07. Tief 371,90; 17.07. Tief 357,80 – Bruch!). Kritisch: Das Tief vom 17.07. bei 357,80 hat die zuvor dreifach bestätigte Zone 368–372 nach unten gebrochen. Der Schlusskurs 370,83 liegt zwar wieder über dieser Zone (Hammer-artiges Reversal), doch ein echter Zonen-Bruch mit anschließendem Schlusskurs nahe der Unterkante schwächt den Support-Charakter deutlich. Der aktuelle IBKR-Kurs 374,45 (Stand 12:09 Uhr, 19.07.) deutet auf eine leichte Erholung hin, die sich technisch als Rebound in den Widerstandsbereich 380–390 einordnen lässt.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die Kerze vom 16.07. ist ein klar bärischer Marabozu-Körper (Open 384,54, Close 374,45, Range 371,90–386,74) mit überdurchschnittlichem Volumen (rel. 0,87). Die Kerze vom 17.07. ist technisch ein <strong>Hammer</strong> mit langem Docht nach unten (Tief 357,80, Close 370,83, Open 366,05) – klassisches Reversal-Signal nach beschleunigtem Sell-off. Allerdings: Das Volumen war mit rel. 0,86 nur durchschnittlich, was die Überzeugungskraft des Hammers schmälert. Ein Hammer ohne überdurchschnittliches Volumen ist ein unbestätigtes Reversal-Signal. Die heutige Kerze (bisher nur IBKR-Kurs 374,45) bewegt sich leicht über dem gestrigen Schlusskurs – eine Bestätigungskerze fehlt noch vollständig.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Der EMA-Verbund ist klar bärisch geordnet: EMA9 (382,13) unter EMA21 (385,44) unter EMA55 (389,39), alle drei fallend – keine Anomalie, saubere Abwärtsstruktur. Der gema_321 (384,44) liegt ebenfalls über dem aktuellen Kurs, was den gesamten EMA-Verbund als Widerstandsdach bestätigt. Der Kurs (374,45) handelt <strong>unter allen drei EMAs</strong> mit einem Abstand von ca. 7,7 Punkten zum EMA9 (382,13). Ein Rebound würde zunächst auf den EMA9-Bereich 382–385 treffen – das ist der erste relevante Widerstand. Die 17.07.-Analyse (Short-Einstieg bei Rebound auf EMA9/21-Cluster 385,00) bleibt damit strukturell aktuell.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Short</td></tr>
+    <tr><td>Einstieg</td><td>383.00 (Rebound-Verkauf an EMA9/gema_321-Cluster, Bestätigung durch abweisende Kerze)</td></tr>
+    <tr><td>Stop</td><td>393.00 (über EMA21/55-Cluster und lokales Hoch 15.07. bei 399,00)</td></tr>
+    <tr><td>Ziel</td><td>358.00 (Retest Hammer-Tief 17.07. / Zielzone aus Voranalyse)</td></tr>
+    <tr><td>CRV</td><td>2.2 : 1</td></tr>
+  </table>
+
+  <h3>5 · Stillhalter (max. 12 Tage)</h3>
+<p>Der Hammer vom 17.07. reicht ohne Volumen-Bestätigung nicht aus, um einen CSP zu rechtfertigen – die Zone 368–372 ist durch den Intraday-Bruch auf 357,80 strukturell angeschlagen. Der CC auf den Widerstandscluster 399–412 bleibt das einzige saubere Stillhalter-Setup im aktuellen Kontext. Kein CSP in einer Zone, die gerade gebrochen wurde.</p>
+<table class="setup"><tr><td>Geschäft</td><td>Covered Call</td></tr><tr><td>Strike</td><td>400.0</td></tr><tr><td>Puffer</td><td>6.8 %</td></tr><tr><td>Zone</td><td>über Widerstandscluster 395–412 (fallende Hochs: 15.07. bei 399,00, 10.07. bei 402,44, 18.06. bei 412,70)</td></tr><tr><td>Verfall bis</td><td>2026-07-25 (6 Tage)</td></tr><tr><td>Begründung</td><td>Der Strike 400 liegt knapp über dem jüngsten lokalen Hoch vom 15.07. (399,00) und innerhalb des gut bestätigten Widerstandsclusters aus drei fallenden Hochs (399, 402, 412). Der Puffer von 6,8% ist technisch sauber: Für einen Anstieg über 400 müssten alle drei EMAs (aktuell 382–389) überwunden werden – ein Szenario, das bei intaktem Abwärtstrend und fehlendem Katalysator unwahrscheinlich ist. Andienung bei 400,00 wäre bei einer vollständigen Sektor-Erholung ein komfortabler Exit; ohne Aktienbestand (IBKR: 0 Stück) handelt es sich um einen <strong>Naked Call</strong> mit entsprechend anderem Risikoprofil und Margin-Anforderung. Wichtig: In der Optionskette prüfen – Prämie im Verhältnis zum 6,8%-Puffer, Liquidität am 400er Strike, implizite Volatilität nach dem Sell-off vom 17.07. dürfte erhöht sein. Roll-Trigger: Schlusskurs über 393 (EMA21-Annäherung) → Roll nach oben auf 410 prüfen.</td></tr></table>
+<p><strong>Bestand:</strong> Kein Aktienbestand und keine offenen Optionspositionen in AVGO laut IBKR-Snapshot (Stand 12:09 Uhr). Der empfohlene CC ist damit ein Naked Call – bitte Margin-Anforderungen bei IBKR vor Eröffnung prüfen.</p>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 19.07.2026 anzeigen</summary>
+    <h1>AVGO – Detailanalyse 19.07.2026</h1>
+
+<h2>1. Trendstruktur – Abgleich mit Voranalysen</h2>
+<p>Die Abwärtsstruktur seit dem Earnings-Crash (03./04.06.) ist unverändert intakt und hat sich gegenüber der 17.07.-Analyse sogar verschärft. Die drei fallenden Hochs (412,70 / 402,44 / 399,00) bilden eine klare Trendlinie. Kritisch neu: Das Tief vom 17.07. bei <strong>357,80</strong> hat die in der 17.07.-Analyse als 'dreifach bestätigte Zone' klassifizierte Unterstützung 368–372 nach unten durchbrochen. Der Schlusskurs 370,83 liegt zwar wieder innerhalb der Zone (klassische Whipsaw-Bewegung oder Hammer-Reversal), doch technisch gilt: ein Bruch auf Schlusskurs-Basis ist erst dann klar negiert, wenn der Kurs die Zone nachhaltig zurückerobert und über 375–378 schließt.</p>
+<p>Die 17.07.-Analyse hatte den CSP-Strike 358,00 mit 4,4% Puffer unter der Zone empfohlen. Dieser Strike liegt jetzt nur noch 0,8% unter dem Tief vom 17.07. (357,80) – damit wäre der CSP bei einer Andienung exakt im Bereich des jüngsten Tiefs gelandet. Das ist eine wichtige Lektion aus der Verkettungs-Prüfung: Der Puffer war korrekt dimensioniert, aber die Zone hat sich als dünner erwiesen als ein dreifacher Test suggeriert hätte.</p>
+
+<h2>2. Candlestick-Analyse – Hammer ohne Überzeugung</h2>
+<p>Der Hammer vom 17.07. (Open 366,05 / Tief 357,80 / Close 370,83) hat klassische Reversal-Optik: Der Docht nach unten beträgt ca. 13 Punkte, der Körper liegt im oberen Drittel der Tagesrange. Allerdings fehlt das entscheidende Element – das Volumen war mit rel. 0,86 nur durchschnittlich. Ein echter Capitulation-Hammer in einem solchen Marktkontext sollte rel. Volumen von mindestens 1,5–2,0x zeigen (zum Vergleich: 04.06. bei rel. 3,40x, 05.06. bei rel. 2,11x).</p>
+<p>Die heutige Eröffnung (IBKR 374,45 bei unverändertem Stand 12:09) bestätigt die Hammer-Kerze im Sinne eines 'keine weiteren Verkäufe', liefert aber noch keine Bestätigungskerze. Eine grüne Kerze mit Schlusskurs über 378 (ehemalige Unterkante der Zone und mehrfach getestetes Niveau vom 25.06./24.06.) würde die Erholung technisch bestätigen.</p>
+
+<h2>3. EMA-Verbund und Widerstandsdach</h2>
+<p>Der EMA-Verbund (EMA9: 382,13 / EMA21: 385,44 / EMA55: 389,39 / gema_321: 384,44) bildet ein kompaktes Widerstandsdach zwischen 382 und 390 – alle EMAs fallen und liegen über dem aktuellen Kurs. Der Abstand EMA9 zum aktuellen Kurs beträgt ca. 8 Punkte (2,1%). Ein Rebound-Versuch würde folgende Widerstände sequenziell antreffen:</p>
+<ul>
+  <li><strong>378,00:</strong> Mehrfach getestete Zone (Schlusskurse 24.06./25.06./30.06.), unbestätigter Bereich</li>
+  <li><strong>382–385:</strong> EMA9/gema_321-Cluster – erster harter Widerstand</li>
+  <li><strong>385–390:</strong> EMA21/EMA55-Dach – Zone mit hoher Wahrscheinlichkeit für Abweisung im Abwärtstrend</li>
+  <li><strong>395–412:</strong> Bestätigter Widerstandscluster aus drei fallenden Hochs</li>
+</ul>
+
+<h2>4. Trade-Setups (Alternative A/B/C)</h2>
+<p><strong>Setup A – Bevorzugt: Rebound-Short an EMA9</strong><br/>
+Einstieg: 383,00 (abweisende Kerze an EMA9/gema_321, Stop-Sell darunter)<br/>
+Stop: 393,00 (über EMA21/55 und klar über lokalen Hochs 13.–15.07.)<br/>
+Ziel 1: 365,00 (Rückkehr an untere Zone-Grenze)<br/>
+Ziel 2: 358,00 (Retest Hammer-Tief 17.07.)<br/>
+CRV zu Ziel 1: 1,5:1 / CRV zu Ziel 2: 2,2:1<br/>
+Bedingung: Kerze mit Hochpunkt 382–386 und Schlusskurs unter 381</p>
+
+<p><strong>Setup B – Aggressiv Long: Bestätigungs-Breakout</strong><br/>
+Einstieg: 378,50 (Stop-Buy über 378, Bestätigung der Zonen-Rückeroberung)<br/>
+Stop: 363,00 (unter Hammer-Tief mit Puffer)<br/>
+Ziel: 392,00 (EMA21/55-Dach)<br/>
+CRV: 0,9:1 – <strong>nicht empfohlen</strong>, CRV zu schwach, Widerstandsdach zu nah</p>
+
+<p><strong>Setup C – Bruch-Short (Trend-Fortsetzung)</strong><br/>
+Einstieg: 356,00 (Stop-Sell unter Hammer-Tief 357,80)<br/>
+Stop: 368,00 (zurück in Zone)<br/>
+Ziel: 335,00 (Projektion, keine historische Struktur im Datensatz)<br/>
+CRV: 1,8:1 – Vorsicht: Zielzone ist reine Projektion ohne Bestätigung</p>
+
+<h2>5. Stillhalter-Analyse (Schwerpunkt)</h2>
+
+<h3>Warum kein CSP?</h3>
+<p>Die 17.07.-Analyse hatte den CSP 358 unter der 'dreifach bestätigten Zone 368–372' empfohlen. Heute ist diese Begründung geschwächt: Das Tief 357,80 vom 17.07. hat den Strike 358,00 intraday fast exakt getroffen. Ein CSP mit Strike 358 wäre in einen Markt hineinverkauft worden, der seinen eigenen Support brach. Das ist der zentrale Unterschied gegenüber der Voranalyse-Einschätzung.</p>
+<p>Für einen neuen CSP bräuchte man einen Strike unter 345,00 (ca. 8% Puffer zum aktuellen Kurs), was bei max. 6 Tagen Restlaufzeit bis 25.07. kaum ausreichend Prämie generieren wird. Ein CSP ist in dieser Marktphase – Zone angeschlagen, Abwärtstrend intakt, kein bestätigter Boden – nicht empfehlenswert. <strong>Qualität vor Vollständigkeit.</strong></p>
+
+<h3>CC auf 400 – Herleitung und Andienungslogik</h3>
+<p>Der Strike 400 ist technisch sauber abgeleitet:</p>
+<ul>
+  <li>Lokales Hoch 15.07.: 399,00 – der Strike liegt knapp darüber</li>
+  <li>Lokales Hoch 10.07.: 402,44 – der Strike liegt darunter</li>
+  <li>Lokales Hoch 18.06.: 412,70 – der Strike liegt 3,2% darunter</li>
+  <li>EMA-Dach 382–390: Der Strike hat einen zusätzlichen Puffer von 10–18 Punkten über dem EMA-Verbund</li>
+</ul>
+<p>Für einen Anstieg über 400 innerhalb von 6 Tagen müsste AVGO: (1) den EMA-Verbund bei 382–390 überwinden, (2) drei bestätigte fallende Hochs überschreiten, (3) einen Anstieg von 6,8% vom aktuellen Kurs vollziehen. Das ist im intakten Abwärtstrend ohne Katalysator ein konservatives Szenario.</p>
+<p><strong>Andienungsszenario:</strong> Würde AVGO tatsächlich auf 400+ steigen und der CC ausgeübt, wäre das eine strukturelle Trendumkehr. In diesem Fall wäre das Geschäft als 'aggressiver Verkauf nahe dem neuen Hoch' zu werten – technisch vertretbar, da 400 gleichzeitig ein starker Widerstand ist. Ohne Aktienbestand (IBKR: 0 Stück) ist dies ein <strong>Naked Call</strong> – das Risikoprofil unterscheidet sich fundamental vom Covered Call. Die theoretisch unbegrenzte Verlustseite muss über Margin und Stop-Logik kontrolliert werden.</p>
+<p><strong>Roll-Trigger:</strong> Schlusskurs über 390 (EMA55-Überschreitung) → Roll auf Strike 412–415 prüfen, Restlaufzeit innerhalb von 12 Tagen. Schlusskurs über 399 (Bruch des letzten Hochs) → sofort schließen oder auf nächsten Widerstand 412 rollen.</p>
+<p><strong>In der Optionskette manuell prüfen:</strong> Prämie am 400er Strike (Verfall 25.07.), implizite Volatilität (nach Sell-off vermutlich erhöht, was höhere Prämien ergibt), Bid-Ask-Spread und Open Interest am 400er.</p>
+
+<h3>Abgleich Voranalysen</h3>
+<p>Der CC-Strike 410 aus der 16.07.-Analyse bleibt technisch valid, hat aber inzwischen einen Puffer von ca. 9,5% (unverändert aus 17.07.-Analyse) und generiert bei 6 Tagen Restlaufzeit vermutlich sehr wenig Prämie. Der Strike 400 ist der aktivere, prämientechnisch attraktivere Strike bei gleichzeitig technisch sauberem Widerstand. Wer konservativer agieren möchte, kann beim 410er bleiben – Prämie vs. Puffer in der Kette vergleichen.</p>
+  </details>
+</section>
+
+<section class="analyse short">
+  <div class="kopf">
+    <span class="datum">17.07.2026 <span class="quelle">via Chat</span></span>
+    <span class="badge short">SHORT</span>
+  </div>
+  <p class="fazit">Das Ziel der 16.07.-Analyse (372,00) wurde am selben Tag fast punktgenau erreicht (Tief 371,90) – ausgelöst durch eine sektorweite Halbleiter-Verkaufswelle (SK-Hynix-Nachrichten), nicht durch den ursprünglich vorgesehenen Einstiegs-Trigger (399,50), der nie erreicht wurde. Bemerkenswert: Die Zone um 371-372 ist jetzt bereits dreifach getestet (10.06., 01.07., 16.07.) – ein für diese Analyse ungewöhnlich gut bestätigtes Niveau.</p>
+  <img class="chart" src="img/AVGO_20260717_094252.png" alt="Chart AVGO">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>Die NEUTRAL/Short-These vom 16.07. (Ziel 372,00) wurde nicht über den vorgesehenen Trigger 399,50 ausgelöst – dieser wurde nach der Analyse nie mehr erreicht, da der Kurs bereits darunter lag. Stattdessen fiel der Kurs am 16.07. im Zuge einer breiten Sektor-Verkaufswelle direkt von 394,28 auf ein Tief von 371,90 (-5,0% an einem Tag) – nahezu exakt am Ziel. Bemerkenswert: Dieses Niveau (371-372) wurde bereits am 10.06. (Tief 371,17, Schluss 372,10) und am 01.07. (Schluss 369,34) getestet – die Zone ist damit inzwischen dreifach bestätigt, deutlich robuster als die zuvor einzig referenzierte 363,83er-Marke vom 26.06.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>15.07.: Schluss 394,28, letzte Konsolidierungskerze vor dem Ausverkauf. 16.07.: Eröffnung 384,535 (bereits unter Gap), Tief 371,90, Schluss 374,45 – eine große rote Kerze, die im unteren Drittel schließt, aber bei nur unterdurchschnittlichem Volumen (rel_volumen 0,87) trotz der Größe der Bewegung – ungewöhnlich für einen Tag mit sektorweiten Schlagzeilen.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Weiterhin bearische Reihenfolge: EMA9 (384,95) < EMA21 (386,90) < gema_321 (386,46) < EMA55 (390,08), alle fallend. Der Kurs (374,45) liegt rund 10 Punkte unter EMA9 – der Trend bleibt technisch klar intakt und hat sich durch die Sektorbewegung weiter beschleunigt.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Short</td></tr>
+    <tr><td>Einstieg</td><td>Rebound-Verkauf bei 385,00 (Erholung Richtung EMA9/21-Cluster) oder Bruch-Verkauf unter 368,00 (Bruch der jetzt dreifach getesteten Zone)</td></tr>
+    <tr><td>Stop</td><td>391,00 (Rebound-Szenario, über EMA55) bzw. 375,00 (Bruch-Szenario)</td></tr>
+    <tr><td>Ziel</td><td>355,00 (Verlängerung – WICHTIG: reine Projektion unterhalb der dreifach getesteten Zone, keine weitere historische Struktur in diesem Datensatz)</td></tr>
+    <tr><td>CRV</td><td>2,8 : 1 bis 5,0 : 1 (Rebound-Szenario, je nach Ziel) / 1,5 : 1 (Bruch-Szenario, schwächer da bereits nah am Ziel)</td></tr>
+  </table>
+
+  <h3>5 · Stillhalter (max. 12 Tage)</h3>
+<p>Die Zone 368-372 hat sich durch den dritten Test deutlich verbessert und ist jetzt ein solider CSP-Anker – eine Aufwertung gegenüber der 16.07.-Einschätzung, die nur einen einzigen Test (363,83) kannte. Der Widerstandscluster 399-412 bleibt trendkonform für einen CC, jetzt mit deutlich größerem Puffer.</p>
+<table class="setup"><tr><td>Geschäft</td><td>Cash-Secured Put</td></tr><tr><td>Strike</td><td>358.0</td></tr><tr><td>Puffer</td><td>4.4 %</td></tr><tr><td>Zone</td><td>unter der jetzt dreifach getesteten Zone 368,03–372,10 (10.06., 01.07., 16.07.)</td></tr><tr><td>Verfall bis</td><td>2026-07-24 (7 Tage)</td></tr><tr><td>Begründung</td><td>Strike liegt unter der inzwischen dreifach bestätigten Zone – eine der am besten abgesicherten Support-Zonen in dieser gesamten Analyseserie. Der Puffer ist mit 4,4% bewusst enger als bei anderen Titeln, da die Zone selbst ungewöhnlich robust ist. Andienung bei 358,00 wäre ein Einstieg knapp unter einem mehrfach verteidigten Niveau – im Kontext eines Sektor-Sell-offs (nicht AVGO-spezifisch) vertretbar. Prüfen: Prämie im Verhältnis zum 4,4%-Puffer, Liquidität am 358er.</td></tr></table>
+<table class="setup"><tr><td>Geschäft</td><td>Covered Call</td></tr><tr><td>Strike</td><td>410.0</td></tr><tr><td>Puffer</td><td>9.5 %</td></tr><tr><td>Zone</td><td>über dem Widerstandscluster 399-412 (Post-Crash-Hochs 18.06. bei 412,70 und 10.07. bei 402,44) – unverändert aus der 16.07.-Analyse</td></tr><tr><td>Verfall bis</td><td>2026-07-24 (7 Tage)</td></tr><tr><td>Begründung</td><td>Strike unverändert aus der Vorlage, aber durch den Kursrückgang jetzt mit deutlich größerem Puffer (9,5% statt 4,0%). Ein Anstieg von fast 10% binnen 7 Tagen im intakten Abwärtstrend nach einem sektorweiten Ausverkauf wäre außergewöhnlich. Andienung bei 410,00 wäre nur bei einer vollständigen Sektor-Erholung relevant und dann ein sehr komfortabler Exit. Prüfen: Prämie im Verhältnis zum 9,5%-Puffer, Liquidität am 410er.</td></tr></table>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 17.07.2026 anzeigen</summary>
+    <h1>AVGO – Ziel durch Sektor-Ausverkauf erreicht, Zone deutlich gestärkt</h1><h2>1. Wie sich die 16.07.-These entwickelt hat</h2><p>Der vorgesehene Einstiegstrigger (399,50, Stop-Sell unter dem Bereich 399-402) wurde nie erreicht – der Kurs lag zum Zeitpunkt der Analyse bereits darunter (394,28) und fiel direkt weiter. Das Ziel (372,00) wurde trotzdem nahezu exakt getroffen (Tief 371,90), ausgelöst durch eine sektorweite Nachricht (SK Hynix verlangsamt HBM-Speicher-Expansion), die den gesamten asiatischen und US-Halbleitersektor traf – nicht durch ein AVGO-spezifisches Ereignis.</p><h2>2. Die wichtigste neue Erkenntnis: Die Zone ist jetzt dreifach bestätigt</h2><p>Bei genauerem Blick in die historischen Daten zeigt sich, dass die Marke 371-372 keine willkürliche Zielprojektion war, sondern bereits zweimal zuvor eine echte Umkehrzone war: 10.06. (Tief 371,17, Schluss 372,10) und 01.07. (Schluss 369,34). Mit dem dritten Test am 16.07. ist das jetzt eine der am besten bestätigten Zonen dieser gesamten Analyseserie – ein deutlicher Unterschied zur 16.07.-Einschätzung, die nur das einmal getestete Tief 363,83 kannte.</p><h2>3. Setup-Szenarien</h2><p>Für frische Shorts ist ein Rebound-Verkauf (385,00, Stop 391,00) mit CRV 2,8-5,0:1 deutlich attraktiver als ein direktes Verfolgen auf aktuellem Niveau oder ein sofortiger Bruch-Verkauf (367,00, Stop 375,00, CRV nur 1,5:1), dessen Chance-Risiko-Verhältnis wegen der Nähe zum bereits erreichten Ziel eingeschränkt ist.</p><h2>4. Stillhalter-Vertiefung</h2><p>CSP bei 358,00 (4,4% Puffer): Aufgewertet gegenüber der Vorlage dank der jetzt dreifachen Zonenbestätigung – eine der solidesten CSP-Begründungen in dieser Serie. CC bei 410,00 (9,5% Puffer, unverändert aus der Vorlage): Durch den Kursrückgang jetzt mit deutlich mehr Sicherheitsabstand. Andienungsszenario CSP: Kauf bei 358,00 knapp unter einer dreifach verteidigten Zone – im Kontext eines sektorweiten statt unternehmensspezifischen Ausverkaufs vertretbar. Andienungsszenario CC: Abgabe bei 410,00 nur bei vollständiger Sektor-Erholung. Rollentrigger CSP: Tagesschluss unter 368,00. Rollentrigger CC: Tagesschluss über 399,00 mit Volumen.</p><h2>5. Abgleich mit früherer Analyse</h2><p>Die NEUTRAL/Short-thesis vom 16.07. wird im Ergebnis bestätigt (Ziel erreicht), allerdings über einen anderen Mechanismus als vorgesehen (Sektor-Gap statt Trigger-Auslösung). Die wichtigste Aktualisierung: Die Unterstützungszone ist jetzt dreifach statt einfach bestätigt, was die Stillhalter-Einschätzung von 'nur CC' auf 'beides' anhebt.</p>
+  </details>
+</section>
+
+<section class="analyse neutral">
+  <div class="kopf">
+    <span class="datum">16.07.2026 </span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <p class="fazit">AVGO befindet sich in einer komprimierten EMA-Zone ohne klaren Trend – der Kurs kämpft mit dem fallenden EMA-Verbund, was einen neutralen Bias mit leichter Short-Neigung ergibt.</p>
+  <img class="chart" src="img/AVGO_20260716_080721.png" alt="Chart AVGO">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>AVGO zeigt nach dem brutalen Sell-off von ~495 (02.06.) auf ~360 (26.06.) eine zaghafte Erholung, die jedoch noch keine neuen Higher Highs produziert hat. Die Trendstruktur ist technisch <strong>bearish</strong>: Das letzte signifikante Hoch vom 10.07. bei 402,44 liegt unter dem Post-Crash-Hoch vom 18.06. bei 412,70 – eine klassische Abfolge fallender Hochs. Das Tief vom 02.07. bei 356,43 ist das jüngste relevante Swing-Low. Aktueller Kurs 394,28 befindet sich in der Mitte zwischen diesem Tief und dem Widerstandscluster 399–412 USD.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die letzte Kerze (15.07.) ist eine bullische Inside-Bar mit Schlusskurs 394,28 und rel. Volumen von nur 0,61 – schwaches Commitment. Davor zeigte der 14.07. ebenfalls eine neutrale Kerze nahe dem EMA-Cluster. Die Kerze vom 08.07. war die einzige wirklich starke Aufwärtskerze der jüngsten Erholung (rel. Volumen 1,18). Insgesamt: Die Rallye von 360 auf 401 erfolgte ohne überzeugendes Volumen, was die Nachhaltigkeit in Frage stellt.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Das EMA-Bild ist komprimiert und bärisch geordnet: EMA9 (387,58) &lt; EMA21 (388,15) &lt; EMA55 (390,66) – alle drei fallen leicht oder konsolidieren. Der gema_321 liegt bei 388,28, praktisch identisch mit dem EMA-Cluster. Der Kurs bei 394,28 notiert ÜBER dem gesamten EMA-Verbund, ist aber nur knapp darüber – das ist ein typisches Bear-Market-Rally-Szenario, bei dem der Kurs gegen fallende EMAs drückt. Solange EMA9 nicht nachhaltig über EMA21 und EMA55 zieht, bleibt der strukturelle Bias bearisch.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Short</td></tr>
+    <tr><td>Einstieg</td><td>399.50 (Stop-Sell unter dem Bereich 399–402, Bestätigung durch schwache Kerze)</td></tr>
+    <tr><td>Stop</td><td>408.00</td></tr>
+    <tr><td>Ziel</td><td>372.00</td></tr>
+    <tr><td>CRV</td><td>2.8 : 1</td></tr>
+  </table>
+
+  <h3>5 · Stillhalter (max. 12 Tage)</h3>
+<p>Bei einer bärisch geordneten EMA-Struktur, fallenden Hochs und einer volumenschwachen Erholung ist ein Covered Call das logischere Stillhaltergeschäft. Ein CSP ist derzeit unattraktiv, da kein tragfähiger Boden bestätigt ist – das Tief vom 26.06. bei 363,83 wurde nur einmal getestet. Der CC oberhalb des Widerstandsclusters 399–412 bietet einen technisch sauberen Strike.</p>
+<table class="setup"><tr><td>Geschäft</td><td>Covered Call</td></tr><tr><td>Strike</td><td>410.0</td></tr><tr><td>Puffer</td><td>4.0 %</td></tr><tr><td>Zone</td><td>Widerstandscluster 399–412 (Post-Crash-Hochs 18.06. bei 412,70 und 10.07. bei 402,44)</td></tr><tr><td>Verfall bis</td><td>2026-07-25 (9 Tage)</td></tr><tr><td>Begründung</td><td>Der Strike 410 liegt oberhalb des lokalen Hochs vom 10.07. (402,44) und unmittelbar unter dem Post-Crash-Hoch vom 18.06. (412,70). Die Zone 399–412 hat zwei relevante Hochpunkte und damit einen Widerstandscharakter, der als Puffer dient. Ein Kurs über 410 würde eine strukturelle Trendumkehr signalisieren – in diesem Fall wäre das Rollen des CC nach oben angebracht. Puffer zum aktuellen Kurs: ~4,0%.</td></tr></table>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 16.07.2026 anzeigen</summary>
+    <h1>AVGO – Technische Analyse vom 16.07.2026</h1>
+
+<h2>1. Trendstruktur</h2>
+<p>Der langfristige Kontext: AVGO hatte nach dem Parabolic-Anstieg bis ~495 USD (02.06.2026, rel. Volumen 1,69) einen vernichtenden <strong>Gap-Down am 04.06.</strong> auf 403/426 mit rel. Volumen von 3,40 – dem höchsten im gesamten Datensatz. Das war ein Distribution-Event erster Klasse. Der Abverkauf setzte sich fort bis zum Tief vom 26.06. bei <strong>363,83 USD</strong> (rel. Volumen 1,31).</p>
+<p>Die anschließende Erholung produzierte folgende Swing-Hochs: 412,70 (18.06.), 411,35 (18.06. Schlusskurs), dann Rückfall, neues Tief 356,43 (02.07.), Erholung auf 407,52 (09.07.) – damit ein niedrigeres Hoch als 412,70. Anschließend Konsolidierung mit aktuell 394,28. <strong>Fazit: Abfolge fallender Hochs und fallendes Tief (356,43 unter 363,83) = intakter Abwärtstrend auf Tagesbasis.</strong></p>
+<p><strong>Kritische Zonen:</strong></p>
+<ul>
+<li><strong>Widerstand 399–412 USD:</strong> Zwei Hochs (407,52 am 09.07. und 412,70 am 18.06.) – bestätigter Widerstandsbereich</li>
+<li><strong>Widerstand 418–430 USD:</strong> Konsolidierungszone April/Mai – weitere Hürde im Fall einer Trendumkehr</li>
+<li><strong>Support 370–377 USD:</strong> Mehrfach getesteter Bereich (08.07. Tief 376,89; 30.06. Tief 370,64; 01.07. Schlusskurs 369,34) – unbestätigter Support, erst zwei enge Tests</li>
+<li><strong>Support 356–364 USD:</strong> Tief-Zone vom 02.07. und 26.06. – einmalig berührt, noch kein bestätigter Support</li>
+</ul>
+
+<h2>2. Candlestick-Formationen</h2>
+<p>Die letzten fünf Kerzen zeigen ein klassisches Erschöpfungsbild nach einer Bären-Rallye:</p>
+<ul>
+<li><strong>09.07.:</strong> Starke bullische Kerze bis 407,52, Schlusskurs 401,11 – Volumen 1,04x Schnitt. Kurz unter dem Widerstand gedreht.</li>
+<li><strong>10.07.:</strong> Schwache Kerze, Schlusskurs 399,97, rel. Volumen nur 0,54 – Volumen-Austrocknung am Widerstand ist bärisches Signal.</li>
+<li><strong>13.07.:</strong> Bearishe Kerze, Schlusskurs 384,05 – Rückfall unter alle EMAs, rel. Volumen 0,79.</li>
+<li><strong>14.07.:</strong> Bullische Recovery-Kerze zurück auf 389,11, rel. Volumen 0,74 – schwaches Commitment.</li>
+<li><strong>15.07.:</strong> Inside-Bar, Schlusskurs 394,28, rel. Volumen 0,61 – Entscheidungsunfähigkeit. Der Kurs schiebt sich über den EMA-Cluster, ohne Überzeugung zu zeigen.</li>
+</ul>
+<p>Das Muster: <strong>Volumen-Divergenz zur Aufwärtsbewegung</strong> – die Rallye von 360 auf 401 erfolgte bei insgesamt unterdurchschnittlichem Volumen, während der ursprüngliche Sell-off mit massivem Volumen einherging. Das spricht für eine technische Gegenbewegung, nicht für eine echte Trendumkehr.</p>
+
+<h2>3. EMA-Lage & gema_321</h2>
+<p>Aktuell: EMA9 = 387,58 | EMA21 = 388,15 | EMA55 = 390,66 | gema_321 = 388,28. Der Kurs (394,28) liegt ~1,5% über dem gesamten EMA-Verbund. Die Reihenfolge EMA9 < EMA21 < EMA55 ist bärisch, aber die Abstände sind extrem komprimiert (< 3,1 USD Spanne) – das ist ein <strong>EMA-Kompressionsartefakt</strong> nach der langen Seitwärts-/Abwärtsphase.</p>
+<p>Wichtige Beobachtung: Der EMA55 fällt jetzt erstmals seit Monaten (von 401 Anfang Juni auf 390,66 heute) – das zeigt, dass der strukturelle Trend umgekippt ist. Der gema_321 fiel von ~425 Mitte Mai auf heute 388,28 – ein Rückgang von ~9% in 2 Monaten. Für eine echte Trendumkehr nach oben bräuchten wir: EMA9 > EMA21 > EMA55, alle steigend, mit Kurs deutlich über gema_321. Das ist aktuell nicht gegeben.</p>
+
+<h2>4. Trade-Setups (Direktional)</h2>
+<p><strong>Setup A – Short (bevorzugt):</strong></p>
+<ul>
+<li>Einstieg: 399,50 (Limit-Short oder Stop-Sell nach bärischer Bestätigungskerze im Widerstandsbereich)</li>
+<li>Stop: 408,00 (über lokalem Hoch 407,52 vom 09.07.)</li>
+<li>Ziel 1: 377,00 (Support-Zone 370–377) → CRV: 2,6:1</li>
+<li>Ziel 2: 363,00 (Tief-Bereich 26.06./02.07.) → CRV: 4,4:1</li>
+</ul>
+<p><strong>Setup B – Long (Kontratrend, nur bei Bestätigung):</strong></p>
+<ul>
+<li>Voraussetzung: Tagesschluss >412,70 mit rel. Volumen >1,5x</li>
+<li>Einstieg: 413,50</li>
+<li>Stop: 399,00</li>
+<li>Ziel: 430,00 (nächste Widerstandszone) → CRV: 1,1:1 – <strong>kein attraktives Setup derzeit</strong></li>
+</ul>
+<p><strong>Setup C – Warten:</strong> Solange der Kurs zwischen 377 und 402 pendelt, sind beide Seiten möglich. In dieser Range bietet sich kein direktionaler Trade an – ideale Stillhalter-Phase.</p>
+
+<h2>5. Stillhalter-Strategie (Schwerpunkt)</h2>
+<h3>Covered Call – Strike 410 USD, Verfall 25.07.2026</h3>
+<p><strong>Zonen-Herleitung:</strong> Der Widerstandsbereich 399–412 USD ist durch zwei bestätigte Hochs definiert: 407,52 (09.07.2026) und 412,70 (18.06.2026). Der Strike 410 liegt <em>innerhalb</em> dieser Zone, aber über dem letzten lokalen Hoch (407,52) – er hat damit das jüngste Hoch als Puffer vor sich. Der Puffer zum aktuellen Schlusskurs (394,28) beträgt <strong>4,0%</strong>.</p>
+<p><strong>Andienungsszenario:</strong> Würde AVGO bei Verfall über 410 handeln, entspräche das einem Ausbruch über den gesamten Post-Crash-Widerstandscluster. Eine Andienung (Abgabe der Aktien zu 410) wäre in diesem Kontext akzeptabel, da der Strike über dem fairen technischen Wert der aktuellen Marktstruktur liegt. Bei einem Inhaber-Portfolio wäre das ein profitabler Exit.</p>
+<p><strong>Roll-Trigger:</strong> Wenn AVGO sich nachhaltig (2+ Tagesschlüsse) über 408 USD etabliert und der EMA9 über den EMA21 zieht, sollte der CC nach oben gerollt werden – idealerweise auf 420–425 Strike, da dort die nächste Widerstandszone liegt. Ein Roll ist auch angebracht, wenn noch >50% der Prämie eingenommen wurden und 5+ Tage Restlaufzeit verbleiben.</p>
+<p><strong>Was in der Optionskette zu prüfen ist:</strong></p>
+<ul>
+<li>Prämie des 410 CC (25.07.): Ist die Prämie angemessen im Verhältnis zum 4% Puffer? Zielgröße: mind. 0,8–1,0% des Aktienwerts (ca. 3,15–3,95 USD) für das Risiko-Profil.</li>
+<li>Liquidität: AVGO ist ein Large-Cap mit typischerweise guter Optionsliquidität – Bid-Ask-Spread prüfen, sollte < 0,20 USD sein.</li>
+<li>Implizierte Volatilität (IV): Nach dem massiven Sell-off vom Juni dürfte die IV erhöht sein – das begünstigt den Prämienverkäufer.</li>
+</ul>
+<h3>Warum kein Cash-Secured Put?</h3>
+<p>Ein CSP würde eine technisch definierte Supportzone erfordern, die mehrfach bestätigt wurde. Die Zone 370–377 USD hat erst zwei enge Tests (01.07. und 08.07.) – das ist ein <strong>unbestätigter Bereich</strong>. Das Tief vom 02.07. bei 356,43 bietet noch weniger Halt. Hinzu kommt die bärische EMA-Struktur: Ein CSP im Abwärtstrend ohne soliden Boden ist ein schlechtes Risiko-Rendite-Verhältnis für den Stillhalter. <strong>Qualität vor Vollständigkeit – kein CSP in dieser Phase.</strong></p>
+
+<h2>Abgleich mit früheren Analysen</h2>
+<p>Keine früheren Analysen vorhanden – diese Analyse steht ohne Vorläufer. Sollten künftige Analysen folgen, sind folgende Schlüsselmarken als Referenz festzuhalten: Post-Crash-Hoch 412,70 (18.06.), Tief 356,43 (02.07.), EMA55-Niveau 390,66 (heute, fallend).</p>
+  </details>
+</section>
+
+
+  <footer>Automatisch erstellt · <a href="index.html">Zur Übersicht</a> ·
+    Keine Anlageberatung</footer>
+</div>
+</body>
+</html>

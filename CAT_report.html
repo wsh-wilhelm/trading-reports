@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CAT – Analyse-Historie</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0d1319; --panel:#161e27; --line:#232e3a;
+    --text:#d9e1e8; --muted:#7e8b99; --accent:#e5a63c;
+    --long:#3ec08b; --short:#e2604f; --neutral:#8a96a3;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);
+       font:15px/1.6 "IBM Plex Sans",sans-serif;padding:32px 16px}
+  .wrap{max-width:860px;margin:0 auto}
+  header{display:flex;align-items:baseline;gap:14px;
+         border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:28px}
+  header h1{font:500 30px "IBM Plex Mono",monospace;margin:0;letter-spacing:1px}
+  header .sub{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:2px}
+
+  /* Eine Analyse = eine section; farbige Signalleiste links */
+  section.analyse{background:var(--panel);border:1px solid var(--line);
+                  border-left:4px solid var(--neutral);
+                  border-radius:6px;padding:22px 26px;margin-bottom:22px}
+  section.analyse.long{border-left-color:var(--long)}
+  section.analyse.short{border-left-color:var(--short)}
+
+  .kopf{display:flex;justify-content:space-between;align-items:center;
+        flex-wrap:wrap;gap:8px;margin-bottom:6px}
+  .datum{font:500 13px "IBM Plex Mono",monospace;color:var(--muted)}
+  .badge{font:500 12px "IBM Plex Mono",monospace;letter-spacing:2px;
+         padding:3px 10px;border-radius:3px;color:#0d1319}
+  .badge.long{background:var(--long)}
+  .badge.short{background:var(--short)}
+  .badge.neutral{background:var(--neutral)}
+
+  .fazit{font-size:16px;font-weight:600;margin:0 0 16px}
+  img.chart{width:100%;border:1px solid var(--line);border-radius:4px;margin:4px 0 12px}
+  h3{font:500 12px "IBM Plex Mono",monospace;color:var(--accent);
+     text-transform:uppercase;letter-spacing:2px;margin:18px 0 4px}
+  p{margin:6px 0;color:var(--text)}
+
+  /* Setup-Tabelle in Monospace, Zahlen buendig */
+  table.setup{width:100%;border-collapse:collapse;margin-top:8px;
+              font:14px "IBM Plex Mono",monospace}
+  table.setup td{padding:6px 10px;border-top:1px solid var(--line)}
+  table.setup td:first-child{color:var(--muted);width:120px}
+
+  /* Aufklappbarer Volltext in aelteren Analyse-Karten */
+  details.volltext{margin-top:16px;border-top:1px solid var(--line);padding-top:10px}
+  details.volltext summary{cursor:pointer;font:500 12px "IBM Plex Mono",monospace;
+                color:var(--muted);text-transform:uppercase;letter-spacing:2px}
+  details.volltext summary:hover{color:var(--accent)}
+  details.volltext h1,details.volltext h2{font-size:15px;color:var(--accent);margin:14px 0 6px}
+  details.volltext strong{color:#fff}
+
+  footer{color:var(--muted);font-size:12px;text-align:center;margin-top:32px}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>CAT</h1>
+    <span class="sub">Analyse-Historie · neueste zuerst</span>
+  </header>
+
+<!-- NEUE_ANALYSE_HIER -->
+<section class="analyse short">
+  <div class="kopf">
+    <span class="datum">23.07.2026 </span>
+    <span class="badge short">SHORT</span>
+  </div>
+  <p class="fazit">CAT hält sich in einem intakten Abwärtstrend mit fallenden EMAs und gescheitertem Erholungsversuch – der Short-Bias der Voranalysen bleibt vollumfänglich gültig, ein Naked Call oberhalb des Widerstands ist das einzige vertretbare Stillhalter-Setup.</p>
+  <img class="chart" src="img/CAT_20260723_115221.png" alt="Chart CAT">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>CAT markierte das Allzeithoch am <strong>30.06.2026 bei 1073,46 USD</strong> und befindet sich seitdem in einem klar definierten Abwärtstrend mit einer Abfolge niedrigerer Hochs und tieferer Tiefs: 1073 → 1039 → 902 → 894. Das letzte relevante Swing-Hoch liegt bei <strong>902,57 USD (22.07.)</strong>, das letzte Swing-Tief bei <strong>838,33 USD (17.07.)</strong>. Der aktuelle Kurs von ~891–892 USD befindet sich in einer Erholungsphase innerhalb des Abwärtstrends, ohne dass ein struktureller Bruch vorliegt. Die Zone <strong>900–960 USD</strong> fungiert als massiver Widerstandsblock (ehemaliger Support, jetzt gewendet). Support-Cluster bei <strong>860–840 USD</strong> (April-Boden-Bereich) und darunter bei <strong>828–835 USD</strong> (mehrfach getestet im April 2026).</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die letzten drei Kerzen zeigen eine zögerliche Konsolidierung: <strong>21.07.</strong> bullische Erholung (876 → 890, Close nahe Tageshoch), <strong>22.07.</strong> Doji-artiger Tag (High 902,57 / Close 889,31) – das Intraday-Hoch wurde nicht gehalten, bärisches Signal an der Widerstandszone 900. <strong>Heute (23.07.)</strong> eröffnet CAT leicht fester bei ~891,69 USD (+0,27%), aber noch innerhalb der Konsolidierungsrange. Kein Reversals-Muster, kein Breakout – die Erholung wirkt technisch schwach und erschöpft sich an der 900er-Marke.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Die EMA-Struktur ist klar bärisch: <strong>EMA9 (902,65) > EMA21 (925,50) > EMA55 (907,34)</strong> – Achtung: EMA55 liegt zwischen EMA9 und EMA21, was ein <strong>Kompressions-Artefakt</strong> darstellt und die starke Dynamik des Abwärtstrends widerspiegelt. Der <strong>gema_321 bei 911,05</strong> liegt deutlich über dem Kurs (~892), der gesamte EMA-Verbund zeigt nach unten. Der Kurs handelt unterhalb aller drei EMAs – klassische Short-Konstellation. EMA9 bei ~902 markiert die nächste dynamische Widerstandslinie; ein Anstieg dorthin wäre ein potenzieller Einstiegs-Trigger für neue Shorts.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Short</td></tr>
+    <tr><td>Einstieg</td><td>902.00 (Stop-Sell-Limit bei Rücktest EMA9 / Widerstandszone 900–910)</td></tr>
+    <tr><td>Stop</td><td>965.00 (über Swing-Hoch 07.07. / ehemalige Konsolidierungszone)</td></tr>
+    <tr><td>Ziel</td><td>835.00 (April-Cluster-Support 828–838)</td></tr>
+    <tr><td>CRV</td><td>1.05 : 1 (primär) / 2.09 : 1 (Ziel 2 bei 775)</td></tr>
+  </table>
+
+  <h3>5 · Stillhalter (max. 12 Tage)</h3>
+<p>Kein Aktienbestand vorhanden (IBKR-Snapshot bestätigt: 0 Aktien). Ein Covered Call ist daher nicht möglich. In der aktuellen Abwärtstrendphase ohne tragfähigen Support für einen CSP ist ein Naked Call oberhalb des Widerstands 955–960 USD das einzige technisch vertretbare Stillhalter-Setup – ausschließlich für erfahrene Trader mit ausreichendem Margin-Puffer. Ein CSP wird erneut verworfen, da der Kurs weiter unter fallenden EMAs handelt und kein bestätigter Boden vorliegt.</p>
+<table class="setup"><tr><td>Geschäft</td><td>Covered Call</td></tr><tr><td>Strike</td><td>960.0</td></tr><tr><td>Puffer</td><td>7.7 %</td></tr><tr><td>Zone</td><td>oberhalb Widerstandsblock 900–960 USD (ehem. Support-Cluster Juni/Juli, jetzt gewendet); über EMA21 (925) und EMA55 (907) sowie Swing-Hoch 07.07. bei 950</td></tr><tr><td>Verfall bis</td><td>2026-07-25 (2 Tage, nächster Standard-Freitag) ODER 2026-08-01 (9 Tage)</td></tr><tr><td>Begründung</td><td>Der Strike 960 liegt oberhalb des gesamten Widerstandsblocks 900–960 USD, der sich aus dem ehemaligen Juni-Support (940–960) und den jetzt fallenden EMAs (EMA9 ~902, EMA21 ~925, EMA55 ~907) sowie dem Swing-Hoch vom 07.07. bei 950 USD zusammensetzt. Vom aktuellen Kurs (~892) beträgt der Puffer ~7,7% – der Kurs müsste alle EMAs und die gesamte Widerstandszone in wenigen Tagen überwinden, was im intakten Abwärtstrend mit aktueller Momentum-Struktur als sehr unwahrscheinlich einzustufen ist. ACHTUNG: Ohne Aktienbestand handelt es sich um einen Naked Call mit theoretisch unbegrenztem Verlustpotenzial – Margin-Anforderungen beim Broker vorab prüfen. In der Optionskette zu prüfen: Delta sollte idealerweise unter 0,12–0,15 liegen; Prämie im Verhältnis zur benötigten Margin auf Attraktivität bewerten; Liquidität via Spread-Breite und Open Interest sicherstellen. Bei Wahl des 25.07.-Verfalls (2 DTE) ist die Prämie erwartungsgemäß gering – der 01.08.-Verfall (9 DTE) bietet mehr Prämie bei vertretbarem Zeitrahmen.</td></tr></table>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 23.07.2026 anzeigen</summary>
+    <h1>CAT – Technische Analyse &amp; Stillhalter-Report | 23.07.2026</h1>
+
+<h2>Abgleich mit früheren Analysen</h2>
+<p>Die Analyse vom <strong>08.07.2026</strong> prognostizierte einen Short-Einstieg bei 955 USD mit Ziel EMA55-Zone und sekundärem Ziel 860 USD. Dieses Szenario hat sich vollständig materialisiert: CAT fiel von ~950 auf 838 USD (Tief 17.07.) – Ziel 2 wurde nahezu erreicht. Die Analyse vom <strong>19.07.2026</strong> bestätigte den Abwärtstrend und nannte als primäres Ziel den April-Cluster-Support bei 828–835 USD. Dieser wurde mit dem Tief bei 838,33 USD (17.07.) annähernd getestet, aber nicht nachhaltig unterschritten. Die aktuelle Erholung auf ~892 USD ist somit ein <strong>technisches Pullback</strong> an die Unterseite des Widerstandsblocks – kein Trendwechsel. Beide Voranalysen werden <strong>vollumfänglich bestätigt</strong>.</p>
+
+<h2>1. Trendstruktur &amp; Wichtige Levels</h2>
+<p>Der primäre Abwärtstrend ist intakt. Die Hochs-Tiefs-Abfolge seit dem ATH:</p>
+<ul>
+  <li><strong>ATH: 1073,46 USD (30.06.2026)</strong> – Ausgangspunkt des Abwärtstrends</li>
+  <li>Swing-Hoch: <strong>1039,07 USD (29.06.)</strong></li>
+  <li>Swing-Hoch: <strong>955,00 USD (08.07.)</strong> – bestätigt als Widerstand</li>
+  <li>Swing-Tief: <strong>838,33 USD (17.07.)</strong> – erster Test des April-Cluster-Supports</li>
+  <li>Aktuelles Swing-Hoch: <strong>902,57 USD (22.07.)</strong> – scheiterte an 900er-Marke</li>
+  <li>Aktueller Kurs: <strong>~891–892 USD (23.07.)</strong></li>
+</ul>
+<p><strong>Widerstandszonen (klar technisch definiert):</strong></p>
+<ul>
+  <li><strong>900–910 USD:</strong> EMA9-Bereich, psychologische Runde Marke, mehrfach als Deckel getestet (21./22.07.)</li>
+  <li><strong>925–940 USD:</strong> EMA21-Zone, ehemaliger Support der Konsolidierung Mitte Juli</li>
+  <li><strong>950–965 USD:</strong> Swing-Hochs 07.–10.07., ehem. Support-Cluster, starker Widerstand</li>
+</ul>
+<p><strong>Supportzonen:</strong></p>
+<ul>
+  <li><strong>860–870 USD:</strong> Bereich des Tiefs vom 20.07. (861,27) – <em>unbestätigter Bereich</em> (ein Test)</li>
+  <li><strong>838–840 USD:</strong> Tief vom 17.07. – erster Test des April-Clusters, bisher einfacher Test</li>
+  <li><strong>828–835 USD:</strong> April-2026-Cluster-Support (mehrfach getestet April), engster technischer Boden</li>
+</ul>
+
+<h2>2. Candlestick-Analyse (Detail)</h2>
+<p>Der <strong>17.07.</strong> zeigte eine Long-Shadow-Kerze (Tief 838,33, Close 880,28) mit rel. Volumen 1,06x – moderat erhöhtes Volumen, keine Kapitulations-Dynamik. Die Erholung 20.–22.07. erfolgte auf unterdurchschnittlichem bis normalem Volumen (0,87x / 1,02x / 0,63x am 22.07.). Besonders <strong>22.07.</strong> ist bärisch zu interpretieren: Das Intraday-Hoch bei 902,57 USD wurde nicht gehalten, Close bei 889,31 – ein <strong>bärischer Hammer an der Widerstandszone</strong>. Das niedrige rel. Volumen am 22.07. (0,63x) spricht gegen echte Kaufkraft hinter der Erholung.</p>
+
+<h2>3. EMA-Analyse (Detail)</h2>
+<p>Aktuelle EMA-Werte (Close 22.07.):</p>
+<ul>
+  <li>EMA9: <strong>902,65</strong> | EMA21: <strong>925,50</strong> | EMA55: <strong>907,34</strong> | gema_321: <strong>911,05</strong></li>
+</ul>
+<p>Die <strong>ungewöhnliche Reihenfolge EMA9 &lt; EMA55 &lt; EMA21</strong> ist ein klassisches Kompressions-Artefakt nach einer schnellen Abwärtsbewegung: EMA9 reagiert am schnellsten und fiel am stärksten, EMA21 hängt noch höher nach. Diese Struktur zeigt, dass der Abwärtstrend zwar an Dynamik leicht verloren hat (EMA9 flacht ab), aber strukturell intakt ist. Alle drei EMAs liegen oberhalb des Kurses (~892) – der Kurs handelt im bärischen Bereich. Der gema_321 bei 911 bestätigt: Der gewichtete EMA-Verbund zeigt klar nach unten.</p>
+
+<h2>4. Trade-Setups (Aktie)</h2>
+<p><strong>Setup A (bevorzugt – Short bei EMA9-Retest):</strong></p>
+<ul>
+  <li>Einstieg: <strong>902,00 USD</strong> (Stop-Sell-Limit, Rücktest EMA9 / Widerstandszone 900–910)</li>
+  <li>Stop: <strong>965,00 USD</strong> (über Swing-Hoch 07.07. bei 950 + Puffer)</li>
+  <li>Ziel 1: <strong>838,00 USD</strong> (letztes Swing-Tief 17.07.) → CRV: 1,05:1</li>
+  <li>Ziel 2: <strong>828,00 USD</strong> (April-Cluster-Support) → CRV: 1,17:1</li>
+  <li>Ziel 3: <strong>775,00 USD</strong> (nächster struktureller Bereich unter April-Cluster) → CRV: 2,09:1</li>
+</ul>
+<p><strong>Setup B (aggressiver – Sofort-Short ohne Retest):</strong></p>
+<ul>
+  <li>Einstieg: <strong>891,69 USD</strong> (aktueller Kurs, Marktorder)</li>
+  <li>Stop: <strong>925,00 USD</strong> (unter EMA21, engerer Stopp)</li>
+  <li>Ziel 1: <strong>838,00 USD</strong> → CRV: 1,61:1</li>
+  <li>Ziel 2: <strong>775,00 USD</strong> → CRV: 3,57:1</li>
+  <li>Nachteil: Kein sauberer Einstieg, höheres Rauschen-Risiko in der Konsolidierungsphase</li>
+</ul>
+<p><strong>Setup C (Contrarian Long – nur bei strukturellem Bruch):</strong> Ein Long-Szenario wäre erst valide bei einem Tagesschluss <em>klar über</em> 965 USD mit hohem Volumen (&gt;1,5x Schnitt) – dann wäre der Abwärtstrend gebrochen. Aktuell kein valides Long-Setup.</p>
+
+<h2>5. Stillhalter-Analyse (Schwerpunkt)</h2>
+<p><strong>Ausgangslage:</strong> IBKR-Snapshot (11:36 Uhr, 23.07.2026) bestätigt <strong>keinen Aktienbestand und keine offenen Optionspositionen</strong> in CAT. Damit entfällt ein Covered Call vollständig. Der CSP wird erneut verworfen – Begründung folgt.</p>
+
+<h3>Warum kein CSP?</h3>
+<p>Der nächste bestätigte Support liegt bei 828–835 USD (April-Cluster, mehrfach getestet). Ein CSP müsste <em>unterhalb</em> dieser Zone liegen, also bei ~820 USD oder tiefer. Der Puffer vom aktuellen Kurs (~892) zu einem Strike von 820 USD betrüge lediglich ~8,1%. In einem intakten Abwärtstrend mit Momentum-Potenzial nach unten (Ziel 3 bei 775 USD ist technisch plausibel) wäre das Andienungsrisiko zu hoch: Ein Kauf zu 820 USD in einem fallenden Markt ohne Bodenformation ist strukturell nicht vertretbar. Qualität vor Vollständigkeit – CSP bleibt <strong>null</strong>.</p>
+
+<h3>Naked Call – Setup-Herleitung</h3>
+<p>Der Strike <strong>960 USD</strong> leitet sich technisch wie folgt ab:</p>
+<ul>
+  <li><strong>Swing-Hoch 07.07. bei 950 USD</strong> – mehrfach als Widerstand bestätigt (08./09./10.07. scheiterten an 957/983/952 – kein nachhaltiger Close darüber nach dem Bruch)</li>
+  <li><strong>Ehemaliger Support-Cluster 940–960 USD</strong> (Konsolidierung Anfang Juli, nun gewendet zu Widerstand)</li>
+  <li><strong>EMA21 bei 925 USD und EMA55 bei 907 USD</strong> als weitere dynamische Widerstände vor dem Strike</li>
+  <li>Der Strike 960 liegt oberhalb <em>aller</em> dieser Hürden – der Kurs müsste ~7,7% steigen und dabei EMA9 (902), EMA55 (907), EMA21 (925) sowie das Swing-Hoch (950) überwinden</li>
+</ul>
+<p><strong>Andienungsszenario:</strong> Im unwahrscheinlichen Fall der Andienung (Kursanstieg über 960 USD) würde das den Abwärtstrend strukturell brechen – das wäre eine fundamental veränderte Marktsituation. Das Naked-Call-Risiko bleibt theoretisch unbegrenzt; ein vorab definierter Stop-Loss auf Optionsebene (z.B. bei 2x Prämie) ist zwingend.</p>
+<p><strong>Verfallswahl:</strong></p>
+<ul>
+  <li><strong>25.07.2026 (Fr, 2 DTE):</strong> Maximaler Zeitwertverfall, aber sehr geringe Prämie zu erwarten. Nur sinnvoll, wenn bereits in der Position</li>
+  <li><strong>01.08.2026 (Fr, 9 DTE):</strong> Bevorzugt – ausreichend DTE für sinnvolle Prämie, noch innerhalb der 12-Tage-Regel. Delta-Ziel: unter 0,12–0,15 in der Kette prüfen</li>
+</ul>
+<p><strong>Roll-Trigger:</strong> Sollte CAT über <strong>930 USD</strong> (EMA21-Bereich) auf Tagesschlussbasis ansteigen, ist ein Roll des Short Calls auf höheren Strike und/oder weiteren Verfall zu prüfen. Bei einem Anstieg über <strong>955 USD</strong> (Swing-Hoch 07.07.) ist die Position zu schließen – der Abwärtstrend wäre dann strukturell in Frage gestellt.</p>
+<p><strong>Was in der Optionskette zu prüfen ist:</strong> Prämie des 960er Calls (01.08.) im Verhältnis zur erforderlichen Naked-Call-Margin; Delta idealerweise 0,10–0,14; Bid-Ask-Spread unter 2–3% des Mid-Preises; Open Interest für ausreichende Liquidität.</p>
+  </details>
+</section>
+
+<section class="analyse short">
+  <div class="kopf">
+    <span class="datum">19.07.2026 </span>
+    <span class="badge short">SHORT</span>
+  </div>
+  <p class="fazit">CAT befindet sich nach dem Allzeithoch bei 1073 USD in einem beschleunigten Abwärtstrend mit fallenden EMAs und mangelnden Supportzonen – der Short-Bias der Voranalyse wird vollumfänglich bestätigt.</p>
+  <img class="chart" src="img/CAT_20260719_122635.png" alt="Chart CAT">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>CAT hat nach dem Allzeithoch bei <strong>1073,46 USD (30.06.)</strong> eine klassische Topping-Sequenz abgearbeitet: Das zweite Hoch am 29.06. bei 1039 USD unterschritt das ATH, seither folgen tiefere Hochs und tiefere Tiefs. Die Struktur ist klar bearish: ATH 1073 → Swing-Hoch 1039 → Swing-Hoch 991 → aktuell 880. Der letzte Schlusskurs (17.07.) liegt bei <strong>880,28 USD</strong> und hat damit die psychologische 900er-Marke nach unten durchbrochen. Die Zone 930–960 fungiert nun als übergeordneter Widerstand (ehemaliger Support aus dem Juni-Cluster). Auf der Unterseite fehlt bis ca. <strong>860–870 USD</strong> (März-April-Hochs aus dem Aufwärtstrend) ein klarer struktureller Support – darunter wäre die nächste relevante Zone erst um <strong>828–835 USD</strong> (April-Hochs 23.–24.04.).</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die letzten drei Kerzen zeichnen ein konsistent bearishes Bild: Am 15.07. eine bärische Marubozu-artige Kerze mit langem Körper (Close 914 unter Open 938), am 16.07. ein weiterer starker Selldown mit Close 877 bei erhöhtem Volumen (rel. Vol. 1,13x), am 17.07. ein Gap-Down-Eröffnung bei 841, Intraday-Recovery auf Close 880 – die untere Lunte deutet auf kurzfristige Käufer, aber kein Reversal-Signal in Kontext der Trendstruktur. Die Erholung wirkt wie ein Dead-Cat-Bounce in einem intakten Abwärtstrend.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Der EMA-Verbund ist klar bearish sortiert: EMA9 (<strong>921</strong>) < EMA21 (<strong>940</strong>) – beide fallen steil – und EMA55 (<strong>910</strong>) darunter, was eine ungewöhnliche Kompression erzeugt: EMA9 liegt unter EMA21, aber knapp über EMA55. Das ist ein <strong>Kompressions-Artefakt</strong> durch die Geschwindigkeit des Absturzes; der gewichtete Verbund gema_321 (<strong>926</strong>) liegt ca. 46 Punkte über dem Schlusskurs. Der Kurs handelt deutlich unterhalb aller drei EMAs – dies ist ein starkes Distributionssignal. Ein Rücktest des fallenden EMA9 um ~920 wäre der klassische Short-Einstieg.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Short</td></tr>
+    <tr><td>Einstieg</td><td>920.00 (Stop-Sell-Limit bei Rücktest EMA9 / Widerstandszone 910–930)</td></tr>
+    <tr><td>Stop</td><td>965.00 (über Swing-Hoch 05.07. / EMA21-Bereich)</td></tr>
+    <tr><td>Ziel</td><td>835.00 (April-Cluster-Support 828–835)</td></tr>
+    <tr><td>CRV</td><td>1.86 : 1</td></tr>
+  </table>
+
+  <h3>5 · Stillhalter (max. 12 Tage)</h3>
+<p>In einem beschleunigten Abwärtstrend ohne Aktienbestand (kein CC möglich, kein CSP mit vertretbarem Puffer zu finden) ist das primäre Stillhalter-Instrument ein Naked Call oberhalb des Widerstandsbereichs. Da kein Aktienbestand vorhanden ist, wäre ein Short Call oberhalb 950–960 USD ein Naked Call mit unbegrenztem Verlustrisiko – nur für erfahrene Trader mit Margin-Absicherung geeignet. Ein CSP ist in dieser Marktphase nicht empfehlenswert, da tragfähiger Support fehlt und das Andienungsrisiko hoch ist.</p>
+<table class="setup"><tr><td>Geschäft</td><td>Covered Call</td></tr><tr><td>Strike</td><td>955.0</td></tr><tr><td>Puffer</td><td>8.9 %</td></tr><tr><td>Zone</td><td>oberhalb Swing-Hoch 07.07. bei 950 / Konsolidierung 940–960 (ehemaliger Support, jetzt Widerstand)</td></tr><tr><td>Verfall bis</td><td>2026-07-25 (6 Tage, nächster Standard-Freitag)</td></tr><tr><td>Begründung</td><td>Der Strike 955 liegt oberhalb der Widerstandszone 930–960, die sich aus dem Juni/Juli-Support-Cluster gebildet hat. Das Puffer von ~8,9% zum aktuellen Kurs (877) gibt ausreichend Sicherheitsabstand. Der Kurs müsste alle fallenden EMAs (EMA9 ~921, EMA21 ~940) von unten durchbrechen und die gesamte Widerstandszone überwinden – in einem intakten Abwärtstrend mit aktueller Momentum-Dynamik ein sehr unwahrscheinliches Szenario innerhalb von 6 Tagen. ACHTUNG: Ohne Aktienbestand handelt es sich um einen Naked Call mit theoretisch unbegrenztem Verlustpotenzial. Margin-Anforderungen beim Broker prüfen. In der Optionskette zu prüfen: Delta sollte idealerweise unter 0,15 liegen; Prämie im Verhältnis zur nötigen Margin auf Attraktivität bewerten; Liquidität (Spread-Breite, Open Interest) sicherstellen.</td></tr></table>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 19.07.2026 anzeigen</summary>
+    <h1>CAT – Detailanalyse 19.07.2026</h1>
+
+<h2>1. Trendstruktur &amp; Abgleich Voranalyse</h2>
+<p>Die Short-Analyse vom 08.07.2026 wird durch die Kursentwicklung der letzten zwei Wochen <strong>vollumfänglich bestätigt</strong>. Das damals genannte Short-Ziel von 900 USD wurde bereits unterschritten (Schlusskurs 17.07.: 880 USD). Das zweite Ziel bei 860 USD rückt damit in den unmittelbaren Fokus.</p>
+<p>Die Trendstruktur zeigt eine intakte Abwärtssequenz: <strong>ATH 1073,46 USD (30.06.)</strong> → Swing-Hoch 1039 (29.06.) → Swing-Hoch 1001 (02.07.) → Swing-Hoch 991 (01.07.) → Swing-Hoch 957 (10.07.) → aktuell 880. Jedes Rally-Hoch unterschreitet das vorherige – Lehrbuch-Downtrend. Das Gap-Down vom 15.07. (Open 938, vorheriger Close 952) und die Fortsetzung am 16.07. (Close 877 bei rel. Vol. 1,13x) signalisieren erhöhten Verkaufsdruck mit institutioneller Beteiligung.</p>
+<p><strong>Support-Zonen (technisch hergeleitet):</strong></p>
+<ul>
+<li><strong>860–870 USD</strong>: Unbestätigter Bereich – entspricht dem März-Hoch-Cluster (Hochs 03.–20.03. lagen zwischen 693–730, also kein direkter Bezug). Präziser: Das April-Hoch vom 08.04. bei 774 und das Aprilhoch 23.04. bei 845 bilden Stufen. Die Zone <strong>845–860 USD</strong> ist der nächste potenzielle Bremsbereich (Hochs 21.–23.04. konsolidiert um 820–845).</li>
+<li><strong>828–835 USD</strong>: April-Konsolidierung 27.–30.04. (Schlusskurse 829, 817, 810) – mehrfach bestätigter Bereich, valider Support.</li>
+<li><strong>790–800 USD</strong>: April-Cluster 20.–22.04. (Closes 798, 800, 808) – sekundärer Support bei weiterem Breakdown.</li>
+</ul>
+<p><strong>Widerstandszonen:</strong></p>
+<ul>
+<li><strong>910–930 USD</strong>: EMA55 bei 910, EMA9 bei 921 – Kompressions-Zone aller drei EMAs, klassischer Rücktestbereich.</li>
+<li><strong>940–960 USD</strong>: EMA21 bei 940, ehemalige Juni-Support-Cluster (Closes 940, 945, 955 Mitte Juni) – starke Widerstandszone.</li>
+<li><strong>985–1000 USD</strong>: Psychologische Marke + Swing-Hoch 02.07. bei 1001.</li>
+</ul>
+
+<h2>2. Candlestick-Analyse (Tiefgang)</h2>
+<p>Die Kerze vom <strong>26.06.</strong> mit <strong>rel. Vol. 4,69x</strong> (!)  und einem Tageshoch von 1031 sowie einem Schlusskurs von 997 ist der entscheidende Wendepunkt: Shooting Star / Topping-Kerze auf ATH-Niveau mit extremem Volumen – klassisches Distribution-Signal. Diese Kerze allein war der ultimative Alarm für das Ende des Uptrends.</p>
+<p>Die Kerze vom <strong>17.07.</strong> (Open 841, Low 838, Close 880) zeigt eine lange untere Lunte – potenzielle kurzfristige Stabilisierung. Allerdings: Das Volumen (rel. Vol. 1,06x, also nicht überdurchschnittlich stark) und der Kontext (Intraday-Recovery ohne Follow-Through nach oben) werten dieses Signal ab. Ein Dead-Cat-Bounce in Richtung 910–930 ist möglich und wäre ideal als Short-Einstieg.</p>
+
+<h2>3. EMA-Analyse (Kompressions-Artefakt)</h2>
+<p>Die aktuelle EMA-Konstellation ist ungewöhnlich: <strong>EMA9 (921) liegt zwischen EMA21 (940) und EMA55 (910)</strong>. Dies ist ein Kompressions-Artefakt durch die Steilheit des Absturzes – der schnelle EMA9 hat bereits den langsamen EMA55 nach unten durchbrochen, während der mittlere EMA21 noch oberhalb notiert. Der gema_321-Verbund bei <strong>926</strong> liegt ~46 Punkte über dem Kurs – ein erhebliches bearishes Gap. Der Kurs handelt unter allen EMAs, was den Abwärtstrend strukturell bestätigt.</p>
+<p>Die EMAs selbst verlaufen alle fallend – es gibt kein bullishes Kreuzungssignal in Sicht. Für eine valide Trendumkehr müsste der EMA9 den EMA21 nach oben kreuzen und beide müssten drehen – das ist auf Sicht von 1–2 Wochen unrealistisch.</p>
+
+<h2>4. Trade-Setups (A/B/C)</h2>
+<p><strong>Setup A – Bevorzugter Short (Rücktest-Entry):</strong></p>
+<ul>
+<li>Einstieg: <strong>920,00 USD</strong> Stop-Sell-Limit bei Rücktest der EMA9/EMA55-Kompressionszone</li>
+<li>Stop: <strong>965,00 USD</strong> (über EMA21 + Swing-Hoch-Cluster)</li>
+<li>Ziel 1: <strong>860 USD</strong> (Puffer oberhalb April-Cluster) → CRV: 1,3:1</li>
+<li>Ziel 2: <strong>835 USD</strong> (April-Support 828–835) → CRV: 1,86:1</li>
+<li>Ziel 3: <strong>795 USD</strong> (April-Low-Cluster) → CRV: 2,78:1</li>
+</ul>
+<p><strong>Setup B – Aggressiver Short (aktuelles Niveau):</strong></p>
+<ul>
+<li>Einstieg: <strong>880,00 USD</strong> (aktueller Kurs, nach Dead-Cat-Bounce-Kerze)</li>
+<li>Stop: <strong>912,00 USD</strong> (über EMA55 + Puffer)</li>
+<li>Ziel: <strong>835 USD</strong> → CRV: 1,4:1 (suboptimal, nur für aktive Trader)</li>
+</ul>
+<p><strong>Setup C – Konservativ (Breakdown-Confirmation):</strong></p>
+<ul>
+<li>Einstieg: <strong>858,00 USD</strong> Stop-Sell unter dem April-Support-Cluster bei 860</li>
+<li>Stop: <strong>890,00 USD</strong></li>
+<li>Ziel: <strong>800 USD</strong> → CRV: 1,93:1</li>
+</ul>
+
+<h2>5. Stillhalter-Analyse (Schwerpunkt)</h2>
+<p><strong>Warum kein CSP:</strong> Ein Cash-Secured Put wäre in dieser Marktphase kontraproduktiv. Der Trend ist klar nach unten gerichtet, tragfähiger Support ist erst bei 828–835 USD (knapp 6% unter aktuellem Kurs), und eine Andienung zum Put-Strike würde eine Long-Position in einem intakten Downtrend bedeuten. Die Logik-Prüfung: Selbst ein CSP bei 800 USD (8,8% Puffer) hätte als Andienungszone keinen strukturellen Support darunter bis ~700 USD. Das Risiko/Reward-Verhältnis für Stillhalter auf der Put-Seite ist derzeit nicht vertretbar.</p>
+<p><strong>Naked Call (Schwerpunkt-Setup für Stillhalter):</strong></p>
+<p>Strike <strong>955 USD</strong> – Herleitung: Die Zone 940–960 USD ist technisch dreifach abgesichert als Widerstand: (1) ehemalige Juni-Supports bei 940–955, die nun als Widerstand fungieren, (2) der fallende EMA21 bei 940 und (3) das Swing-Hoch vom 08.07. bei 955. Ein Call-Strike bei 955 liegt damit <strong>klar oberhalb der Widerstandszone</strong> mit einem Puffer von 8,9% zum aktuellen Kurs.</p>
+<p><strong>Verfall 25.07.2026 (6 DTE):</strong> Der kurze Zeitraum begünstigt Theta-Decay und minimiert das Exposure. In 6 Tagen müsste CAT sich um ~75 USD (+8,5%) erholen UND alle fallenden EMAs sowie die Widerstandszone überwinden – in Kontext des aktuellen Momentums extrem unwahrscheinlich.</p>
+<p><strong>Andienungsszenario:</strong> Bei einem Call-Strike von 955 (Naked Call) bedeutet Andienung, dass 100 Aktien zu 955 USD geliefert werden müssten – Short-Aktien-Position zu 955 USD. Bei fallendem Trend wäre das zwar günstiger als der Markt, aber das Verlustrisiko nach oben ist theoretisch unbegrenzt. <strong>ACHTUNG: Naked Calls erfordern Margin-Freigabe beim Broker und sind nur für erfahrene Trader geeignet.</strong></p>
+<p><strong>Roll-Trigger:</strong> Sollte CAT den EMA21 bei 940 nach oben durchbrechen und auf Tagesschlusskurs-Basis über 940 schließen, wäre das der Auslöser zum Schließen oder Rollen des Short Calls auf einen höheren Strike (z.B. 980–985 USD, Verfall gleich oder kürzer). Ein Rollen innerhalb von 12 Tagen wäre dann zu prüfen, sofern ausreichend Prämie vereinnahmt werden kann.</p>
+<p><strong>In der Optionskette zu prüfen:</strong> Delta des 955er Calls sollte idealerweise unter 0,15 liegen; Prämie zu bewerten im Verhältnis zur Margin-Anforderung; Bid-Ask-Spread auf Liquidität prüfen (bei CAT als Mega-Cap normalerweise gut, aber nach dem Volatilitätsanstieg ggf. weiter); implizite Volatilität: nach dem starken Rückgang dürfte die IV erhöht sein – das begünstigt höhere Prämien beim Verkauf.</p>
+<p><strong>Kein Aktienbestand vorhanden</strong> (laut IBKR-Snapshot: 0 Aktien, keine offenen Optionen) – der Short Call ist daher ein Naked Call, kein Covered Call. Die Risikocharakteristik unterscheidet sich fundamental.</p>
+  </details>
+</section>
+
+<section class="analyse short">
+  <div class="kopf">
+    <span class="datum">08.07.2026</span>
+    <span class="badge short">SHORT</span>
+  </div>
+  <p class="fazit">CAT bricht nach dem Allzeithoch bei 1057 USD mit zunehmender Dynamik ein und zeigt ein klares kurzfristiges Topping-Muster mit fallenden EMAs und erhöhtem Verkaufsdruck.</p>
+  <img class="chart" src="img/CAT_20260708_115123.png" alt="Chart CAT">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>CAT bildete ein Allzeithoch am 25. Juni 2026 bei 1057,07 USD, gefolgt von einem massiven Volumentag am 26. Juni (rel. Vol. 4,69x) mit bearishem Shooting-Star/Bearish-Engulf-Charakter. Seitdem fiel der Kurs innerhalb von 8 Handelstagen von 1073 USD auf 940 USD (-12,4%). Die Trendstruktur dreht kurzfristig nach unten: niedrigere Hochs (1073 → 1041 → 991 → 950) und niedrigere Tiefs (1037 → 985 → 963 → 909). Wichtige Unterstützungsbereiche liegen bei 940–950 USD (aktuelles Schließen), 900–910 USD (EMA55-Zone) und 860–875 USD.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die letzte Kerze (07. Juli) ist ein langer roter Stab mit Open 946,50 und Close 940,12, Tagesrange von 909,53–950 USD – der Kurs schloss tief in der Range, was Verkaufsdruck zeigt. Davor (02. Juli) ein weiterer Abriss-Tag von 1001 auf 963 USD. Die letzten fünf Kerzen zeigen ein klares Bärenmuster ohne Erholungskerze und kein reversal-Signal bisher. rel. Volumen am 07. Juli: 1,23x – erhöhter Druck bestätigt den Abwärtstrend.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>EMA9 (981,75) > EMA21 (966,70) > EMA55 (907,09) – die Reihenfolge ist noch bullish, aber EMA9 und EMA21 biegen nach unten. Der Kurs (940,12) liegt bereits unter EMA9 und EMA21, beide werden als Widerstand wirken. gema_321 (964,29) ebenfalls über dem Kurs. Der EMA-Verbund kippt nach unten; ein bearishes EMA9/EMA21-Crossover droht innerhalb weniger Tage. Der Abstand zum EMA55 (~33 Punkte) signalisiert noch Spielraum nach unten bevor Stützung erreicht wird.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Short</td></tr>
+    <tr><td>Einstieg</td><td>955.00 (Stop-Sell-Limit bei Rücktest des EMA21 / Widerstand)</td></tr>
+    <tr><td>Stop</td><td>1005.00 (über letztem Swing-Hoch 07.07 + Puffer)</td></tr>
+    <tr><td>Ziel</td><td>900.00 (EMA55-Zone)</td></tr>
+    <tr><td>CRV</td><td>1.1 : 1 (primäres Ziel) / 2.1 : 1 (Ziel 2 bei 860)</td></tr>
+  </table>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 08.07.2026 anzeigen</summary>
+    <h1>CAT – Analyse 08. Juli 2026</h1><h2>1. Trendstruktur</h2><p>CAT befand sich von Februar bis Ende Juni 2026 in einem starken Aufwärtstrend: von einem Tief um 662 USD (09. März) bis zum Allzeithoch bei <strong>1073,46 USD</strong> am 30. Juni 2026 – ein Anstieg von über 62% in rund 3,5 Monaten. Die Trendwende zeichnete sich durch mehrere Faktoren ab:</p><ul><li><strong>25. Juni:</strong> Intraday-Hoch 1057,07 USD, Close 1057,01 – erster Warntag, aber noch bullish.</li><li><strong>26. Juni:</strong> Brutaler Selling-Tag mit rel. Volumen 4,69x (fast 14 Mio. Aktien gehandelt!), Open = Close bei 997,47 – klassischer Bearish-Engulf-/Shooting-Star-Kombo in Extremvolumen. Kurs verlor vom Tageshoch 1031,85 auf Close 997,47.</li><li><strong>30. Juni:</strong> Neues Hoch bei 1073,46 (lower close), dann sofortiger Reversal.</li><li><strong>01.–07. Juli:</strong> Folge von niedrigeren Hochs und niedrigeren Tiefs: 1041 → 1001 → 991 → 950 (Hochs), 985 → 963 → 963 → 909 (Tiefs). Trendbruch kurzfristig bestätigt.</li></ul><p>Wichtige Kursmarken: <strong>Widerstand</strong> 960–970 (EMA21/gema_321), 990–1005 (Swing-Hoch 06.07 + EMA9). <strong>Unterstützung</strong> 910–920 (Tages-Tief 07.07), 900–907 (EMA55), 860–875 (Juni-Unterstützungszone), 835 (April-Hoch / Früherer Widerstand).</p><h2>2. Candlestick-Formationen</h2><p>Die letzten 5 Kerzen ergeben folgendes Bild:</p><ul><li><strong>02.07.:</strong> Bearisher Stab, Open 1001, Close 963, rel. Vol. 1,16x – Durchbruch unter 1000er-Marke bestätigt.</li><li><strong>06.07.:</strong> Kleiner Erholungsversuch bis 991, Close 969, rel. Vol. nur 0,79x – schwache Gegenbewegung ohne Überzeugung.</li><li><strong>07.07.:</strong> Starker Selloff: Open 946, Low 909, Close 940, rel. Vol. 1,23x – der Kurs schloss nur leicht über dem Tages-Tief, was auf weitere Abwärtsdynamik hindeutet. Kein Doji, kein Hammer – kein Reversal-Signal erkennbar.</li></ul><p>Das Gesamtbild der letzten 8 Tage zeigt eine Distribution/Topping-Formation ohne Zeichen einer Bodenbildung. Für einen Long-Einstieg fehlt jede bullische Candlestick-Bestätigung.</p><h2>3. EMA-Lage</h2><p>Stand 07. Juli 2026:</p><ul><li><strong>EMA9:</strong> 981,75 – deutlich über Kurs (940), zeigt nach unten</li><li><strong>EMA21:</strong> 966,70 – über Kurs, zeigt ebenfalls leicht nach unten</li><li><strong>EMA55:</strong> 907,09 – noch unter Kurs, weiterhin steigend</li><li><strong>gema_321:</strong> 964,29 – über Kurs, kippt nach unten</li></ul><p>Der Kurs hat EMA9 und EMA21 von oben nach unten durchbrochen. Beide fungieren nun als dynamischer Widerstand. Ein <strong>Death Cross EMA9/EMA21</strong> droht innerhalb der nächsten 2–3 Handelstage, was ein weiteres bearisches Signal wäre. Der EMA55 bei ~907 USD stellt die nächste relevante Unterstützung dar. Sollte auch dieser brechen, ist der Weg bis 860 frei. Solange gema_321 (964) über dem Kurs liegt und fallend ist, bleibt der kurzfristige Bias bärisch.</p><h2>4. Trade-Setups</h2><p><strong>Setup A (bevorzugt) – Short bei Rücktest:</strong></p><ul><li>Einstieg: <strong>955 USD</strong> bei Rücktest der EMA21-Zone (966) oder des gema_321 (964) – Limit-Short bei Schwäche-Bestätigung</li><li>Stop: <strong>1005 USD</strong> (über dem letzten relevanten Swing-Hoch vom 06.07. + Puffer)</li><li>Ziel 1: <strong>907 USD</strong> (EMA55) → CRV: (955-907)/(1005-955) = 48/50 = <strong>0,96:1</strong></li><li>Ziel 2: <strong>860 USD</strong> → CRV: (955-860)/(1005-955) = 95/50 = <strong>1,9:1</strong></li><li>Ziel 3: <strong>835 USD</strong> (April-Widerstand als Unterstützung) → CRV: <strong>2,4:1</strong></li></ul><p><strong>Setup B – Aggressiver Short sofort:</strong></p><ul><li>Einstieg: <strong>940 USD</strong> (Marktpreis / Breakdown unter 940-Support)</li><li>Stop: <strong>975 USD</strong> (über gema_321)</li><li>Ziel 1: <strong>907 USD</strong> → CRV: 33/35 = <strong>0,94:1</strong> (zu eng)</li><li>Ziel 2: <strong>860 USD</strong> → CRV: 80/35 = <strong>2,3:1</strong></li></ul><p><strong>Setup C – Long-Setup (Kontra-Trend, riskant):</strong></p><ul><li>Nur bei bullischer Reversalkerze (Hammer, Morningstar) auf EMA55-Level ~907 einzugehen</li><li>Einstieg: ~912 USD, Stop: 888 USD, Ziel: 960 USD → CRV: ~2:1</li><li>Aktuell NICHT bevorzugt, da kein Reversal-Signal vorliegt</li></ul><p><strong>Fazit:</strong> Setup A als bevorzugtes Setup – warten auf Rücktest des Widerstandsbereichs 955–970 USD für einen besseren Einstieg mit günstigerem CRV. Das extreme Volumen vom 26. Juni (4,69x) und die anschließende Kursschwäche deuten auf eine signifikante Distribution hin. Der Markt braucht Zeit zur Bereinigung, bevor ein neuer nachhaltiger Aufwärtstrend starten kann.</p>
+  </details>
+</section>
+
+
+  <footer>Automatisch erstellt · <a href="index.html">Zur Übersicht</a> ·
+    Keine Anlageberatung</footer>
+</div>
+</body>
+</html>

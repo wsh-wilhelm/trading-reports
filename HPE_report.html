@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HPE – Analyse-Historie</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0d1319; --panel:#161e27; --line:#232e3a;
+    --text:#d9e1e8; --muted:#7e8b99; --accent:#e5a63c;
+    --long:#3ec08b; --short:#e2604f; --neutral:#8a96a3;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);
+       font:15px/1.6 "IBM Plex Sans",sans-serif;padding:32px 16px}
+  .wrap{max-width:860px;margin:0 auto}
+  header{display:flex;align-items:baseline;gap:14px;
+         border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:28px}
+  header h1{font:500 30px "IBM Plex Mono",monospace;margin:0;letter-spacing:1px}
+  header .sub{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:2px}
+
+  /* Eine Analyse = eine section; farbige Signalleiste links */
+  section.analyse{background:var(--panel);border:1px solid var(--line);
+                  border-left:4px solid var(--neutral);
+                  border-radius:6px;padding:22px 26px;margin-bottom:22px}
+  section.analyse.long{border-left-color:var(--long)}
+  section.analyse.short{border-left-color:var(--short)}
+
+  .kopf{display:flex;justify-content:space-between;align-items:center;
+        flex-wrap:wrap;gap:8px;margin-bottom:6px}
+  .datum{font:500 13px "IBM Plex Mono",monospace;color:var(--muted)}
+  .badge{font:500 12px "IBM Plex Mono",monospace;letter-spacing:2px;
+         padding:3px 10px;border-radius:3px;color:#0d1319}
+  .badge.long{background:var(--long)}
+  .badge.short{background:var(--short)}
+  .badge.neutral{background:var(--neutral)}
+
+  .fazit{font-size:16px;font-weight:600;margin:0 0 16px}
+  img.chart{width:100%;border:1px solid var(--line);border-radius:4px;margin:4px 0 12px}
+  h3{font:500 12px "IBM Plex Mono",monospace;color:var(--accent);
+     text-transform:uppercase;letter-spacing:2px;margin:18px 0 4px}
+  p{margin:6px 0;color:var(--text)}
+
+  /* Setup-Tabelle in Monospace, Zahlen buendig */
+  table.setup{width:100%;border-collapse:collapse;margin-top:8px;
+              font:14px "IBM Plex Mono",monospace}
+  table.setup td{padding:6px 10px;border-top:1px solid var(--line)}
+  table.setup td:first-child{color:var(--muted);width:120px}
+
+  /* Aufklappbarer Volltext in aelteren Analyse-Karten */
+  details.volltext{margin-top:16px;border-top:1px solid var(--line);padding-top:10px}
+  details.volltext summary{cursor:pointer;font:500 12px "IBM Plex Mono",monospace;
+                color:var(--muted);text-transform:uppercase;letter-spacing:2px}
+  details.volltext summary:hover{color:var(--accent)}
+  details.volltext h1,details.volltext h2{font-size:15px;color:var(--accent);margin:14px 0 6px}
+  details.volltext strong{color:#fff}
+
+  footer{color:var(--muted);font-size:12px;text-align:center;margin-top:32px}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>HPE</h1>
+    <span class="sub">Analyse-Historie · neueste zuerst</span>
+  </header>
+
+<!-- NEUE_ANALYSE_HIER -->
+<section class="analyse neutral">
+  <div class="kopf">
+    <span class="datum">23.07.2026 </span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <p class="fazit">HPE zeigt nach dem Bounce von 41 USD einen überraschend starken Aufwärtsimpuls mit zwei bullischen Tageskerzen und Kursanstieg auf 48,41 USD – der Short-Bias der Voranalysen wird zunehmend herausgefordert, solange der Kurs unter 50–51 USD bleibt jedoch kein Trendwechsel bestätigt.</p>
+  <img class="chart" src="img/HPE_20260723_121235.png" alt="Chart HPE">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>HPE befindet sich formal noch im übergeordneten Abwärtstrend vom parabolischen Top (~64 USD, 02.06.) mit einer Sequenz fallender Hochs (64,25 → 51,08 → 50,31 → 47,67) und fallender Tiefs (53,47 → 40,71). Der Bounce vom 02.07.-Tief bei 40,71 USD hat jedoch Fahrt aufgenommen: Das 09.07.-High bei 49,32 USD wurde zuletzt überboten – am 22.07. wurde ein Intraday-High von 49,68 USD markiert, der aktuelle Kurs liegt bei 48,41 USD. Entscheidend ist die Widerstandszone 50,00–51,08 USD: Solange diese nicht nachhaltig gebrochen wird, bleibt der übergeordnete Trend bärisch mit einem noch nicht bestätigten kurzfristigen Erholungsimpuls. Ein Close über 51,08 USD würde die Hochs-Tiefs-Struktur kippen und wäre ein echter Trendbruch-Signal.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die letzten drei Kerzen zeigen eine klare Momentum-Verschiebung: 21.07. bullische Marubozu-ähnliche Kerze (Close 46,72 USD, +4,8% vom Low), 22.07. starke Aufwärtskerze mit Intraday-High 49,68 USD und Close 48,13 USD – rel. Volumen 0,54 (unterdurchschnittlich!). Das schwache Volumen beim Anstieg ist ein erster Warnsignal für fehlende Kaufüberzeugung. Am 23.07. (IBKR-Kurs 48,41 USD) setzt sich der Anstieg moderat fort. Insgesamt: Drei bullische Kerzen in Folge, aber ohne Volumenbestätigung – kein hoher Conviction-Move.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Die EMA-Konstellation bleibt technisch bärisch: EMA9 (46,59) liegt unter EMA21 (46,14), der EMA55 (42,23) ist der nacheilende Anker. Die Reihenfolge EMA9 > EMA21 > EMA55 wäre eigentlich bullisch, aber der Kurs (48,41) liegt über EMA9 und EMA21 – ein kurzfristig positives Signal. Der gema_321 bei 45,71 zeigt den Verbund noch klar unter dem aktuellen Kurs. Kritisch: EMA9 und EMA21 liegen eng zusammen (46,59 / 46,14) – ein Kreuzungsversuch nach oben ist möglich, aber noch nicht vollzogen. Der EMA-Verbund fungiert aktuell als dynamische Unterstützung (~46,00–46,60 USD).</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Kein Trade</td></tr>
+    <tr><td>Einstieg</td><td>Kein direktionaler Trade empfohlen – Lage zwischen Support (EMA-Cluster ~46,00) und Widerstand (50,00–51,08 USD) ohne klares Momentum-Signal mit Volumenbestätigung</td></tr>
+    <tr><td>Stop</td><td>n/a</td></tr>
+    <tr><td>Ziel</td><td>n/a</td></tr>
+    <tr><td>CRV</td><td>n/a</td></tr>
+  </table>
+
+  <h3>5 · Stillhalter (max. 12 Tage)</h3>
+<p>Der Kurs hat sich dem Widerstandsbereich 50,00–51,08 USD angenähert (aktuell 48,41 USD, ~3,3% Abstand). Diese Zone bleibt die dominierende technische Mauer. Ein Covered Call oberhalb dieser Zone ist das einzige sauber herzuleitende Stillhalter-Geschäft. Ein Cash-Secured Put scheidet weiterhin aus: Der Bounce läuft noch und ein tragfähiger bestätigter Boden (zwei Tests desselben Levels) existiert nur bei 40,71–41,50 USD – ein CSP dort wäre zu weit vom Kurs entfernt für meaningful Prämien bei 12 Tagen Laufzeit. Kein Aktienbestand laut IBKR-Snapshot (0 Stück) – der CC bleibt ein Naked Call; Risikoprofil beachten.</p>
+<table class="setup"><tr><td>Geschäft</td><td>Covered Call</td></tr><tr><td>Strike</td><td>52.5</td></tr><tr><td>Puffer</td><td>8.5 %</td></tr><tr><td>Zone</td><td>Widerstandszone 50,00–51,08 USD (Hochs 10.07. bei 51,08, 14.07. bei 50,05, 15.07. bei 50,31 – dreifach bestätigt; Strike liegt oberhalb dieser Zone)</td></tr><tr><td>Verfall bis</td><td>2026-08-01 (9 Tage, nächster Standard-Freitag nach 23.07.)</td></tr><tr><td>Begründung</td><td>Der Strike 52,50 USD liegt ca. 1,40 USD über dem multiplen Widerstandsbereich 50,00–51,08 USD. Die Logik: Die Zone 50–51 USD hat dreifach als Deckel gehalten und ist der eigentliche technische Puffer vor dem Strike – der Strike selbst bietet zusätzlichen Abstand. Puffer zum aktuellen Kurs (48,41 USD): ~8,5%. Andienungsszenario: Eine Aktienabgabe bei 52,50 USD wäre aus technischer Sicht akzeptabel – es handelt sich um ein Niveau oberhalb aller relevanten Widerstandscluster. Da laut IBKR-Snapshot kein Aktienbestand (0 Stück) vorhanden ist, handelt es sich um einen Naked Call mit unbegrenztem Verlustpotenzial nach oben. In der Optionskette zu prüfen: Prämie bei 52,50er Strike (alternativ 50,00er für höhere Prämie, aber engerer Puffer direkt an der Zone), Verfall 01.08. (9 DTE) – Delta sollte im Bereich -0,10 bis -0,20 liegen; Liquidität (Spread, Open Interest) und IV-Niveau nach dem Bounce verifizieren.</td></tr></table>
+<p><strong>Bestand:</strong> Laut IBKR-Snapshot keine offenen Optionspositionen in HPE und kein Aktienbestand. Kein Roll oder Anpassung erforderlich. Der empfohlene CC bei 52,50 USD ist als Naked Call zu behandeln – Margin-Anforderungen und maximales Verlustpotenzial vor Ausführung sorgfältig prüfen.</p>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 23.07.2026 anzeigen</summary>
+    <h1>HPE – Technische Analyse &amp; Stillhalter-Report (23.07.2026)</h1>
+
+<h2>Abgleich mit den Voranalysen (08.07. / 16.07. / 19.07.)</h2>
+<p>Die Short-Empfehlungen der drei Voranalysen haben sich im Zeitraum 08.07.–17.07. grundsätzlich bestätigt: Der Kurs fiel von ~44–45 USD nicht weiter in die Ziele 40,00/37,50 USD durch, sondern konsolidierte zwischen 41,23 USD (Tief 02.07.) und 46 USD. Der entscheidende Unterschied zur Einschätzung vom 19.07.: HPE hat seitdem einen Bounce der anderen Art vollzogen. Zwei starke Aufwärtskerzen (21.07. und 22.07.) bringen den Kurs auf 48,41 USD und damit in unmittelbare Nähe der Widerstandszone 50,00–51,08 USD. <strong>Der Short-Bias der Voranalysen wird hiermit nicht verworfen, aber temporär in die NEUTRAL-Zone verschoben.</strong> Kein neues Short-Setup ohne frische Rejection an der 50-USD-Zone. Die Widerstandszone 50,00–51,08 USD aus den Voranalysen wird ausdrücklich bestätigt – sie bleibt die entscheidende Scheide.</p>
+
+<h2>1. Trendstruktur</h2>
+<p>Der übergeordnete Abwärtstrend vom 02.06.-Top (High 64,25 USD) ist intakt: Sequenz fallender Hochs <strong>64,25 → 51,08 (10.07.) → 50,31 (15.07.) → 47,67 (16.07.)</strong> und fallender Tiefs <strong>53,47 → 45,47 (15.07.) → 43,70 (16.07.) → 40,71 (02.07.)</strong>. Das Tief vom 02.07. bei 40,71 USD ist der bisherige Bounce-Pivot. Kurzfristig haben die letzten drei Kerzen (20.07.–22.07.) ein höheres Tief (44,47) und ein höheres Hoch (49,68 vs. 46,98 am 21.07.) geformt – eine Mini-Sequenz höherer Hochs/Tiefs, aber noch kein bestätigter Trendwechsel. Das nächste entscheidende Level: <strong>50,00–51,08 USD</strong> (fünffach getesteter Widerstand: 10.07. High 51,08, 14.07. High 50,05, 15.07. High/Open 50,31, 09.07. High 49,32, 22.07. High 49,68).</p>
+<ul>
+<li><strong>Support 1:</strong> EMA-Cluster 46,00–46,60 USD (EMA9/EMA21 konvergierend) – kurzfristig dynamisch</li>
+<li><strong>Support 2:</strong> 43,70–44,50 USD (Konsolidierungsbereich Juni/Juli, mehrfach gehalten)</li>
+<li><strong>Support 3 (Key):</strong> 40,71–41,50 USD – Bounce-Pivot, zweifach bestätigt (02.07. Tief 40,71, 06.07. Low 41,50)</li>
+<li><strong>Widerstand 1 (Key):</strong> 50,00–51,08 USD – mindestens fünffach getestet, kein nachhaltiger Close darüber</li>
+<li><strong>Widerstand 2:</strong> 53,47–55,99 USD (Konsolidierung 03.–05.06. nach dem Spike)</li>
+</ul>
+
+<h2>2. Candlestick-Formationen</h2>
+<p>Die relevante Kerzenkette der letzten fünf Tage:</p>
+<ul>
+<li><strong>17.07. (Do):</strong> Bullische Kerze (43,70–46,83, Close 45,82) – Erholung nach 16.07.-Selloff, rel. Volumen 0,54 (schwach)</li>
+<li><strong>20.07. (Mo):</strong> Bärische Inside-Bar (44,47–46,23, Close 44,56) – Konsolidierung, rel. Volumen 0,43 (sehr schwach – geringster Wert der Serie)</li>
+<li><strong>21.07. (Di):</strong> Starke Aufwärtskerze (45,59–46,99, Close 46,72), rel. Volumen 0,48 – erneut unterdurchschnittlich</li>
+<li><strong>22.07. (Mi):</strong> Momentum-Kerze (47,00–49,68, Close 48,13), rel. Volumen 0,54 – größte Range der Woche, aber Volumen bleibt unter Durchschnitt</li>
+<li><strong>23.07. (Do, laufend via IBKR):</strong> Kurs 48,41 USD (+0,58%) – Fortsetzung, kein Volumen-Signal verfügbar</li>
+</ul>
+<p><strong>Kritische Beobachtung:</strong> Der gesamte Aufwärtsimpuls der letzten drei Tage findet auf unterdurchschnittlichem Volumen statt (rel. Volumen 0,43–0,54). Das ist charakteristisch für einen schwach fundamentierten Bounce in einem übergeordneten Abwärtstrend. Kein Kaufpanik-Signal, kein institutionelles Akkumulationsvolumen erkennbar. Der Anstieg ist technisch eher als Covering-Rally oder dünner Markt zu interpretieren – bearish divergence zwischen Preis und Volumen.</p>
+
+<h2>3. EMA-Lage</h2>
+<p>Aktuelle EMA-Werte (22.07.-Close):</p>
+<ul>
+<li><strong>EMA9:</strong> 46,59 USD</li>
+<li><strong>EMA21:</strong> 46,14 USD</li>
+<li><strong>EMA55:</strong> 42,23 USD</li>
+<li><strong>gema_321:</strong> 45,71 USD</li>
+</ul>
+<p>Formell bullische EMA-Reihenfolge (EMA9 > EMA21 > EMA55) – ABER: Alle drei EMAs sind noch fallend oder flach, und der Abstand EMA9 zu EMA21 beträgt nur 0,45 USD. Die Kreuzung EMA9/EMA21 nach oben ist noch nicht vollzogen, aber in Sichtweite. Der Kurs (48,41 USD) liegt ca. 1,82 USD über EMA9 – ein leichtes Überschießen. Der gema_321 bei 45,71 USD fungiert als dynamische Unterstützung bei einem potenziellen Rücksetzer. <strong>Ein Close unter 46,00 USD würde den Kurs zurück in den EMA-Verbund drücken und das Bounce-Szenario schwächen.</strong> Der EMA55 bei 42,23 USD ist der langfristige Anker und läuft dem Kurs weit hinterher – kein Crossover-Signal in Sicht.</p>
+
+<h2>4. Trade-Setups (Alternative Szenarien)</h2>
+
+<p><strong>Setup A – Kein Trade (bevorzugt, NEUTRAL):</strong> Der Kurs befindet sich im Niemandsland zwischen EMA-Cluster (~46 USD) und Widerstand (50–51 USD). Das CRV für einen Long ist unattraktiv (Einstieg 48,41, Ziel 50, Stop 46,00 = CRV ~0,7:1). Ein Short ohne Rejection an 50–51 USD und ohne bärische Kerzenformation ist spekulativ. Daher: Abwarten.</p>
+
+<p><strong>Setup B – Short bei Rejection an 50–51 USD:</strong></p>
+<ul>
+<li>Einstieg: 49,50 Stop-Sell nach Rejection-Kerze (Bearish Engulfing oder Shooting Star) an 50,00–51,08 USD</li>
+<li>Stop: 51,50 (über Widerstandszone)</li>
+<li>Ziel 1: 46,00 USD (EMA-Cluster), CRV ~1,75:1</li>
+<li>Ziel 2: 43,70 USD, CRV ~2,9:1</li>
+<li>Ziel 3: 41,50 USD (Key-Support), CRV ~4,0:1</li>
+<li>Bedingung: Bärisches Kerzenmuster mit erhöhtem Volumen (rel. Volumen > 1,0) an der Zone erforderlich – Qualitätskriterium</li>
+</ul>
+
+<p><strong>Setup C – Long-Breakout über 51,08 USD (Trendbruch):</strong></p>
+<ul>
+<li>Einstieg: 51,50 Stop-Buy über Tages-Close > 51,08 USD mit Volumen</li>
+<li>Stop: 48,50 (unter letztem Swing-Low)</li>
+<li>Ziel 1: 53,47 USD (nächster Widerstand), CRV ~0,6:1 – unattraktiv</li>
+<li>Ziel 2: 55,99 USD, CRV ~1,5:1</li>
+<li>Bewertung: Erst bei nachhaltigem Close über 51,08 USD mit Volumenexplosion relevant – aktuell kein Primär-Setup</li>
+</ul>
+
+<h2>5. Stillhalter-Analyse (Schwerpunkt)</h2>
+
+<h3>Covered Call / Naked Call – Strike 52,50 USD, Verfall 01.08.2026</h3>
+<p><strong>Zonen-Herleitung:</strong> Die Widerstandszone 50,00–51,08 USD ist durch mindestens fünf Hochpunkt-Tests bestätigt (10.07. High 51,08, 14.07. High 50,05, 15.07. High 50,31, 09.07. High 49,32, 22.07. High 49,68 – letztere noch kein Close darüber). Ein Strike direkt bei 50,00 USD wäre möglich (wie in Voranalysen empfohlen), hat aber bei einem Kurs von 48,41 USD nur noch 3,3% Puffer – zu eng für ein 9-Tage-Geschäft mit vertretbarem Risiko bei einem Titel, der aktuell Aufwärtsmomentum zeigt. Der Strike 52,50 USD liegt ~1,40 USD über dem Widerstandscluster und bietet 8,5% Puffer zum aktuellen Kurs – die Zone selbst ist der technische Puffer vor dem Strike.</p>
+
+<p><strong>Verfallslogik:</strong> Nächster Standard-Freitag nach dem 23.07.2026 ist der <strong>01.08.2026 (9 DTE)</strong>, danach der 08.08.2026 (16 DTE, außerhalb des 12-Tage-Limits). 01.08. ist das einzig valide Verfallsdatum im Zeitfenster.</p>
+
+<p><strong>Andienungsszenario:</strong> Eine erzwungene Aktienabgabe bei 52,50 USD würde den Kurs voraussetzen, dass er die Zone 50,00–51,08 USD (mindestens fünffacher Widerstand) und anschließend noch weitere 1,40 USD zulegt. Aus technischer Sicht wäre das ein klarer Trendbruch – eine Abgabe bei 52,50 USD wäre dann fundamental akzeptabel (Distribution-Zone). Das Szenario ist kurzfristig unwahrscheinlich, aber nicht ausgeschlossen.</p>
+
+<p><strong>Naked-Call-Warnung (kritisch):</strong> Laut IBKR-Snapshot (23.07., 11:37 Uhr) sind 0 Aktien im Bestand. Der CC ist zwingend als <strong>Naked Call</strong> zu behandeln. Das Verlustpotenzial ist nach oben theoretisch unbegrenzt. Margin-Anforderungen sind erheblich höher als bei einem Covered Call. Diese Position ist nur für erfahrene Stillhalter mit ausreichender Margin-Puffer geeignet.</p>
+
+<p><strong>Roll-Trigger:</strong> Ein aktives Management ist erforderlich, wenn der Kurs die Zone 50,00 USD mit einem Close darüber bricht. In diesem Fall: Sofortiger Rückkauf des Calls und Neubewertung. Alternativ: Roll des 52,50er auf den 55,00er Strike (gleicher Verfall oder enger nächster Freitag), falls die Prämien-Differenz positiv ist.</p>
+
+<p><strong>Was in der Optionskette zu prüfen ist:</strong></p>
+<ul>
+<li>Prämie beim 52,50er Strike (01.08.): Zielgröße mindestens 0,15–0,25 USD (Mid). Bei zu geringer Prämie (unter 0,10 USD) auf 51,00er oder 50,00er Strike ausweichen und Puffer neu kalkulieren.</li>
+<li>Delta: Sollte im Bereich -0,10 bis -0,20 liegen (Delta ~ -0,15 bei 52,50er wäre ideal)</li>
+<li>Liquidität: Spread nicht breiter als 0,10–0,15 USD; Open Interest > 500 Kontrakte als Minimalkriterium</li>
+<li>IV-Niveau: Nach dem Bounce prüfen, ob IV gegenüber den Spike-Tagen deutlich gefallen ist – niedrige IV = magere Prämien, Geschäft ggf. nicht wirtschaftlich</li>
+</ul>
+
+<h3>Cash-Secured Put – Nicht empfohlen</h3>
+<p>Ein CSP scheitert an zwei Problemen: (1) Der nächste tragfähige Support bei 40,71–41,50 USD liegt ~14–15% unter dem aktuellen Kurs – bei 9 DTE wäre die Prämie bei einem Puffer dieser Größe minimal. (2) Die Zwischenzone 43,70–44,50 USD ist zwar als Unterstützung zu erkennen (mehrfach gehalten), aber noch nicht zweifach sauber als Boden bestätigt – ein CSP bei ~43,00 USD hätte keinen soliden technischen Puffer vor sich in einem Titel, der übergeordnet im Abwärtstrend ist. CSP bleibt auf null.</p>
+  </details>
+</section>
+
+<section class="analyse short">
+  <div class="kopf">
+    <span class="datum">19.07.2026 </span>
+    <span class="badge short">SHORT</span>
+  </div>
+  <p class="fazit">HPE bleibt im übergeordneten Abwärtstrend – der Bounce von ~41 USD ist ins Stocken geraten, EMAs drehen bärisch und der Kurs klebt unter multiplen Widerständen bei 46–50 USD.</p>
+  <img class="chart" src="img/HPE_20260719_130741.png" alt="Chart HPE">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>Der übergeordnete Trend ist klar bärisch: Nach dem parabolischen Spike auf 64,25 USD (02.06.) hat HPE eine Serie fallender Hochs gebildet – 64,25 → 51,08 → 50,31 → 47,67 USD. Die Tiefserie lautet: 48,54 (10.06.) → 45,47 (15.07.) → 43,70 (17.07.), zuletzt mit einem Boden bei 40,715 USD (02.07.). Der Rebound vom 40,715er-Tief ist mit dem Hoch vom 14.07. bei 50,045 USD vorerst abgeschlossen – seitdem zwei Kerzen mit fallenden Hochs. Wichtige Widerstände: <strong>46,00–47,00 USD</strong> (EMA9/EMA21-Cluster), <strong>50,00–51,08 USD</strong> (bestätigte Distributionszone). Kritischer Support: <strong>43,70–44,00 USD</strong> (17.07.-Tief / 29.06.-Close), darunter <strong>41,23–41,50 USD</strong> (02.07./06.07.-Tiefs). Die frühere Analyse vom 16.07. (Short-Bias, Scheitern an 50 USD) wird durch die aktuellen Daten bestätigt.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die letzte verfügbare Kerze (17.07.) ist ein Inside-Day mit Close bei 45,82 USD bei unterdurchschnittlichem Volumen (rel. Volumen 0,54 – nur 54% des 55-Tage-Schnitts). Das ist kein Stärkezeichen, sondern Konsolidierung ohne Käufer-Commitment. Davor am 16.07. eine bärische Kerze mit engem Body und Close bei 45,13 USD nach dem Zwei-Kerzen-Reversal vom 15.07. (Open 50,31, Close 47,39 – Bearish Engulfing-Charakter). Der IBKR-Snapshot zeigt aktuell 45,13 USD (0,0% Veränderung, Intraday 12:09 Uhr) – Kurs klebt genau auf dem 16.07.-Close, kein Momentum nach oben.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Bärische EMA-Konstellation: EMA9 (46,46) liegt unter EMA21 (46,00) – knapper Abstand, beide konvergieren nach unten. EMA55 (41,74) deutlich darunter, steigt aber noch leicht an (Nachlauf des Spike). Der gema_321 (45,52) liegt minimal über dem aktuellen Kurs (45,13), was bedeutet: Der gewichtete EMA-Verbund drückt bereits als Widerstand von oben. EMA9 und EMA21 liegen eng beieinander und BEIDE über dem Kurs – klassisches bärisches Setup: Kurs unter allen kurzfristigen Gleitenden Durchschnitten. Eine Kompression zwischen EMA9 (46,46) und EMA21 (46,00) ist zu beobachten; die Reihenfolge EMA9 < EMA21 ist ungewöhnlich und signalisiert Momentum-Verlust nach oben.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Short</td></tr>
+    <tr><td>Einstieg</td><td>45,82 (Stop-Sell unter 45,10 – Bruch des 16.07.-Closes / heutige Intraday-Unterstützung)</td></tr>
+    <tr><td>Stop</td><td>47,70 (über 16.07.-Hoch 47,67 und EMA-Cluster 46,00–46,46)</td></tr>
+    <tr><td>Ziel</td><td>43,70 / 41,50</td></tr>
+    <tr><td>CRV</td><td>2.2 : 1 (Ziel 1: 43,70)</td></tr>
+  </table>
+
+  <h3>5 · Stillhalter (max. 12 Tage)</h3>
+<p>Der Abwärtstrend und die bärische EMA-Lage begünstigen weiterhin Covered Calls oberhalb der Widerstandszone 47,50–51,08 USD. Ein Cash-Secured Put scheidet auch aktuell aus: Der Kurs befindet sich zwischen zwei Supports (43,70 und 41,23 USD) ohne bestätigten Boden – ein Put-Verkauf hätte keinen technisch tragfähigen Puffer vor dem nächsten Abwärtsschub. Kein Aktienbestand laut IBKR-Snapshot (0 Stück) – der CC wäre technisch ein Naked Call; Risikoprofil beachten.</p>
+<table class="setup"><tr><td>Geschäft</td><td>Covered Call</td></tr><tr><td>Strike</td><td>50.0</td></tr><tr><td>Puffer</td><td>10.8 %</td></tr><tr><td>Zone</td><td>Widerstandszone 50,00–51,08 USD (Hochs 10.07., 14.07., 15.07. – dreifach bestätigt)</td></tr><tr><td>Verfall bis</td><td>2026-07-25 (6 Tage, nächster Standard-Freitag)</td></tr><tr><td>Begründung</td><td>Die Zone 50,00–51,08 USD ist die meistbestätigte Widerstandszone im Chart: High 10.07. bei 51,08, High 14.07. bei 50,045, Open/High 15.07. bei 50,31 – dreifacher Rejection. Ein Strike bei 50,00 USD bietet bei einem aktuellen Kurs von 45,13 USD einen Puffer von ca. 10,8%. Der gesamte Widerstandsbereich liegt zwischen Strike und aktuellem Kurs – technisch sauber. Andienungsszenario: Eine Abgabe bei 50,00 USD wäre aus Sicht der Marktstruktur sehr akzeptabel (Distribution-Zone). Da laut IBKR-Snapshot kein Aktienbestand vorhanden ist (0 Stück), handelt es sich um einen Naked Call – das Verlustpotenzial ist nach oben unbegrenzt. Bitte das erhöhte Margin-Erfordernis und das Risikoprofil sorgfältig prüfen. In der Optionskette zu prüfen: Prämie bei 50,00er Strike, Verfall 25.07. (6 DTE) – Delta sollte im Bereich -0,10 bis -0,20 liegen; Liquidität (Spread, Open Interest) verifizieren.</td></tr></table>
+<p><strong>Bestand:</strong> Laut IBKR-Snapshot keine offenen Optionspositionen in HPE und kein Aktienbestand. Kein Roll oder Anpassung erforderlich. Der empfohlene CC ist als Naked Call zu behandeln.</p>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 19.07.2026 anzeigen</summary>
+    <h1>HPE – Technische Analyse &amp; Stillhalter-Setup | 19.07.2026</h1>
+
+<h2>1. Trendstruktur &amp; Historischer Abgleich</h2>
+<p>Die frühere Analyse vom 08.07.2026 (Short-Bias, Ziel 40,00/37,50) und die Analyse vom 16.07.2026 (Scheitern an 50 USD, Two-Bar-Reversal) werden durch die aktuellen Daten <strong>vollständig bestätigt</strong>. HPE hat seit dem parabolischen Spike auf 64,25 USD (02.06.) eine Abfolge fallender Hochs gebildet:</p>
+<ul>
+  <li>Hoch 64,25 (02.06.) → 51,08 (10.07.) → 50,31 (15.07., Open = High) → 47,67 (16.07.)</li>
+  <li>Tiefserie: 45,47 (15.07.) → 43,70 (17.07., Intratag-Tief) mit dem Boden bei 40,715 USD (02.07.)</li>
+</ul>
+<p>Der Rebound vom 40,715er-Boden hat die Widerstandszone 50,00–51,08 USD dreifach getestet und <strong>dreifach abgeprallt</strong> – dies ist nun eine <strong>bestätigte Distributionszone</strong>. Der kurzfristige Aufwärtsimpuls vom 02.07. bis 14.07. ist damit erschöpft. Die Serie fallender Hochs und Tiefs definiert einen intakten, primären Abwärtstrend.</p>
+
+<h2>2. Candlestick-Formationen</h2>
+<p><strong>15.07.</strong>: Bearish Reversal – Open = High (50,31), Close 47,39 – ein klassischer Reversal-Tag mit fast 3 USD Range, der die Widerstandszone erneut etabliert hat.</p>
+<p><strong>16.07.</strong>: Bärische Folgekerze, Close 45,13 auf Tagesbasis, Volumen bei rel. 0,99 (knapp am Schnitt) – kein Panikverkauf, aber klare Richtungsbestätigung.</p>
+<p><strong>17.07. (letzte Kerze)</strong>: Inside-Day, Range 43,70–46,825, Close 45,82. Rel. Volumen nur 0,54 – <strong>niedrigstes relatives Volumen seit Wochen</strong>. Das signalisiert Konsolidierung ohne Entscheidungsimpuls, kein Boden-Reversal-Signal. Auffällig: Der Close liegt über dem Open (44,40), aber das ist ein bullisches Kerzenmuster in einem übergeordneten Downtrend ohne Volumen – kein Edge.</p>
+<p>Der IBKR-Intraday-Kurs von 45,13 USD (12:09 Uhr, 19.07.) liegt exakt auf dem 16.07.-Close – Kurs zeigt keine Impulsstärke nach oben.</p>
+
+<h2>3. EMA-Lage &amp; gema_321-Verlauf</h2>
+<p>Bemerkenswert ist die EMA-Reihenfolge vom 17.07.:</p>
+<ul>
+  <li>EMA9: 46,46 – <em>über</em> EMA21: 46,00 (ungewöhnliche Reihenfolge in einem Downtrend)</li>
+  <li>EMA21: 46,00 – beide liegen über dem Kurs</li>
+  <li>EMA55: 41,74 – darunter, steigt noch (Nachlauf-Effekt des Spike)</li>
+  <li>gema_321: 45,52 – minimal über dem aktuellen Kurs (45,13)</li>
+</ul>
+<p>Die Tatsache, dass EMA9 über EMA21 liegt, obwohl der Kurs unter beiden notiert, ist ein <strong>Kompressions-Artefakt</strong>: Der kurzfristige EMA wurde durch den Bounce bis 50 USD noch oben gezogen und normalisiert sich jetzt mit Zeitverzug. Dies ist <strong>kein bullisches Signal</strong> – es ist ein nachlaufendes Phänomen. Entscheidend: Kurs unter EMA9, EMA21 <em>und</em> gema_321. Der gewichtete Verbund drückt von oben.</p>
+
+<h2>4. Trade-Setups (A/B/C)</h2>
+
+<p><strong>Setup A – Bevorzugt: Break-Down Short</strong></p>
+<ul>
+  <li>Einstieg: Stop-Sell unter 45,10 USD (Bruch des IBKR-Intraday-Levels / 16.07.-Close)</li>
+  <li>Stop: 47,70 USD (über 16.07.-Hoch 47,67 und EMA-Cluster)</li>
+  <li>Ziel 1: 43,70 USD (17.07.-Tief / 29.06.-Bereich) → CRV ca. 1,5 : 1</li>
+  <li>Ziel 2: 41,50 USD (02.07./06.07.-Tiefs – Cluster) → CRV ca. 3,2 : 1</li>
+  <li>Ziel 3: 38,50 USD (aus der 16.07.-Analyse, strukturelles Ziel) → CRV ca. 5,5 : 1</li>
+</ul>
+
+<p><strong>Setup B – Alternativ: Bounce-Short an EMA-Widerstand</strong></p>
+<ul>
+  <li>Einstieg: Limit Short bei 46,00–46,50 USD (EMA21 / EMA9 Zone) bei Rücklauf ohne Volumen</li>
+  <li>Stop: 47,70 USD</li>
+  <li>Ziel 1: 43,70 / Ziel 2: 41,50 USD → CRV 1,9 : 1 / 3,8 : 1</li>
+  <li>Bedingung: Kein Tagesschluss über 47,00 USD</li>
+</ul>
+
+<p><strong>Setup C – Bull Case (Invalidierung)</strong></p>
+<ul>
+  <li>Tagesschluss über 47,70 USD würde den Short-Bias vorübergehend neutralisieren</li>
+  <li>Erst ein Schlusskurs über 51,08 USD würde den übergeordneten Abwärtstrend infrage stellen</li>
+</ul>
+
+<h2>5. Stillhalter-Setup (Schwerpunkt): Naked Call auf Widerstandszone</h2>
+
+<p><strong>Instrumente:</strong> Aufgrund von 0 Aktienbestand (IBKR-Snapshot bestätigt: keine Position) ist jeder Short Call ein <strong>Naked Call</strong> – bitte Margin-Anforderungen und unbegrenztes Verlustpotenzial bei Kursanstieg beachten. Eine Alternative wäre, erst eine Long-Aktienposition aufzubauen (Covered Call).</p>
+
+<p><strong>Call-Strike 50,00 USD, Verfall 25.07.2026 (6 DTE):</strong></p>
+<ul>
+  <li><strong>Zonen-Herleitung:</strong> 50,00–51,08 USD ist die stärkste Widerstandszone im Chart, dreifach bestätigt (10.07. High 51,08 / 14.07. High 50,045 / 15.07. Open-High 50,31). Jeder Versuch, diese Zone zu überwinden, wurde mit starkem Selling beantwortet. Die Zone fungiert als Distribution-Level.</li>
+  <li><strong>Puffer:</strong> Von aktuellem Kurs 45,13 USD bis Strike 50,00 USD sind es 10,8% – komfortabler Abstand bei 6 DTE.</li>
+  <li><strong>Andienungs-Szenario:</strong> Bei Assignment würde die Verpflichtung entstehen, Aktien zu 50,00 USD zu liefern (Short Call). Da kein Aktienbestand vorhanden, bedeutet dies einen Leerverkauf zu 50,00 USD – was strukturell an der Distributionszone akzeptabel wäre, aber das Risikoprofil eines Naked Calls trägt. Dies ist nur für erfahrene Stillhalter mit entsprechendem Margin-Budget geeignet.</li>
+  <li><strong>Roll-Trigger:</strong> Schlusskurs über 47,67 USD (16.07.-Hoch) → Engere Beobachtung. Schlusskurs über 50,00 USD → sofort schließen oder auf 55,00 USD / nächsten Verfallstermin rollen (bull-case wäre strukturell verändert). Bei Delta über -0,30 (zu prüfen in der Kette) → proaktives Schließen erwägen.</li>
+  <li><strong>Was in der Optionskette zu prüfen ist:</strong> Prämie bei 50,00er Call, Verfall 25.07. (6 DTE) – Ziel-Delta ca. -0,10 bis -0,15. Spread und Open Interest prüfen (Liquidität). Bei zu geringer Prämie (unter 0,15 USD) ist das Geschäft nicht sinnvoll. Als Alternative ggf. 48,00er Call mit engerem Puffer (6,3%) und mutmaßlich höherer Prämie prüfen – dann aber Widerstand bei 47,67 nur knapp darunter, Puffer wäre grenzwertig.</li>
+</ul>
+
+<p><strong>CSP – Begründung für Ablehnung:</strong> Zwischen aktuellem Kurs (45,13 USD) und dem nächsten tragfähigen Support (43,70 USD, einfach getestet am 17.07.) sind es nur 3,2%. Darunter folgen 41,23–41,50 USD (02./06.07.-Tiefs – zweifach bestätigt, damit bedingt tragfähig). Ein CSP-Strike bei 41,00 USD hätte nur 9,2% Puffer und würde den Aktionär in einem primären Abwärtstrend ohne Bodenbestätigung an Aktien binden. Kein valides Setup – CSP bleibt auf null.</p>
+
+<p><strong>Abgleich mit früheren Analysen:</strong> Die CC-Empfehlung vom 16.07. (Strike 50,00, Verfall 25.07.) wird für einen neuen Einstieg bestätigt. Falls die CC-Position vom 16.07. noch offen wäre (laut IBKR-Snapshot aber nicht der Fall – keine offenen Optionen), wäre sie bei aktuellem Kurs 45,13 USD deutlich im Profit und könnte bei 6 verbleibenden DTE gehalten oder vorzeitig mit Gewinn geschlossen werden.</p>
+  </details>
+</section>
+
+<section class="analyse short">
+  <div class="kopf">
+    <span class="datum">16.07.2026 </span>
+    <span class="badge short">SHORT</span>
+  </div>
+  <p class="fazit">HPE scheitert erneut an der 50-USD-Marke und dreht mit zwei bärischen Tageskerzen ab – der kurzfristige Aufwärtsimpuls ist gebrochen, Bias bleibt Short.</p>
+  <img class="chart" src="img/HPE_20260716_201042.png" alt="Chart HPE">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>HPE befindet sich im übergeordneten Abwärtstrend seit dem parabolischen Spike auf ~64 USD (02.06.2026). Die Struktur zeigt fallende Hochs: 64.25 → 51.08 → 50.31 – ein klassisches Lower-High-Muster. Der jüngste Erholungsversuch (07.07.–14.07.) scheiterte bei 50.31/50.045 (14.07.) und 47.67 (16.07.). Das Tief vom 02.07. bei 40.72 ist der nächste relevante Anker nach unten. Der Kurs handelt aktuell bei 44.91 USD und hat damit den gesamten kurzfristigen Erholungsimpuls seit dem 06.07.-Tief (41.50) bereits zur Hälfte wieder abgegeben.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Der 15.07. formte eine Shooting Star / Bearish Spinning Top (Open 50.31, High 50.31, Low 45.47, Close 47.39) mit einem langen Oberschatten – klassisches Umkehrsignal an Widerstand. Der Folgetag 16.07. bestätigt mit einer roten Kerze (Open 47.25, High 47.67, Low 44.745, Close 44.91) und einem erneuten Tageshoch unterhalb des Vortagsschlusses – Bearish Continuation. Zusammen bilden beide Kerzen ein bärisches Two-Bar-Reversal an der 50-USD-Zone.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>EMA9 (46.58) dreht nach unten und der Schlusskurs 44.91 unterschreitet heute erstmals den gema_321-Verbund (45.55) – ein frisches bärisches Kreuzungssignal. EMA21 (45.99) fungiert nun als nächster dynamischer Widerstand von oben. Die EMA-Reihenfolge EMA9 > EMA21 >> EMA55 ist ein Kompressions-Artefakt des parabolischen Spikes und kein valides Bullen-Signal.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Short</td></tr>
+    <tr><td>Einstieg</td><td>45.50 (Stop-Sell unter heutigem Close oder Limit bei Bounce an EMA21 ~46.00)</td></tr>
+    <tr><td>Stop</td><td>50.50 (über Widerstandszone 50.00–50.31)</td></tr>
+    <tr><td>Ziel</td><td>41.50 / 38.50</td></tr>
+    <tr><td>CRV</td><td>2.3 : 1 (Ziel 1: 41.50)</td></tr>
+  </table>
+
+  <h3>5 · Stillhalter (max. 12 Tage)</h3>
+<p>Im laufenden Abwärtstrend mit bärischem Two-Bar-Reversal an der 50er-Marke bieten sich Covered Calls oberhalb des Widerstands an. Ein Cash-Secured Put ist trotz des vorhandenen Supports bei ~40.50–41.50 derzeit nicht empfehlenswert, da der Kurs frisch nach unten gebrochen ist und kein tragfähiger kurzfristiger Boden bestätigt wurde – CSP auf null gesetzt.</p>
+<table class="setup"><tr><td>Geschäft</td><td>Covered Call</td></tr><tr><td>Strike</td><td>50.0</td></tr><tr><td>Puffer</td><td>11.3 %</td></tr><tr><td>Zone</td><td>Widerstandszone 50.00–51.08 (Highs 10.07. und 15.07.)</td></tr><tr><td>Verfall bis</td><td>2026-07-25 (9 Tage, nächster Standard-Freitag nach 16.07.)</td></tr><tr><td>Begründung</td><td>Die Zone 50.00–51.08 hat dreifach als Widerstand gehalten (10.07. High 51.08, 14.07. High 50.045, 15.07. High 50.31). Ein Strike bei 50.00 liegt unmittelbar an dieser multiplen Widerstandszone – der Puffer zum aktuellen Kurs (44.91) beträgt ca. 11.3%. Der Call hat den gesamten Widerstandsbereich vor sich. Andienungsszenario: Eine Aktienabgabe bei 50.00 wäre aus technischer Sicht akzeptabel, da es sich um eine bestätigte Distribution-Zone handelt. Prüfe in der Optionskette: Ist die Prämie bei 50er Strike mit ~9 Tagen Laufzeit noch meaningful (mind. 0.20–0.30 USD)? Bei stark gefallener IV nach dem Spike könnte die Prämie mager sein – dann ggf. auf 48.00er Strike mit engerem Puffer ausweichen.</td></tr></table>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 16.07.2026 anzeigen</summary>
+    <h1>HPE – Technische Analyse & Stillhalter-Setup | 16.07.2026</h1>
+
+<h2>1. Trendstruktur & Abgleich mit Voranalyse (08.07.2026)</h2>
+<p>Die Voranalyse vom 08.07. mit Empfehlung SHORT und Zielen bei 40.00/37.50 war zum Zeitpunkt der Erstellung korrekt positioniert – der Kurs befand sich bei ~43–44 USD in einem Abwärtstrend. Seitdem folgte jedoch eine markante Gegenreaktion: HPE stieg von 41.50 (Tief 06.07.) auf 51.08 (High 10.07.), ein Anstieg von ~23% in vier Handelstagen. Dieses Ausmaß der Bounce-Bewegung verwirft die damalige Einschätzung als direkten Abwärtstrend-Continuation – der Markt zeigte kurzfristig relative Stärke.</p>
+<p>Entscheidend ist: Das kurzfristige High bei 51.08 (10.07.) hat das vorherige Lower-High (54.47 vom 04.06.) nicht überwunden. Die übergeordnete Abwärtsstruktur ist damit intakt. Heute, am 16.07., bestätigt der Kurs mit Close bei 44.91 USD das erneute Scheitern an der 50er-Zone – das Lower-High-Muster wird fortgeschrieben: 64.25 (02.06.) → 51.08 (10.07.) → maximal 50.31 (15.07.).</p>
+<p><strong>Unbestätigter Bereich:</strong> Die Zone 40.50–41.50 wurde bisher nur einmal als Support getestet (Tief 02.07.: 40.715, Tief 06.07.: 41.50). Das ist kein bestätigter Support, sondern ein unbestätigter Bereich – relevant, aber nicht zuverlässig.</p>
+
+<h2>2. Candlestick-Formationen</h2>
+<p>Das bärische Signal verdichtet sich durch zwei Kerzen:</p>
+<ul>
+<li><strong>15.07. – Shooting Star/Gravestone-Variante:</strong> Open = High = 50.31, Close 47.39, Low 45.47. Der lange Oberschatten (Länge ~2.92 USD) bei Null-Unterschatten ist ein klassisches Erschöpfungssignal an Widerstand. Volumen: 19.9 Mio. (rel. 0.73 – unterdurchschnittlich), was bedeutet: Der Anstieg auf 50.31 war nicht von Conviction-Volumen getragen.</li>
+<li><strong>16.07. – Bearish Continuation:</strong> Open 47.25, High 47.67 (deutlich unter Vortagesclose 47.39 – Gap-ähnlich bärisch), Close 44.91. Volumen nur 12.36 Mio. (rel. 0.45 – sehr niedrig). Niedrigstes Volumen seit Wochen. Das gedämpfte Volumen auf dem Weg nach unten könnte kurzfristig eine kleine Gegenbewegung zulassen, ändert aber nichts am bärischen Bias.</li>
+</ul>
+
+<h2>3. EMA-Analyse & Konfluenz</h2>
+<p>EMA9: 46.58 | EMA21: 45.99 | EMA55: 41.58 | gema_321: 45.55</p>
+<p>Der heutige Schlusskurs (44.91) liegt erstmals seit der Erholungsbewegung <strong>unterhalb des gema_321-Verbunds (45.55)</strong> – ein frisches, klar bärisches Signal. EMA9 (46.58) und EMA21 (45.99) liegen beide über dem Kurs und bilden eine dynamische Widerstandszone bei 45.99–46.58 USD. Jeder Bounce in diesen Bereich ist als potenzielle Short-Einstiegsmöglichkeit zu werten.</p>
+<p><strong>Kompressions-Artefakt:</strong> Die scheinbar bullische Reihenfolge EMA9 > EMA21 > EMA55 ist das Überbleibsel des parabolischen Spikes bis 64 USD, der alle EMAs weit unter den damaligen Kurs katapultiert hat. EMA55 bei 41.58 reflektiert noch immer das Niveau der März/April-Basis und ist kein valides Bullen-Signal. Relevant ist das Drehen des EMA9 nach unten seit 15.07.</p>
+
+<h2>4. Trade-Setups (Alternative Szenarien)</h2>
+<p><strong>Setup A – Bevorzugt (Short auf Bounce):</strong> Einstieg per Limit bei 45.50–46.00 (EMA21-Bereich), Stop 50.50 (klar über Widerstandszone 50.00–51.08), Ziel 1: 41.50 (unbestätigter Support), Ziel 2: 38.50 (nächste Unterstützungszone). CRV Ziel 1: (46.00–41.50)/(50.50–46.00) = 4.50/4.50 = 1.0:1 – zu eng. CRV Ziel 2: (46.00–38.50)/(50.50–46.00) = 7.50/4.50 = <strong>1.67:1</strong>. Akzeptabel bei hoher technischer Überzeugung.</p>
+<p><strong>Setup B – Aggressiv (direkter Short jetzt):</strong> Einstieg bei Marktpreis ~44.91, Stop 47.80 (über heutiges High + Puffer), Ziel 1: 41.50. CRV: (44.91–41.50)/(47.80–44.91) = 3.41/2.89 = <strong>1.18:1</strong> – zu eng für isolierten Entry. Nur geeignet, wenn man bereits short positioniert ist und nachzieht.</p>
+<p><strong>Setup C – Abwarten:</strong> Warten auf Test und Scheitern an 45.99–46.58 (EMA21/EMA9-Cluster) mit bärischer Bestätigungskerze. Gibt höhere Conviction und besseres CRV. Empfehlung: Setup A bevorzugen.</p>
+
+<h2>5. Stillhalter-Setups (Schwerpunkt)</h2>
+<h3>Covered Call – Strike 50.00 USD | Verfall 25.07.2026 (9 Tage)</h3>
+<p><strong>Zonen-Herleitung:</strong> Die Zone 50.00–51.08 USD hat sich in drei unabhängigen Tests als Widerstand bewährt: High 10.07. bei 51.08, High 14.07. bei 50.045, High 15.07. bei 50.31. Drei Tests in sechs Handelstagen machen diese Zone zu einer <strong>bestätigten Widerstandszone</strong>. Ein Strike bei exakt 50.00 USD platziert den gesamten Widerstandsblock als Puffer vor dem Strike.</p>
+<p><strong>Puffer zum aktuellen Kurs:</strong> (50.00 – 44.91) / 44.91 = <strong>11.3%</strong>. Das ist ein großzügiger Puffer für eine 9-tägige Laufzeit, der dem Kurs erheblichen Spielraum lässt, ohne in die Gefahr einer Andienung zu kommen.</p>
+<p><strong>Andienungsszenario:</strong> Sollte HPE wider Erwarten auf 50.00 steigen und die Aktie per Covered Call abgerufen werden, ist das aus technischer Sicht <strong>akzeptabel bis wünschenswert</strong> – die Zone ist Distribution-Gebiet. Ein Rückkauf würde bei erneutem Unterschreiten von 47.00 in Erwägung gezogen (Trailing-Stop-Logik).</p>
+<p><strong>Roll-Trigger:</strong> Sollte HPE die 48.00-USD-Marke per Tagesschluss überwinden, den EMA9 (aktuell 46.58, aber fallend) nachhaltig zurückerobern und dabei über-durchschnittliches Volumen zeigen (rel. Volumen > 1.5), ist das CC auf 50.00 zu rollen – entweder auf höheren Strike (52.50) oder auf längere Laufzeit. Kein Roll bei unter-durchschnittlichem Volumen auf dem Weg nach oben.</p>
+<p><strong>Was in der Optionskette zu prüfen ist:</strong></p>
+<ul>
+<li>Prämie beim 50er Call: Nach dem IV-Spike durch das M&A-Event (Juni 2026) könnte die implizite Volatilität noch erhöht sein – prüfe, ob Prämie mind. 0.30–0.50 USD erzielbar ist.</li>
+<li>Bid-Ask-Spread: HPE ist ein Large-Cap, sollte liquide sein. Bei Spread > 0.20 USD Limit-Order in die Mitte.</li>
+<li>Open Interest: Bevorzuge Strikes mit OI > 500 Kontrakte für reibungslosen Exit.</li>
+</ul>
+<h3>Cash-Secured Put – Nicht empfohlen (null)</h3>
+<p>Der unbestätigte Support bei 40.50–41.50 USD bietet keine ausreichende Grundlage für einen CSP. Der Kurs hat die EMA21/EMA9-Cluster heute per Tagesschluss unterschritten und zeigt frische Verkaufsdynamik. Ein CSP auf diesem Niveau hätte den Strike innerhalb der potenziellen Bewegungszone – das ist unvereinbar mit dem Prinzip, die Zone als Puffer <em>vor</em> dem Strike zu haben. Erst bei einer Stabilisierung mit mehreren bestätigten Closes oberhalb von 46.00 USD und einem erneuten Test des 41.50er Bereichs mit bullischer Umkehrkerze wäre ein CSP bei ~39.00–40.00 USD wieder diskutierbar.
+  </details>
+</section>
+
+<section class="analyse short">
+  <div class="kopf">
+    <span class="datum">08.07.2026</span>
+    <span class="badge short">SHORT</span>
+  </div>
+  <p class="fazit">HPE befindet sich nach einem parabolischen Spike (bis ~64 USD) in einem klaren Abwärtstrend mit bärischer EMA-Konstellation und scheitert wiederholt an fallenden EMAs.</p>
+  <img class="chart" src="img/HPE_20260708_121144.png" alt="Chart HPE">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>Nach dem explosiven Anstieg auf ~64 USD (02.06.) hat HPE einen stabilen Abwärtstrend etabliert: fallende Hochs (64→50→50,45→48,92) und fallende Tiefs (53,47→44,74→42,43→40,715). Das aktuelle Kursniveau bei ~43,47 liegt weit unterhalb des Spike-Hochs und testet die Zone 43–44 USD, die zuletzt als Unterstützung/Widerstand fungiert.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die letzten Kerzen (02.07.–07.07.) zeigen eine Erholungsbewegung von 41,23 auf 43,47, jedoch mit überwiegend kleinen Körpern und Doji-Charakter – kein bullisches Momentum. Der Rückprall erscheint technisch als Dead-Cat-Bounce in den Widerstandsbereich 43,50–44,50 (EMA9/EMA21 von oben drückend).</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Die EMA-Konstellation ist klar bärisch: EMA9 (44,33) > EMA21 (44,75) – hier liegt EMA21 leicht über EMA9, was Schwäche zeigt – beide drücken von oben auf den Kurs (~43,47). Der GEMA_321 (43,73) liegt ebenfalls über dem Kurs. EMA55 (39,91) ist der einzige EMA unterhalb des Kurses, bietet aber keinen Aufwärtstrend-Kontext. Der Kurs kämpft von unten gegen den fallenden EMA-Verbund.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Short</td></tr>
+    <tr><td>Einstieg</td><td>43.50 (Limit oder Stop-Sell unter 43.00 nach Bestätigung)</td></tr>
+    <tr><td>Stop</td><td>45.50 (über EMA21 und jüngsten Widerstand)</td></tr>
+    <tr><td>Ziel</td><td>40.00 / 37.50</td></tr>
+    <tr><td>CRV</td><td>2.5 : 1</td></tr>
+  </table>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 08.07.2026 anzeigen</summary>
+    <h1>HPE – Detailanalyse (08.07.2026)</h1><h2>1. Trendstruktur</h2><p>HPE erlebte einen außergewöhnlichen parabolischen Anstieg: Von ~22 USD (Anfang März) auf ein Intraday-Hoch von <strong>64,25 USD am 02.06.2026</strong> – getrieben von massivem Volumen (rel_volumen: 6,78x am 02.06.). Seitdem befindet sich die Aktie in einem klaren <strong>Abwärtstrend</strong> mit folgender Struktur:</p><ul><li><strong>Fallende Hochs:</strong> 64,25 (02.06.) → 55,99 (03.06.) → 53,05 (05.06.) → 50,87 (08.06.) → 50,45 (17.06.) → 49,72 (23.06.) → 45,37 (26.06.) → 44,28 (07.07.)</li><li><strong>Fallende Tiefs:</strong> 53,47 (02.06.) → 48,54 (05.06.) → 44,74 (11.06.) → 43,13 (26.06.) → 42,43 (29.06.) → 40,715 (06.07.)</li></ul><p>Wichtige Widerstandszonen: <strong>44,00–45,50 USD</strong> (EMA-Cluster, mehrfach geprüfte Zone), <strong>47,50–49,00 USD</strong> (früherer Support-Bereich Juni). Unterstützungen: <strong>40,70 USD</strong> (jüngstes Tief 06.07.), darunter <strong>38–39 USD</strong> (EMA55-Bereich).</p><h2>2. Candlestick-Formationen</h2><p>Nach dem Tief bei 40,715 (06.07., rel_volumen 0,61x – schwaches Volumen) folgte eine Erholung:</p><ul><li><strong>06.07.:</strong> Bullische Kerze von 41,50 auf 43,15, aber mit unterem Docht – Kaufdruck vorhanden, aber begrenzt</li><li><strong>07.07.:</strong> Kleine Kerze (43,45 → 43,47), Hochpunkt 44,275. Körper minimal – Unsicherheit, kein Follow-Through. Das Tageshoch 44,275 überschreitet EMA9 (44,33) nicht substanziell.</li></ul><p>Die Gesamtstruktur der letzten 5 Kerzen (02.07.–07.07.) zeigt eine schwache Gegenbewegung (Dead-Cat-Bounce) bei abnehmendem Volumen (rel_volumen: 0,71 / 0,61 / 0,61). Kein bullisches Reversal-Signal wie ein bullisches Engulfing oder ein starker Pin-Bar-Abschluss oberhalb wichtiger Levels.</p><h2>3. EMA-Lage</h2><p>Die EMA-Konstellation per 07.07.2026:</p><ul><li><strong>EMA9: 44,33</strong> – fällt</li><li><strong>EMA21: 44,75</strong> – fällt langsamer</li><li><strong>EMA55: 39,91</strong> – steigt noch (Nachläufer des Spikes)</li><li><strong>GEMA_321: 43,73</strong> – oberhalb des Kurses, fällt</li></ul><p>Der Kurs (43,47) liegt <strong>unterhalb von EMA9, EMA21 und GEMA_321</strong>. Die Reihenfolge EMA21 > EMA9 > Kurs ist klassisch bärisch. Der GEMA_321 wirkt als dynamischer Widerstand. Bemerkenswert: EMA55 (39,91) steigt noch, da die Spike-Kerzen noch im 55er-Fenster sind – dies täuscht einen langfristigen Aufwärtstrend vor, der real nicht mehr existiert. Sobald die Spike-Kerzen aus dem EMA55-Fenster fallen, wird dieser stark sinken und weiteren Druck erzeugen.</p><h2>4. Trade-Setups</h2><p><strong>Setup A (bevorzugt) – Short bei Widerstandszone:</strong></p><ul><li>Einstieg: <strong>43,50–44,00 USD</strong> (Limit-Short in den Bounce hinein, Bestätigung durch bearische Kerze)</li><li>Stop: <strong>45,50 USD</strong> (klar über EMA21 bei 44,75 und letzten Widerständen)</li><li>Ziel 1: <strong>40,70 USD</strong> (letztes Tief) – CRV ~1,4:1</li><li>Ziel 2: <strong>38,50 USD</strong> (EMA55-Bereich) – CRV ~2,5:1</li><li>Ziel 3: <strong>36,00 USD</strong> (Gap-Fill/Vorspikeniveau) – CRV ~3,7:1</li></ul><p><strong>Setup B – Short-Trigger unter letztem Tief:</strong></p><ul><li>Einstieg: Stop-Sell bei <strong>40,60 USD</strong> (Bruch unter 40,715)</li><li>Stop: <strong>42,50 USD</strong></li><li>Ziel: <strong>37,50 USD</strong> – CRV ~1,6:1</li></ul><p><strong>Setup C (kontraindiziert) – Long nur bei starkem Reversal:</strong></p><ul><li>Kein Long-Setup empfohlen, solange Kurs unter EMA9/21 und kein starkes bullisches Reversal-Volumen (>2x Schnitt) vorliegt. Ein Long käme erst bei Rückeroberung von 46,00 USD mit Volumen infrage.</li></ul><p><strong>Konfluenz-Bereich für Short-Einstieg: 43,50–45,50 USD</strong> (EMA9, EMA21, GEMA_321 – alle fallend in diesem Band). Risiko: Eine positive Unternehmens-Meldung oder Markterholung könnte zu einem weiteren Spike führen – Position-Sizing entsprechend anpassen.</p>
+  </details>
+</section>
+
+
+  <footer>Automatisch erstellt · <a href="index.html">Zur Übersicht</a> ·
+    Keine Anlageberatung</footer>
+</div>
+</body>
+</html>

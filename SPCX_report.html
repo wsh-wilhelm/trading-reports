@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SPCX – Analyse-Historie</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0d1319; --panel:#161e27; --line:#232e3a;
+    --text:#d9e1e8; --muted:#7e8b99; --accent:#e5a63c;
+    --long:#3ec08b; --short:#e2604f; --neutral:#8a96a3;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);
+       font:15px/1.6 "IBM Plex Sans",sans-serif;padding:32px 16px}
+  .wrap{max-width:860px;margin:0 auto}
+  header{display:flex;align-items:baseline;gap:14px;
+         border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:28px}
+  header h1{font:500 30px "IBM Plex Mono",monospace;margin:0;letter-spacing:1px}
+  header .sub{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:2px}
+
+  /* Eine Analyse = eine section; farbige Signalleiste links */
+  section.analyse{background:var(--panel);border:1px solid var(--line);
+                  border-left:4px solid var(--neutral);
+                  border-radius:6px;padding:22px 26px;margin-bottom:22px}
+  section.analyse.long{border-left-color:var(--long)}
+  section.analyse.short{border-left-color:var(--short)}
+
+  .kopf{display:flex;justify-content:space-between;align-items:center;
+        flex-wrap:wrap;gap:8px;margin-bottom:6px}
+  .datum{font:500 13px "IBM Plex Mono",monospace;color:var(--muted)}
+  .badge{font:500 12px "IBM Plex Mono",monospace;letter-spacing:2px;
+         padding:3px 10px;border-radius:3px;color:#0d1319}
+  .badge.long{background:var(--long)}
+  .badge.short{background:var(--short)}
+  .badge.neutral{background:var(--neutral)}
+
+  .fazit{font-size:16px;font-weight:600;margin:0 0 16px}
+  img.chart{width:100%;border:1px solid var(--line);border-radius:4px;margin:4px 0 12px}
+  h3{font:500 12px "IBM Plex Mono",monospace;color:var(--accent);
+     text-transform:uppercase;letter-spacing:2px;margin:18px 0 4px}
+  p{margin:6px 0;color:var(--text)}
+
+  /* Setup-Tabelle in Monospace, Zahlen buendig */
+  table.setup{width:100%;border-collapse:collapse;margin-top:8px;
+              font:14px "IBM Plex Mono",monospace}
+  table.setup td{padding:6px 10px;border-top:1px solid var(--line)}
+  table.setup td:first-child{color:var(--muted);width:120px}
+
+  /* Aufklappbarer Volltext in aelteren Analyse-Karten */
+  details.volltext{margin-top:16px;border-top:1px solid var(--line);padding-top:10px}
+  details.volltext summary{cursor:pointer;font:500 12px "IBM Plex Mono",monospace;
+                color:var(--muted);text-transform:uppercase;letter-spacing:2px}
+  details.volltext summary:hover{color:var(--accent)}
+  details.volltext h1,details.volltext h2{font-size:15px;color:var(--accent);margin:14px 0 6px}
+  details.volltext strong{color:#fff}
+
+  footer{color:var(--muted);font-size:12px;text-align:center;margin-top:32px}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>SPCX</h1>
+    <span class="sub">Analyse-Historie · neueste zuerst</span>
+  </header>
+
+<!-- NEUE_ANALYSE_HIER -->
+<section class="analyse short">
+  <div class="kopf">
+    <span class="datum">23.07.2026 </span>
+    <span class="badge short">SHORT</span>
+  </div>
+  <p class="fazit">SPCX befindet sich weiterhin im freien Fall – neue ATLs täglich, EMA-Fächer vollständig bärisch, kein technischer Support in Sicht; der bestehende Short Put 100 / 31.07. liegt mit 16,2% Puffer komfortabel, sollte aber engmaschig überwacht werden.</p>
+  <img class="chart" src="img/SPCX_20260723_123447.png" alt="Chart SPCX">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>SPCX setzt den intakten Abwärtstrend mit einer weiteren Eskalationsstufe fort: Am 22.07. fiel die Aktie auf ein neues ATL von 115,19$, der Schlusskurs lag bei 115,26$. Seit dem All-Time-High bei 225,64$ (16.06.) hat der Kurs in weniger als sechs Wochen knapp 49% verloren. Die Trendstruktur zeigt eine Serie aus tieferen Hochs und tieferen Tiefs ohne eine einzige bestätigte Erholung: Jedes Intraday-Pullback-Hoch wurde direkt danach unterboten. Der aktuelle IBKR-Kurs von 116,21$ signalisiert eine Mini-Erholung (+0,82%) vom gestrigen Tief, jedoch ist dies nach der Kerzenlage kein Reversal-Signal.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die Kerze vom 22.07. ist eine große Bearish-Candle mit langer unterer Lunte (Tief 115,19$, Close 115,26$) bei erhöhtem rel. Volumen (~1,36x Schnitt geschätzt – exakter Wert: das vol_schnitt_55 ist in diesen frühen Daten nicht berechnet, Volumen 92,7 Mio. ist das höchste seit 17.07. mit 83,7 Mio.). Die Lunte deutet zwar auf kurzfristigen Kaufdruck am Tief, doch der Close nahe dem Tagestief zeigt, dass Käufer die Kontrolle nicht halten konnten. Kein bullisches Reversal-Muster erkennbar – weder Hammer noch Bullish Engulfing. Die Mini-Erholung am 23.07. (IBKR +0,82%) wirkt wie ein technisches Bounce ohne Substanz.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Der EMA-Fächer ist vollständig bärisch und beschleunigt sich: EMA9 (129,30$) > EMA21 (141,61$) > EMA55 (152,78$) – alle fallend, der Kurs liegt mit 115,26$ deutlich unter dem niedrigsten EMA (EMA9 bei 129,30$), Abstand ca. 14 Punkte bzw. ~12%. Der gema_321 steht bei 137,32$ und fällt steil – auch dieser liegt weit über dem Kurs. Kein Kompressions-Artefakt, keine Annäherung der EMAs an den Kurs. Die Lage hat sich gegenüber der 19.07.-Analyse (EMA9 138,94$) weiter verschlechtert: EMA9 ist seit dann um weitere 9,6 Punkte gefallen, der Kurs aber um ~7,7 Punkte. Die relative Überdehnung unter den EMAs bleibt extrem und signalisiert Fortsetzung des Trends ohne nahe Stabilisierung.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Short</td></tr>
+    <tr><td>Einstieg</td><td>120,00–121,00 (Rebound-Verkauf an EMA-fernem Widerstandsniveau / Pivot-Hoch 21.07. bei 129,88$ ist zu weit entfernt; nächster relevanter Bereich ist das gestrige Open bei ~123,29$ bzw. Intraday-Widerstand 120–122$)</td></tr>
+    <tr><td>Stop</td><td>130,00 (über Pivot-Hoch 21.07. bei 129,88$ mit Puffer)</td></tr>
+    <tr><td>Ziel</td><td>108,00 (Projektion: gemessene Bewegung aus letztem Leg / psycholog. 110$-Marke als erstes Ziel) / 100,00 (ext. Projektion / Strike des bestehenden Short Puts)</td></tr>
+    <tr><td>CRV</td><td>2,0 : 1 (Ziel 1) / 3,3 : 1 (Ziel 2)</td></tr>
+  </table>
+
+  <h3>5 · Stillhalter (max. 12 Tage)</h3>
+<p>Ein Cash-Secured Put ist auch am 23.07. kategorisch ausgeschlossen – unterhalb des aktuellen ATL bei 115,19$ existiert null Handelshistorie für eine technisch begründbare Supportzone, und das Andienungsrisiko in einem solchen Abwärtstrend wäre prohibitiv. Ein Covered Call bleibt das einzige vertretbare Stillhalter-Geschäft, aber: Da kein Aktienbestand (0 Stück laut IBKR) vorhanden ist, wäre jeder CC ein Naked Short Call mit unbegrenztem Verlustrisiko – expliziter Hinweis auf das veränderte Risikoprofil. Der bestehende Short Put 100 / 31.07. ist separat zu bewerten (siehe 'bestand').</p>
+<table class="setup"><tr><td>Geschäft</td><td>Covered Call</td></tr><tr><td>Strike</td><td>130.0</td></tr><tr><td>Puffer</td><td>11.9 %</td></tr><tr><td>Zone</td><td>EMA9 bei 129,30$ / Pivot-Hoch 21.07. bei 129,88$ / Widerstandscluster 128–131$</td></tr><tr><td>Verfall bis</td><td>2026-08-01 (9 Tage – nächster Standard-Freitag nach 23.07. ist 25.07., übernächster 01.08., beide innerhalb 12 Tage)</td></tr><tr><td>Begründung</td><td>Der Strike 130$ liegt am oberen Ende des Widerstandsclusters 128–131$, der aus dem Pivot-Hoch 21.07. (129,88$) und dem fallenden EMA9 (129,30$) besteht. Der Puffer beträgt ~11,9% zum IBKR-Kurs 116,21$. ACHTUNG: Da kein Aktienbestand vorhanden, handelt es sich um einen Naked Short Call mit unbegrenztem Verlustrisiko nach oben. Prüfen in der Optionskette: Prämie am 130er-Strike (bei >10% OTM und hoher IV erwartet, aber manuell zu verifizieren), Bid-Ask-Spread (Liquidität bei dieser früh gelisteten Aktie tendenziell eng), ob Margin-Anforderungen für Naked Calls tragbar sind. Andienungsszenario bei einem CC wäre theoretisch akzeptabel (130$ wäre ein sehr gutes Abgabe-Niveau für Long-Halter), aber ohne Bestand nicht anwendbar.</td></tr></table>
+<p><strong>Bestand:</strong> Laut IBKR-Snapshot (11:38 Uhr, 23.07.2026): bestehende Position Short Put Strike 100$, Verfall 2026-07-31 (8 DTE), aktueller Optionspreis 1,42$, Abstand Strike zum Kurs 16,2%. Bewertung: Der Put 100$ liegt bei einem aktuellen Kurs von 116,21$ mit 16,2% Puffer komfortabel im OTM-Bereich. Selbst wenn der Kurs das gestrige ATL (115,19$) nochmals testet oder leicht unterschreitet, ist der Strike 100$ noch ~13% entfernt. Die Position ist kurzfristig nicht bedroht. HALTEN ist die Empfehlung, solange der Kurs nicht in Richtung 105–107$ fällt. Roll-Trigger: Unterschreitet der Kurs nachhaltig 108$, wäre ein Rollen auf einen tieferen Strike (z.B. 90$ oder 95$) zum nächsten Freitag (01.08. oder 08.08.) zu prüfen, um den Puffer wiederherzustellen. Bei Annäherung an 105$ (< 5% Puffer) defensiv schließen. Kein Aktienbestand vorhanden – ein Covered Call ist weiterhin nicht möglich.</p>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 23.07.2026 anzeigen</summary>
+    <h1>SPCX – Technische Analyse & Stillhalter-Report (23.07.2026)</h1>
+
+<h2>1. Trendstruktur & Abgleich mit Voranalysen</h2>
+<p>Die Short-These aus den Analysen vom 13.07., 16.07. und 19.07.2026 wird vollumfänglich bestätigt und weiter eskaliert. Das in der 19.07.-Analyse genannte erste Ziel von 118$ wurde am 20.07. mit einem Close von 119,85$ fast punktgenau erreicht. Seitdem wurde dieses Level ebenfalls unterschritten: Am 22.07. markierte SPCX ein neues ATL bei 115,19$, Schlusskurs 115,26$. Das zweite Ziel der 19.07.-Analyse (110$) rückt in greifbare Nähe.</p>
+<p>Die Trendstruktur ist weiterhin makelloser Abwärtstrend: Jedes Hoch liegt unter dem vorherigen, jedes Tief unter dem vorherigen. Konkrete Pivots der letzten Handelswochen: Hoch 21.07. bei 129,88$ → Tief 22.07. bei 115,19$. Kein einziger bestätigter Support existiert – wir befinden uns im Preisbereich, der für SPCX historisch nie existiert hat (IPO am 12.06. bei 150$, bisheriges Allzeittief täglich neu geschrieben). Das CC-Setup aus der 16.07.-Analyse (Strike 150$, Verfall 24.07.) ist wertlos verfallen oder mit maximalem Gewinn aus der Position geworden – der Kurs lag nie auch nur annähernd in der Nähe des 150er-Strikes.</p>
+
+<h2>2. Candlestick-Analyse</h2>
+<p>Die Kerze vom 22.07. zeigt folgendes Profil: Open 123,29$ – High 124,77$ – Low 115,19$ – Close 115,26$. Die Kerze hat eine relativ kleine obere Lunte (~1,5$), einen großen Body (~8$) und eine minimale untere Lunte (~0,07$). Das bedeutet: Der Kurs eröffnete, machte ein kurzes Hoch, fiel dann fast linear auf das Tages- und ATL und schloss dort. Das Volumen mit 92,7 Mio. Aktien ist das höchste der letzten Woche und signalisiert Verkaufsdruck, kein kapitulatives Bottom (bei echter Kapitulation erwarte ich typischerweise eine große untere Lunte mit anschließendem Rückeroberungsversuch).</p>
+<p>Die aktuelle IBKR-Erholung von +0,82% (ca. 0,95$ über gestrigem Close) entspricht einem technischen Bounce ohne Volumenbestätigung – kein Reversal-Signal. Ein valides bullisches Signal wäre erst ein Bullish Engulfing oder Hammer auf erhöhtem Volumen mit Close deutlich über 120$.</p>
+
+<h2>3. EMA-Lage & gema_321-Analyse</h2>
+<p>Der bärische EMA-Fächer hat sich seit der 19.07.-Analyse weiter verschärft:</p>
+<ul>
+  <li><strong>EMA9:</strong> 129,30$ (war 19.07.: 138,94$) – Rückgang um 9,64$ in 3 Handelstagen</li>
+  <li><strong>EMA21:</strong> 141,61$ (war 19.07.: 148,96$) – Rückgang um 7,35$</li>
+  <li><strong>EMA55:</strong> 152,78$ (war 19.07.: 156,62$) – Rückgang um 3,84$</li>
+  <li><strong>gema_321:</strong> 137,32$ (war 19.07.: 145,23$) – Rückgang um 7,91$</li>
+</ul>
+<p>Der Kurs (115,26$ Close / 116,21$ IBKR) liegt ca. 14 Punkte bzw. ~12% unter dem EMA9 – eine extreme Überdehnung. Historisch folgen solchen Überdehnungen kurzfristige Bounces (mean-reversion Richtung EMA9), aber im beschleunigten Downtrend können diese Überdehnungen wochenlang bestehen. Der EMA9 fällt aktuell mit ca. 3,2$ pro Tag – selbst ohne weiteren Kursrückgang würde er erst in ca. 4 Handelstagen auf ~116$ fallen. Das unterstreicht die Dominanz des Trends über technische Überverkauft-Signale.</p>
+
+<h2>4. Trade-Setups (A/B/C)</h2>
+<p><strong>Setup A – Bevorzugt: Rebound-Short (aggressiv)</strong><br/>
+Einstieg: 120,00–121,00$ (Limit-Short an Intraday-Widerstand, falls der aktuelle Bounce bis dorthin trägt)<br/>
+Stop: 130,00$ (über Pivot-Hoch 21.07. bei 129,88$)<br/>
+Ziel 1: 108,00$ (psycholog. Runde Marke, Konfluenz mit gemessener Bewegung)<br/>
+Ziel 2: 100,00$ (psycholog. Major-Level, Strike des bestehenden Short Puts)<br/>
+CRV: 2,0:1 (Ziel 1) / 3,3:1 (Ziel 2)<br/>
+Begründung: Der aktuelle Bounce hat den Charakter einer technischen Gegenbewegung. Der Widerstandsbereich 120–122$ ist der erste relevante Bereich (Intraday-Konsolidierung 22.07. vor dem finalen Sell-off). Ein Limit-Short hier mit engem Stop über dem 21.07.-Hoch bietet ein attraktives Risiko/Ertrag-Verhältnis.</p>
+<p><strong>Setup B – Konservativ: Direkteinstieg Short nahe aktuellem Kurs</strong><br/>
+Einstieg: 116,50$ (nahe IBKR-Kurs, Market- oder leichter Limit-Short)<br/>
+Stop: 124,00$ (leicht über dem 22.07.-High bei 124,77$)<br/>
+Ziel 1: 108,00$<br/>
+Ziel 2: 100,00$<br/>
+CRV: 1,1:1 (Ziel 1) / 2,1:1 (Ziel 2)<br/>
+Begründung: Für risikoscheue Trader ist der Direkteinstieg mit engerem Stop die Alternative – niedrigeres CRV zu Ziel 1, aber direktere Partizipation am Trend ohne Warten auf den Bounce.</p>
+<p><strong>Setup C – Abwarten (kein Trade):</strong><br/>
+Wer keinen bestehenden Short hat, kann auf eine Stabilisierung und Ausbildung eines klaren Musters (z.B. Bear Flag) warten. Einstieg dann analog Setup A an der Obergrenze des Musters.</p>
+
+<h2>5. Stillhalter-Analyse (Schwerpunkt)</h2>
+
+<h3>5a. Bestehende Position: Short Put 100$ / Verfall 31.07.2026 (8 DTE)</h3>
+<p>Der bestehende Short Put 100$ / 31.07. ist die kritischste Position, die es zu managen gilt. Aktuelle Lage:</p>
+<ul>
+  <li>Kurs: 116,21$ (IBKR), Strike: 100$, Abstand: 16,2% (laut IBKR: 16,2$)</li>
+  <li>Aktueller Optionspreis: 1,42$ – der Put hat seit dem Einstieg bereits erheblichen Zeitwertverlust erlitten (positiv für den Short-Verkäufer)</li>
+  <li>8 DTE bis Verfall 31.07. – Theta-Decay beschleunigt sich, günstiger für die Stillhalter-Position</li>
+</ul>
+<p><strong>Szenario-Analyse:</strong></p>
+<ul>
+  <li><strong>Basis-Szenario (Trend setzt fort, Kurs fällt Richtung 108–110$):</strong> Selbst bei einem weiteren Rückgang auf 108$ verbleibt ein Puffer von 8$ (8%) zum Strike 100$. Position bleibt weit OTM, Theta arbeitet für uns. → HALTEN.</li>
+  <li><strong>Bären-Szenario (Kurs fällt unter 108$ bis Verfall):</strong> Bei Kurs 105$ wäre der Abstand zum Strike nur noch 5% – hier wäre eine Schließung oder ein Roll zu prüfen. Roll-Vorschlag: Rollen auf Short Put 90$ / 01.08.2026 (Debit/Credit je nach Prämienstruktur manuell prüfen), um Puffer wiederherzustellen.</li>
+  <li><strong>Worst-Case-Szenario (Flash-Crash unter 100$):</strong> Andienung bei 100$ – die effektiven Kosten wären 100$ minus vereinnahmte Prämie. Frage: Wäre ein Kauf zu ~98–99$ (netto nach Prämie) bei einer Aktie, die in 6 Wochen von 225$ auf 100$ gefallen ist, akzeptabel? Nur wenn eine fundamentale Neubewertung eingesetzt hat – rein technisch ist diese Frage nicht zu beantworten, da keinerlei Unterstützung charttechnisch identifizierbar ist.</li>
+</ul>
+<p><strong>Roll-Trigger (konkret):</strong> Fällt SPCX nachhaltig (2 Tagesschlusskurse) unter 108$, ist das Roll-Signal aktiv. Fällt der Kurs in einer Session unter 105$ (Intraday), sofortiges Schließen oder Notfall-Roll erwägen.</p>
+
+<h3>5b. Covered Call / Naked Call</h3>
+<p>Der technisch abgeleitete Strike für einen Short Call liegt bei 130$ (EMA9 129,30$ / Pivot-Hoch 21.07. bei 129,88$). Da kein Aktienbestand (0 Stück) vorhanden ist, handelt es sich zwingend um einen Naked Short Call – ein fundamental anderes Risikoprofil als ein Covered Call:</p>
+<ul>
+  <li>Potentieller Verlust: theoretisch unbegrenzt bei einem plötzlichen Reversal (Short-Squeeze möglich bei hochvolatilen Momentum-Aktien)</li>
+  <li>Puffer: 11,9% zum aktuellen Kurs – grundsätzlich attraktiv</li>
+  <li>Risikomanagement: Margin-Anforderungen für Naked Calls sind deutlich höher als für CSPs</li>
+</ul>
+<p>Empfehlung: Der Naked Call 130$ / 01.08. ist technisch begründbar, aber angesichts der extremen Volatilität dieser Aktie (Tagesspannen von 10–15% in der letzten Woche) und dem Naked-Risiko nur für erfahrene Trader mit adäquatem Risikomanagement geeignet. Wer bereits short (Aktie oder Optionen) ist, sollte keine zusätzlichen Short-Positionen ohne klares Hedge-Konzept aufbauen.</p>
+
+<h3>5c. Cash-Secured Put – weiterhin ausgeschlossen</h3>
+<p>Wie in allen drei Voranalysen zutreffend festgestellt: Unterhalb des aktuellen ATL bei 115,19$ gibt es null Handelshistorie für SPCX. Jede CSP-Zone wäre erfunden. Bei einem Kurs, der seit IPO (12.06.) täglich neue Allzeittiefs schreibt, ist das Andienungsrisiko eines CSP strukturell nicht beherrschbar. CSP = null. Dies wird beibehalten, bis sich eine nachhaltige Bodenbildung mit mehrfach bestätigter Unterstützungszone herausbildet (mind. 3–5 Handelstage Konsolidierung über einem klaren Level).</p>
+  </details>
+</section>
+
+<section class="analyse short">
+  <div class="kopf">
+    <span class="datum">19.07.2026 </span>
+    <span class="badge short">SHORT</span>
+  </div>
+  <p class="fazit">SPCX setzt den freien Fall fort – nach dem Bruch des IPO-Preises und einem neuen ATL bei 122,12$ am 17.07. existiert keinerlei historische Unterstützung im Chart; der bärische EMA-Fächer beschleunigt sich, ein CSP ist weiterhin ausgeschlossen.</p>
+  <img class="chart" src="img/SPCX_20260719_132129.png" alt="Chart SPCX">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>Die Abwärtsstruktur ist ungebrochen und verschärft sich: SPCX markierte am 17.07. mit 122,12$ ein neues Allzeittief und schloss bei 123,99$. Das Muster fallender Hochs und Tiefs ist seit dem Parabol-Top Mitte Juni (<strong>ATH 225,64$ am 16.06.</strong>) perfekt intakt. Unterhalb des aktuellen Schlusskurses existiert schlicht keine Handelshistorie – jede Supportzone wäre eine Projektion. Einzige strukturelle Referenz nach oben: der gebrochene IPO-Preis 135$ als Widerstand, darunter das letzte Pivot-Hoch vom 16.07. bei 137,76$.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die letzte verfügbare Kerze (17.07.) ist eine ausgeprägte <strong>bearishe Marubozu/Long-Red-Candle</strong>: Open 127,43$, Close 123,99$, Tief 122,12$ – der Kurs eröffnete bereits unter dem Vortagestief und schloss nahe dem Tagestief. Das signalisiert anhaltenden Verkaufsdruck ohne Erholungsversuch. Das rel. Volumen ist mit dem 83,7-Mio.-Wert deutlich erhöht gegenüber den Vortagen (46–58 Mio.), was den Sell-off als distributionsgetrieben bestätigt.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Der bärische EMA-Fächer ist vollständig ausgebildet: <strong>EMA9 (138,94) &gt; EMA21 (148,96) &gt; EMA55 (156,62)</strong> – alle fallend, alle weit über dem Kurs. Der gema_321 liegt bei 145,23$ und damit ca. 21$ über dem letzten Schluss. Der Kurs läuft seit Wochen unter allen drei EMAs, der Abstand vergrößert sich täglich. Ein Rücktest der EMA9 (~138–140$) käme einem Anstieg von über 10% gleich und wäre im aktuellen Momentum kaum realistisch ohne signifikante Gegenbewegung.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Short</td></tr>
+    <tr><td>Einstieg</td><td>130,00–131,00 (Direkteinstieg nahe aktuellem Kurs bzw. Intraday-Erholung zum IBKR-Kurs 131,11$)</td></tr>
+    <tr><td>Stop</td><td>138,00 (über Pivot-Hoch 16.07. bei 137,76$ mit Puffer – markiert zugleich altes Ausbruchsniveau)</td></tr>
+    <tr><td>Ziel</td><td>118,00 (Projektion: gemessene Bewegung / psycholog. 120$-Marke als erstes Ziel) / 110,00 (ext. Projektion)</td></tr>
+    <tr><td>CRV</td><td>1,9 : 1 (Ziel 1) / 3,0 : 1 (Ziel 2)</td></tr>
+  </table>
+
+  <h3>5 · Stillhalter (max. 12 Tage)</h3>
+<p>Ein Cash-Secured Put ist auch heute kategorisch ausgeschlossen: Unterhalb des ATL bei 122,12$ gibt es null Handelshistorie für eine technisch begründbare Supportzone. Ein Covered Call an der EMA9 oder am IPO-Niveau bleibt das einzige vertretbare Stillhalter-Geschäft – allerdings existiert laut IBKR-Snapshot kein Aktienbestand (0 Stück), weshalb ein CC als Naked Call gewertet werden müsste und ein fundamental anderes Risikoprofil trägt. Da kein Aktienbestand vorhanden ist, wird das CC-Setup nur als Information ausgewiesen.</p>
+<table class="setup"><tr><td>Geschäft</td><td>Covered Call</td></tr><tr><td>Strike</td><td>140.0</td></tr><tr><td>Puffer</td><td>6.8 %</td></tr><tr><td>Zone</td><td>EMA9-Bereich (~138,94$) / Pivot-Hoch 16.07. bei 137,76$ / gebrochenes IPO-Niveau 135$ bilden Widerstandscluster 136–140$</td></tr><tr><td>Verfall bis</td><td>2026-07-25 (6 Tage)</td></tr><tr><td>Begründung</td><td>Der Strike 140$ liegt am oberen Ende des Widerstandsclusters 136–140$, der aus dem gebrochenen IPO-Preis (135$), dem Pivot-Hoch 16.07. (137,76$) und dem fallenden EMA9 (~138,94$) besteht. Der Kurs müsste ca. 6,8% steigen und dabei durch drei konvergierende Widerstände brechen. WICHTIG: Da laut IBKR-Snapshot kein Aktienbestand vorhanden (0 Stück), wäre dies ein Naked Short Call mit unbegrenztem Verlustrisiko nach oben – kein Covered Call. Risikoprofil sorgfältig prüfen. Prüfen in der Optionskette: Prämie am 140er-Strike, IV-Level angesichts der extremen Volatilität dieser Aktie, Liquidität/Spread, ob Margin-Anforderungen tragbar.</td></tr></table>
+<p><strong>Bestand:</strong> Laut IBKR-Snapshot (12:14 Uhr, 19.07.2026): keine Aktienposition (0 Stück), keine offenen Optionspositionen in SPCX. Ein Covered Call setzt mindestens 100 Aktien voraus – ohne Bestand wäre der CC ein Naked Short Call. Die frühere CC-Empfehlung (Strike 150$, Verfall 24.07.) aus der Analyse vom 16.07. ist nicht mehr relevant, da der Verfall nah rückt und kein Bestand existiert.</p>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 19.07.2026 anzeigen</summary>
+    <h1>SPCX – Detailanalyse 19.07.2026</h1>
+
+<h2>Abgleich mit früheren Analysen</h2>
+<p>Die Short-These, die erstmals am 10.07. formuliert und seither dreimal bestätigt wurde, hat sich mit bemerkenswerter Präzision erfüllt. Das Ziel 128$ aus der 13.07.-Analyse wurde am 17.07. mit einem Intraday-Tief von <strong>122,12$</strong> signifikant unterschritten. Der damalige Einstieg 144$ / Stop 152$ / Ziel 128$ lieferte ein CRV von 2:1 – tatsächlich realisiert wurde deutlich mehr. Der CC-Strike 150$ aus den Analysen 13.07. und 16.07. (Verfall 24./25.07.) hat komfortabel gehalten: Der Kurs ist seither von ~137$ auf ~123$ gefallen, der Puffer ist von 10,9% auf über 21% gewachsen. Sofern diese Position eingegangen wurde, ist sie entspannt im Profit – sie läuft aber ins Leeere, da laut IBKR-Snapshot kein Aktienbestand vorhanden ist, also nie ein echter Covered Call möglich war.</p>
+
+<h2>1. Trendstruktur</h2>
+<p>SPCX durchläuft seit dem Parabol-Top am 16.06.2026 (Intraday-Hoch <strong>225,64$</strong>) eine nahezu ununterbrochene Abwärtsbewegung. Die Chronologie der Schlüsselmarken:</p>
+<ul>
+  <li><strong>16.06.:</strong> ATH 225,64$ → sofortige Umkehr</li>
+  <li><strong>22.06.:</strong> Bruch der 170$-Zone</li>
+  <li><strong>07.07.:</strong> Bruch der 150$-Zone (IPO-Preis-Bereich)</li>
+  <li><strong>15.07.:</strong> Erstmaliger Schluss unter 135$ (IPO-Erstnotiz)</li>
+  <li><strong>17.07.:</strong> Neues ATL 122,12$, Schluss 123,99$</li>
+</ul>
+<p>Das Muster ist eindeutig: <strong>keine einzige höhere Erholung</strong> seit dem Top. Jedes Bounce wurde verkauft. Unterhalb von 122,12$ gibt es buchstäblich keine einzige gehandelte Kerze in der Geschichte dieser Aktie – Projektion ist das einzige Instrument für Kursziele nach unten.</p>
+<p><strong>Widerstandsstruktur nach oben:</strong></p>
+<ul>
+  <li>135$: gebrochenes IPO-Niveau (nun Deckel)</li>
+  <li>137,76$: Pivot-Hoch 16.07.</li>
+  <li>138,94$: EMA9, fallend</li>
+  <li>143–145$: Pivot-Bereich 14./15.07.</li>
+  <li>148–152$: alter Widerstandscluster (mehrfach getestet)</li>
+</ul>
+
+<h2>2. Candlestick-Formationen</h2>
+<p>Die letzten drei Kerzen erzählen eine klare Geschichte:</p>
+<ul>
+  <li><strong>15.07. (Di):</strong> Körper 135,27$, Tief 132,15$, Doji-ähnlich mit unterem Schatten – kein echter Boden, sondern Erschöpfungs-Signal das prompt gebrochen wurde.</li>
+  <li><strong>16.07. (Mi):</strong> Bearishe Kerze, Eröffnung unter 137$, Schluss 131,11$, Tief 130,74$ – kein Recovery.</li>
+  <li><strong>17.07. (Do):</strong> <strong>Starke bearishe Momentum-Kerze</strong>: Open 127,43$ (Gap-Down), Tief 122,12$ (neues ATL), Schluss 123,99$. Kerze schließt im unteren Viertel ihrer Spanne. Kein unterer Schatten von Bedeutung – keinerlei Käufer-Reaktion am Tief. Vol. 83,7 Mio. = deutlich über den Vortagen (46–60 Mio.).</li>
+</ul>
+<p>Das erhöhte Volumen am 17.07. bei fallendem Kurs und Gap-Down ist <strong>klassische Kapitulation mit weiterer Fortsetzung</strong> – nicht klassische Bodenkapitulation (die wäre durch einen langen unteren Schatten und Schlusskurs nahe Tageshoch charakterisiert).</p>
+
+<h2>3. EMA-Analyse</h2>
+<p>Der <strong>bärische EMA-Fächer</strong> ist maximal ausgeprägt:</p>
+<ul>
+  <li>EMA9: 138,94$ (–11,4% über Kurs)</li>
+  <li>EMA21: 148,96$ (–20,0% über Kurs)</li>
+  <li>EMA55: 156,62$ (–26,4% über Kurs)</li>
+  <li>gema_321: 145,23$ (–17,2% über Kurs)</li>
+</ul>
+<p>Alle EMAs fallen steil und sind in klassischer Bären-Reihenfolge aufgestellt (EMA9 &lt; EMA21 &lt; EMA55 – gemessen von unten). Der Kurs hat sich von allen drei EMAs immer weiter entfernt. Paradoxerweise könnte ein extremes Mean-Reversion-Szenario kurzfristig einen Bounce zur EMA9 (~138-139$) auslösen – das wäre ein Anstieg von ca. 12% und würde als Verkaufsgelegenheit genutzt werden.</p>
+
+<h2>4. Trade-Setups (Direkthandel Aktie/CFD)</h2>
+
+<h3>Setup A – Direkteinstieg Short (bevorzugt)</h3>
+<ul>
+  <li><strong>Einstieg:</strong> 130,00–131,11$ (aktueller Kurs laut IBKR)</li>
+  <li><strong>Stop:</strong> 138,00$ (über Pivot-Hoch 16.07. bei 137,76$ + Puffer; EMA9 in diesem Bereich)</li>
+  <li><strong>Ziel 1:</strong> 118,00$ (psycholog. Marke / gemessene Bewegung –12$ aus letztem Leg)</li>
+  <li><strong>Ziel 2:</strong> 110,00$ (ext. Projektion Fibonacci 161,8%)</li>
+  <li><strong>CRV:</strong> 1,9:1 (Ziel 1) / 3,0:1 (Ziel 2)</li>
+  <li><strong>Risiko:</strong> Kein bestätigter Support unterhalb – Ziele sind reine Projektionen</li>
+</ul>
+
+<h3>Setup B – Bounce-Einstieg Short (falls Erholung)</h3>
+<ul>
+  <li><strong>Trigger:</strong> Intraday-Anstieg in den Bereich 136–138$ (Retest gebrochenes IPO-Niveau + EMA9-Annäherung)</li>
+  <li><strong>Einstieg:</strong> 136,50–138,00$</li>
+  <li><strong>Stop:</strong> 141,50$ (über Pivot 14.07. bei 143,33$ – engerer Stop da Einstieg schlechter)</li>
+  <li><strong>Ziel 1:</strong> 122,00$ (vorheriges ATL)</li>
+  <li><strong>Ziel 2:</strong> 115,00$</li>
+  <li><strong>CRV:</strong> 2,9:1 (Ziel 1) / 4,6:1 (Ziel 2) – deutlich besser</li>
+</ul>
+
+<h2>5. Stillhalter-Analyse (Schwerpunkt)</h2>
+
+<h3>Cash-Secured Put – Ausgeschlossen</h3>
+<p>Ein CSP bleibt zum vierten Mal in Folge ausgeschlossen. Die Begründung ist noch zwingender als in den Voranalysen: Das ATL liegt jetzt bei 122,12$. <strong>Jeder Strike unterhalb dieses Niveaus liegt in einem Kursbereich, in dem SPCX noch nie gehandelt wurde.</strong> Eine Supportzone dort zu deklarieren wäre methodisch unhaltbar. Oberhalb des ATL wäre jeder CSP-Strike immediate In-The-Money-Gefahr ausgesetzt, da der Kurs bei 123,99$ schloss. Ein CSP wird erst wieder diskutiert, wenn sich eine belastbare Bodenformation mit mehreren Tests auf einem Niveau herausgebildet hat.</p>
+
+<h3>Covered Call / Naked Short Call – Strike 140$, Verfall 25.07.2026</h3>
+<p><strong>Zonen-Herleitung:</strong> Der Widerstandsblock zwischen 136$ und 140$ setzt sich aus drei konvergierenden Elementen zusammen:</p>
+<ol>
+  <li>Gebrochenes IPO-Niveau 135$ (psychologischer Magnet, nun Deckel)</li>
+  <li>Pivot-Hoch 16.07. bei 137,76$ (letztes strukturelles Hoch)</li>
+  <li>Fallender EMA9 bei 138,94$ (dynamischer Widerstand, nächste Tage ca. 136–137$)</li>
+</ol>
+<p>Der Strike 140$ liegt am oberen Ende dieses Clusters und lässt den gesamten Widerstandsblock als Puffer vor sich. Puffer zum IBKR-Kurs 131,11$: <strong>6,8%</strong>.</p>
+
+<p><strong>Andienungsszenario:</strong> Würde der Kurs tatsächlich auf 140$ steigen, hätte er die gesamte oben beschriebene Widerstandsstruktur durchbrochen. In diesem Szenario wäre die bärische These zu überdenken. Eine Andienung (Kauf von 100 Aktien zu 140$ falls Short Put – hier aber CC-Kontext) oder Rückkauf des Calls wäre bei Annäherung an 138–139$ als Roll-Trigger zu betrachten.</p>
+
+<p><strong>KRITISCHER HINWEIS – Naked Call:</strong> Laut IBKR-Snapshot (Stand 12:14 Uhr, 19.07.) sind <strong>null Aktien</strong> in SPCX gehalten. Ein Covered Call setzt mindestens 100 Aktien je Kontrakt voraus. Das beschriebene Setup wäre daher ein <strong>Naked Short Call</strong> mit theoretisch unbegrenztem Verlustrisiko nach oben. Das Risikoprofil unterscheidet sich fundamental vom Covered Call. Margin-Anforderungen prüfen, Positionsgröße entsprechend limitieren.</p>
+
+<p><strong>Roll-Trigger:</strong> Schließen oder Rollen, wenn der Kurs intraday 138$ überschreitet (EMA9-Bereich) – in diesem Fall wäre der Widerstandsblock gebrochen und das Setup invalidiert.</p>
+
+<p><strong>Was in der Optionskette zu prüfen ist:</strong> IV-Niveau (nach den starken Kursbewegungen dürfte IV erhöht sein, was Prämien attraktiver macht), Spread am 140er-Strike für den 25.07., Delta (Ziel: unter –0.25 für moderates Risiko), Open Interest als Liquiditätsindikator.</p>
+  </details>
+</section>
+
+<section class="analyse short">
+  <div class="kopf">
+    <span class="datum">16.07.2026 <span class="quelle">via Chat</span></span>
+    <span class="badge short">SHORT</span>
+  </div>
+  <p class="fazit">Die Short-These der letzten drei Analysen hat hervorragend funktioniert – SPCX ist am 15.07. erstmals unter den eigenen IPO-Preis (135$) auf ein neues Allzeittief von 132,15$ gefallen. Der Trend bleibt intakt, aber unterhalb des aktuellen Kurses existiert schlicht keine Handelshistorie für eine CSP-Zone.</p>
+  <img class="chart" src="img/SPCX_20260716_200614.png" alt="Chart SPCX">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>Nach dem euphorischen IPO-Debüt (12.06., Erstnotiz 150$) und dem Allzeithoch 225,64$ (16.06.) läuft ein ununterbrochener Abwärtstrend. Die Short-These der Vorlagen (08./10./13.07.) wurde vollständig bestätigt: Der Kurs fiel weiter über die 140er-Marke hinaus und durchbrach am 15.07. mit einem Tief von 132,15$ erstmals den eigenen IPO-Preis von 135$ – ein psychologisch bedeutsames Niveau, das in der Finanzpresse breit aufgegriffen wurde.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>13.07.: Schluss 139,14, Fortsetzung des Abwärtsdrucks. 14.07.: neues Tief 135,52 (knapp über IPO-Preis), Schluss 136,08. 15.07.: Tief 132,15 (neues Allzeittief, unter IPO-Preis), Schluss 135,27 – eine leichte Erholung vom Tagestief, aber ohne Bestätigungssignal, da (mangels rel_volumen-Daten) keine Aussage zur Volumendynamik dieses Tages möglich ist.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Vollständig bearische, weit gespreizte Fächerordnung: EMA9 (145,57) < EMA21 (153,50) < EMA55 (158,81) < gema_321 (150,42 zwischen EMA9 und EMA21). Alle fallen steil. Der Kurs (135,27) liegt rund 10 Punkte unter EMA9 – der Trend ist ungebrochen. Zu beachten: Da die Aktie erst seit dem 12.06. handelt, sind die längeren EMAs (v.a. EMA55) noch nicht vollständig 'eingeschwungen' und sollten mit entsprechender Vorsicht interpretiert werden.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Short</td></tr>
+    <tr><td>Einstieg</td><td>138,50 (Rebound-Verkauf unter dem absteigenden Widerstand, knapp unter dem Hoch vom 15.07. bei 139,34)</td></tr>
+    <tr><td>Stop</td><td>143,50 (über dem Pivot-Hoch vom 14.07. bei 143,33 mit Puffer)</td></tr>
+    <tr><td>Ziel</td><td>128,00 (unverändert aus der Vorlage – WICHTIG: reine Projektion/gemessene Bewegung, da unterhalb des aktuellen Allzeittiefs keinerlei Handelshistorie existiert, die diese Marke technisch stützen würde)</td></tr>
+    <tr><td>CRV</td><td>2,1 : 1</td></tr>
+  </table>
+
+  <h3>5 · Stillhalter (max. 12 Tage)</h3>
+<p>Ein Cash-Secured Put ist hier noch entschiedener auszuschließen als in den Vorlagen: Unterhalb des soeben erstmals unterschrittenen IPO-Preises (135$) gibt es buchstäblich keine einzige Handelssitzung in der Kurshistorie dieser Aktie – jede CSP-Zone dort wäre komplett erfunden. Ein Covered Call am absteigenden EMA9/altem Debüt-Niveau bleibt dagegen technisch begründbar.</p>
+<table class="setup"><tr><td>Geschäft</td><td>Covered Call</td></tr><tr><td>Strike</td><td>150.0</td></tr><tr><td>Puffer</td><td>10.9 %</td></tr><tr><td>Zone</td><td>Debüt-Niveau vom 12.06. (Erstnotiz 150$) und EMA9-Bereich, fallend</td></tr><tr><td>Verfall bis</td><td>2026-07-24 (8 Tage)</td></tr><tr><td>Begründung</td><td>Strike unverändert bei 150 aus der 13.07.-Analyse, da die Zone (psychologisches Debüt-Niveau plus historischer Widerstandscluster 149-152) weiterhin gültig ist. Der Puffer ist mit 10,9% jetzt deutlich größer als am 13.07. (9,1%), da der Kurs seither weiter gefallen ist. Andienung bei 150 wäre bei einer Aktie, die gerade ihr eigenes IPO-Niveau unterschritten hat, ein sehr komfortables Exit-Niveau für Long-Halter. WICHTIG: Angesichts der extremen Volatilität dieser frisch gelisteten Aktie (Tagesspannen von teilweise über 20 Punkten in den ersten Handelswochen) sollte die Position engmaschig beobachtet werden. Prüfen: Prämie im Verhältnis zum 10,9%-Puffer, Liquidität am 150er.</td></tr></table>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 16.07.2026 anzeigen</summary>
+    <h1>SPCX – Vollständige Bestätigung der Short-Serie, IPO-Preis durchbrochen</h1><h2>1. Zusammenfassung der bisherigen Entwicklung</h2><p>Alle drei vorangegangenen Analysen (08./10./13.07.) setzten konsequent auf Short – und wurden durch die Kursentwicklung bestätigt. Der Kurs fiel von der Erstnotiz 150$ über das Allzeithoch 225,64$ (16.06.) in einen ununterbrochenen Abwärtstrend und durchbrach am 15.07. mit einem Tief von 132,15$ erstmals den eigentlichen IPO-Ausgabepreis von 135$ – ein Meilenstein, der auch in der breiten Finanzpresse als Signal nachlassender Euphorie gewertet wurde.</p><h2>2. Warum diese Aktie technisch anders zu behandeln ist</h2><p>Mit nur rund 24 Handelstagen Historie fehlen SPCX die mehrfach bestätigten Zonen, die bei etablierten Aktien wie WMT oder AMD zur Verfügung stehen. Unterhalb des aktuellen Allzeittiefs existiert schlicht keine einzige Kerze – jede Support-Zone dort wäre Spekulation, kein technischer Befund. Das ursprüngliche Ziel 128,00 aus der 13.07.-Analyse bleibt als gemessene Bewegung (Ausbruchshöhe projiziert) plausibel, ist aber ausdrücklich keine bestätigte Zone.</p><h2>3. Aktuelles Setup</h2><p>Die absteigende Serie tieferer Hochs (144,92 → 143,33 → 139,34 an den letzten drei Handelstagen) liefert einen fortlaufend fallenden Widerstand. Ein Rebound-Verkauf bei 138,50 mit Stop 143,50 (über dem letzten Pivot-Hoch) bietet ein CRV von 2,1:1 zum unveränderten Ziel 128,00. Aggressivere Variante: Direktverkauf auf aktuellem Niveau ohne auf einen Rebound zu warten, allerdings mit ungünstigerem CRV.</p><h2>4. Stillhalter-Vertiefung</h2><p>CC bei 150,00 (10,9% Puffer, Verfall 24.07.): Nutzt weiterhin das psychologisch bedeutsame Debüt-Niveau vom 12.06. als Anker – diese Marke hat durch die seitherige Kursentwicklung (Erstnotiz jetzt weit über dem aktuellen Kurs) noch mehr Abstand gewonnen. CSP explizit ausgeschlossen: Es gibt keine einzige Handelssitzung unterhalb des aktuellen Allzeittiefs, aus der sich ein Strike technisch ableiten ließe – jeder CSP-Vorschlag hier wäre reine Erfindung. Rollentrigger CC: Tagesschluss über 143,50 mit deutlicher Erholungsdynamik. Wichtiger genereller Hinweis: Als frisch gelistete, extrem volatile Aktie (Musk-Faktor, tägliche Kursspannen teils über 15%) sollte jede Position hier enger überwacht werden als bei etablierten Standardwerten dieser Serie.</p><h2>5. Abgleich mit früheren Analysen</h2><p>Alle drei Vorlagen (08., 10., 13.07.) werden vollständig bestätigt. Die Aktie hat sich sogar dynamischer nach unten bewegt als der ursprüngliche Zielrahmen (138/130/128) vermuten ließ, mit dem zusätzlichen psychologischen Meilenstein des IPO-Preis-Durchbruchs am 15.07.</p>
+  </details>
+</section>
+
+<section class="analyse short">
+  <div class="kopf">
+    <span class="datum">13.07.2026 </span>
+    <span class="badge short">SHORT</span>
+  </div>
+  <p class="fazit">SPCX beschleunigt die Abwärtsbewegung mit einem starken Sell-off am 13.07. unter die 140er-Marke – Short-Bias der Voranalysen wird vollauf bestätigt, nächstes Ziel 128–130.</p>
+  <img class="chart" src="img/SPCX_20260713_210835.png" alt="Chart SPCX">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>SPCX befindet sich in einem intakten, sich beschleunigenden Abwärtstrend. Vom Parabol-Hoch bei 225,64 (16.06.) wurde eine Kaskade sinkender Hochs und Tiefs etabliert: 225,64 → 190,0 → 172,4 → 167,9 → 153,5 → 144,92. Das Tief vom 13.07. bei 136,78 ist ein neues Mehrwochen-Tief und unterschreitet alle vorherigen Konsolidierungsböden. Die nächste relevante Unterstützungszone liegt bei ca. 128–130 (strukturelles Niveau aus der Vorperiode).</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die Kerze vom 13.07. ist eine lange Abwärtskerze (Open 144,70 / Close 137,53 / Tief 136,78) mit minimalem Oberschatten und sehr kleinem Unterschatten – klares Verkäufersignal ohne Erholungsansatz. Das rel. Volumen von ca. 1,19× Schnitt (55290880 bei rechnerisch ~46 Mio Schnitt) ist erhöht, aber nicht explosiv – kein Panik-Blow-Off, sondern kontrollierter Abgabedruck. Keine bullische Umkehrformation sichtbar.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Alle drei EMAs fallen: EMA9 (150,84) > EMA21 (157,10) > EMA55 (160,50) – der bärische Fächer ist voll ausgebildet. Der Kurs (137,53) notiert deutlich unter allen EMAs mit einem Abstand von 13,31 Punkten zum EMA9, was eine vorübergehende Überverkauft-Situation andeutet, aber bei Abwärtsdynamik kein Kontra-Signal darstellt. Der gema_321 (154,54) fällt steil – kein Kaufsignal in Sicht.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Short</td></tr>
+    <tr><td>Einstieg</td><td>144.00 (Pullback/Limit an altes Ausbruchsniveau ~143–145)</td></tr>
+    <tr><td>Stop</td><td>152.00 (über Pivot-Hoch 10.07. bei 150,57 und EMA9-Bereich)</td></tr>
+    <tr><td>Ziel</td><td>128.00 (strukturelle Unterstützung)</td></tr>
+    <tr><td>CRV</td><td>2.0 : 1</td></tr>
+  </table>
+
+  <h3>5 · Stillhalter (max. 12 Tage)</h3>
+<p>Im laufenden Abwärtstrend ohne belastbare Unterstützung über 136 ist ein Cash-Secured Put derzeit nicht empfehlenswert – das Andienungsrisiko ist zu hoch. Ein Covered Call auf bestehende Long-Positionen oder ein Naked Call oberhalb des nächsten Widerstands passt zur bärischen Marktstruktur.</p>
+<table class="setup"><tr><td>Geschäft</td><td>Covered Call</td></tr><tr><td>Strike</td><td>150.0</td></tr><tr><td>Puffer</td><td>9.1 %</td></tr><tr><td>Zone</td><td>EMA9 ~150,84 / Pivothoch 10.07. bei 150,57 / Widerstandscluster 149–152</td></tr><tr><td>Verfall bis</td><td>2026-07-25 (12 Tage)</td></tr><tr><td>Begründung</td><td>Der Strike 150 liegt oberhalb des Widerstandsblocks 149–152 (mehrfach getestete ehemalige Unterstützung, nun Deckel). EMA9 bei 150,84 verstärkt den Widerstand. Der Kurs müsste 9,1% steigen und durch drei Widerstandsebenen brechen, um den Strike zu gefährden. Bei Andienung (Covered Call): Abgabe zu 150 wäre bei aktuellem Trend ein attraktives Exit-Niveau für Long-Halter. Prüfen: Prämie vs. Puffer-Verhältnis in der Optionskette, Liquidität bei diesem Strike.</td></tr></table>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 13.07.2026 anzeigen</summary>
+    <h1>SPCX – Technische Analyse 13.07.2026</h1><h2>1. Trendstruktur</h2><p>SPCX befindet sich seit dem Parabol-Hoch vom 16.06.2026 (225,64) in einer beschleunigten Abwärtsbewegung. Die Struktur zeigt eine klare Kaskade sinkender Hochs und Tiefs:</p><ul><li><strong>Pivot-Hoch 1:</strong> 225,64 (16.06.)</li><li><strong>Pivot-Hoch 2:</strong> 190,00 (18.06.)</li><li><strong>Pivot-Hoch 3:</strong> 172,40 (30.06.)</li><li><strong>Pivot-Hoch 4:</strong> 167,90 (06.07.)</li><li><strong>Pivot-Hoch 5:</strong> 153,50 (09.07.)</li><li><strong>Pivot-Hoch 6:</strong> 144,92 (13.07.)</li></ul><p>Das heutige Tief bei 136,78 ist ein neues Mehrwochen-Tief und bricht den Boden der Konsolidierungszone 145–149, die zwischen dem 07.07. und 10.07. gehalten hatte. Damit ist auch dieser potenzielle Unterstützungsbereich gebrochen. Die nächste relevante Unterstützung liegt bei <strong>128–130</strong>, basierend auf dem strukturellen Niveau vor dem Parabol-Ausbruch vom 12.06. (damaliges Tief 149,34 / Open 150,0 – der eigentliche Ausbruchspunkt der Parabol-Phase). Ein weiteres Auffangniveau wäre bei <strong>120–122</strong> (Vorbewegung vor dem 12.06.).</p><p><strong>Bestätigung der Voranalysen:</strong> Die Short-These vom 08.07. und 10.07. wird vollständig bestätigt. Das Ziel 138,00 aus der Analyse vom 08.07. wurde erreicht und heute unterschritten. Ziel 2 bei 130,00 ist nun das aktive Primärziel.</p><h2>2. Candlestick-Formationen</h2><p>Die Kerze vom 13.07. zeigt:</p><ul><li>Open: 144,70 – nahezu am Vortagesschluss (145,30), Gap-Down-Charakter</li><li>High: 144,92 – kaum Erholung nach Eröffnung (Oberschatten nur 0,22 Punkte)</li><li>Low: 136,78 – neues Mehrwochen-Tief</li><li>Close: 137,53 – Schluss nahe am Tagestief (Unterschatten nur 0,75 Punkte)</li></ul><p>Diese Struktur ist ein klassisches <strong>bearish engulfing/continuation</strong>-Muster im Downtrend – die Bullen fanden keinen Moment der Kontrolle. Das Volumen von 55.290.880 liegt bei geschätztem 55er-Schnitt von ~46–50 Mio, entspricht rel. Volumen ~1,1–1,2×. Kein Panik-Blow-Off (das wäre 2–3×), aber solider Abgabedruck. Die letzten fünf Kerzen zeigen keine einzige bullische Umkehrformation (kein Hammer, kein Doji an einem Tief).</p><h2>3. EMA-Analyse</h2><p>Der bärische EMA-Fächer ist vollständig ausgebildet und beschleunigt sich:</p><ul><li><strong>EMA9:</strong> 150,84 (fällt von 162,94 am 01.07.)</li><li><strong>EMA21:</strong> 157,10 (fällt von 165,11 am 30.06.)</li><li><strong>EMA55:</strong> 160,50 (beginnt zu fallen, war lange flach)</li><li><strong>gema_321:</strong> 154,54 (fällt steil)</li></ul><p>Der Kurs bei 137,53 notiert <strong>13,31 Punkte (8,8%) unter dem EMA9</strong> – technisch überverkauft auf kurzfristiger Basis. Historisch führt eine solche Überdehnung zu kurzfristigen Erholungen (Snapback), die jedoch im Kontext eines Abwärtstrends als Shorteinstiegs-Gelegenheiten zu werten sind. Der EMA55 bei 160,50 war am 10.07. noch über dem EMA21 – dies wird sich in den nächsten Tagen ändern (Death Cross EMA9/EMA21 bereits vollzogen, EMA55-Cross folgt). Die Distanz zwischen EMA9 und EMA55 beträgt 9,66 Punkte – der Fächer öffnet sich weiter.</p><h2>4. Trade-Setups</h2><p><strong>Setup A (bevorzugt) – Short bei Snapback:</strong></p><ul><li>Einstieg: 143–145 (Pullback an gebrochenes Unterstützungsniveau 145–147)</li><li>Stop: 152,00 (über Pivot-Hoch 10.07. bei 150,57 und EMA9-Bereich 150,84)</li><li>Ziel 1: 130,00 (Ziel 2 aus Voranalyse, strukturelles Niveau)</li><li>Ziel 2: 122,00 (Voraus-Unterstützung)</li><li>CRV zu Ziel 1: (144 – 130) / (152 – 144) = 14/8 = <strong>1,75:1</strong></li><li>CRV zu Ziel 2: (144 – 122) / (152 – 144) = 22/8 = <strong>2,75:1</strong></li></ul><p><strong>Setup B – Short Direkteinstieg (aggressiv):</strong></p><ul><li>Einstieg: 137,50–138,00 (aktueller Kurs)</li><li>Stop: 144,00 (über heutigen Hochpunkt 144,92, Sicherheitsabstand)</li><li>Ziel 1: 130,00</li><li>CRV: (137,50 – 130) / (144 – 137,50) = 7,50/6,50 = <strong>1,15:1</strong> – zu eng für optimales Einstiegsniveau</li></ul><p><strong>Setup C – Short nach misslungenem Retest EMA9 (konservativ):</strong></p><ul><li>Einstieg: 149,00–151,00 (Pullback an EMA9-Zone)</li><li>Stop: 159,00 (über Pivot-Hoch 07.07.)</li><li>Ziel 1: 128,00</li><li>CRV: (150 – 128) / (159 – 150) = 22/9 = <strong>2,4:1</strong></li></ul><p>Setup A wird bevorzugt, da es einen vertretbaren Puffer bei klarer technischer Grenze (Stop über EMA9 und letztem Pivot) mit gutem CRV verbindet.</p><h2>5. Stillhalter-Setups (Schwerpunkt)</h2><p><strong>Cash-Secured Put (CSP): NICHT empfohlen</strong></p><p>Ein CSP erfordert eine belastbare Unterstützungszone als Puffer. Die Zone 145–149 wurde heute klar gebrochen. Die nächste relevante Unterstützung bei 128–130 wäre für einen CSP-Strike zwar technisch ableitbar (Strike 125, Puffer ~9%), jedoch ist die Abwärtsdynamik zu stark und es fehlen bestätigende Reversal-Signale. Das Andienungsrisiko bei einem trendfolgendem Abverkauf ist strukturell zu hoch. CSP erst wieder prüfen, wenn eine Kerzenformation (Hammer, Doji, bullisches Engulfing) an einem Unterstützungsniveau auf Tagesbasis erscheint.</p><p><strong>Covered Call (CC): EMPFOHLEN</strong></p><p>Für Anleger mit bestehender Long-Position in SPCX oder zur Ertragsoptimierung auf einer Leerverkaufsposition bietet sich ein Covered Call (bzw. Naked Call für Shortpositionierte) auf die Widerstandszone 149–152 an.</p><ul><li><strong>Strike: 150,00</strong></li><li>Technische Herleitung: Die Zone 149–152 war von 07.07.–10.07. eine Konsolidierungsbasis, die nach unten gebrochen wurde. Ehemalige Unterstützungen werden zu Widerständen. Zusätzlich liegt der EMA9 bei 150,84 als dynamischer Deckel. Der Kurs müsste 9,1% steigen und durch diesen Widerstandsblock ausbrechen, um den Strike zu gefährden.</li><li>Puffer zum Schluss: (150 – 137,53) / 137,53 = <strong>9,1%</strong></li><li>Verfall: <strong>2026-07-25</strong> (12 Tage Restlaufzeit, nächster Standardverfall)</li><li>Andienungsszenario: Bei Andienung zu 150,00 wäre dies für Long-Halter ein attraktives Niveau (deutlich über aktuellem Kurs). Für Short-Trader bedeutet es eine temporäre Gegenbewegung von 9%, die im Abwärtstrend unwahrscheinlich, aber nicht ausgeschlossen ist.</li><li>Was prüfen: Prämie für den 150er Call (Verhältnis zur Margin/Positionsgröße), implizite Volatilität (IV ist bei solchen Bewegungen typischerweise erhöht, was Prämien attraktiv macht), Open Interest und Bid-Ask-Spread für Liquidität.</li><li>Rollingsignal: Wenn der Kurs innerhalb von 3–4 Handelstagen auf über 147 schließt und das Volumen anzieht, sollte eine Anpassung (Rollen des Strikes höher oder Schließen der Position) geprüft werden.</li></ul>
+  </details>
+</section>
+
+<section class="analyse short">
+  <div class="kopf">
+    <span class="datum">10.07.2026</span>
+    <span class="badge short">SHORT</span>
+  </div>
+  <p class="fazit">SPCX bestätigt nach einem gescheiterten Parabol-Top eine intakte Abwärtsstruktur mit bärischem EMA-Fächer und einer starken Verkäuferkerze am dritten Test der Unterstützungszone 147–149 – die Short-These vom 08.07. wird bestätigt und verfeinert.</p>
+  <img class="chart" src="img/SPCX_20260710_090600.png" alt="Chart SPCX">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>SPCX bildete zwischen dem 12. und 16.06. einen parabolischen Anstieg von 150 auf ein Hoch bei 225,64, der seither vollständig abverkauft wird. Seit dem 16.06. reiht sich eine klare Serie tieferer Hochs aneinander (225,64 → 213,80 → 190,00 → 172,40 → 167,90 → 159,30), während die Tiefs die Zone 147,11–148,51 seit dem 23.06. bereits dreimal getestet haben (23.06., 26.06., 07.07.), ohne dass ein klarer Bruch gelang. Der übergeordnete Trend bleibt damit klar abwärtsgerichtet, aktuell an einer entscheidenden Range-Untergrenze.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die letzte verfügbare Kerze (07.07.) ist eine breite rote Kerze mit Schluss nahe dem Tagestief (149,47 vs. Tief 148,86) und minimalem oberen Docht – klare Verkäuferkontrolle ohne Erholungsversuch. Der kurze Erholungsimpuls vom 29./30.06. (Hoch 172,40) wurde am 01.07. durch eine Gap-down-Kerze auf Schluss 157,54 vollständig kassiert, ein bärisches Signal. Insgesamt dominieren seit dem Top durchgehend Kerzen mit Schluss im unteren Kerzendrittel.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Die EMAs liegen bärisch gestaffelt: EMA9 (159,72) &lt; EMA21 (162,55) &lt; EMA55 (162,83), wobei EMA21/EMA55 bereits eng zusammenlaufen. Der Schlusskurs (149,47) notiert rund 6–7% unter der EMA9 – eine deutliche Extension, die kurzfristig für eine technische Gegenbewegung sprechen könnte, ohne die übergeordnete Bärenstruktur infrage zu stellen. Der gewichtete EMA-Verbund gema_321 fällt seit seinem Hoch am 18.06. (174,09) kontinuierlich bis auf 161,18 (07.07.) – keine Divergenz zum Kurs, der Verbund bestätigt den Abwärtstrend ohne Gegensignal.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Short</td></tr>
+    <tr><td>Einstieg</td><td>149,00 (Direkteinstieg nahe letztem Schluss) bzw. 158–160 bei Erholung an EMA9/EMA21 (besseres CRV)</td></tr>
+    <tr><td>Stop</td><td>159,30 (über Pivot-Hoch 07.07.) bzw. 168,00 (über Pivot-Hoch 06.07.) bei Erholungs-Einstieg</td></tr>
+    <tr><td>Ziel</td><td>138,00 (Ziel 1) / 130,00 (Ziel 2)</td></tr>
+    <tr><td>CRV</td><td>1,1:1 / 1,8:1 bei Direkteinstieg; 2,3:1 / 3,2:1 bei Erholungs-Einstieg</td></tr>
+  </table>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 10.07.2026 anzeigen</summary>
+    <h1>SPCX – Technische Analyse (Datenstand 07.07.2026)</h1><p><strong>Hinweis:</strong> Die gelieferten Kursdaten enden am 07.07.2026, drei Handelstage vor dem heutigen Datum (10.07.2026). Die Analyse bezieht sich ausschließlich auf diesen Datenstand; zwischenzeitliche Kursbewegungen sind nicht erfasst. Zudem waren die Spalten <em>vol_schnitt_55</em> und <em>rel_volumen</em> in der übermittelten Zeitreihe durchgehend leer – Volumenaussagen stützen sich daher auf die absoluten Tagesvolumina statt auf relative Vielfache.</p><h2>1. Trendstruktur</h2><p>Der Chart zeigt einen klassischen Parabol-Top: Anstieg von 150,00 (12.06.) auf ein Hoch von 225,64 (16.06.) binnen drei Handelstagen, gefolgt von einem ebenso scharfen Abverkauf. Seit dem Top bildet sich eine lückenlose Serie tieferer Hochs: 225,64 → 213,80 (17.06.) → 190,00 (18.06.) → 176,75 (22.06.) → 172,40 (30.06., Erholungshoch) → 167,90 (06.07.) → 159,30 (07.07., aktuellstes und niedrigstes Zwischenhoch). Auf der Unterseite hat sich die Zone 147,11–148,51 als robuste, aber vielfach angelaufene Untergrenze etabliert: Tiefs bei 147,11 (23.06.), 148,51 (26.06.) und zuletzt 148,86 (07.07.) – ein dreifacher Test ohne sauberen Bruch, aber mit spürbar nachlassender Erholungskraft nach jedem Test.</p><h2>2. Candlestick-Formationen</h2><p>Die Kerze vom 07.07. ist die aussagekräftigste: Eröffnung 158,92, Hoch nur 159,30 (kaum über Eröffnung), Tief 148,86, Schluss 149,47 – nahezu ein bärischer Marabozu mit verschwindend kleinem oberen Docht. Das signalisiert durchgehenden Verkaufsdruck über die gesamte Sitzung ohne nennenswerten Käuferwiderstand. Der Versuch einer Erholung am 29./30.06. (grüne Kerzen, Hoch 172,40) wurde am 01.07. durch eine Kerze mit Eröffnung 171,57 und Schluss 157,54 (Tief 155,00) faktisch ausradiert – strukturell einem bärischen Engulfing sehr ähnlich und ein klares Signal, dass Käufer an höheren Kursen konsequent verkauft werden. Auch die Kerze vom 06.07. (Spanne 155,04–167,90, Schluss 160,42 im unteren Kerzendrittel) bestätigt dieses Muster.</p><h2>3. EMA-Lage</h2><p>Die drei EMAs sind bärisch gestaffelt (EMA9 159,72 &lt; EMA21 162,55 &lt; EMA55 162,83), wobei sich EMA21 und EMA55 bereits stark angenähert haben – ein Zeichen, dass die mittelfristige Dynamik an Schwung verliert, ohne dass der Fächer bereits kippt. Auffällig ist der Abstand des Schlusskurses (149,47) zur EMA9: rund 6,5% Unterschreitung, die stärkste Extension im gesamten Datensatz. Das erhöht die Wahrscheinlichkeit einer kurzfristigen technischen Gegenbewegung Richtung EMA9/EMA21 (159–163), ändert aber nichts am übergeordneten Bild. Der gewichtete Verbund gema_321 ist von seinem Hoch 174,09 (18.06.) bis auf 161,18 (07.07.) gefallen – stetig, ohne Gegenbewegung, ohne Divergenz zum fallenden Kurs. Das bestätigt die Short-These strukturell.</p><h2>4. Trade-Setups</h2><p><strong>Bezug zur Vorwoche:</strong> Die Analyse vom 08.07. empfahl Short bei 149,50 mit Stop 159,50 und Ziel 138,00 (CRV 2,3:1). Der zuletzt verfügbare Schlusskurs (149,47 am 07.07.) liegt praktisch exakt auf diesem Einstiegslevel – die These wird durch die aktuellen Daten vollumfänglich bestätigt, nicht verworfen. Die folgenden Setups aktualisieren und ergänzen sie:</p><ul><li><strong>Setup A – Direkteinstieg (trendfolgend):</strong> Einstieg 149,00, Stop 159,30 (über Pivot-Hoch 07.07.), Ziel 1: 138,00 (CRV 1,1:1), Ziel 2: 130,00 (CRV 1,8:1). Vorteil: sofortige Positionierung im intakten Trend. Nachteil: mäßiges CRV wegen der hohen Tagesvolatilität dieses Titels.</li><li><strong>Setup B – Erholungs-Einstieg (bevorzugt bei Geduld):</strong> Bei einer Gegenbewegung in die EMA9/EMA21-Zone (159–163) Einstieg um 159,00–160,00, Stop 168,00 (über Pivot-Hoch 06.07.), Ziel 1: 138,00 (CRV ca. 2,3:1), Ziel 2: 130,00 (CRV ca. 3,2:1). Deutlich attraktiveres Chance-Risiko-Verhältnis, erfordert aber den Verzicht auf den aktuellen Level.</li><li><strong>Setup C – Bruchbestätigung (defensiv):</strong> Erst bei Tagesschluss unter 147,00 (sauberer Bruch der dreifach getesteten Zone) Einstieg ca. 146,50, Stop 153,00 (über dem letzten kleineren Pivot), Ziel 1: 138,00 (CRV ca. 1,3:1), Ziel 2: 130,00 (CRV ca. 2,4:1). Reduziert das Risiko eines Fehlsignals an der Unterstützung, verzichtet aber auf einen Teil der Bewegung.</li></ul><p>Konfluenz-Bereiche: Die Zone 159–168 vereint aktuell EMA9/EMA21 von unten mit den letzten beiden Pivot-Hochs von oben – der wichtigste unmarkierte Widerstandsbereich für Setup B. Unterhalb von 138,00 liefert der Datensatz keine weitere historische Struktur; ein Bruch dieser Marke würde in unbekanntes Terrain führen und die Ziel-2-Marke 130,00 als nächste runde Zahl nahelegen.</p><p><em>Diese Analyse ist eine rein technische Einordnung auf Basis der übermittelten Kursdaten, keine Anlageberatung.</em></p>
+  </details>
+</section>
+
+<section class="analyse short">
+  <div class="kopf">
+    <span class="datum">08.07.2026</span>
+    <span class="badge short">SHORT</span>
+  </div>
+  <p class="fazit">SPCX zeigt nach einem starken Abverkauf vom Hoch eine schwache Erholungsstruktur mit sinkenden Hochs und Tiefs – die EMAs drehen abwärts, Short-Bias dominiert.</p>
+  <img class="chart" src="img/SPCX_20260708_122408.png" alt="Chart SPCX">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>Vom Allzeithoch bei ~225,64 (16.06.) kam es zu einem massiven Abverkauf auf ~147 (23.06.). Die anschließende Erholung bis 172,40 (30.06.) wurde sofort wieder verkauft – niedrigeres Hoch. Seitdem: Folge aus niedrigeren Hochs (172,40 → 167,90 → 162,16 → 159,30) und niedrigeren Tiefs. Der aktuelle Schlusskurs (149,47) hat die Tiefs vom 22.–23.06. wieder nahezu erreicht und bricht die kurzfristige Erholungsstruktur klar nach unten.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die letzte Kerze (07.07.) ist eine kräftige Abwärtskerze mit einem kleinen Oberschatten und Schlusskurs nahe dem Tagestief (148,86–159,30 Range, Close 149,47) – klare Bearish-Kerze ohne nennenswerte Unterstützung. Davor: Am 06.07. eine Bearish-Kerze nach Fehlausbruch. Zusammen bilden die letzten zwei Kerzen eine Bestätigung des Abwärtstrends.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>EMA9 (159,72) < EMA21 (162,55) < EMA55 (162,83) – vollständig bearishe Reihenfolge. Der GEMA_321 liegt bei 161,18, ebenfalls deutlich über dem Kurs (149,47), was einen klar negativen Abstand signalisiert. Alle EMAs verlaufen nach unten – der EMA-Verbund dreht bearish. Kein Kreuzungssignal nach oben in Sicht.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Short</td></tr>
+    <tr><td>Einstieg</td><td>149.50 (Markt/Limit bei aktuellem Kurs oder Pullback in 152–155)</td></tr>
+    <tr><td>Stop</td><td>159.50 (über EMA9 und letztes Tageshoch 07.07.)</td></tr>
+    <tr><td>Ziel</td><td>138.00 (Unterstützungszone / gemessenes Ziel)</td></tr>
+    <tr><td>CRV</td><td>2.3 : 1</td></tr>
+  </table>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 08.07.2026 anzeigen</summary>
+    <h1>SPCX – Detailanalyse (08.07.2026)</h1><h2>1. Trendstruktur</h2><p>SPCX hat eine dramatische Bewegung hinter sich: Vom IPO-/Startbereich bei 150 am 12.06. schoss die Aktie binnen 4 Tagen auf ein Hoch von <strong>225,64 am 16.06.</strong> – ein Anstieg von ~50%. Danach folgte ein brutaler Abverkauf: Das Tief vom 23.06. lag bei <strong>147,11</strong>, ein Rückgang von ~35% in 7 Handelstagen.</p><p>Die anschließende Gegenbewegung erholte sich bis <strong>172,40 am 30.06.</strong> – jedoch mit klar abnehmendem Volumen (82 Mio vs. 322 Mio am Ausbruchstag). Seitdem entstand eine klare Abfolge niedrigerer Hochs und Tiefs: <strong>172,40 → 167,90 → 162,16 → 159,30</strong> auf der Hochseite, auf der Tiefseite: <strong>155,04 → 148,86</strong>. Die Schlusskurse der letzten drei Tage: 160,42 – 149,47 – signifikante Beschleunigung nach unten.</p><p>Wichtige Levels: Unterstützung bei ~147 (Tief 23.06.) – ein Bruch darunter öffnet Raum bis ~138 (gemessenes Ziel aus dem Erholungshoch 172 – Basis 154 = 18 Punkte, projiziert ab 154 nach unten). Widerstand liegt bei 155–157 (ehemaliges Support, nun Resistance), dann bei 160–162 (EMA-Cluster).</p><h2>2. Candlestick-Formationen</h2><p>Die Kerze vom <strong>07.07.</strong> (Open 158,92 – High 159,30 – Low 148,86 – Close 149,47) ist eine ausgeprägte Bearish-Marubozu-ähnliche Kerze. Der Körper umfasst fast die gesamte Range, der Close liegt nahe dem Tagestief – starker Verkaufsdruck. Das Volumen betrug 83,8 Mio, was bei einem vol_schnitt_55 (sofern verfügbar) als erhöht einzustufen wäre.</p><p>Die Kerze vom <strong>06.07.</strong> (Close 160,42) war ebenfalls bearish nach einem Intraday-Fehlausbruch über 167 (Hoch 167,895). Dieses Muster – Fehlausbruch gefolgt von starker Abwärtskerze – ist ein klassisches Short-Signal ('Bearish Engulfing'-ähnlich über zwei Tage).</p><p>Davor (02.07.): Kleine Inside-Kerze mit Close bei 162,00 – Konsolidierung, die nach unten aufgelöst wurde. Keine bullishen Reversals in Sicht.</p><h2>3. EMA-Analyse</h2><p>Die EMA-Konstellation ist eindeutig bearish: <strong>EMA9 (159,72) < EMA21 (162,55) < EMA55 (162,83)</strong> – klassische Todesreihenfolge. Der gewichtete EMA-Verbund GEMA_321 liegt bei <strong>161,18</strong>, der aktuelle Kurs (149,47) notiert damit rund <strong>11,71 Punkte unterhalb</strong> des GEMA_321 – ein erheblicher negativer Abstand, der sowohl die Bärenstärke als auch ein mögliches kurzfristiges Überdehnungsniveau signalisiert.</p><p>Alle drei EMAs verlaufen seit dem Hoch (16.06.) nach unten. EMA9 hat EMA21 bereits nach unten gekreuzt. EMA21 und EMA55 nähern sich an und drohen ebenfalls zu kreuzen (Death Cross). Kein EMA befindet sich in der Nähe des aktuellen Kurses – der Kurs ist weit abgeschlagen. Ein Pullback in Richtung 152–156 (ehem. Unterstützung, nun Widerstand) wäre technisch möglich, ohne den Abwärtstrend zu brechen.</p><h2>4. Trade-Setups</h2><p><strong>Setup A – Aggressiver Short bei Markt (bevorzugt):</strong><br>Einstieg: ~149,50 (aktueller Kurs)<br>Stop: 159,50 (über EMA9 und Tageshoch 07.07.)<br>Ziel 1: 147,00 (Vorjahrestief 23.06.) – CRV: 0,25:1 (zu eng, nur als Teilgewinnmitnahme)<br>Ziel 2: 138,00 (gemessenes Ziel) – CRV: ~2,3:1<br>Ziel 3: 130,00 (psychologische Runde) – CRV: ~3,3:1</p><p><strong>Setup B – Short auf Pullback (konservativ):</strong><br>Warten auf Gegenbewegung in die Zone 152–156 (ehem. Support, nun Resistance + Nähe zu EMA-Cluster)<br>Einstieg: 154,00–155,00<br>Stop: 160,50 (über EMA9 + Puffer)<br>Ziel: 138,00<br>CRV: ~(155-138)/(160,5-155) = 17/5,5 = 3,1:1 – deutlich attraktiver</p><p><strong>Setup C – Breakdown-Bestätigung:</strong><br>Warten auf Schlusskurs unter 147,00 (Tief 23.06.)<br>Einstieg: 146,50 (Stop-Sell unter Vorjahrestief)<br>Stop: 152,00<br>Ziel: 132,00 (Extension)<br>CRV: ~2,5:1</p><p><strong>Risiken / Gegenhypothese:</strong> SPCX ist eine relativ neue und volatilere Aktie – Gaps und Spike-Bewegungen sind möglich. Ein deutlicher Anstieg über 162 (EMA-Cluster) würde das bearishe Bild infrage stellen. Für Longpositionen wäre erst ein Schlusskurs deutlich über 170 mit Volumenbestätigung erforderlich.</p>
+  </details>
+</section>
+
+
+  <footer>Automatisch erstellt · <a href="index.html">Zur Übersicht</a> ·
+    Keine Anlageberatung</footer>
+</div>
+</body>
+</html>

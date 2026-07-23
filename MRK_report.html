@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MRK – Analyse-Historie</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0d1319; --panel:#161e27; --line:#232e3a;
+    --text:#d9e1e8; --muted:#7e8b99; --accent:#e5a63c;
+    --long:#3ec08b; --short:#e2604f; --neutral:#8a96a3;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);
+       font:15px/1.6 "IBM Plex Sans",sans-serif;padding:32px 16px}
+  .wrap{max-width:860px;margin:0 auto}
+  header{display:flex;align-items:baseline;gap:14px;
+         border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:28px}
+  header h1{font:500 30px "IBM Plex Mono",monospace;margin:0;letter-spacing:1px}
+  header .sub{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:2px}
+
+  /* Eine Analyse = eine section; farbige Signalleiste links */
+  section.analyse{background:var(--panel);border:1px solid var(--line);
+                  border-left:4px solid var(--neutral);
+                  border-radius:6px;padding:22px 26px;margin-bottom:22px}
+  section.analyse.long{border-left-color:var(--long)}
+  section.analyse.short{border-left-color:var(--short)}
+
+  .kopf{display:flex;justify-content:space-between;align-items:center;
+        flex-wrap:wrap;gap:8px;margin-bottom:6px}
+  .datum{font:500 13px "IBM Plex Mono",monospace;color:var(--muted)}
+  .badge{font:500 12px "IBM Plex Mono",monospace;letter-spacing:2px;
+         padding:3px 10px;border-radius:3px;color:#0d1319}
+  .badge.long{background:var(--long)}
+  .badge.short{background:var(--short)}
+  .badge.neutral{background:var(--neutral)}
+
+  .fazit{font-size:16px;font-weight:600;margin:0 0 16px}
+  img.chart{width:100%;border:1px solid var(--line);border-radius:4px;margin:4px 0 12px}
+  h3{font:500 12px "IBM Plex Mono",monospace;color:var(--accent);
+     text-transform:uppercase;letter-spacing:2px;margin:18px 0 4px}
+  p{margin:6px 0;color:var(--text)}
+
+  /* Setup-Tabelle in Monospace, Zahlen buendig */
+  table.setup{width:100%;border-collapse:collapse;margin-top:8px;
+              font:14px "IBM Plex Mono",monospace}
+  table.setup td{padding:6px 10px;border-top:1px solid var(--line)}
+  table.setup td:first-child{color:var(--muted);width:120px}
+
+  /* Aufklappbarer Volltext in aelteren Analyse-Karten */
+  details.volltext{margin-top:16px;border-top:1px solid var(--line);padding-top:10px}
+  details.volltext summary{cursor:pointer;font:500 12px "IBM Plex Mono",monospace;
+                color:var(--muted);text-transform:uppercase;letter-spacing:2px}
+  details.volltext summary:hover{color:var(--accent)}
+  details.volltext h1,details.volltext h2{font-size:15px;color:var(--accent);margin:14px 0 6px}
+  details.volltext strong{color:#fff}
+
+  footer{color:var(--muted);font-size:12px;text-align:center;margin-top:32px}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>MRK</h1>
+    <span class="sub">Analyse-Historie · neueste zuerst</span>
+  </header>
+
+<!-- NEUE_ANALYSE_HIER -->
+<section class="analyse long">
+  <div class="kopf">
+    <span class="datum">23.07.2026 </span>
+    <span class="badge long">LONG</span>
+  </div>
+  <p class="fazit">MRK hält nach dem Pullback vom Hoch (131,74) die bullische Struktur oberhalb EMA9/21 – der Trend ist intakt, ein frischer CSP auf technisch abgeleitetem Support bietet sich an.</p>
+  <img class="chart" src="img/MRK_20260723_121721.png" alt="Chart MRK">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>MRK befindet sich in einem intakten Aufwärtstrend seit dem Tief Mitte Juni (111,57 am 18.06.). Die Struktur zeigt eine klare Abfolge steigender Hochs und Tiefs: Swing-Hoch 131,74 (17.07.) → Pullback-Tief 124,10 (20.07.) → Erholung auf 127,47 (22.07.). Das Hoch vom 17.07. bildet aktuell den relevanten Widerstand; die Zone 124,00–125,00 fungiert als erste Unterstützung (mehrfache Tests am 09./10./20.07.). Der übergeordnete Trend bleibt klar bullisch, solange MRK oberhalb von 122,44 (Tief 13.07.) notiert.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die letzten drei Kerzen zeigen eine konstruktive Konsolidierung: 20.07. Inside-Kerze mit leichtem Abgabedruck (rel. Volumen 0,73 – unterdurchschnittlich, kein Distribution-Signal), 21.07. Erholung mit höherem Hoch und höherem Tief (bullisches Follow-Through), 22.07. erneut höheres Hoch (128,83) und höheres Tief (126,62) bei moderatem Volumen (rel. Volumen 0,76). Das Muster entspricht einer geordneten Bull-Flag-Konsolidierung nach dem starken Run am 16./17.07.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Die EMA-Struktur ist eindeutig bullisch: EMA9 (125,82) > EMA21 (124,53) > EMA55 (121,23); gema_321 bei 124,62 und steigend. Alle drei EMAs verlaufen aufwärts geneigt und fächern auf – ein gesundes Bild. Der aktuelle Kurs (127,47/127,69 laut IBKR) liegt komfortabel ca. 1,5 % über EMA9 und ca. 5,3 % über EMA55. Keine Kompressions-Artefakte, keine ungewöhnliche Reihenfolge – reine Trendkonfirmation.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Long</td></tr>
+    <tr><td>Einstieg</td><td>128.84 (Stop-Buy über Tageshoch 22.07. bei 128,83 – Breakout-Bestätigung)</td></tr>
+    <tr><td>Stop</td><td>124.00 (unter Support-Zone 124,00–125,00 und EMA9)</td></tr>
+    <tr><td>Ziel</td><td>135.00 (gemessene Bewegung aus der Konsolidierung; nächster struktureller Widerstand)</td></tr>
+    <tr><td>CRV</td><td>2.8 : 1</td></tr>
+  </table>
+
+  <h3>5 · Stillhalter (max. 12 Tage)</h3>
+<p>Die bullische Trendstruktur mit steigenden EMAs und geordneter Konsolidierung begünstigt klar den Verkauf von Cash-Secured Puts unterhalb technisch abgeleiteter Support-Zonen. Ein Covered Call scheidet aus – laut IBKR-Snapshot besteht kein Aktienbestand (0 Stück). Ein Naked Call ist angesichts des intakten Aufwärtstrends und fehlender Overhead-Resistance bis ca. 135 USD aus Risikosicht nicht vertretbar.</p>
+<table class="setup"><tr><td>Geschäft</td><td>Cash-Secured Put</td></tr><tr><td>Strike</td><td>122.5</td></tr><tr><td>Puffer</td><td>4.1 %</td></tr><tr><td>Zone</td><td>Support-Cluster 122,44–124,00 (Tiefs 13./14.07. + EMA9-Nähe); Strike liegt unterhalb dieser Zone</td></tr><tr><td>Verfall bis</td><td>2026-08-01 (9 Tage)</td></tr><tr><td>Begründung</td><td>Der Strike 122,50 bietet einen Puffer von ca. 4,1 % zum aktuellen Kurs (127,69 laut IBKR). Die massgebliche technische Zone liegt zwischen 122,44 (Tief 13.07., mehrfach bestätigt) und 124,03 (Tief 20.07.). Der Strike bei 122,50 liegt damit ca. 1,50 Punkte unterhalb der Unterkante dieser Zone – die Zone steht als vollständiger Puffer vor dem Strike. Konfluenz: EMA21 bei 124,53 bietet eine weitere Auffangebene oberhalb des Strikes. Andienungsszenario: Eine Andienung bei 122,50 würde einen Bruch unter beide Swing-Tiefs (13. und 14.07.) sowie unter den EMA21 bedeuten – strukturell eine echte Trendverschlechterung. Roll-Trigger: Unterschreitet MRK die 124,00-Marke auf Schlusskursbasis, sollte der Put aktiv gemanagt (enger Schlusskauf oder Roll auf niedrigeren Strike / gleicher Verfall) werden, da der Support dann unmittelbar bedroht ist. In der Optionskette prüfen: Delta sollte –0,18 bis –0,25 anstreben; Prämie im Verhältnis zum 4,1 %-Puffer bei 9 Tagen Restlaufzeit auf Attraktivität bewerten; Bid-Ask-Spread und Open Interest beim 122,50-Strike auf ausreichende Liquidität prüfen.</td></tr></table>
+<p><strong>Bestand:</strong> Laut IBKR-Snapshot bestehen weder Aktien- noch Optionspositionen in MRK – kein Rollbedarf, kein Bestandsmanagement erforderlich.</p>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 23.07.2026 anzeigen</summary>
+    <h1>MRK – Technische Analyse & Stillhalter-Setup | 23.07.2026</h1>
+
+<h2>Abgleich mit früheren Analysen</h2>
+<p>Die Analyse vom <strong>08.07.2026</strong> empfahl ein Long-Setup mit Stop-Buy über 129,00 und Ziel 135,00. Dieses Setup wurde am <strong>16./17.07.</strong> aktiviert: MRK brach mit überdurchschnittlichem Volumen (rel. 1,24 / 1,27) aus dem Konsolidierungsbereich aus und erreichte das Intraday-Hoch von <strong>131,74</strong> am 17.07. – die bullische Kernthese hat sich bestätigt.</p>
+<p>Die Analyse vom <strong>19.07.2026</strong> stufte die Lage auf NEUTRAL herab und sah ein Re-Entry-Signal bei 130,00 noch als ausstehend. Rückblickend war das korrekt: MRK konsolidierte vom Hoch 131,74 zurück auf 124,10 (20.07.) – ein gesunder Retracement von knapp 57 % der vorherigen Rally-Kerzen. Die genannte CSP-Zone um 122,44–122,50 mit 4,0 % Puffer hat sich als technisch valide erwiesen und ist heute noch tragfähig. Der Verfall 25.07. aus der Voranalyse ist heute bereits abgelaufen (2 Tage) – kein Rollbedarf da keine Position bestand.</p>
+
+<h2>1. Trendstruktur</h2>
+<p>Der übergeordnete Trend seit dem Tief <strong>107,90 (29.04.)</strong> ist klar aufwärts gerichtet. Zwischen 29.04. und 18.06. gab es eine ausgedehnte Bodenbildungsphase (Bereich 107,90–115,88) mit mehrfach getesteter Unterstützung um <strong>111,00–112,00</strong>. Der entscheidende Ausbruch kam am <strong>22.05.</strong> mit einem Gap-up auf 122,41 (rel. Volumen 1,57) – dieser Tag markierte die Trendwende in die Aufwärtsbewegung.</p>
+<p><strong>Aktuelle Swing-Struktur:</strong></p>
+<ul>
+  <li>Swing-Hoch: 131,74 (17.07.) – primärer Widerstand</li>
+  <li>Swing-Tief: 124,10 (20.07.) – erste Unterstützung (ein Test, noch unbestätigter Bereich)</li>
+  <li>Bestätigte Support-Zone: <strong>122,44–124,03</strong> (Tiefs 13.07. + 14.07., mehrfach berührt)</li>
+  <li>Sekundäre Support-Zone: <strong>120,16</strong> (Tief 14.07. Intraday) – starke Auffangzone, darunter Vakuum bis ~117</li>
+</ul>
+<p>Solange MRK oberhalb von <strong>122,44</strong> auf Schlusskursbasis hält, ist die bullische Trendstruktur intakt. Ein Schlusskurs unter 120,00 würde die Trendthese strukturell beschädigen.</p>
+
+<h2>2. Candlestick-Formationen</h2>
+<p>Die Konsolidierungssequenz der letzten fünf Handelstage ist lehrbuchhaft bullisch:</p>
+<ul>
+  <li><strong>17.07.</strong>: Starke Aufwärtskerze mit Intraday-Hoch 131,74, Schlusskurs 127,50 – leichter Wick nach oben zeigt erste Gewinnmitnahmen, aber Kurs hält sich stark (rel. Volumen 1,27).</li>
+  <li><strong>20.07.</strong>: Inside-Candle mit Abgabedruck (Tief 124,22), Schlusskurs 124,40. Volumen 0,73x – keine Distribution, reine Konsolidierung.</li>
+  <li><strong>21.07.</strong>: Hammer-ähnliche Erholung, höheres Hoch (126,77) und höheres Tief (124,10) als 20.07. – Käufer kehren zurück.</li>
+  <li><strong>22.07.</strong>: Erneut höheres Hoch (128,83) und höheres Tief (126,62). Die Bull-Flag-Konsolidierung ist damit morphologisch vollständig. Schlusskurs 127,47 knapp unter dem Intraday-Hoch – solide Kerze.</li>
+</ul>
+<p>Das Muster entspricht einer klassischen <strong>Bull-Flag nach einem starken Impuls</strong>. Ein Ausbruch über 128,83 (22.07.-Hoch) wäre das technische Trigger-Signal für den nächsten Aufwärtsschub.</p>
+
+<h2>3. EMA-Lage</h2>
+<p>Stand 22.07.:</p>
+<ul>
+  <li><strong>EMA9</strong>: 125,82 – steigend, engster Begleiter des Kurses</li>
+  <li><strong>EMA21</strong>: 124,53 – steigend, zweite Auffangschicht</li>
+  <li><strong>EMA55</strong>: 121,23 – steigend, übergeordneter Trendanker</li>
+  <li><strong>gema_321</strong>: 124,62 – steigend, gewichteter Verbund bestätigt Aufwärtsmomentum</li>
+</ul>
+<p>Die Reihenfolge EMA9 > EMA21 > EMA55 ist perfekt bullisch geordnet, alle drei verlaufen aufwärts und fächern auf. Kein Kompressions-Artefakt, kein Kreuzungsrisiko in Sicht. Der Kurs notiert ca. <strong>1,5 % über EMA9</strong> und <strong>2,6 % über EMA21</strong> – gesunde Distanz ohne überkauftes Extrem.</p>
+
+<h2>4. Trade-Setups (Direktanlage)</h2>
+<p><strong>Setup A (bevorzugt) – Breakout Long:</strong></p>
+<ul>
+  <li>Einstieg: Stop-Buy über <strong>128,84</strong> (über Hoch 22.07. bei 128,83)</li>
+  <li>Stop: <strong>124,00</strong> (unter Support-Zone und EMA9-Cluster)</li>
+  <li>Ziel 1: <strong>131,74</strong> (Retest des Vortageshochs) → CRV 0,6:1 – Teilgewinnmitnahme 50 %</li>
+  <li>Ziel 2: <strong>135,00</strong> (gemessene Bewegung der Flag + strukturelles Widerstandsziel) → CRV 2,8:1 auf Rest-Position</li>
+</ul>
+<p><strong>Setup B – Pullback Long:</strong></p>
+<ul>
+  <li>Einstieg: Limit bei <strong>124,50</strong> (EMA21-Bereich + Oberkante bestätigter Support-Cluster)</li>
+  <li>Stop: <strong>121,80</strong> (unter EMA55 und Juli-Konsolidierungstiefs)</li>
+  <li>Ziel: <strong>132,00</strong> → CRV ca. 2,8:1</li>
+  <li>Bedingung: Pullback muss mit fallendem Volumen stattfinden; Rückprall-Bestätigungskerze abwarten.</li>
+</ul>
+<p><strong>Setup C – kein Trade (Neutral-Szenario):</strong> Schlusskurs unter 124,00 mit erhöhtem Volumen invalidiert beide Long-Setups und erfordert Neubewertung. Nächste valide Support-Zone wäre 122,44–120,16.</p>
+
+<h2>5. Stillhalter-Setup (SCHWERPUNKT)</h2>
+<p><strong>Positionsstatus (IBKR, 23.07. 11:37):</strong> Keine Aktien, keine offenen Optionen in MRK – Slate ist clean, kein Rollbedarf.</p>
+
+<h3>Cash-Secured Put | Strike 122,50 | Verfall 01.08.2026 (9 Tage)</h3>
+<p><strong>Zonen-Herleitung:</strong></p>
+<ul>
+  <li>Primäre Support-Zone: <strong>122,44–124,03</strong> (bestätigt durch Tiefs 13.07. und 20.07., drei Berührungen)</li>
+  <li>Sekundäre Ebene: EMA21 bei 124,53 – zusätzlicher dynamischer Puffer oberhalb des Strikes</li>
+  <li>Strike 122,50 liegt <strong>~1,54 Punkte unterhalb</strong> der Unterkante der Support-Zone → die gesamte bestätigte Support-Zone fungiert als Puffer vor dem Strike</li>
+  <li>Puffer zum aktuellen Kurs (127,69): <strong>4,1 %</strong></li>
+</ul>
+<p><strong>Konfluenz:</strong> EMA55 bei 121,23 bietet eine weitere dynamische Auffangebene knapp unterhalb des Strikes – selbst bei Andienung läge man im Bereich eines noch intakten übergeordneten Trendankers.</p>
+<p><strong>Andienungsszenario:</strong> Eine Andienung bei 122,50 würde voraussetzen, dass MRK die bestätigte Support-Zone 122,44–124,03 nach unten durchbricht. Das wäre ein strukturelles Warnsignal. Im Andienungsfall läge der Einstand unterhalb aller jüngsten Swing-Tiefs – die Position wäre zu verwalten (ggf. direkte Covered-Call-Überschreibung, wenn Aktien eingebucht wurden). Das Risikoprofil ist damit akzeptabel, aber nicht ohne aktives Management.</p>
+<p><strong>Roll-Trigger (präzise):</strong></p>
+<ul>
+  <li><strong>Stufe 1</strong>: MRK schließt unter <strong>124,00</strong> → Schlusskauf des Puts prüfen oder Roll auf niedrigeren Strike (z.B. 120,00) bei gleichem Verfall 01.08.</li>
+  <li><strong>Stufe 2</strong>: MRK schließt unter <strong>122,50</strong> → sofortiger Schlusskauf; kein Weiterrollen in dieser Marktphase ohne klare Bodenbestätigung</li>
+  <li><strong>Profit-Target</strong>: Schlusskauf bei 50 % der vereinnahmten Prämie (übliche Stillhalter-Regel bei <10 DTE)</li>
+</ul>
+<p><strong>Optionskette – manuell zu prüfen:</strong></p>
+<ul>
+  <li>Delta: Zielbereich <strong>–0,18 bis –0,25</strong> (kein zu aggressiver Strike, da 9 DTE)</li>
+  <li>Prämie: Im Verhältnis zum 4,1 %-Puffer auf Attraktivität prüfen; Richtwert für Akzeptabilität bei dieser IV-Klasse: mind. 0,30–0,40 USD Mid bei 9 DTE</li>
+  <li>Liquidität: Bid-Ask-Spread sollte unter 0,20 USD liegen; Open Interest > 100 Kontrakte für saubere Ausführung</li>
+  <li>Alternativ-Strike <strong>121,00</strong> prüfen: etwas mehr Puffer (5,2 %), falls 122,50 zu eng erscheint oder die Prämie unverhältnismäßig niedrig ist</li>
+</ul>
+
+<h3>Covered Call / Naked Call</h3>
+<p>Kein Aktienbestand laut IBKR – Covered Call nicht möglich. Ein Naked Call ist bei intaktem Aufwärtstrend und potenziell weiter steigenden Kursen (Ziel 135) ein asymmetrisch schlechtes Risiko-Profil. Kein Setup.</p>
+  </details>
+</section>
+
+<section class="analyse neutral">
+  <div class="kopf">
+    <span class="datum">19.07.2026 </span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <p class="fazit">MRK hat nach dem starken Rally-Schub auf 131,74 eine erste Ermüdung gezeigt und konsolidiert nun zwischen 127–128; die bullische Struktur ist intakt, aber ein klares Re-Entry-Signal fehlt noch.</p>
+  <img class="chart" src="img/MRK_20260719_131234.png" alt="Chart MRK">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>MRK etablierte ab Ende Juni einen kräftigen Aufwärtsimpuls vom 113er-Tief auf das 52-Wochen-Hoch bei 131,74 (17.07.). Die Sequenz steigender Hochs und Tiefs ist intakt: 119,6 → 125,45 → 130,29 → 131,74. Der aktuelle Kurs (127,63) liegt nach zwei aufeinanderfolgenden Inside-/Pullback-Kerzen im Bereich 127–128, was einem normalen Retracement von ca. 35–40 % des letzten Schwungs entspricht. Die frühere Resistance-Zone 125–126 hat sich als potenzielle Support-Basis etabliert, ist aber noch <strong>unbestätigt</strong> als belastbare Zone.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Der 17.07. lieferte eine lange obere Dochte-Kerze (High 131,74, Close 127,50 bei rel. Volumen 1,27x): klassisches Shooting-Star-Signal auf neuem Hoch – kurzfristig bearish, im Trendkontext nur Ermüdungs-Signal. Die heutige Kerze (16.07. close 127,63 laut Snapshot) pendelt nahe dem Vortages-Close – kein klares Fortsetzungs- oder Umkehrsignal. Entscheidend bleibt, ob MRK die 125–126er Marke im Falle eines tieferen Pullbacks verteidigt.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Die EMA-Struktur ist klar bullisch: EMA9 (125,39) > EMA21 (124,00) > EMA55 (120,67), gema_321 bei 124,14 – alle steigend, Verbund in korrekter Reihenfolge. Der Kurs (127,63) handelt <strong>oberhalb aller drei EMAs</strong> mit einem Abstand von +2,24 / +3,63 / +6,96 zum 9/21/55er. Nach dem starken Rally-Schub ist ein Mean-Reversion zur EMA9 (≈125,40) oder EMA21 (≈124,00) jederzeit möglich und technisch gesund.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Long</td></tr>
+    <tr><td>Einstieg</td><td>130.00 (Stop-Buy über 17.07.-Hoch 131,74, Bestätigung des Breakouts)</td></tr>
+    <tr><td>Stop</td><td>124.50 (unter EMA21 und potenziellem Support 125–126)</td></tr>
+    <tr><td>Ziel</td><td>137.00</td></tr>
+    <tr><td>CRV</td><td>2.5 : 1</td></tr>
+  </table>
+
+  <h3>5 · Stillhalter (max. 12 Tage)</h3>
+<p>Die bullische Trendstruktur mit steigendem EMA-Verbund begünstigt den Verkauf von Cash-Secured Puts auf technisch abgeleiteten Support-Levels unterhalb des Marktes. Ein Covered Call scheidet aus – laut IBKR-Snapshot besteht kein Aktienbestand. Ein Naked Call ist angesichts des intakten Uptrends auf neuem Hoch aus Risikosicht derzeit nicht empfehlenswert.</p>
+<table class="setup"><tr><td>Geschäft</td><td>Cash-Secured Put</td></tr><tr><td>Strike</td><td>122.5</td></tr><tr><td>Puffer</td><td>4.0 %</td></tr><tr><td>Zone</td><td>EMA21-Cluster und Pullback-Tief 14.07. bei 120,16–122,44; Strike liegt unterhalb dieser Zone</td></tr><tr><td>Verfall bis</td><td>2026-07-25 (6 Tage)</td></tr><tr><td>Begründung</td><td>Der Strike 122,50 hat rund 4,0 % Puffer zum aktuellen Kurs (127,63). Die kritische Support-Cluster-Zone liegt zwischen 120,16 (Tief 14.07.) und 122,44 (Tief 13.07.) sowie dem EMA21 bei aktuell ≈124,00. Der Strike bei 122,50 liegt ca. 1,50 Punkte <em>unterhalb</em> dieser Zone und bietet damit die Zone als vollständigen Puffer. Andienungsszenario: Würde MRK auf 122,50 andienen, wäre das ein Rückfall unter EMA21 und das jüngste Swing-Tief – strukturell kein primäres Kaufniveau mehr, deshalb ist aktives Management (Close oder Roll) unterhalb 124,00 angebracht. In der Optionskette prüfen: Delta sollte –0,20 bis –0,28 anstreben; Prämie im Verhältnis zum 4 %-Puffer bei 6 Tagen Restlaufzeit auf Attraktivität prüfen; Liquidität / Bid-Ask-Spread bei 122,50-Strike verifizieren.</td></tr></table>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 19.07.2026 anzeigen</summary>
+    <h1>MRK – Detailanalyse 19.07.2026</h1>
+
+<h2>1. Trendstruktur & Abgleich Voranalyse</h2>
+<p>Die Analyse vom 08.07.2026 empfahl Long ab 129,00 mit Ziel 135,00 und Stop 124,80. Dieses Setup hat sich <strong>materialisiert</strong>: MRK brach am 16.07. über 128,93 aus, erreichte am 17.07. ein Intraday-Hoch von 131,74 – das Ziel 135,00 wurde jedoch <em>nicht</em> erreicht. Die Aussage zu Support 125–126 ist weiterhin gültig, jedoch noch nicht als belastbare Multi-Test-Zone bestätigt (bisher ein signifikanter Bounce am 14.07. Tief 120,16, dann direkt Erholung).</p>
+<p>Die übergeordnete Sequenz: Tief 107,90 (29.04.) → Aufwärtsimpuls → Konsolidierung 111–115 (Mai/Anfang Juni) → zweiter Impulsbein 114,70 → 131,74. Das ist eine klassische zweistufige Akkumulation mit Break. Wichtige Levels: <strong>Support-Cluster 120,16–122,44</strong> (Swing-Tiefs 13./14.07.), <strong>Support 125,00–126,00</strong> (Konsolidierungsdeckel aus Juni, jetzt Basis), <strong>Resistance / ATH-Zone 131,74</strong> (17.07.-Hoch mit langem oberen Docht).</p>
+
+<h2>2. Candlestick-Formationen</h2>
+<p>Der <strong>17.07.2026</strong>: Open 128,45, High 131,74, Low 127,03, Close 127,50 – das ist ein klassischer <em>Shooting Star / Bearish Hammer</em> auf neuem Kurshoch mit rel. Volumen 1,27x. Erhöhtes Volumen bei gleichzeitig aggressivem Abverkauf von der Tagesspitze signalisiert Verkaufsdruck auf der Rallye. Für sich allein in einem Uptrend nur ein <em>Ermüdungssignal</em>, kein Trendumkehrsignal – relevant erst bei Unterschreiten von 127,03 (17.07.-Tief) mit Bestätigung.</p>
+<p>Der <strong>16.07.2026</strong>: Starke Aufwärtskerze von 124,00 auf 127,63 mit rel. Volumen 1,24x – bullischer Momentum-Burst, der den vorherigen Rücksetzer (Tiefs 120–122 am 13./14.07.) klar aufgelöst hat.</p>
+<p>Das Zweier-Cluster 16./17.07. zeigt: Buyers haben Kontrolle im Tagesverlauf, aber sellers pushten den Kurs am zweiten Tag deutlich von der Spitze zurück. <em>Net-Bias: bullisch, aber mit kurzfristiger Erschöpfung.</em></p>
+
+<h2>3. EMA-Lage & Verbund</h2>
+<p>Stand Schlusskurs 17.07. (Datenbasis): EMA9 = 125,39 | EMA21 = 124,00 | EMA55 = 120,67 | gema_321 = 124,14. Alle EMAs steigen und in korrekter Bullish-Reihenfolge (9 > 21 > 55). Der gema_321-Verbund steigt stabil seit Anfang Juli und bestätigt den gesunden Aufwärtsimpuls ohne Kompressionsartefakte.</p>
+<p>Kurs (127,63 laut IBKR-Snapshot 12:09 Uhr) liegt <strong>+2,24 über EMA9, +3,63 über EMA21 und +6,96 über EMA55</strong>. Nach einem derart starken Schub ist eine Mean-Reversion zur EMA9 (≈125,40) oder EMA21 (≈124,00) das statistische Basisszenario – das ist kein Schwächesignal, sondern gesunde Atempause vor potenziellem nächstem Schub.</p>
+
+<h2>4. Trade-Setups (Alternativen)</h2>
+
+<p><strong>Setup A – Momentum-Continuation (bevorzugt):</strong> Stop-Buy über das 17.07.-Hoch bei 131,74 mit Einstieg 132,00. Stop knapp unter 127,03 (17.07.-Tief) bei 126,50. Ziel 1: 137,00 (CRV ≈ 2,1:1), Ziel 2: 140,00 (CRV ≈ 2,5:1 bei partiellem Scaling). Dieses Setup setzt voraus, dass die Shooting-Star-Kerze durch einen neuen Close über 131,74 neutralisiert wird.</p>
+
+<p><strong>Setup B – Pullback-Long (reaktiv):</strong> Limit-Long bei Rückkehr in die Zone 125,00–126,00 mit Bestätigung einer bullischen Tageskerze (Hammer, Bullish Engulfing). Einstieg ≈125,50, Stop 123,50 (unter EMA21-Cluster), Ziel 131,74 (Re-Test ATH), CRV ≈ 3,1:1. Höheres CRV, aber erfordert Geduld und Bestätigungskerze.</p>
+
+<p><strong>Setup C – Short (Kontraindikation, nur für aggressive Trader):</strong> Nur bei Close unter 127,03 (17.07.-Tief) UND unter EMA9 (≈125,40) denkbar. Short-Trigger: 124,90, Stop: 127,80, Ziel: 120,50 (EMA55-Test), CRV ≈ 2,0:1. Gegen den übergeordneten Trend – <em>nur für kurzfristige Trader, nicht empfohlen.</em></p>
+
+<h2>5. Stillhalter-Strategie (Schwerpunkt)</h2>
+
+<p><strong>Hintergrund & Kontext:</strong> Laut IBKR-Snapshot (19.07.2026, 12:09 Uhr) bestehen weder Aktienbestand noch offene Optionspositionen in MRK. Ein Covered Call ist damit nicht möglich. Ein Naked Short Call (ungedeckt) ist gegen den intakten Aufwärtstrend auf neuem Kurshoch abzulehnen – zu hohes Gamma-Risiko bei beschleunigtem Upside-Momentum. <strong>Fokus liegt ausschließlich auf dem Cash-Secured Put.</strong></p>
+
+<p><strong>CSP-Herleitung Strike 122,50 – Zonen-Konfluenz:</strong></p>
+<ul>
+  <li><strong>Swing-Tiefs 13./14.07.:</strong> 122,44 (13.07.) und 120,16 (14.07.) bilden einen Cluster, aus dem heraus die jüngste Rally startete. Dieser Bereich ist der nächste relevante Support, jedoch noch mit <em>nur einem Bounce-Test</em> – daher als ‚unbestätigter Bereich' zu klassifizieren, nicht als belastbare Zone.</li>
+  <li><strong>EMA21 bei ≈124,00:</strong> Steigender EMA21 bildet dynamischen Support. Gemeinsam mit dem Swing-Tief-Cluster entsteht eine Konfluenz-Zone 120,16–124,00.</li>
+  <li><strong>Strike-Platzierung:</strong> 122,50 liegt im <em>unteren Drittel</em> dieser Konfluenz-Zone. Der Puffer von 127,63 auf 122,50 beträgt 4,0 %. MRK müsste alle bisherigen Support-Strukturen (125–126, EMA9, EMA21, Swing-Tiefs 13./14.07.) unterschreiten, bevor der Strike berührt wird.</li>
+</ul>
+
+<p><strong>Andienungsszenario:</strong> Eine Andienung bei 122,50 würde bedeuten, dass MRK innerhalb von 6 Tagen unter alle relevanten EMAs und unter das 14.07.-Reaktionstief bei 120,16 fällt. In diesem Szenario wäre die bullische Trendstruktur klar beschädigt. Eine Andienung zu 122,50 wäre dann <em>nicht</em> als attraktiver Kaufpunkt im laufenden Trend zu sehen – aktives Management ist Pflicht: <strong>Roll-Trigger bei Unterschreitung von 124,00</strong> (EMA21-Bruch), Rollen auf niedrigeren Strike und/oder längere Laufzeit (maximal +12 Tage, bleibt innerhalb 2026-07-31 als nächster Standard-Verfall), oder direktes Schließen der Position.</p>
+
+<p><strong>Was in der Optionskette zu prüfen ist:</strong> Delta des 122,50-Puts sollte zwischen –0,20 und –0,28 liegen (ausreichend Puffer, aber noch attraktive Prämie). Bei 6 Tagen Restlaufzeit und niedrigem VIX-Umfeld kann die Prämie dünn sein – Prämie/Puffer-Ratio prüfen: Mindestens 0,30–0,40 USD Prämie für diesen Strike wäre die Untergrenze der Attraktivität. Bid-Ask-Spread bei 122,50 auf Enge prüfen; Open Interest und Volumen als Liquiditätsindikator beachten. Falls die Prämie bei 122,50 nicht ausreicht, alternativ 123,00 oder 124,00 als Strike prüfen – letzterer läge jedoch <em>innerhalb</em> der Konfluenz-Zone (EMA21), was das Andienungsrisiko deutlich erhöht.</p>
+
+<p><strong>Verfallsdatum:</strong> Nächster Standard-Freitag ab 19.07.2026 ist der <strong>25.07.2026</strong> (6 Tage Restlaufzeit) – innerhalb der 12-Tage-Regel. Übernächster Standard-Freitag wäre 01.08.2026 (13 Tage) – knapp außerhalb der Regel, daher nicht empfohlen.</p>
+
+<p><strong>Abgleich Voranalyse 08.07.:</strong> Der damalige Stillhalter-Bereich (null gesetzt) entsprach der Datenlage vor dem Rally-Schub. Jetzt, nach dem Move auf 131,74 und Konsolidierung bei 127,63, sind die Voraussetzungen für einen CSP auf technisch abgeleiteter Basis erstmals gegeben. Die Analyse ist konsistent fortgeschrieben.</p>
+  </details>
+</section>
+
+<section class="analyse long">
+  <div class="kopf">
+    <span class="datum">08.07.2026</span>
+    <span class="badge long">LONG</span>
+  </div>
+  <p class="fazit">MRK befindet sich in einem intakten Aufwärtstrend mit bullischer EMA-Struktur und solider Unterstützung im 125-126er Bereich – Long-Setup bietet sich bei Pullback-Bestätigung an.</p>
+  <img class="chart" src="img/MRK_20260708_121512.png" alt="Chart MRK">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>MRK hat nach einem Tief bei ~107.90 (Ende April) eine klare Erholungsbewegung vollzogen und zuletzt Hochs bei 130.29 (30.06.) markiert. Die Struktur zeigt höhere Hochs und höhere Tiefs seit Mai. Wichtige Unterstützung liegt im Bereich 125-126 (ehemaliger Ausbruchslevel), Widerstand bei 130-130.30.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die letzte Kerze (07.07.) zeigt eine bullische Kerze mit Schlusskurs 128.86 nach einem Intraday-Tief bei 127.885 – die Kerze schließt nahe dem Hoch des Tages. Die vorherige Kerze (06.07.) war eine bearishe Innenkerze/Korrekturkerze nach dem Hochpunkt. Insgesamt deuten die letzten zwei Kerzen auf eine Konsolidierung oberhalb der 125-126-Zone hin.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Die EMA-Struktur ist klar bullisch: EMA9 (126.24) > EMA21 (122.94) > EMA55 (119.27), gema_321 bei 123.98 – alle steigend. Der Kurs (128.86) notiert komfortabel oberhalb aller drei EMAs. Der EMA9 nähert sich dem Kurs von unten an, was die intakte Aufwärtsdynamik bestätigt.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Long</td></tr>
+    <tr><td>Einstieg</td><td>129.00 (Stop-Buy über 07.07.-Hoch 129.69)</td></tr>
+    <tr><td>Stop</td><td>124.80 (unter Unterstützungszone 125-126)</td></tr>
+    <tr><td>Ziel</td><td>135.00</td></tr>
+    <tr><td>CRV</td><td>2.3 : 1</td></tr>
+  </table>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 08.07.2026 anzeigen</summary>
+    <h1>MRK – Detailanalyse (Stand 08.07.2026)</h1><h2>1. Trendstruktur</h2><p>MRK vollzog von Mitte März bis Ende April eine ausgeprägte Korrektur: vom Hoch bei ~123.63 (08.04.) fiel der Kurs auf ein Tief von 107.90 (29.04.) – ein Rückgang von rund 12,8%. Seit diesem Tief läuft eine kraftvolle Erholung mit klarer Abfolge höherer Hochs und höherer Tiefs:</p><ul><li><strong>Tief:</strong> 107.90 (29.04.)</li><li><strong>Zwischenhoch:</strong> ~115.88 (21.05.)</li><li><strong>Ausbruch:</strong> 122.655 (22.05.) mit rel. Volumen 1.57 – signifikanter Ausbruch über den Korrekturwiderstand</li><li><strong>Neues Hoch:</strong> 130.29 (30.06.)</li></ul><p>Der Ausbruch vom 22.05. war mit Volumen (1.57x Schnitt) unterlegt und wurde nicht zurückgeholt. Aktuell konsolidiert MRK im Bereich 126-129, was den ehemaligen Ausbruchlevel bei ~125-126 als Unterstützung etabliert. Die Trendstruktur ist klar aufwärts gerichtet. Kritische Levels:</p><ul><li><strong>Support 1:</strong> 125.00-126.50 (ehemaliger Breakout-Level, bestätigt am 06.07. mit Tief 125.624)</li><li><strong>Support 2:</strong> 119.50-120.00 (June-Konsolidierungsbereich)</li><li><strong>Widerstand:</strong> 130.00-130.30 (bisheriges Allzeithoch im aktuellen Anstieg)</li></ul><h2>2. Candlestick-Formationen</h2><p>Die letzten fünf Kerzen zeigen folgendes Bild:</p><ul><li><strong>02.07.:</strong> Bullische Kerze, Schlusskurs 129.56, neues Zwischenhoch – Stärke bestätigt.</li><li><strong>06.07.:</strong> Bearishe Kerze (128.77 open → 126.78 close), Intraday-Tief 125.624, Schlusskurs deutlich unter Open. Das ist eine klare Schwächekerze, die den Support bei 125.62 testete. Rel. Volumen 0.89 – kein extremer Verkaufsdruck.</li><li><strong>07.07.:</strong> Bullische Erholungskerze (128.77 open → 128.86 close, Tief 127.885, Hoch 129.69) – der Markt hat den Support-Test angenommen und erholt sich. Schlusskurs nahe Tageshoch ist konstruktiv.</li></ul><p>Die Kombination aus dem Support-Test am 06.07. (mit geringem Volumen) und der darauffolgenden bullischen Kerze am 07.07. ist ein klassisches <strong>Pullback-Reversal-Setup</strong> im Uptrend.</p><h2>3. EMA-Analyse</h2><p>Die EMA-Konstellation ist eindeutig bullisch:</p><ul><li><strong>EMA9:</strong> 126.24 (steigend)</li><li><strong>EMA21:</strong> 122.94 (steigend)</li><li><strong>EMA55:</strong> 119.27 (steigend)</li><li><strong>gema_321:</strong> 123.98 (steigend)</li></ul><p>Reihenfolge: EMA9 > EMA21 > EMA55 – perfektes bullisches Alignment. Der Kurs (128.86) liegt ca. <strong>2.62 Punkte über EMA9</strong>, was eine gesunde Distanz darstellt – nicht überdehnt, aber mit Puffer. Der gema_321 bei 123.98 fungiert als dynamische Unterstützungszone; ein Rückfall darunter würde das bullische Bild deutlich eintrüben. Auffällig: Der EMA55 bei 119.27 liegt noch weit unter dem aktuellen Kurs – das zeigt, dass der Trend erst begonnen hat, sich in den längeren Zeitfenstern durchzusetzen.</p><p>Volumen-Highlights: Der Ausbruchstag am 22.05. (1.57x), der 26.06. (1.79x) und der starke Anstiegstag am 25.06. (1.35x) zeigen institutionelles Kaufinteresse. Der Rücksetzer am 06.07. war mit 0.89x unterdurchschnittlich – klassische schwache Korrektur im Uptrend.</p><h2>4. Trade-Setup</h2><h3>Setup A (bevorzugt): Breakout Long über 07.07.-Hoch</h3><ul><li><strong>Einstieg:</strong> 129.70 (Stop-Buy über Tageshoch 07.07. von 129.69)</li><li><strong>Stop:</strong> 124.80 (unter dem Tief vom 06.07. bei 125.624 und unter Support-Zone 125-126)</li><li><strong>Ziel 1:</strong> 133.50 (ca. +3% über ATH-Level, Projektion aus Ausbruch)</li><li><strong>Ziel 2:</strong> 136.00 (gemessene Bewegung aus dem Ausbruchskanal)</li><li><strong>CRV Ziel 1:</strong> (133.50 - 129.70) / (129.70 - 124.80) = 3.80 / 4.90 = <strong>0.78:1</strong> – zu eng bei diesem Einstieg</li><li><strong>CRV Ziel 2:</strong> (136.00 - 129.70) / (129.70 - 124.80) = 6.30 / 4.90 = <strong>1.3:1</strong></li></ul><h3>Setup B (bevorzugt): Pullback-Long bei Rücktest 126-127</h3><ul><li><strong>Einstieg:</strong> 126.50-127.00 (Limit, Rücktest der Ausbruchszone + EMA9-Nähe)</li><li><strong>Stop:</strong> 124.50 (unter Support-Zone und 06.07.-Tief)</li><li><strong>Ziel 1:</strong> 133.00</li><li><strong>Ziel 2:</strong> 137.00</li><li><strong>CRV Ziel 1:</strong> (133.00 - 126.75) / (126.75 - 124.50) = 6.25 / 2.25 = <strong>2.8:1</strong></li><li><strong>CRV Ziel 2:</strong> (137.00 - 126.75) / (126.75 - 124.50) = 10.25 / 2.25 = <strong>4.6:1</strong></li></ul><h3>Setup C: Short (konträr, geringes Conviction)</h3><p>Bei einem Scheitern am 130er-Widerstand mit bearisher Reversalkerze auf hohem Volumen wäre ein kurzfristiger Short denkbar mit Ziel 125 und Stop 131.50. CRV ca. 2.5:1. Aktuell kein bevorzugtes Setup.</p><p><strong>Empfehlung:</strong> Setup B bietet das beste CRV und sollte bei einem erneuten Rücktest der 126-127er Zone mit Limit Order eingegangen werden. Alternativ Setup A als Breakout-Variante über 129.70 für aggressivere Trader. Invalidierung des gesamten bullischen Szenarios bei Schlusskurs unter 124.50.</p>
+  </details>
+</section>
+
+
+  <footer>Automatisch erstellt · <a href="index.html">Zur Übersicht</a> ·
+    Keine Anlageberatung</footer>
+</div>
+</body>
+</html>

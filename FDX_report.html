@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FDX – Analyse-Historie</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0d1319; --panel:#161e27; --line:#232e3a;
+    --text:#d9e1e8; --muted:#7e8b99; --accent:#e5a63c;
+    --long:#3ec08b; --short:#e2604f; --neutral:#8a96a3;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);
+       font:15px/1.6 "IBM Plex Sans",sans-serif;padding:32px 16px}
+  .wrap{max-width:860px;margin:0 auto}
+  header{display:flex;align-items:baseline;gap:14px;
+         border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:28px}
+  header h1{font:500 30px "IBM Plex Mono",monospace;margin:0;letter-spacing:1px}
+  header .sub{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:2px}
+
+  /* Eine Analyse = eine section; farbige Signalleiste links */
+  section.analyse{background:var(--panel);border:1px solid var(--line);
+                  border-left:4px solid var(--neutral);
+                  border-radius:6px;padding:22px 26px;margin-bottom:22px}
+  section.analyse.long{border-left-color:var(--long)}
+  section.analyse.short{border-left-color:var(--short)}
+
+  .kopf{display:flex;justify-content:space-between;align-items:center;
+        flex-wrap:wrap;gap:8px;margin-bottom:6px}
+  .datum{font:500 13px "IBM Plex Mono",monospace;color:var(--muted)}
+  .badge{font:500 12px "IBM Plex Mono",monospace;letter-spacing:2px;
+         padding:3px 10px;border-radius:3px;color:#0d1319}
+  .badge.long{background:var(--long)}
+  .badge.short{background:var(--short)}
+  .badge.neutral{background:var(--neutral)}
+
+  .fazit{font-size:16px;font-weight:600;margin:0 0 16px}
+  img.chart{width:100%;border:1px solid var(--line);border-radius:4px;margin:4px 0 12px}
+  h3{font:500 12px "IBM Plex Mono",monospace;color:var(--accent);
+     text-transform:uppercase;letter-spacing:2px;margin:18px 0 4px}
+  p{margin:6px 0;color:var(--text)}
+
+  /* Setup-Tabelle in Monospace, Zahlen buendig */
+  table.setup{width:100%;border-collapse:collapse;margin-top:8px;
+              font:14px "IBM Plex Mono",monospace}
+  table.setup td{padding:6px 10px;border-top:1px solid var(--line)}
+  table.setup td:first-child{color:var(--muted);width:120px}
+
+  /* Aufklappbarer Volltext in aelteren Analyse-Karten */
+  details.volltext{margin-top:16px;border-top:1px solid var(--line);padding-top:10px}
+  details.volltext summary{cursor:pointer;font:500 12px "IBM Plex Mono",monospace;
+                color:var(--muted);text-transform:uppercase;letter-spacing:2px}
+  details.volltext summary:hover{color:var(--accent)}
+  details.volltext h1,details.volltext h2{font-size:15px;color:var(--accent);margin:14px 0 6px}
+  details.volltext strong{color:#fff}
+
+  footer{color:var(--muted);font-size:12px;text-align:center;margin-top:32px}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>FDX</h1>
+    <span class="sub">Analyse-Historie · neueste zuerst</span>
+  </header>
+
+<!-- NEUE_ANALYSE_HIER -->
+<section class="analyse long">
+  <div class="kopf">
+    <span class="datum">23.07.2026 </span>
+    <span class="badge long">LONG</span>
+  </div>
+  <p class="fazit">FDX bricht am 22.07. mit erhöhtem Volumen über das Rejection-Level 320,16 hinaus auf 321,02 und liefert damit den lang erwarteten technischen Range-Break – der erste valide Long-Trigger seit Monaten.</p>
+  <img class="chart" src="img/FDX_20260723_120650.png" alt="Chart FDX">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>FDX hat nach einer monatelangen Konsolidierungsphase zwischen ca. 304 und 320 am 22.07. erstmals einen <strong>bestätigten Tagesschluss über 320,16</strong> (Schluss 321,02) geliefert. Damit ist das Rejection-Level vom 15.07. (Hoch 320,16, Schluss 313,42) gebrochen. Die Tiefstruktur ist klar: dreifach bestätigter Support bei 304,06–306,36 (24.06., 08.07., 09.07.) bildet das Fundament. Das Zwischentief vom 20.07. bei 305,70 hat diese Zone erneut gehalten – <strong>vierfacher Test, kein Close darunter</strong>. Übergeordnet verläuft seit dem April-Tief (275,20 am 30.03.) eine intakte Aufwärtsstruktur mit steigenden Tiefs.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die Kerze vom 22.07. ist eine <strong>bullische Marubozu-ähnliche Aufwärtskerze</strong> (Open 313,58, High 322,13, Low 313,50, Close 321,02) mit einem langen Körper und minimaler Lunte – starke Käuferdominanz. Der Vortag (21.07., Schluss 315,19) hatte bereits eine Erholung vom 20.07.-Tief (305,70) eingeleitet. Der 20.07. selbst zeigte eine Hammer-artige Kerze auf dem vierfach bestätigten Support 304–306, was die bullische Reaktion katalysiert hat.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>EMA9 (314,83) liegt nun wieder über EMA21 (316,20)? Nein – EMA9 (314,83) liegt noch <strong>knapp unter EMA21 (316,20)</strong>, aber das gema_321 (315,28) beginnt sich nach oben zu neigen. EMA55 (314,80) ist nahezu identisch mit EMA9 – klassisches Post-Kompressions-Muster. Der Kurs (321,02) notiert <strong>klar über allen drei EMAs</strong>, was nach monatelanger EMA-Kompression ein bullisches Entfaltungssignal ist. Ein Golden Cross EMA9/EMA21 ist unmittelbar bevorstehend, sofern die Dynamik anhält.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Long</td></tr>
+    <tr><td>Einstieg</td><td>321,00–322,00 (Markt / leichtes Pullback auf Ausbruchsniveau, alternativ Stop-Buy über 322,13 Tagestoch 22.07.)</td></tr>
+    <tr><td>Stop</td><td>311,00 (unter EMA-Cluster und gema_321, gibt der Zone Raum)</td></tr>
+    <tr><td>Ziel</td><td>330,00 / 338,00</td></tr>
+    <tr><td>CRV</td><td>Setup A (ab 321, Stop 311, Ziel 330): CRV ~0,9:1 – nur bei Pullback-Einstieg sinnvoll; Setup B (ab 321, Stop 311, Ziel 338): CRV ~1,7:1</td></tr>
+  </table>
+
+  <h3>5 · Stillhalter (max. 12 Tage)</h3>
+<p>Der Range-Break nach oben auf 321,02 macht den CSP unter der nun vierfach bestätigten Support-Zone 304–306 zum klar bevorzugten Stillhalter-Geschäft. Ein CC ist bei 0 Aktien im Bestand ein Naked Call – gegen den frischen Aufwärtsimpuls und strukturell unattraktiv; wird daher nicht empfohlen. Der Fokus liegt auf einem CSP, der die neue Marktstruktur ausnutzt und gleichzeitig genug Puffer bietet.</p>
+<table class="setup"><tr><td>Geschäft</td><td>Cash-Secured Put</td></tr><tr><td>Strike</td><td>305.0</td></tr><tr><td>Puffer</td><td>5.0 %</td></tr><tr><td>Zone</td><td>unter der vierfach bestätigten Support-Zone 304,06–306,36 (24.06., 08.07., 09.07., 20.07.)</td></tr><tr><td>Verfall bis</td><td>2026-08-01 (9 Tage)</td></tr><tr><td>Begründung</td><td>Der Strike 305 liegt direkt unterhalb der nun <strong>vierfach getesteten</strong> Support-Zone 304,06–306,36, die zuletzt am 20.07. mit einem Tief bei 305,70 gehalten hat. Der Puffer zum aktuellen Kurs (IBKR: 321,00) beträgt ~5,0% – gegenüber den Voranalysen (300er-Strike bei 4,3–5,7%) eine leichte Strike-Anpassung nach oben, die der nun nochmals bestätigten Zone Rechnung trägt. Andienungsszenario: Ein Kauf bei 305 wäre charttechnisch exzellent – mitten in einer vierfach bestätigten Unterstützungszone, nahe dem EMA55/EMA9-Cluster (~314), also mit sofortigem strukturellen Rückhalt. Ein Roll-Trigger wäre ein Tagesschluss <strong>unter 306 mit rel. Volumen > 1,5</strong> – dann wäre zu prüfen, ob in einen tiefer liegenden Strike oder kürzeren Verfall gerollt wird. Zu prüfen in der Optionskette: Prämie (bei ~5% Puffer und ~9 DTE mind. 1,50–2,50 USD anstreben), Delta (Zielbereich -0,15 bis -0,25), Liquidität am 305er-Strike, IV-Niveau nach dem Ausbruch (tendenziell erhöhte IV = bessere Prämien).</td></tr></table>
+<p><strong>Bestand:</strong> Keine bestehenden Optionspositionen oder Aktienbestand in FDX vorhanden (IBKR-Snapshot 23.07., 11:37 Uhr). Kein Rollbedarf. Ein Covered Call setzt mindestens 100 Aktien voraus – bei 0 Aktien wäre jedes Call-Setup ein Naked Call gegen den laufenden Aufwärtsimpuls; wird nicht empfohlen.</p>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 23.07.2026 anzeigen</summary>
+    <h1>FDX – Technische Analyse &amp; Stillhalter-Report (23.07.2026)</h1>
+
+<h2>Abgleich mit den Voranalysen (13.07. / 16.07. / 19.07.)</h2>
+<p>Die drei Voranalysen hielten konsequent an NEUTRAL mit "Kein Trade" fest und warteten auf einen Tagesschluss über 320,16 als Long-Trigger. Genau dieser ist am 22.07. eingetreten: Schluss 321,02, Hoch 322,13. Der Long-Trigger aus allen drei Voranalysen ist damit <strong>bestätigt und aktiviert</strong>. Der CSP auf Strike 300 war in allen drei Analysen das Kern-Setup; er bleibt strukturell korrekt, wird aber jetzt auf 305 angehoben (s.u.). Das CC-Setup (Strike 330) aus den Analysen vom 16.07. und 19.07. wird verworfen – der Kurs hat die Zone 325–330 noch nicht erreicht, und ein CC gegen den laufenden Impuls wäre kontraproduktiv.</p>
+
+<h2>1. Trendstruktur – Detail</h2>
+<p>Die übergeordnete Aufwärtsstruktur seit dem Jahrestief 275,20 (30.03.) ist intakt: steigende Tiefs (275,20 → 288,95 → 297,72 → 304,06) und nun neue Highs im lokalen Kontext. Die mehrmonatige Konsolidierung 304–320 hat eine <strong>klassische Akkumulationsbox</strong> gebildet. Der Break am 22.07. mit Schluss 321,02 über dem viermaligen Rejection-Level 320,16 (15.07., sowie Intraday-Hochs am 09.07. bei 320,57 und 22.07. bei 322,13) ist technisch signifikant.</p>
+<p><strong>Key Levels:</strong></p>
+<ul>
+  <li><strong>Support 1 (primär):</strong> 304,06–306,36 – vierfach bestätigt (24.06. Tief 306,05; 08.07. Tief 306,36; 09.07. Tief 304,06; 20.07. Tief 305,70). Das ist die stärkste kurzfristige Unterstützung im Chart.</li>
+  <li><strong>Support 2:</strong> 309–312 – EMA-Cluster (EMA9 314,83 / EMA21 316,20 / EMA55 314,80 konvergieren, darunter gema_321 315,28; bei weiterem Anstieg fungiert dieser Bereich als dynamischer Support).</li>
+  <li><strong>Widerstand 1:</strong> 325–332 – die Juni-Konsolidierungszone (16.–22.06., Hochs bis 345,37 am 15.06.), mehrfach gehandelt.</li>
+  <li><strong>Widerstand 2:</strong> 338–345 – Junihochs (11.06. Hoch 338,94; 15.06. Hoch 345,37; 12.06. Hoch 342,81).</li>
+  <li><strong>Ausbruchs-/Bestätigungslevel:</strong> 320,16 – nun als Support zu beobachten.</li>
+</ul>
+<p>Das Volumen am 22.07. (1.608.076) entspricht rel_volumen 0,76 – <strong>unterdurchschnittlich</strong>. Das ist ein Wermutstropfen: Ein echter institutioneller Ausbruch zeigt typischerweise rel. Volumen > 1,2. Der 24.06. (rel. Volumen 2,87) und der 23.06. (1,78) waren die letzten wirklich voluminösen Tage, allerdings auf der Abwärtsseite. Der aktuelle Ausbruch sollte in den nächsten 1–2 Tagen mit Volumenbestätigung (rel. > 1,2) untermauert werden – ohne diese bleibt ein Rückfall in die Range möglich.</p>
+
+<h2>2. Candlestick-Formationen – Detail</h2>
+<p>Die Sequenz der letzten drei Kerzen ist bullisch strukturiert:</p>
+<ul>
+  <li><strong>20.07.</strong>: Bearische Kerze, Tief 305,70 – testet die Support-Zone zum vierten Mal. Schluss 306,22, knapp über Support. Hammer-Qualität auf Tagesbasis.</li>
+  <li><strong>21.07.</strong>: Bullische Erholungskerze (Open 312,00, Close 315,19) – der Markt verlässt die Support-Zone zügig.</li>
+  <li><strong>22.07.</strong>: <strong>Bullische Impulskerzé</strong> (Open 313,58, High 322,13, Low 313,50, Close 321,02) – Körpergröße ~7,44 USD, minimale Dochten. Das ist eine Entschlusskerzé. Das Open liegt nahe dem Low, was auf sofortige Käuferkontrolle hindeutet.</li>
+</ul>
+
+<h2>3. EMA-Lage – Detail</h2>
+<p>EMA9 (314,83), EMA21 (316,20) und EMA55 (314,80) befinden sich in einem <strong>Kompressions-Cluster</strong> innerhalb einer Spanne von nur ~1,40 Punkten. gema_321 liegt bei 315,28 – ebenfalls im Cluster. Der Kurs (321,02 bzw. IBKR aktuell 321,00) notiert ca. <strong>5,50–6,20 Punkte über diesem Cluster</strong>. Das ist die erste klare Kurs-EMA-Separation nach oben seit Wochen. Historisch folgt auf solche Post-Kompressionsausbrüche häufig eine beschleunigte Bewegung, da aufgestaute Energie freigesetzt wird. Ein Golden Cross EMA9/EMA21 (EMA9 aktuell 314,83 vs. EMA21 316,20 – noch 1,37 Punkte Rückstand) wird bei weiterer Kursstärke in 2–3 Handelstagen erwartet und würde das bullische Signal bestätigen.</p>
+
+<h2>4. Trade-Setups (Aktie) – Alternativen A/B/C</h2>
+<p><strong>Setup A – Konservativ (Pullback-Long):</strong></p>
+<ul>
+  <li>Einstieg: 317,00–319,00 (Pullback auf Ausbruchslevel 320,16 minus kleine Toleranz)</li>
+  <li>Stop: 311,00 (unter EMA-Cluster)</li>
+  <li>Ziel 1: 330,00 | Ziel 2: 338,00</li>
+  <li>CRV bis Ziel 1: (330-318)/(318-311) = 12/7 = <strong>1,7:1</strong></li>
+  <li>CRV bis Ziel 2: (338-318)/(318-311) = 20/7 = <strong>2,9:1</strong></li>
+  <li>Vorteil: Besseres CRV, geringeres Einstiegsrisiko. Nachteil: Pullback muss zuerst eintreten.</li>
+</ul>
+<p><strong>Setup B – Aggressiv (Marktpreis):</strong></p>
+<ul>
+  <li>Einstieg: 321,00 (aktueller IBKR-Kurs)</li>
+  <li>Stop: 311,00</li>
+  <li>Ziel 1: 330,00 | Ziel 2: 338,00</li>
+  <li>CRV bis Ziel 1: 9/10 = <strong>0,9:1</strong> – nicht empfohlen ohne Volumenbestätigung</li>
+  <li>CRV bis Ziel 2: 17/10 = <strong>1,7:1</strong></li>
+</ul>
+<p><strong>Setup C – Breakout-Bestätigung:</strong></p>
+<ul>
+  <li>Einstieg: Stop-Buy über 322,13 (Hoch 22.07.) bei rel. Volumen > 1,2 an diesem Tag</li>
+  <li>Stop: 313,00 (unter dem Open/Low der Ausbruchskerze vom 22.07.)</li>
+  <li>Ziel 1: 330,00 | Ziel 2: 338,00</li>
+  <li>CRV bis Ziel 1: (330-322,13)/(322,13-313) = 7,87/9,13 = <strong>0,9:1</strong></li>
+  <li>CRV bis Ziel 2: (338-322,13)/9,13 = <strong>1,7:1</strong></li>
+  <li>Hinweis: CRV bei Setup C erst ab Ziel 2 attraktiv, bietet aber höchste Bestätigung.</li>
+</ul>
+<p><strong>Bevorzugtes Setup: A (Pullback auf ~317–319) mit Stop 311 und Primärziel 338 (CRV 2,9:1).</strong> Ohne Pullback ist Setup C mit Volumenbestätigung die sauberere Alternative.</p>
+
+<h2>5. Stillhalter-Setups – Ausführliche Herleitung</h2>
+<h3>Cash-Secured Put (Strike 305, Verfall 01.08.2026)</h3>
+<p><strong>Zonen-Herleitung:</strong> Die Zone 304,06–306,36 wurde an vier separaten Tagen getestet und hat gehalten. Das macht sie zur technisch stärksten kurzfristigen Unterstützung. Ein Strike von 305 liegt im unteren Teil dieser Zone – der Kurs müsste also erst die gesamte Zone unterschreiten, bevor der Put ins Geld läuft. Darunter liegt die April/Mai-Konsolidierungszone bei ~300–303 als zweite Verteidigungslinie. Diese doppelte Unterstützungsstruktur vor dem Strike ist das eigentliche Qualitätsmerkmal dieses Setups.</p>
+<p><strong>Anpassung gegenüber Voranalysen:</strong> Der Strike wird von 300 auf 305 angehoben, da die Zone 304–306 nun vierfach bestätigt ist und als primäre Unterstützung fungiert. Ein Strike bei 305 (statt 300) liegt innerhalb der Zone und bietet trotzdem ~5% Puffer – die Prämie dürfte bei 305 spürbar höher sein als bei 300 bei gleichzeitig immer noch akzeptablem Andienungsrisiko.</p>
+<p><strong>Andienungsszenario:</strong> Würde FDX bei 305 angedient, entstünde eine Long-Position mitten in der vierfach bestätigten Unterstützungszone – ein charttechnisch legitimer Einstieg. Das EMA55 (aktuell 314,80) würde bei einem solchen Kursrückgang im Bereich 310–312 fungieren und kurzfristigen Rückhalt bieten. Das Andienungsrisiko ist strukturell tragbar.</p>
+<p><strong>Roll-Trigger:</strong> Tagesschluss unter 306,00 mit rel. Volumen > 1,5 – dann sofort Prüfen: Schließen oder Rollen auf Strike 300, Verfall 01.08. oder 08.08. (maximale Restlaufzeit 12 Tage). Zweiter Trigger: Tagesschluss unter 304,06 (unteres Ende der Zone) – dann ist die Unterstützung strukturell gebrochen, unmittelbares Schließen oder Rollen in Betracht ziehen.</p>
+<p><strong>Optionskette – manuell zu prüfen:</strong> Prämie anstreben: ~1,50–2,50 USD (entspricht ~0,5–0,8% des Strike-Werts bei 9 DTE – angesichts des Ausbruchs dürfte IV leicht erhöht sein). Delta: Zielbereich -0,18 bis -0,28. Bid-Ask-Spread: Unter 0,30 USD für ausreichende Liquidität. Open Interest am 305er-Strike prüfen.</p>
+<h3>Covered Call – Nicht empfohlen</h3>
+<p>Kein Aktienbestand (IBKR: 0 Aktien). Ein CC setzt mindestens 100 Aktien je Kontrakt voraus. Ein Naked (Short) Call gegen einen laufenden Aufwärtsimpuls mit gerade bestätigtem Range-Break wäre eine kontraproduktive Position mit theoretisch unbegrenztem Verlustpotenzial. Das Setup wird daher explizit nicht empfohlen. Die Analyse vom 16.07. und 19.07. hatte einen CC 330 nur für den Fall eines Seitwärtsmarkts angedacht – diese Marktphase ist nun beendet.</p>
+  </details>
+</section>
+
+<section class="analyse neutral">
+  <div class="kopf">
+    <span class="datum">19.07.2026 </span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <p class="fazit">FDX dreht mit einem freundlichen Gap-up am 19.07. auf 318,20 – das erste Lebenszeichen aus der monatelangen Range, aber noch kein technisch valider Ausbruch mit Bestätigung; Stillhalter-Fokus auf CSP unter 306 bleibt das sauberste Geschäft.</p>
+  <img class="chart" src="img/FDX_20260719_123154.png" alt="Chart FDX">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>FDX notiert am 19.07. bei 318,20 und hat damit die enge Konsolidierungszone 306–320 nach oben angekratzt. Die Trendstruktur bleibt mittelfristig <strong>bearisch</strong>: Das Hoch vom 15.06. bei 345,37 und das Zwischenhoch vom 01.06. bei 341,14 wurden nie mehr erreicht; seitdem eine Sequenz fallender Hochs (345 → 332 → 329 → 320,16) und zuletzt stabilisierender, aber nicht steigender Tiefs (306,05 → 304,06 → 311,01). Das Gap-up vom 19.07. auf 318,20 ist noch kein Ausbruch – der Schlusskurs vom 17.07. lag bei 312,98, und ein valider Break der Range-Obergrenze (320,16 vom 15.07.) benötigt einen <strong>Tagesschluss</strong> darüber mit erhöhtem Volumen.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die letzten fünf Kerzen (13.–17.07.) zeigen fünf aufeinanderfolgende <strong>Doji- bis Inside-Bar-Strukturen</strong> mit engen Körpern und Schlusskursen zwischen 312,98 und 314,69 – eine klassische Kompressionsphase ohne Richtungsentscheid. Die Kerze vom 16.07. (Schluss 318,20, Hoch 319,04) ist dabei die stärkste der Serie, scheitert aber knapp an der 320-er Hürde. Der Snapshot vom 19.07. zeigt 318,20 bei 0,0% Veränderung zum Vortag (Kurs identisch mit dem 16.07.-Schluss) – kein Kerzenabschluss vorhanden, daher nur als intraday-Indikation zu werten.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>EMA-Reihenfolge zum 17.07.: EMA9 = 314,45 / EMA21 = 316,72 / EMA55 = 314,85 / gema_321 = 315,27. Die ungewöhnliche Reihenfolge EMA21 > EMA55 > EMA9 ist weiterhin ein <strong>Kompressions-Artefakt</strong> aus der anhaltenden Seitwärtsphase; alle drei EMAs liegen innerhalb von 2,27 Punkten – faktisch ein Cluster. Der aktuelle Kurs von 318,20 liegt knapp <strong>über</strong> dem gesamten EMA-Cluster, was erstmals seit Wochen einen kleinen bullischen Vorteil andeutet, aber noch nicht als Trendwechsel zu werten ist. Das gema_321 (315,27) dient als dynamische Unterstützung, die es jetzt zu halten gilt.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Kein Trade</td></tr>
+    <tr><td>Einstieg</td><td>Long-Trigger: Tagesschluss über 320,16 mit rel. Volumen > 1,2 (Bestätigung des Range-Breaks). Short-Trigger: Tagesschluss unter 312,00 (unter EMA-Cluster mit Rückkehr in die Range).</td></tr>
+    <tr><td>Stop</td><td>Long-Stop: 312,50 (unter EMA-Cluster / gema_321) | Short-Stop: 320,50</td></tr>
+    <tr><td>Ziel</td><td>Long-Ziel: 330,00 (Juni-Konsolidierungszone) / 338,00 (Juni-Hochs) | Short-Ziel: 306,00 / 300,00</td></tr>
+    <tr><td>CRV</td><td>Long (ab 320,16): CRV ~1,9:1 bis 330 / ~3,2:1 bis 338 | Short (ab 312): CRV ~1,6:1 bis 306</td></tr>
+  </table>
+
+  <h3>5 · Stillhalter (max. 12 Tage)</h3>
+<p>Das Gap-up auf 318,20 ändert die Grundlage des CSP-Setups nicht wesentlich – der Strike 300 bleibt technisch sauber unterhalb aller Unterstützungen. Der Puffer weitet sich sogar leicht auf ~5,7% aus. Neu: Mit 318,20 nähert sich FDX dem frischen Rejection-Level 320,16 vom 15.07. erneut – ein CC über 330 bleibt strukturell vertretbar, ist aber bei fehlendem Aktienbestand ein Naked Call mit anderem Risikoprofil (IBKR-Snapshot: 0 Aktien). Keine bestehenden Optionspositionen vorhanden.</p>
+<table class="setup"><tr><td>Geschäft</td><td>Cash-Secured Put</td></tr><tr><td>Strike</td><td>300.0</td></tr><tr><td>Puffer</td><td>5.7 %</td></tr><tr><td>Zone</td><td>unter der dreifach bestätigten Support-Zone 304,06–306,36 (24.06., 08.07., 09.07.) und der April/Mai-Konsolidierungszone 300–303</td></tr><tr><td>Verfall bis</td><td>2026-07-25 (6 Tage)</td></tr><tr><td>Begründung</td><td>Strike unverändert gegenüber den Voranalysen vom 13.07. und 16.07. – die Zonenlage hat sich nicht verändert, und der leichte Kursanstieg auf 318,20 weitet den Puffer von 4,3% auf jetzt ~5,7% sogar vorteilhaft aus. Die dreifach bestätigte Zone 304,06–306,36 bleibt das primäre Verteidigungsfundament; darunter liegt die April/Mai-Zone 300–303 als zweite Linie. Ein Strike von 300 liegt klar unterhalb beider Strukturen. Andienungsszenario: Ein Kauf bei 300 entspräche dem EMA55-Niveau von Ende April/Anfang Mai und wäre strukturell ein akzeptabler Einstieg. Roll-Trigger wäre ein Tagesschluss unter 306 mit rel. Volumen > 1,5. Zu prüfen in der Optionskette: Prämie (mind. ~0,5–1% des Strike-Werts, also ~1,50–3,00 USD), Liquidität am 300er-Strike, IV-Niveau nach der langen Seitwärtsphase.</td></tr></table>
+<table class="setup"><tr><td>Geschäft</td><td>Covered Call</td></tr><tr><td>Strike</td><td>330.0</td></tr><tr><td>Puffer</td><td>3.7 %</td></tr><tr><td>Zone</td><td>über dem Fehlausbruch vom 15.07. (320,16) und der mehrfach gehandelten Juni-Konsolidierungszone 325–332 (16.–22.06.)</td></tr><tr><td>Verfall bis</td><td>2026-07-25 (6 Tage)</td></tr><tr><td>Begründung</td><td>WICHTIG: Laut IBKR-Snapshot (12:09 Uhr, 19.07.) sind 0 Aktien im Bestand. Ein CC setzt mindestens 100 Aktien je Kontrakt voraus – dieses Setup wäre daher ein <strong>Naked (Short) Call</strong> mit theoretisch unbegrenztem Verlustpotenzial und deutlich höheren Margin-Anforderungen. Das Risikoprofil unterscheidet sich fundamental vom Covered Call. Technisch bleibt der Strike 330 über dem Rejection-Level 320,16 und über der Juni-Zone 325–332 gut verankert; der Puffer beträgt ~3,7% zum aktuellen Kurs. Rollentrigger: Tagesschluss über 322 mit deutlich erhöhtem Volumen (rel. Volumen > 1,3) würde einen engeren Strike oder ein Schließen erfordern. Zu prüfen: ausreichende Prämie für den kleineren Puffer im Vergleich zum CSP, Margin-Anforderung für Naked Call bei IBKR.</td></tr></table>
+<p><strong>Bestand:</strong> Keine bestehenden Optionspositionen oder Aktienbestand in FDX vorhanden (IBKR-Snapshot 19.07., 12:09 Uhr). Kein Rollbedarf.</p>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 19.07.2026 anzeigen</summary>
+    <h1>FDX – Technische Analyse & Stillhalter-Report | 19.07.2026</h1>
+
+<h2>1. Trendstruktur & Historischer Abgleich</h2>
+<p>Die Short-Empfehlung vom <strong>08.07.2026</strong> (Einstieg 317,50, Ziel 303,00) war in der Folgewoche korrekt in der Richtung, der Einstieg wurde aber nie sauber getriggert – FDX konsolidierte stattdessen zwischen 306 und 317, ohne nochmals auf 317,50 zurückzukehren. Die NEUTRAL-Einschätzungen vom <strong>13.07.</strong> und <strong>16.07.</strong> werden durch die aktuellen Daten <strong>bestätigt</strong>: Die Range 306–320 hat Bestand, kein Ausbruch ist bislang vollzogen.</p>
+<p>Das mittelfristige Bild: Nach dem Hoch vom 15.06. bei <strong>345,37</strong> folgte ein geordneter Abverkauf mit fallenden Hochs (345 → 338 → 332 → 329 → 320,16) bis zur jetzigen Kompression. Die Tiefs stabilisieren sich – das Tief vom 24.06. bei <strong>306,05</strong> und das Tief vom 09.07. bei <strong>304,06</strong> wurden seither nicht mehr unterschritten. Das ist kein intakter Abwärtstrend mehr, aber auch kein Aufwärtstrend – es ist eine <strong>klassische Akkumulations- oder Distributionszone</strong>, deren Richtung noch offen ist.</p>
+<p>Das Gap-up auf 318,20 am 19.07. (IBKR-Snapshot 12:09 Uhr, Veränderung 0,0% – also identisch mit dem 16.07.-Schluss 318,20, möglicherweise ein Datenpunkt-Artefakt oder Pre-Market-Level) ist noch kein Ausbruch. Erst ein <strong>Tagesschluss über 320,16</strong> mit rel. Volumen > 1,2 würde den Range-Break technisch bestätigen.</p>
+
+<h2>2. Candlestick-Analyse (letzte 7 Kerzen)</h2>
+<p>Die Kerzen vom 13.–17.07. sind bemerkenswert eng: Hochs 316,45–320,16, Tiefs 311,01–312,60, Körper durchgängig unter 4 Punkten. Das rel. Volumen lag in dieser Periode konstant im Bereich <strong>0,67–0,74</strong> – also deutlich unter dem 55er-Schnitt. Niedrigstes rel. Volumen seit der gesamten abgebildeten Serie. Das signalisiert: Der Markt hält die Luft an, kein institutionelles Commitment in eine Richtung.</p>
+<p>Die Kerze vom 16.07. (Schluss 318,20, Hoch 319,04, Low 312,60) ist die bullischste der letzten Woche, zeigt aber keinen Schlusskurs über 320. Die Kerze vom 17.07. (Schluss 312,98, rel. Volumen 0,69) ist eine leichte Schwäche, bleibt aber im Cluster. Kein entscheidungsreifes Kerzenmuster vorhanden.</p>
+
+<h2>3. EMA-Analyse & Kompressions-Artefakt</h2>
+<p>Zum 17.07.: EMA9 = 314,45 | EMA21 = 316,72 | EMA55 = 314,85 | gema_321 = 315,27. Die Reihenfolge EMA21 > EMA55 > EMA9 ist das bereits am 16.07. diagnostizierte <strong>Kompressions-Artefakt</strong> – alle drei Werte liegen in einer Spanne von 2,27 Punkten, was bei der Tageschart-Granularität praktisch einem Cluster entspricht. Der EMA21 liegt minimal über dem EMA55, weil der Kurs in den letzten Wochen leicht unter dem EMA21 schloss und so den EMA9 nach unten zog, während der langsamere EMA55 noch von den höheren Junikursen profitiert.</p>
+<p>Kritischer Punkt: Beim aktuellen Kurs von 318,20 liegt FDX <strong>erstmals seit Wochen spürbar über dem gesamten EMA-Cluster</strong>. Das gema_321 bei 315,27 ist jetzt die erste dynamische Unterstützung. Hält der Kurs über dem gema_321, dreht der EMA-Verbund tendenziell nach oben – das wäre ein erstes technisches Signal für eine Trendwende. Ein Rückfall unter EMA9/EMA55 (~314,50) würde das Bild wieder kippen.</p>
+
+<h2>4. Trade-Setups (Alternative A/B/C)</h2>
+<p><strong>Setup A – Long Break (bevorzugt, aber noch nicht triggerbar):</strong><br/>
+Einstieg: Tagesschluss über 320,16 mit rel. Volumen > 1,2 (Stop-Buy oder Market-on-Close nach Prüfung)<br/>
+Stop: 312,50 (unter gema_321 / EMA-Cluster)<br/>
+Ziel 1: 330,00 (Juni-Konsolidierungszone, CRV ~1,9:1)<br/>
+Ziel 2: 338,00 (Juni-Hochzone, CRV ~3,2:1)<br/>
+Bedingung: Kein Einstieg auf Basis des intraday-Gaps allein – Tagesschluss-Bestätigung zwingend.</p>
+<p><strong>Setup B – Short Fade (defensiv, falls Range-Deckel hält):</strong><br/>
+Einstieg: Tagesschluss unter 312,00 (Rückfall unter EMA-Cluster, Bestätigung Schwäche)<br/>
+Stop: 318,50 (knapp über aktuellem Niveau)<br/>
+Ziel 1: 306,00 (dreifach bestätigter Support, CRV ~1,9:1)<br/>
+Ziel 2: 300,00 (CSP-Strike-Zone, CRV ~3,0:1)<br/>
+Risiko: Support 304–306 ist mehrfach bestätigt und damit schwerer zu brechen als zu erwarten.</p>
+<p><strong>Setup C – Abwarten (derzeit einzig valide Option):</strong><br/>
+Kein Trade ohne Tagesschluss-Bestätigung eines der Breaks. Der IBKR-Snapshot zeigt den Kurs intraday ohne Kerzenabschluss – kein Trigger für direktionalen Einstieg.</p>
+
+<h2>5. Stillhalter-Analyse (Schwerpunkt)</h2>
+<h3>Cash-Secured Put (CSP) | Strike 300 | Verfall 25.07.2026</h3>
+<p>Die Zonenherleitung ist über alle drei Voranalysen konsistent und unverändert gültig: Die <strong>Zone 304,06–306,36</strong> wurde dreifach getestet (24.06.: Tief 306,05; 08.07.: Schluss 309,76, Tief 307,66; 09.07.: Tief 304,06) – damit ist sie als <strong>bestätigte Unterstützungszone</strong> klassifizierbar. Darunter liegt die <strong>April/Mai-Konsolidierungszone 300–303</strong> (multiple Schlusskurse in diesem Bereich im April, EMA55-Niveau von Ende April). Ein Strike bei 300 liegt damit klar unterhalb beider Verteidigungslinien.</p>
+<p>Der Puffer zum aktuellen Kurs (318,20) beträgt <strong>~5,7%</strong> – eine Verbesserung gegenüber den 4,3% aus den Voranalysen, da der Kurs gestiegen ist, ohne dass der Strike angepasst werden musste. Das ist der ideale Fall für einen Stillhalter: Der Puffer wächst ohne Zutun.</p>
+<p><strong>Andienungsszenario:</strong> Ein Kauf bei 300 USD bei Andienung entspräche dem Kursniveau von Ende April / Anfang Mai 2026 – einer Zone, in der FDX strukturell konsolidiert hat. Das EMA55 lag dort bei ~295–297. Ein Kauf in diesem Bereich wäre fundamental und charttechnisch vertretbar. <strong>Roll-Trigger:</strong> Ein Tagesschluss unter 306,00 mit rel. Volumen > 1,5 (analog zum Volumenanstieg vom 24.06. mit rel. Volumen 2,87 oder 23.06. mit 1,78) würde einen defensiven Roll auf einen tieferen Strike und/oder längere Laufzeit rechtfertigen. Bei rel. Volumen unter 1,2 ist ein Test der 306er-Zone eher als Noise zu werten.</p>
+<p><strong>Optionsketten-Checkliste (manuell zu prüfen):</strong> Prämie mindestens 1,50–3,00 USD (0,5–1% des Strike-Werts), IV nach langer Seitwärtsphase tendenziell komprimiert – falls IV niedrig, ist die Prämie möglicherweise unattraktiv. Liquidität: Open Interest und Bid/Ask-Spread am 300er-Strike prüfen. Falls 300er illiquide: 302,50er oder 305er als Alternative mit reduziertem Puffer.</p>
+
+<h3>Covered Call / Naked Call | Strike 330 | Verfall 25.07.2026</h3>
+<p><strong>Kritischer Hinweis:</strong> Laut IBKR-Snapshot vom 19.07., 12:09 Uhr: <strong>0 Aktien im Bestand</strong>. Ein Covered Call setzt mindestens 100 Aktien je Kontrakt voraus. Dieses Setup ist daher ein <strong>Naked (Short) Call</strong> – mit theoretisch unbegrenztem Verlustpotenzial und wesentlich höheren Margin-Anforderungen bei IBKR. Das Risikoprofil ist nicht mit einem Covered Call vergleichbar.</p>
+<p>Technische Zonenherleitung: Der Strike 330 liegt über dem <strong>Fehlausbruch vom 15.07. bei 320,16</strong> (einfach bestätigt, Rejection klar erkennbar: Hoch 320,16, Schluss 313,42) und über der <strong>Juni-Konsolidierungszone 325–332</strong> (16.06.–22.06.: multiple Schlusskurse 325,93–331,58, mit Hoch 333,27 am 27.05.). Der Puffer beträgt ~3,7% – etwas enger als beim CSP, aber durch zwei technische Widerstände gestützt.</p>
+<p><strong>Roll-Trigger für den Naked Call:</strong> Ein Tagesschluss über 322,00 mit rel. Volumen > 1,3 (klar über dem Durchschnitt der letzten Woche, der bei 0,67–0,74 lag) wäre ein Warnsignal. Ein Schließen oder Rollen auf Strike 335–340 wäre dann zu prüfen. Bei der engen Laufzeit von 6 Tagen bis 25.07. ist der Zeitwertverfall (Theta) ein wesentlicher Verbündeter, aber das Risiko einer schnellen Ausweitung nach einem validen Ausbruch ist real.</p>
+<p><strong>Empfehlung:</strong> Das Naked-Call-Geschäft sollte nur eingegangen werden, wenn die Margin-Anforderungen bewusst akzeptiert werden und eine aktive Überwachung sichergestellt ist. Alternativ: Warten auf einen Long-Ausbruch, dann ggf. 100 Aktien kaufen und CC schreiben – aber das wäre ein anderes Setup und würde einen bestätigten Breakout voraussetzen.</p>
+  </details>
+</section>
+
+<section class="analyse neutral">
+  <div class="kopf">
+    <span class="datum">16.07.2026 <span class="quelle">via Chat</span></span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <p class="fazit">FDX bleibt in der engen Range 306–320 gefangen – am 15.07. gab es einen ersten, aber gescheiterten Ausbruchsversuch über 320 (Hoch 320,16, Schluss 313,42), was der Konsolidierung eine leicht bearische Note gibt, ohne ein klares Setup zu liefern. Die EMA-Reihenfolge zeigt ein klassisches Kompressions-Artefakt.</p>
+  <img class="chart" src="img/FDX_20260716_200606.png" alt="Chart FDX">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>Seit dem 13.07. hält sich der Kurs weiterhin in der Range 306–320. Am 15.07. gab es den ersten echten Test der oberen Begrenzung: Tageshoch 320,16, aber Schluss bei nur 313,42 – ein klarer Fehlausbruch ohne Bestätigung. Nach unten wurde die Zone 304,06–306,36 (09.07./08.07./24.06., dreifach getestet) bislang nur mit Dochten touchiert, nie mit einem Schlusskurs gebrochen.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>13./14.07.: enge Konsolidierungskerzen um 313–314, kaum Bewegung. 15.07.: Kerze mit deutlichem oberen Docht (Hoch 320,16, Schluss 313,42) – eine klassische Abweisungskerze am oberen Rand der Range, aber bei niedrigem Volumen (rel_volumen 0,69), also ohne starke Überzeugungskraft.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Ungewöhnliche Reihenfolge: EMA9 (313,98) liegt UNTER EMA55 (314,80), während EMA21 (316,99) darüber liegt – ein klassisches Kompressions-Artefakt exakt nach dem in der Methodik beschriebenen Muster, keine verlässliche Trendaussage. Der Kurs (313,42) notiert knapp unter dem gesamten Cluster – die Range-Situation bleibt technisch ungelöst.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Kein Trade</td></tr>
+    <tr><td>Einstieg</td><td>Abwarten: Long über Tagesschluss 320,16 (jetzt mit einem bereits gescheiterten Erstversuch) oder Short unter Tagesschluss 306,00</td></tr>
+    <tr><td>Stop</td><td>Long-Stop: 311,00 (unter EMA-Cluster) / Short-Stop: 317,00 (über EMA21)</td></tr>
+    <tr><td>Ziel</td><td>Long: 330,00 (Juni-Konsolidierungszone) / Short: 295,00 (unter der April/Mai-Zone 300-303)</td></tr>
+    <tr><td>CRV</td><td>Long ~1,1:1 / Short ~1,0:1 – beide mäßig, passend zur anhaltenden Indecision</td></tr>
+  </table>
+
+  <h3>5 · Stillhalter (max. 12 Tage)</h3>
+<p>Die dreifach getestete Zone 304,06–306,36 bleibt ein solides CSP-Fundament wie bereits am 13.07. eingeschätzt. Neu: Der Fehlausbruch am 15.07. liefert erstmals einen konkreten, wenn auch nur einfach bestätigten Referenzpunkt für einen CC oberhalb der Range – zusammen mit der weiter oben liegenden, mehrfach getesteten Juni-Zone ergibt das ein tragfähigeres Fundament als am 13.07., als ein CC noch als 'zu nah' verworfen wurde.</p>
+<table class="setup"><tr><td>Geschäft</td><td>Cash-Secured Put</td></tr><tr><td>Strike</td><td>300.0</td></tr><tr><td>Puffer</td><td>4.3 %</td></tr><tr><td>Zone</td><td>unter der dreifach getesteten Zone 304,06–306,36 (24.06., 08.07., 09.07.) und der April/Mai-Zone 300–303</td></tr><tr><td>Verfall bis</td><td>2026-07-24 (8 Tage)</td></tr><tr><td>Begründung</td><td>Strike unverändert aus der Vorlage, da sich weder Kurs noch Zonenlage seither wesentlich verändert haben. Andienung bei 300 wäre ein Einstieg nahe dem alten EMA55-Niveau von Ende April – strukturell sinnvoll. Prüfen: Prämie im Verhältnis zum 4,3%-Puffer, Liquidität am 300er.</td></tr></table>
+<table class="setup"><tr><td>Geschäft</td><td>Covered Call</td></tr><tr><td>Strike</td><td>330.0</td></tr><tr><td>Puffer</td><td>5.3 %</td></tr><tr><td>Zone</td><td>über dem Fehlausbruch vom 15.07. (320,16) und der mehrfach getesteten Juni-Konsolidierungszone 325–332 (16.–22.06.)</td></tr><tr><td>Verfall bis</td><td>2026-07-24 (8 Tage)</td></tr><tr><td>Begründung</td><td>Strike liegt über dem frischen Rejection-Level UND über der breiteren, im Juni mehrfach gehandelten Zone. Anders als am 13.07. gibt es jetzt einen konkreten Test der Range-Obergrenze, der einen CC-Anker rechtfertigt. Andienung bei 330 wäre nach einem echten Ausbruch aus der Range ein fairer Exit. Prüfen: Prämie im Verhältnis zum 5,3%-Puffer, Liquidität am 330er; Rollentrigger wäre ein Tagesschluss über 320 mit deutlich höherem Volumen als am 15.07.</p></td></tr></table>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 16.07.2026 anzeigen</summary>
+    <h1>FDX – Range hält, erster Ausbruchsversuch scheitert</h1><h2>1. Was sich seit dem 13.07. verändert hat</h2><p>Die Kernaussage der NEUTRAL-Analyse vom 13.07. bleibt gültig: Kein klares Setup, Range 306–320. Neu ist der erste echte Test der oberen Grenze am 15.07. (Hoch 320,16), der mit einem Schluss bei nur 313,42 klar scheiterte – eine Abweisungskerze, die der Range eine leicht bearische Schlagseite gibt, ohne die Situation zu entscheiden.</p><h2>2. Die EMA-Kompression im Detail</h2><p>Die Reihenfolge EMA9 (313,98) unter EMA55 (314,80), aber EMA21 (316,99) darüber, ist exakt das in der Methodik beschriebene Kompressions-Artefakt-Beispiel – ein Zeichen dafür, dass die EMAs aktuell keine verlässliche Richtungsinformation liefern und rein preisbasierte Trigger (Tagesschlüsse über/unter der Range) wichtiger sind als die EMA-Lage selbst.</p><h2>3. Setup-Szenarien</h2><p>Long-Trigger jetzt bei 320,16 (über dem gescheiterten Hoch, nicht nur der alten 320er-Marke), Stop 311,00, Ziel 330,00 (Juni-Zone), CRV ~1,1:1. Short-Trigger unverändert bei 306,00, Stop 317,00, Ziel 295,00, CRV ~1,0:1. Beide CRVs sind mäßig – passend zu einer Aktie, die seit Wochen keine klare Richtung findet.</p><h2>4. Stillhalter-Vertiefung</h2><p>CSP bei 300,00 (4,3% Puffer): Unverändert aus der Vorlage, weiterhin gut abgesichert durch die dreifach getestete Zone. CC bei 330,00 (5,3% Puffer): Neu hinzugekommen, da der Fehlausbruch vom 15.07. erstmals einen konkreten Referenzpunkt für die Range-Obergrenze liefert, kombiniert mit der bereits im Juni mehrfach gehandelten Zone 325–332. Andienungsszenario CSP: Kauf bei 300 nahe dem alten EMA55-Niveau. Andienungsszenario CC: Abgabe bei 330 nach einem bestätigten Range-Ausbruch. Rollentrigger CSP: Tagesschluss unter 304. Rollentrigger CC: Tagesschluss über 320 mit deutlich höherem Volumen als beim gescheiterten Versuch vom 15.07.</p><h2>5. Abgleich mit früheren Analysen</h2><p>Die NEUTRAL-Einschätzung vom 13.07. wird bestätigt und leicht präzisiert: Der erste Test der Range-Obergrenze ist gescheitert, was der Situation eine leicht bearische Nuance gibt, ohne das grundsätzliche 'Kein Trade'-Bild zu ändern. Neu ist die Ergänzung um einen CC-Vorschlag, den die 13.07.-Analyse mangels Referenzpunkt noch explizit ausschloss.</p>
+  </details>
+</section>
+
+<section class="analyse neutral">
+  <div class="kopf">
+    <span class="datum">13.07.2026 </span>
+    <span class="badge neutral">NEUTRAL</span>
+  </div>
+  <p class="fazit">FDX konsolidiert im Bereich 309–317 mit eng zusammenlaufenden EMAs – der klare Short-Bias aus der Voranalyse hat sich abgeschwächt, kein klares Setup aktuell.</p>
+  <img class="chart" src="img/FDX_20260713_210457.png" alt="Chart FDX">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>FDX befindet sich nach dem Absturz vom Juni-Hoch (~345) in einer flachen Konsolidierungsphase zwischen ca. 306 und 320. Die Abwärtsstruktur mit fallenden Hochs (345 → 329 → 320 → 317) ist noch intakt, aber das Tempo hat deutlich nachgelassen. Das Tief vom 24. Juni bei 306 stellt die kritische Unterstützung dar; darüber bildet sich seit ca. 2 Wochen eine Range. Die Short-These aus der Analyse vom 08.07. hat sich teilweise erfüllt (Kurs von ~317 auf ~309 gefallen), aber ein nachhaltiger Break unter 306 blieb aus.</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die letzte Kerze vom 13.07. ist eine kleine Innenkerze mit sehr geringem Volumen (rel. Volumen: 0.38 – deutlich unter Schnitt), was auf fehlende Überzeugung bei Marktteilnehmern hindeutet. Die Vorkerzen zeigen seit dem 10.07.-Erholungsversuch (High 317,64) wieder Abschwächung ohne klaren Richtungsimpuls. Kein dominantes Candlestick-Signal erkennbar.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Der EMA-Verbund (EMA9: 314,17 / EMA21: 317,69 / EMA55: 314,89 / gema_321: 315,46) ist extrem eng komprimiert – alle vier Werte liegen innerhalb eines Bandes von nur ~3,5 Punkten. Der Kurs (313,46) liegt knapp unterhalb aller EMAs. Die zuvor klar bearishe EMA-Reihenfolge (EMA9 < EMA21 < EMA55) existiert nicht mehr; stattdessen hat EMA9 (314,17) den EMA55 (314,89) nahezu berührt. Diese Kompression signalisiert eine bevorstehende Richtungsentscheidung, aber noch keinen klaren Bias.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Kein Trade</td></tr>
+    <tr><td>Einstieg</td><td>Abwarten – Break unter 306 (Short) oder über 320 (Long) abwarten</td></tr>
+    <tr><td>Stop</td><td>–</td></tr>
+    <tr><td>Ziel</td><td>–</td></tr>
+    <tr><td>CRV</td><td>–</td></tr>
+  </table>
+
+  <h3>5 · Stillhalter (max. 12 Tage)</h3>
+<p>Die enge EMA-Kompression und das Konsolidierungsmuster mit Unterstützung bei ~306 machen einen Cash-Secured Put unterhalb dieser Zone attraktiver als ein Covered Call – ein CC würde zu nah an der aktuellen Kurslage liegen und bietet keinen ausreichenden Puffer zu einem technischen Widerstand.</p>
+<table class="setup"><tr><td>Geschäft</td><td>Cash-Secured Put</td></tr><tr><td>Strike</td><td>300.0</td></tr><tr><td>Puffer</td><td>4.3 %</td></tr><tr><td>Zone</td><td>Unterhalb des Juni-Tiefs 306/304 und der April-Unterstützungszone 303–300</td></tr><tr><td>Verfall bis</td><td>2026-07-25 (12 Tage)</td></tr><tr><td>Begründung</td><td>Das Juni-Tief vom 24.06. bei 306,05 stellt die massgebliche Unterstützung dar. Darunter liegt eine Konsolidierungszone aus April/Mai bei ca. 303–300. Ein Strike von 300 liegt somit deutlich unterhalb beider Unterstützungen mit einem Puffer von ~4,3% zum aktuellen Kurs (313,46). Im Andienungsszenario wäre ein Kauf bei 300 charttechnisch vertretbar – das entspricht in etwa dem EMA55-Niveau von Ende April und bietet eine strukturell sinnvolle Einstiegsbasis. Eine Anpassung wäre nötig, wenn der Kurs dynamisch unter 306 mit erhöhtem Volumen bricht. Prüfen: Prämie relativ zum Puffer (mind. 0,5–1% des Strike-Werts erwünscht), Liquidität der 300er-Serie, implizite Volatilität nach dem langen Seitwärtsmarkt.</td></tr></table>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 13.07.2026 anzeigen</summary>
+    <h1>FDX – Technische Analyse, 13.07.2026</h1>
+
+<h2>1. Trendstruktur</h2>
+<p>FDX hat nach dem Allzeithoch-nahen Bereich bei <strong>345,37 (15.06.2026)</strong> eine deutliche Abwärtsbewegung vollzogen. Die Abwärtsstruktur mit fallenden Hochs und Tiefs war bis Ende Juni klar: 345 → 338 → 329 → 320. Das Korrekturtief wurde am <strong>24.06. bei 306,05</strong> markiert, begleitet von erhöhtem Volumen (rel. Vol. 2,87). Seitdem bewegt sich FDX in einer flachen Konsolidierung zwischen ca. <strong>307 und 320</strong>.</p>
+<p><strong>Kritische Levels:</strong></p>
+<ul>
+  <li>Widerstand oben: 320–322 (Bereich des gebrochenen EMA21-Bereichs, ehem. Unterstützung Anfang Juni)</li>
+  <li>Widerstand oben 2: 325–329 (Bereich der Erholung 25./29.06.)</li>
+  <li>Unterstützung: 306–304 (Juni-Tief, mehrfach gehalten)</li>
+  <li>Unterstützung 2: 300–303 (April/Mai-Konsolidierungszone, April-Hochs)</li>
+  <li>Wichtige Unterstützung: 288–292 (Korrekturtiefs März/April)</li>
+</ul>
+<p>Die Short-These aus der Analyse vom 08.07. (Einstieg ~317,50, Ziel 303) hat sich teilweise bestätigt: Der Kurs ist von 317 auf Tief 304 gefallen. Ein nachhaltiger Break unter 306 blieb jedoch aus, wodurch das primäre Ziel 303 nicht vollständig erreicht wurde. Die Abwärtsstruktur ist weiterhin intakt (kein höheres Hoch über 320 seit dem Tief), aber der Trend hat sich zu einer Range entwickelt.</p>
+
+<h2>2. Candlestick-Formationen</h2>
+<p>Die letzte Kerze (13.07.) ist eine kleine rote Innenkerze (Open 315,78 / Close 313,46 / Range 311,54–317,25) mit <strong>extrem geringem Volumen (rel. Vol. 0,38)</strong> – das niedrigste in den letzten 30+ Perioden. Dies zeigt keinerlei Überzeugung auf der Verkäuferseite und ist kein valides Short-Signal, sondern eher Lethargie/Sommerflaute.</p>
+<p>Die Kerzen der Vorwoche (07.–10.07.) zeigen eine Erholung auf 317–320, die am 09.07. mit 320,57 ihr Hoch markierte, gefolgt von einem sofortigen Rückzug. Diese Reaktion am oberen Bereich der Range bestätigt den Widerstandscharakter der 318–320-Zone. Kein bullishes Reversal-Signal (kein Hammer, kein Morningstar) bei den Juni-Tiefs sichtbar.</p>
+
+<h2>3. EMA-Lage</h2>
+<p>Die EMA-Situation hat sich seit der letzten Analyse fundamental verändert:</p>
+<ul>
+  <li><strong>EMA9: 314,17</strong> (zuvor stark fallend)</li>
+  <li><strong>EMA21: 317,69</strong></li>
+  <li><strong>EMA55: 314,89</strong></li>
+  <li><strong>gema_321: 315,46</strong></li>
+</ul>
+<p>Alle EMAs liegen innerhalb eines Bandes von nur <strong>3,5 Punkten</strong> – eine extreme Kompression. EMA9 hat dabei EMA55 beinahe eingeholt (Differenz: 0,72 Punkte), was einen möglichen Überkreuzungspunkt markiert. Der Kurs (313,46) liegt knapp <em>unterhalb</em> aller EMAs, was noch leicht bearish ist, aber die Überzeugung fehlt. Die klare bearishe EMA-Reihenfolge aus der Voranalyse (EMA9 ≪ EMA21 < EMA55) ist aufgelöst.</p>
+<p>Der gema_321-Verbund bei 315,46 fungiert als erster Widerstand unmittelbar über dem Kurs. Ein Schlusskurs über 315–317 würde die EMAs von unten nach oben durchstechen und einen möglichen Stimmungswechsel signalisieren.</p>
+
+<h2>4. Trade-Setups (Aktie)</h2>
+<p><strong>Setup A – Short-Continuation (Ausbruch nach unten):</strong></p>
+<ul>
+  <li>Einstieg: Stop-Sell unter 305,50 (Tagesschluss unter dem Juni-Tief 306)</li>
+  <li>Stop: 312,50 (über gema_321)</li>
+  <li>Ziel 1: 300,00 (April-Zone) → CRV 0,8:1</li>
+  <li>Ziel 2: 292,00 (März-Erholungsbereich) → CRV 2,0:1</li>
+  <li>Bedingung: Volumen muss beim Break deutlich über 1,5x Schnitt liegen; ohne Volumen kein Trade</li>
+</ul>
+<p><strong>Setup B – Long-Reversal (Ausbruch nach oben):</strong></p>
+<ul>
+  <li>Einstieg: Stop-Buy über 320,50 (Schlusskurs über 320-Widerstand)</li>
+  <li>Stop: 313,00 (unter gema_321)</li>
+  <li>Ziel 1: 327,00 (Erholungshoch 25.06.) → CRV 0,87:1</li>
+  <li>Ziel 2: 333,00 (Mai-Hochs) → CRV 1,67:1</li>
+  <li>Bedingung: Volumenbestätigung über 1,5x Schnitt nötig</li>
+</ul>
+<p><strong>Bevorzugt: Abwarten.</strong> Die Kompression der EMAs und das extrem niedrige Volumen der letzten Kerze geben keinen Einstiegsimpuls. Die Range 306–320 muss erst gebrochen werden.</p>
+
+<h2>5. Stillhalter-Setups (SCHWERPUNKT)</h2>
+<p><strong>Gesamteinschätzung:</strong> Die enge Konsolidierung mit klarer Unterstützung bei 306 und technisch handhabbaren Levels eignet sich für selektive Stillhaltergeschäfte. Der Fokus liegt klar auf dem <strong>Cash-Secured Put</strong>. Ein Covered Call scheitert an mangelndem Puffer: Der nächste relevante Widerstand bei 320–322 ist nur ~2% vom aktuellen Kurs entfernt – zu eng für einen sinnvollen CC-Strike mit 12 Tagen Restlaufzeit.</p>
+
+<h3>Cash-Secured Put – Strike 300</h3>
+<p><strong>Zonen-Herleitung:</strong> Das primäre technische Unterstützungsniveau ist das Juni-Tief bei <strong>306,05 (24.06.)</strong>, das auf erhöhtem Volumen (2,87x) markiert wurde und seitdem mehrfach verteidigt wurde (Tiefs: 309,50 / 307,66 / 306,36 / 304,06). Darunter liegt die April/Mai-Konsolidierungszone bei <strong>300–303</strong>, wo FDX von 288 auf 325 anzog. Ein Strike von <strong>300</strong> liegt unterhalb <em>beider</em> Unterstützungszonen – die erste Zone (306) und die zweite Zone (303) fungieren als doppelter Puffer vor dem Strike.</p>
+<p><strong>Puffer zum aktuellen Kurs:</strong> (313,46 – 300) / 313,46 = <strong>4,3%</strong></p>
+<p><strong>Verfall:</strong> <strong>Freitag, 25. Juli 2026</strong> (12 Tage) – maximaler sinnvoller Verfall innerhalb des vorgegebenen Fensters.</p>
+<p><strong>Andienungsszenario:</strong> Ein Kauf von FDX bei 300 wäre charttechnisch akzeptabel. Das entspricht annähernd dem Niveau der starken April-Aufwärtsbewegung (Ausbruch über 303 am 16.04.) und liegt über dem kritischen März-Unterstützungsbereich bei 288–292. Die langfristige EMA55 liegt aktuell bei 314,89 und fällt leicht, sodass ein Niveau von 300 in 2–3 Wochen noch ~5% unter EMA55 läge – ein strukturell vertretbarer Kauf für einen längerfristig orientierten Investor.</p>
+<p><strong>Was löst eine Anpassung/Rollen aus:</strong></p>
+<ul>
+  <li>Dynamischer Tagesschluss unter 306 mit Volumen &gt; 1,5x Schnitt → Delta-Exposition steigt stark, Roll oder Close prüfen</li>
+  <li>Kurs unter 303 → Unterstützungszone gebrochen, sofortige Reaktion nötig</li>
+  <li>Positive Überraschung (Kurs über 325) → Verfall wertlos wahrscheinlich, kein Handlungsbedarf</li>
+</ul>
+<p><strong>Was in der Optionskette zu prüfen ist:</strong> Prämie im Verhältnis zum Puffer (mind. 0,5–0,8% des Strike-Werts = ~1,50–2,40 USD erwünscht), Bid-Ask-Spread der 300er-Puts (Liquidität bei Round-Number-Strikes üblicherweise gut), implizite Volatilität nach der langen Seitwärtsphase (IV-Crush-Risiko prüfen). Open Interest und Handelsvolumen am 300-Strike für Juli/August-Serie überprüfen.</p>
+
+<h3>Covered Call – nicht empfohlen</h3>
+<p>Der nächste relevante Widerstand bei 320–322 liegt nur ~2,3% über dem aktuellen Kurs. Ein CC-Strike in diesem Bereich birgt hohes Andienungsrisiko bei einem Long-Ausbruch. Widerstand bei 325–329 wäre technisch besser, aber dann wäre der Puffer mit ~4% für einen CC bei maximal 12 Tagen Laufzeit und aktuell komprimierten EMAs zu weit entfernt für eine sinnvolle Prämie. Daher: <strong>kein Covered Call Setup</strong> bis zur Klärung der Richtung.</p>
+  </details>
+</section>
+
+<section class="analyse short">
+  <div class="kopf">
+    <span class="datum">08.07.2026</span>
+    <span class="badge short">SHORT</span>
+  </div>
+  <p class="fazit">FDX befindet sich in einem klaren Abwärtstrend seit dem Juni-Hoch bei ~345 mit fallenden EMAs und Kurs deutlich unter dem EMA-Verbund – Short-Bias bleibt bestehen.</p>
+  <img class="chart" src="img/FDX_20260708_120725.png" alt="Chart FDX">
+
+  <h3>1 · Trendstruktur</h3>
+  <p>FDX markierte am 15. Juni 2026 ein Hoch bei 345,37 USD und befindet sich seitdem in einem strukturierten Abwärtstrend mit fallenden Hochs und fallenden Tiefs. Der Kurs liegt bei 312,88 USD und damit deutlich unter dem EMA-Verbund (gema_321: 317,50). Wichtige Unterstützungen: 307–310 USD (Tief 06.07.), 300–303 USD (April-Konsolidierungszone). Widerstand: 320–322 USD (EMA21 + EMA9-Bereich), 325–329 USD (Zwischenhoch 29.06.).</p>
+
+  <h3>2 · Candlestick-Formationen</h3>
+  <p>Die letzte Kerze vom 07.07. zeigt einen kleinen Aufwärtskörper (311,79–312,88) nach einem Intraday-Tief bei 309,50, was einen schwachen Erholungsversuch signalisiert. Die vorangegangenen Kerzen (30.06.–07.07.) bilden eine Folge von Doji-artigen Strukturen mit engen Körpern, jedoch im Kontext des übergeordneten Downtrends keine belastbare Bodenformation. Das Volumen ist zuletzt unterdurchschnittlich (rel_volumen 0,65), was auf schwaches Käuferinteresse hindeutet.</p>
+
+  <h3>3 · EMA-Lage (9 / 21 / 55)</h3>
+  <p>Die EMAs sind in bärischer Reihenfolge angeordnet: EMA9 (316,46) < EMA21 (320,16) < EMA55 (315,30) – wobei EMA55 zwischen EMA9 und EMA21 liegt, was die anhaltende Schwäche unterstreicht. Der gema_321 bei 317,50 liegt deutlich über dem aktuellen Kurs (312,88), und alle kurzfristigen EMAs zeigen fallende Verläufe. Der Kurs handelt unter sämtlichen gleitenden Durchschnitten.</p>
+
+  <h3>4 · Trade-Setup</h3>
+  <table class="setup">
+    <tr><td>Richtung</td><td>Short</td></tr>
+    <tr><td>Einstieg</td><td>317.50 (Limit bei gema_321 / EMA9-Bereich als Rebound-Einstieg)</td></tr>
+    <tr><td>Stop</td><td>323.50</td></tr>
+    <tr><td>Ziel</td><td>303.00</td></tr>
+    <tr><td>CRV</td><td>2.4 : 1</td></tr>
+  </table>
+
+  <details class="volltext">
+    <summary>Ausführliche Analyse vom 08.07.2026 anzeigen</summary>
+    <h1>FDX – Detailanalyse (Stand: 08.07.2026)</h1><h2>1. Trendstruktur</h2><p>FDX hat nach einem starken Aufwärtstrend von Ende März (Tief ~275) bis Mitte Juni (Hoch ~345,37 am 15.06.2026) eine deutliche Distributionsphase und anschließende Korrektur eingeschlagen. Die Hochs-Tiefs-Sequenz zeigt klar: Hoch 345,37 (15.06.) → Tief 306,05 (24.06.) → Erholungshoch 329,49 (25.06.) → Tief 307,66 (06.07.) → aktuell 312,88. Dies ist ein klassisches Muster aus LH/LL (Lower Highs / Lower Lows).</p><p><strong>Wichtige Levels:</strong></p><ul><li><strong>Widerstand 1:</strong> 317–320 USD (EMA9/gema_321-Zone, häufige Umkehrpunkte seit 01.07.)</li><li><strong>Widerstand 2:</strong> 324–327 USD (Zwischenhoch 29.06., EMA21)</li><li><strong>Widerstand 3:</strong> 329–332 USD (Erholungshoch 25.06.)</li><li><strong>Support 1:</strong> 307–310 USD (Tief 06.07., mehrfach getestet)</li><li><strong>Support 2:</strong> 300–303 USD (April-Konsolidierungszone, starke Horizontalunterstützung)</li><li><strong>Support 3:</strong> 288–292 USD (März-Boden, langfristiges Unterstützungscluster)</li></ul><p>Der Abwärtstrend seit dem Juni-Hoch bei ~345 läuft nun seit ca. 3,5 Wochen. Das Volumen bei den Abverkäufen war signifikant erhöht: 24.06. mit rel_volumen 2,87, 23.06. mit 1,78, 26.06. mit 1,61 – klare Distributionssignale. Die Erholungen liefen auf unterdurchschnittlichem Volumen.</p><h2>2. Candlestick-Formationen</h2><p>Die letzten 5 Kerzen (01.07.–07.07.) zeigen ein enges Konsolidierungsmuster zwischen ~309,50 und ~317,99 USD. Die Kerzen vom 01.07. und 02.07. schlossen nahezu identisch (~313), was auf eine Pattsituation hindeutet. Die Kerze vom 06.07. (309,93, Tages-Tief bei 307,66) zeigt einen langen unteren Schatten – kurzzeitiges Abprallen von der Unterstützungszone 307–310. Die letzte Kerze (07.07., close 312,88) ist ein Inside-Day-artiger Aufbau ohne Momentum.</p><p>Im übergeordneten Kontext sind diese Kerzen als Konsolidierung vor einem möglichen weiteren Abwärtsschub zu werten, nicht als Bodenbildung. Kein bullisches Reversal-Signal (kein Hammer mit hohem Volumen, kein Bullish Engulfing) erkennbar. Das schwache rel_volumen (0,65–0,97 in dieser Phase) bestätigt fehlende Kaufbereitschaft.</p><h2>3. EMA-Analyse</h2><p>Die EMA-Konstellation ist eindeutig bärisch:</p><ul><li>EMA9: 316,46 (fallend)</li><li>EMA21: 320,16 (fallend)</li><li>EMA55: 315,30 (leicht fallend)</li><li>gema_321: 317,50 (fallend)</li></ul><p>Der Kurs (312,88) liegt unter allen drei EMAs und unter dem gewichteten Verbund. Interessant ist, dass EMA55 (315,30) zwischen EMA9 (316,46) und EMA21 (320,16) liegt – dies zeigt, dass der mittelfristige Trend (EMA55) noch nicht vollständig gedreht hat, aber EMA9 bereits unter EMA55 gefallen ist, was den kurzfristigen Druck unterstreicht. Der gema_321 fällt seit dem 27.06. kontinuierlich (von ~324 auf 317,50) – ein klares Zeichen nachlassender Trendstärke auf der Oberseite.</p><p>Ein Rebound in Richtung EMA9/gema_321 (~317–318) würde eine klassische Short-Einstiegsgelegenheit bieten, da dort der dynamische Widerstand liegt.</p><h2>4. Trade-Setups</h2><p><strong>Setup A – Bevorzugt: Short-Rebound an EMA9/gema_321</strong></p><ul><li>Einstieg: 317,50 (Limit-Short bei gema_321-Bereich / EMA9)</li><li>Stop: 323,50 (über EMA21 + Puffer)</li><li>Ziel 1: 308,00 (Unterstützungszone 307–310) → CRV: 1,6:1</li><li>Ziel 2: 303,00 (April-Support-Zone) → CRV: 2,4:1</li><li>Ziel 3: 295,00 (tieferer Support März/April) → CRV: 3,8:1</li></ul><p><strong>Setup B – Aggressiver Breakdown-Short</strong></p><ul><li>Einstieg: 309,00 (Stop-Sell unter Tief 06.07. bei 307,66, Triggerzone)</li><li>Stop: 315,50 (über letztes Rebound-Hoch und EMA55)</li><li>Ziel 1: 303,00 → CRV: 1,0:1</li><li>Ziel 2: 295,00 → CRV: 2,1:1</li><li>Hinweis: Geringeres CRV zum ersten Ziel, aber Bestätigung durch neues Tief</li></ul><p><strong>Setup C – Kontratrend Long (spekulativ, nur für kurzfristige Trader)</strong></p><ul><li>Einstieg: 309,50–310,00 (Bounce von Support 307–310)</li><li>Stop: 306,50 (unter Zone)</li><li>Ziel: 317,50–320,00 (EMA-Verbund als Ziel)</li><li>CRV: ~2,5:1, aber gegen den Haupttrend – nur für sehr kurzfristige Trader geeignet</li></ul><p><strong>Fazit:</strong> Setup A (Short-Limit bei 317,50) bietet das beste Chance-Risiko-Verhältnis im Einklang mit dem übergeordneten Abwärtstrend. Invalidierung des Short-Bias erst bei einem nachhaltigen Schlusskurs über 325 USD mit Volumen.</p>
+  </details>
+</section>
+
+
+  <footer>Automatisch erstellt · <a href="index.html">Zur Übersicht</a> ·
+    Keine Anlageberatung</footer>
+</div>
+</body>
+</html>
